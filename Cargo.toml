@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["bridge/crates/*"]
+members = ["bridge/crates/*", "shared/generated/rust"]
 default-members = ["bridge/crates/bridge-daemon"]
 
 [workspace.package]
@@ -16,6 +16,7 @@ readme = "README.md"
 [workspace.dependencies]
 tokio = { version = "=1.53.1", default-features = false, features = ["rt-multi-thread", "signal"] }
 ym-connect-bridge-core = { version = "=0.1.0", path = "bridge/crates/bridge-core" }
+ym-connect-protocol = { version = "=0.1.0", path = "shared/generated/rust" }
 
 [workspace.lints.rust]
 unsafe_code = "forbid"
