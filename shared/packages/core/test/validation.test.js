@@ -58,7 +58,11 @@ test("accepts valid player snapshots and identifiers", () => {
 
 test("rejects impossible playback positions", () => {
   assert.throws(
-    () => validatePlayerSnapshot({ ...snapshot, position: { ...snapshot.position, positionMs: 200000n } }),
+    () =>
+      validatePlayerSnapshot({
+        ...snapshot,
+        position: { ...snapshot.position, positionMs: 200000n },
+      }),
     ValidationError,
   );
 });
@@ -73,11 +77,19 @@ test("validates selected command payloads", () => {
   };
   assert.equal(validateCommandRequest(request), request);
   assert.throws(
-    () => validateCommandRequest({ ...request, command: { action: { case: "setVolume", value: { volume: 1.5 } } } }),
+    () =>
+      validateCommandRequest({
+        ...request,
+        command: { action: { case: "setVolume", value: { volume: 1.5 } } },
+      }),
     ValidationError,
   );
   assert.throws(
-    () => validateCommandRequest({ ...request, command: { action: { case: "unsupportedCommand", value: {} } } }),
+    () =>
+      validateCommandRequest({
+        ...request,
+        command: { action: { case: "unsupportedCommand", value: {} } },
+      }),
     ValidationError,
   );
 });
@@ -91,7 +103,10 @@ test("requires the fixed 96-bit ChaCha20-Poly1305 nonce", () => {
     associatedData: new Uint8Array(),
   };
   assert.equal(validateEncryptedFrame(frame), frame);
-  assert.throws(() => validateEncryptedFrame({ ...frame, nonce: new Uint8Array(13) }), ValidationError);
+  assert.throws(
+    () => validateEncryptedFrame({ ...frame, nonce: new Uint8Array(13) }),
+    ValidationError,
+  );
 });
 
 test("rejects unknown envelope payload cases", () => {

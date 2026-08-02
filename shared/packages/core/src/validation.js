@@ -50,7 +50,12 @@ const ENUMS = Object.freeze({
 
 export function validateIdentifier(value, fieldName = "identifier", options = {}) {
   const allowEmpty = options.allowEmpty ?? false;
-  assertString(value, fieldName, allowEmpty ? 0 : 1, options.maxLength ?? VALIDATION_LIMITS.identifier);
+  assertString(
+    value,
+    fieldName,
+    allowEmpty ? 0 : 1,
+    options.maxLength ?? VALIDATION_LIMITS.identifier,
+  );
   if (value.length > 0 && !IDENTIFIER_PATTERN.test(value)) {
     fail(fieldName, "contains unsupported characters");
   }
@@ -82,7 +87,12 @@ export function validatePlayerSnapshot(value) {
   assertEnum(value.player.health, ENUMS.playerHealth, "playerSnapshot.player.health");
   if (value.track !== undefined) {
     assertObject(value.track, "playerSnapshot.track");
-    assertString(value.track.provider, "playerSnapshot.track.provider", 1, VALIDATION_LIMITS.provider);
+    assertString(
+      value.track.provider,
+      "playerSnapshot.track.provider",
+      1,
+      VALIDATION_LIMITS.provider,
+    );
     validateIdentifier(value.track.mediaId, "playerSnapshot.track.mediaId");
     assertString(value.track.title, "playerSnapshot.track.title", 0, VALIDATION_LIMITS.title);
     if (!Array.isArray(value.track.artists) || value.track.artists.length > 64) {
@@ -93,7 +103,12 @@ export function validatePlayerSnapshot(value) {
     }
     assertString(value.track.album, "playerSnapshot.track.album", 0, VALIDATION_LIMITS.title);
     assertUint64(value.track.durationMs, "playerSnapshot.track.durationMs");
-    assertString(value.track.artworkUrl, "playerSnapshot.track.artworkUrl", 0, VALIDATION_LIMITS.url);
+    assertString(
+      value.track.artworkUrl,
+      "playerSnapshot.track.artworkUrl",
+      0,
+      VALIDATION_LIMITS.url,
+    );
     assertBoolean(value.track.explicitContent, "playerSnapshot.track.explicitContent");
     assertBoolean(value.track.liked, "playerSnapshot.track.liked");
   }
@@ -102,7 +117,11 @@ export function validatePlayerSnapshot(value) {
     assertUint64(value.position.positionMs, "playerSnapshot.position.positionMs");
     assertUint64(value.position.measuredAtUnixMs, "playerSnapshot.position.measuredAtUnixMs");
     assertFiniteRange(value.position.playbackRate, "playerSnapshot.position.playbackRate", 0.25, 4);
-    if (value.track !== undefined && value.track.durationMs > 0n && value.position.positionMs > value.track.durationMs) {
+    if (
+      value.track !== undefined &&
+      value.track.durationMs > 0n &&
+      value.position.positionMs > value.track.durationMs
+    ) {
       fail("playerSnapshot.position.positionMs", "must not exceed track duration");
     }
   }
@@ -127,17 +146,32 @@ export function validateCommandRequest(value) {
   assertObject(value.command, "commandRequest.command");
   assertObject(value.command.action, "commandRequest.command.action");
   const action = value.command.action;
-  if (typeof action.case !== "string" || !COMMAND_CASES.has(action.case) || action.value === undefined) {
+  if (
+    typeof action.case !== "string" ||
+    !COMMAND_CASES.has(action.case) ||
+    action.value === undefined
+  ) {
     fail("commandRequest.command.action", "must select exactly one known command");
   }
   assertObject(action.value, `commandRequest.command.${action.case}`);
-  if (action.case === "seekAbsolute") assertUint64(action.value.positionMs, "commandRequest.command.seekAbsolute.positionMs");
-  if (action.case === "seekRelative") assertInt64(action.value.offsetMs, "commandRequest.command.seekRelative.offsetMs");
-  if (action.case === "setVolume") assertFiniteRange(action.value.volume, "commandRequest.command.setVolume.volume", 0, 1);
-  if (action.case === "setMuted") assertBoolean(action.value.muted, "commandRequest.command.setMuted.muted");
-  if (action.case === "setShuffle") assertBoolean(action.value.shuffle, "commandRequest.command.setShuffle.shuffle");
-  if (action.case === "setRepeat") assertEnum(action.value.repeatMode, ENUMS.repeatMode, "commandRequest.command.setRepeat.repeatMode");
-  if (action.case === "setLike") assertBoolean(action.value.liked, "commandRequest.command.setLike.liked");
+  if (action.case === "seekAbsolute")
+    assertUint64(action.value.positionMs, "commandRequest.command.seekAbsolute.positionMs");
+  if (action.case === "seekRelative")
+    assertInt64(action.value.offsetMs, "commandRequest.command.seekRelative.offsetMs");
+  if (action.case === "setVolume")
+    assertFiniteRange(action.value.volume, "commandRequest.command.setVolume.volume", 0, 1);
+  if (action.case === "setMuted")
+    assertBoolean(action.value.muted, "commandRequest.command.setMuted.muted");
+  if (action.case === "setShuffle")
+    assertBoolean(action.value.shuffle, "commandRequest.command.setShuffle.shuffle");
+  if (action.case === "setRepeat")
+    assertEnum(
+      action.value.repeatMode,
+      ENUMS.repeatMode,
+      "commandRequest.command.setRepeat.repeatMode",
+    );
+  if (action.case === "setLike")
+    assertBoolean(action.value.liked, "commandRequest.command.setLike.liked");
   return value;
 }
 
@@ -160,7 +194,8 @@ export function validateClientEnvelope(value, schema = ClientEnvelopeSchema) {
 }
 
 export function validateSerializedSize(schema, message, maximum = VALIDATION_LIMITS.envelope) {
-  if (!Number.isSafeInteger(maximum) || maximum < 1) throw new RangeError("maximum must be positive");
+  if (!Number.isSafeInteger(maximum) || maximum < 1)
+    throw new RangeError("maximum must be positive");
   const size = toBinary(schema, message).byteLength;
   if (size > maximum) fail("message", `serialized size ${size} exceeds ${maximum}`);
   return size;
@@ -184,7 +219,12 @@ export function validateCapabilitySet(value) {
 function validatePlayerDescriptor(value) {
   assertObject(value, "playerSnapshot.player");
   validateIdentifier(value.playerId, "playerSnapshot.player.playerId");
-  assertString(value.displayName, "playerSnapshot.player.displayName", 1, VALIDATION_LIMITS.displayName);
+  assertString(
+    value.displayName,
+    "playerSnapshot.player.displayName",
+    1,
+    VALIDATION_LIMITS.displayName,
+  );
   assertString(value.provider, "playerSnapshot.player.provider", 1, VALIDATION_LIMITS.provider);
   if (value.capabilities === undefined) fail("playerSnapshot.player.capabilities", "is required");
   validateCapabilitySet(value.capabilities);
@@ -195,7 +235,11 @@ function validateEnvelope(value, schema, fieldName) {
   if (value.header === undefined) fail(`${fieldName}.header`, "is required");
   validateMessageHeader(value.header);
   assertObject(value.payload, `${fieldName}.payload`);
-  if (typeof value.payload.case !== "string" || value.payload.case.length === 0 || value.payload.value === undefined) {
+  if (
+    typeof value.payload.case !== "string" ||
+    value.payload.case.length === 0 ||
+    value.payload.value === undefined
+  ) {
     fail(`${fieldName}.payload`, "must select exactly one payload");
   }
   const payloadField = schema.fields.find(
@@ -210,7 +254,8 @@ function validateEnvelope(value, schema, fieldName) {
 function validateStringMap(value, fieldName) {
   assertObject(value, fieldName);
   const entries = Object.entries(value);
-  if (entries.length > VALIDATION_LIMITS.metadataEntries) fail(fieldName, "contains too many entries");
+  if (entries.length > VALIDATION_LIMITS.metadataEntries)
+    fail(fieldName, "contains too many entries");
   for (const [key, item] of entries) {
     assertString(key, `${fieldName}.key`, 1, 128);
     assertString(item, `${fieldName}.${key}`, 0, VALIDATION_LIMITS.text);
@@ -218,7 +263,8 @@ function validateStringMap(value, fieldName) {
 }
 
 function assertObject(value, fieldName) {
-  if (typeof value !== "object" || value === null || Array.isArray(value)) fail(fieldName, "must be an object");
+  if (typeof value !== "object" || value === null || Array.isArray(value))
+    fail(fieldName, "must be an object");
 }
 
 function assertString(value, fieldName, minimum, maximum) {
@@ -232,15 +278,22 @@ function assertBoolean(value, fieldName) {
 }
 
 function assertEnum(value, allowed, fieldName) {
-  if (!Number.isInteger(value) || !allowed.has(value)) fail(fieldName, "contains an unknown enum value");
+  if (!Number.isInteger(value) || !allowed.has(value))
+    fail(fieldName, "contains an unknown enum value");
 }
 
 function assertUint64(value, fieldName) {
-  if (typeof value !== "bigint" || value < 0n || value > 0xffff_ffff_ffff_ffffn) fail(fieldName, "must be an unsigned 64-bit bigint");
+  if (typeof value !== "bigint" || value < 0n || value > 0xffff_ffff_ffff_ffffn)
+    fail(fieldName, "must be an unsigned 64-bit bigint");
 }
 
 function assertInt64(value, fieldName) {
-  if (typeof value !== "bigint" || value < -0x8000_0000_0000_0000n || value > 0x7fff_ffff_ffff_ffffn) fail(fieldName, "must be a signed 64-bit bigint");
+  if (
+    typeof value !== "bigint" ||
+    value < -0x8000_0000_0000_0000n ||
+    value > 0x7fff_ffff_ffff_ffffn
+  )
+    fail(fieldName, "must be a signed 64-bit bigint");
 }
 
 function assertFiniteRange(value, fieldName, minimum, maximum) {

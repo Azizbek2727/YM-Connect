@@ -85,14 +85,10 @@ const normalized = releaseFiles.map((file) =>
   path.relative(destination, file).replaceAll(path.sep, "/"),
 );
 const present = {
-  protocol: normalized.some((file) =>
-    file.includes("shared/protocol/descriptor/ymconnect-v1.pb"),
-  ),
+  protocol: normalized.some((file) => file.includes("shared/protocol/descriptor/ymconnect-v1.pb")),
   bridge: normalized.some(
     (file) =>
-      file.includes("bridge/") ||
-      file.includes("target/release/") ||
-      file.includes("target/dist/"),
+      file.includes("bridge/") || file.includes("target/release/") || file.includes("target/dist/"),
   ),
   extension: normalized.some(
     (file) =>
@@ -100,9 +96,7 @@ const present = {
       file.includes("extension/artifacts/") ||
       file.includes("extension/build/"),
   ),
-  android: normalized.some((file) =>
-    /android\/app\/build\/outputs\/(apk|bundle)\//.test(file),
-  ),
+  android: normalized.some((file) => /android\/app\/build\/outputs\/(apk|bundle)\//.test(file)),
 };
 
 if (requireComplete) {

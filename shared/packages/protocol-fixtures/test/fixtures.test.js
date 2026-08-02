@@ -14,14 +14,20 @@ import {
 test("manifest lists unique canonical fixtures", async () => {
   const manifest = await loadFixtureManifest();
   assert.equal(manifest.schema_version, 1);
-  assert.equal(new Set(manifest.fixtures.map((fixture) => fixture.name)).size, manifest.fixtures.length);
+  assert.equal(
+    new Set(manifest.fixtures.map((fixture) => fixture.name)).size,
+    manifest.fixtures.length,
+  );
   assert.equal(manifest.fixtures.length, 6);
 });
 
 test("all fixtures pass digest and codec conformance checks", async () => {
   const results = await verifyAllFixtures();
   assert.equal(results.length, 6);
-  assert.equal(results.every((result) => /^[a-f0-9]{64}$/u.test(result.sha256)), true);
+  assert.equal(
+    results.every((result) => /^[a-f0-9]{64}$/u.test(result.sha256)),
+    true,
+  );
 });
 
 test("loads individual fixtures by stable name", async () => {

@@ -3,13 +3,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { isDeepStrictEqual } from "node:util";
-import {
-  fromBinary,
-  fromJson,
-  getMessageSchema,
-  toBinary,
-  toJson,
-} from "@ym-connect/protocol";
+import { fromBinary, fromJson, getMessageSchema, toBinary, toJson } from "@ym-connect/protocol";
 
 const packageDirectory = dirname(fileURLToPath(import.meta.url));
 export const fixtureDirectory = resolve(packageDirectory, "../../../protocol/fixtures/v1");
@@ -18,32 +12,30 @@ const descriptorPath = resolve(packageDirectory, "../../../protocol/descriptor/y
 
 const FIXTURE_DEFINITIONS = Object.freeze([
   {
-    "name": "protocol-version",
-    "typeName": "ymconnect.v1.ProtocolVersion",
-    "json": {
-      "major": 1
-    }
+    name: "protocol-version",
+    typeName: "ymconnect.v1.ProtocolVersion",
+    json: {
+      major: 1,
+    },
   },
   {
-    "name": "connector-hello",
-    "typeName": "ymconnect.v1.ConnectorHello",
-    "json": {
-      "browser": {
-        "browser_version": "140.0.7339.12",
-        "connector_id": "connector-chromium-profile-a",
-        "extension_version": "0.1.0",
-        "family": "BROWSER_FAMILY_CHROMIUM",
-        "profile_id": "profile-a"
+    name: "connector-hello",
+    typeName: "ymconnect.v1.ConnectorHello",
+    json: {
+      browser: {
+        browser_version: "140.0.7339.12",
+        connector_id: "connector-chromium-profile-a",
+        extension_version: "0.1.0",
+        family: "BROWSER_FAMILY_CHROMIUM",
+        profile_id: "profile-a",
       },
-      "capabilities": {
-        "parameters": {
-          "adapter_api": "1",
-          "provider": "yandex-music"
+      capabilities: {
+        parameters: {
+          adapter_api: "1",
+          provider: "yandex-music",
         },
-        "required": [
-          "CAPABILITY_PLAYBACK_READ"
-        ],
-        "supported": [
+        required: ["CAPABILITY_PLAYBACK_READ"],
+        supported: [
           "CAPABILITY_PLAYBACK_READ",
           "CAPABILITY_PLAY",
           "CAPABILITY_PAUSE",
@@ -54,44 +46,44 @@ const FIXTURE_DEFINITIONS = Object.freeze([
           "CAPABILITY_SET_SHUFFLE",
           "CAPABILITY_SET_REPEAT",
           "CAPABILITY_TRACK_ARTWORK",
-          "CAPABILITY_TIMELINE_UPDATES"
-        ]
+          "CAPABILITY_TIMELINE_UPDATES",
+        ],
       },
-      "connector_nonce": "AAECAwQFBgcICQoLDA0ODw==",
-      "protocol_range": {
-        "maximum": {
-          "major": 1,
-          "minor": 3
+      connector_nonce: "AAECAwQFBgcICQoLDA0ODw==",
+      protocol_range: {
+        maximum: {
+          major: 1,
+          minor: 3,
         },
-        "minimum": {
-          "major": 1
-        }
-      }
-    }
+        minimum: {
+          major: 1,
+        },
+      },
+    },
   },
   {
-    "name": "player-snapshot",
-    "typeName": "ymconnect.v1.PlayerSnapshot",
-    "json": {
-      "observed_at_unix_ms": "1785685200123",
-      "options": {
-        "repeat_mode": "REPEAT_MODE_ALL",
-        "shuffle": true,
-        "volume": 0.72
+    name: "player-snapshot",
+    typeName: "ymconnect.v1.PlayerSnapshot",
+    json: {
+      observed_at_unix_ms: "1785685200123",
+      options: {
+        repeat_mode: "REPEAT_MODE_ALL",
+        shuffle: true,
+        volume: 0.72,
       },
-      "player": {
-        "browser": {
-          "browser_version": "140.0.7339.12",
-          "connector_id": "connector-chromium-profile-a",
-          "extension_version": "0.1.0",
-          "family": "BROWSER_FAMILY_CHROMIUM",
-          "profile_id": "profile-a"
+      player: {
+        browser: {
+          browser_version: "140.0.7339.12",
+          connector_id: "connector-chromium-profile-a",
+          extension_version: "0.1.0",
+          family: "BROWSER_FAMILY_CHROMIUM",
+          profile_id: "profile-a",
         },
-        "capabilities": {
-          "parameters": {
-            "timeline_resolution_ms": "250"
+        capabilities: {
+          parameters: {
+            timeline_resolution_ms: "250",
           },
-          "supported": [
+          supported: [
             "CAPABILITY_PLAYBACK_READ",
             "CAPABILITY_PLAY",
             "CAPABILITY_PAUSE",
@@ -99,125 +91,120 @@ const FIXTURE_DEFINITIONS = Object.freeze([
             "CAPABILITY_NEXT",
             "CAPABILITY_PREVIOUS",
             "CAPABILITY_SET_VOLUME",
-            "CAPABILITY_SET_LIKE"
-          ]
+            "CAPABILITY_SET_LIKE",
+          ],
         },
-        "display_name": "Yandex Music — Profile A",
-        "health": "PLAYER_HEALTH_READY",
-        "player_id": "player:yandex-music:profile-a:tab-17",
-        "provider": "yandex-music"
+        display_name: "Yandex Music — Profile A",
+        health: "PLAYER_HEALTH_READY",
+        player_id: "player:yandex-music:profile-a:tab-17",
+        provider: "yandex-music",
       },
-      "position": {
-        "measured_at_unix_ms": "1785685200123",
-        "playback_rate": 1.0,
-        "position_ms": "98765"
+      position: {
+        measured_at_unix_ms: "1785685200123",
+        playback_rate: 1.0,
+        position_ms: "98765",
       },
-      "revision": "42",
-      "status": "PLAYBACK_STATUS_PLAYING",
-      "track": {
-        "album": "Cross-Language Fixtures",
-        "artists": [
-          "YM Connect Test Artist",
-          "Protocol Ensemble"
-        ],
-        "artwork_url": "https://avatars.yandex.net/get-music-content/test/400x400",
-        "duration_ms": "245000",
-        "liked": true,
-        "media_id": "track-2048",
-        "media_kind": "MEDIA_KIND_TRACK",
-        "provider": "yandex-music",
-        "title": "Golden Vector"
-      }
-    }
+      revision: "42",
+      status: "PLAYBACK_STATUS_PLAYING",
+      track: {
+        album: "Cross-Language Fixtures",
+        artists: ["YM Connect Test Artist", "Protocol Ensemble"],
+        artwork_url: "https://avatars.yandex.net/get-music-content/test/400x400",
+        duration_ms: "245000",
+        liked: true,
+        media_id: "track-2048",
+        media_kind: "MEDIA_KIND_TRACK",
+        provider: "yandex-music",
+        title: "Golden Vector",
+      },
+    },
   },
   {
-    "name": "command-request",
-    "typeName": "ymconnect.v1.CommandRequest",
-    "json": {
-      "command": {
-        "seek_absolute": {
-          "position_ms": "120000"
-        }
+    name: "command-request",
+    typeName: "ymconnect.v1.CommandRequest",
+    json: {
+      command: {
+        seek_absolute: {
+          position_ms: "120000",
+        },
       },
-      "command_id": "cmd_AQIDBAUGBwgJCgsMDQ4PEA",
-      "deadline_unix_ms": "1785685205000",
-      "expected_revision": "42",
-      "target_player_id": "player:yandex-music:profile-a:tab-17"
-    }
+      command_id: "cmd_AQIDBAUGBwgJCgsMDQ4PEA",
+      deadline_unix_ms: "1785685205000",
+      expected_revision: "42",
+      target_player_id: "player:yandex-music:profile-a:tab-17",
+    },
   },
   {
-    "name": "pairing-offer",
-    "typeName": "ymconnect.v1.PairingOffer",
-    "json": {
-      "bridge": {
-        "bridge_id": "bridge-desktop-a",
-        "bridge_version": "0.1.0",
-        "certificate_fingerprint": "oH6qwaKR3CtTBkcYPk37J5sFlvlksrr+xNkUqPaJHRI=",
-        "display_name": "Studio Desktop",
-        "identity_public_key": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=",
-        "platform": "PLATFORM_WINDOWS"
+    name: "pairing-offer",
+    typeName: "ymconnect.v1.PairingOffer",
+    json: {
+      bridge: {
+        bridge_id: "bridge-desktop-a",
+        bridge_version: "0.1.0",
+        certificate_fingerprint: "oH6qwaKR3CtTBkcYPk37J5sFlvlksrr+xNkUqPaJHRI=",
+        display_name: "Studio Desktop",
+        identity_public_key: "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=",
+        platform: "PLATFORM_WINDOWS",
       },
-      "bridge_ephemeral_public_key": "Hx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQA=",
-      "capabilities": {
-        "parameters": {
-          "security_suite": "x25519-ed25519-hkdf-sha256-chacha20-poly1305"
+      bridge_ephemeral_public_key: "Hx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQA=",
+      capabilities: {
+        parameters: {
+          security_suite: "x25519-ed25519-hkdf-sha256-chacha20-poly1305",
         },
-        "required": [
-          "CAPABILITY_ENCRYPTED_TRANSPORT",
-          "CAPABILITY_REPLAY_PROTECTION"
-        ],
-        "supported": [
+        required: ["CAPABILITY_ENCRYPTED_TRANSPORT", "CAPABILITY_REPLAY_PROTECTION"],
+        supported: [
           "CAPABILITY_ENCRYPTED_TRANSPORT",
           "CAPABILITY_REPLAY_PROTECTION",
           "CAPABILITY_SESSION_RESUMPTION",
           "CAPABILITY_TRUST_MANAGEMENT",
           "CAPABILITY_CLIENT_REVOCATION",
-          "CAPABILITY_MULTI_PLAYER"
-        ]
+          "CAPABILITY_MULTI_PLAYER",
+        ],
       },
-      "expires_at_unix_ms": "1785685260000",
-      "method": "PAIRING_METHOD_QR_CODE",
-      "offer_nonce": "paWlpaWlpaWlpaWlpaWlpQ==",
-      "pairing_id": "pair_AAECAwQFBgcICQoLDA0ODw",
-      "protocol_range": {
-        "maximum": {
-          "major": 1,
-          "minor": 3
+      expires_at_unix_ms: "1785685260000",
+      method: "PAIRING_METHOD_QR_CODE",
+      offer_nonce: "paWlpaWlpaWlpaWlpaWlpQ==",
+      pairing_id: "pair_AAECAwQFBgcICQoLDA0ODw",
+      protocol_range: {
+        maximum: {
+          major: 1,
+          minor: 3,
         },
-        "minimum": {
-          "major": 1
-        }
+        minimum: {
+          major: 1,
+        },
       },
-      "signature": "WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg=="
-    }
+      signature:
+        "WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==",
+    },
   },
   {
-    "name": "client-envelope",
-    "typeName": "ymconnect.v1.ClientEnvelope",
-    "json": {
-      "command_request": {
-        "command": {
-          "set_volume": {
-            "volume": 0.5
-          }
+    name: "client-envelope",
+    typeName: "ymconnect.v1.ClientEnvelope",
+    json: {
+      command_request: {
+        command: {
+          set_volume: {
+            volume: 0.5,
+          },
         },
-        "command_id": "cmd_AQIDBAUGBwgJCgsMDQ4PEA",
-        "deadline_unix_ms": "1785685205000",
-        "expected_revision": "42",
-        "target_player_id": "player:yandex-music:profile-a:tab-17"
+        command_id: "cmd_AQIDBAUGBwgJCgsMDQ4PEA",
+        deadline_unix_ms: "1785685205000",
+        expected_revision: "42",
+        target_player_id: "player:yandex-music:profile-a:tab-17",
       },
-      "header": {
-        "correlation_id": "msg_AAECAwQFBgcICQoLDA0ODw",
-        "message_id": "msg_EBESExQVFhcYGRobHB0eHw",
-        "protocol_version": {
-          "major": 1
+      header: {
+        correlation_id: "msg_AAECAwQFBgcICQoLDA0ODw",
+        message_id: "msg_EBESExQVFhcYGRobHB0eHw",
+        protocol_version: {
+          major: 1,
         },
-        "sender_instance_id": "inst_android_fixture",
-        "sent_at_unix_ms": "1785685201000",
-        "sequence": "7"
-      }
-    }
-  }
+        sender_instance_id: "inst_android_fixture",
+        sent_at_unix_ms: "1785685201000",
+        sequence: "7",
+      },
+    },
+  },
 ]);
 
 export async function loadFixtureManifest() {
@@ -245,7 +232,9 @@ export async function verifyFixture(name) {
   const fixture = await loadFixture(name);
   const digest = sha256(fixture.bytes);
   if (digest !== fixture.entry.binary_sha256) {
-    throw new Error(`fixture ${name} digest mismatch: expected ${fixture.entry.binary_sha256}, received ${digest}`);
+    throw new Error(
+      `fixture ${name} digest mismatch: expected ${fixture.entry.binary_sha256}, received ${digest}`,
+    );
   }
   if (fixture.bytes.byteLength !== fixture.entry.binary_size) {
     throw new Error(
@@ -254,7 +243,9 @@ export async function verifyFixture(name) {
   }
   const jsonDigest = sha256(new TextEncoder().encode(canonicalJsonText(fixture.json)));
   if (jsonDigest !== fixture.entry.json_sha256) {
-    throw new Error(`fixture ${name} JSON digest mismatch: expected ${fixture.entry.json_sha256}, received ${jsonDigest}`);
+    throw new Error(
+      `fixture ${name} JSON digest mismatch: expected ${fixture.entry.json_sha256}, received ${jsonDigest}`,
+    );
   }
   const binaryMessage = fromBinary(fixture.schema, fixture.bytes);
   const jsonMessage = fromJson(fixture.schema, fixture.json);
@@ -338,7 +329,10 @@ function validateManifest(manifest) {
         throw new Error(`fixture ${fixture.name} has an invalid ${field}`);
       }
     }
-    if (!/^[a-f0-9]{64}$/u.test(fixture.binary_sha256) || !/^[a-f0-9]{64}$/u.test(fixture.json_sha256)) {
+    if (
+      !/^[a-f0-9]{64}$/u.test(fixture.binary_sha256) ||
+      !/^[a-f0-9]{64}$/u.test(fixture.json_sha256)
+    ) {
       throw new Error(`fixture ${fixture.name} contains an invalid digest`);
     }
     if (!Number.isSafeInteger(fixture.binary_size) || fixture.binary_size < 0) {

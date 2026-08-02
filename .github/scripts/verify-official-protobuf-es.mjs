@@ -38,9 +38,7 @@ function parseCatalog(workspace) {
     }
     if (inCatalog && /^\S/u.test(line)) break;
     if (!inCatalog) continue;
-    const match = /^\s{2}["']?([^"':]+(?:\/[^"':]+)?)["']?:\s*["']?([^"'\s]+)["']?\s*$/u.exec(
-      line,
-    );
+    const match = /^\s{2}["']?([^"':]+(?:\/[^"':]+)?)["']?:\s*["']?([^"'\s]+)["']?\s*$/u.exec(line);
     if (match) catalog.set(match[1], match[2]);
   }
   return catalog;
@@ -115,8 +113,7 @@ for (const name of forbidden) {
 }
 
 const sourceExtensions = new Set([".js", ".mjs", ".cjs", ".ts", ".mts", ".cts"]);
-const importPattern =
-  /(?:from\s+|import\s*\(\s*|require\s*\(\s*|import\s+)["']([^"']+)["']/gu;
+const importPattern = /(?:from\s+|import\s*\(\s*|require\s*\(\s*|import\s+)["']([^"']+)["']/gu;
 for (const sourcePath of await filesUnder(".", (_name, absolute) =>
   sourceExtensions.has(path.extname(absolute)),
 )) {

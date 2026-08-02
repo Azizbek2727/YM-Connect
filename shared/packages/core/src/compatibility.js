@@ -1,14 +1,7 @@
-import {
-  ProtocolSelectionSchema,
-  VersionRangeSchema,
-  create,
-} from "@ym-connect/protocol";
+import { ProtocolSelectionSchema, VersionRangeSchema, create } from "@ym-connect/protocol";
 import { negotiateCapabilities } from "./capabilities.js";
 import { CompatibilityError } from "./errors.js";
-import {
-  SUPPORTED_PROTOCOL_RANGE,
-  normalizeProtocolVersion,
-} from "./version.js";
+import { SUPPORTED_PROTOCOL_RANGE, normalizeProtocolVersion } from "./version.js";
 
 export function compareProtocolVersions(leftValue, rightValue) {
   const left = normalizeProtocolVersion(leftValue);
@@ -40,8 +33,10 @@ export function versionInRange(versionValue, rangeValue) {
 export function intersectVersionRanges(leftValue, rightValue) {
   const left = normalizeVersionRange(leftValue);
   const right = normalizeVersionRange(rightValue);
-  const minimum = compareProtocolVersions(left.minimum, right.minimum) >= 0 ? left.minimum : right.minimum;
-  const maximum = compareProtocolVersions(left.maximum, right.maximum) <= 0 ? left.maximum : right.maximum;
+  const minimum =
+    compareProtocolVersions(left.minimum, right.minimum) >= 0 ? left.minimum : right.minimum;
+  const maximum =
+    compareProtocolVersions(left.maximum, right.maximum) <= 0 ? left.maximum : right.maximum;
   if (compareProtocolVersions(minimum, maximum) > 0) return undefined;
   return create(VersionRangeSchema, { minimum, maximum });
 }
@@ -60,11 +55,18 @@ export function assertProtocolCompatible(localRangeValue, remoteRangeValue) {
   return selected;
 }
 
-export function negotiateProtocol(localRangeValue, remoteRangeValue, localCapabilities, remoteCapabilities) {
+export function negotiateProtocol(
+  localRangeValue,
+  remoteRangeValue,
+  localCapabilities,
+  remoteCapabilities,
+) {
   const localRange = normalizeVersionRange(localRangeValue);
   const remoteRange = normalizeVersionRange(remoteRangeValue);
   const selectedVersion = selectProtocolVersion(localRange, remoteRange);
-  const capabilities = negotiateCapabilities(localCapabilities, remoteCapabilities, { allowUnknown: true });
+  const capabilities = negotiateCapabilities(localCapabilities, remoteCapabilities, {
+    allowUnknown: true,
+  });
   return create(ProtocolSelectionSchema, {
     localRange,
     remoteRange,

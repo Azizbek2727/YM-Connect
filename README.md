@@ -54,7 +54,7 @@ See [SECURITY.md](SECURITY.md) for reporting and support policy.
 ## Repository layout
 
 | Directory | Responsibility |
-|---|---|
+| --- | --- |
 | `shared/` | Protocol schemas, generated bindings, shared APIs, fixtures, and compatibility tests. |
 | `bridge/` | Rust daemon, native host, IPC, trust store, installers, and platform integration. |
 | `extension/` | Chromium and Firefox extension builds, connector core, adapters, and browser tests. |

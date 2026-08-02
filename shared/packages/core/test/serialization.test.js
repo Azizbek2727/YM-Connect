@@ -14,7 +14,10 @@ const message = create(ProtocolVersionSchema, { major: 1, minor: 2, patch: 3 });
 test("round-trips length-delimited frames", () => {
   const frame = encodeDelimited(ProtocolVersionSchema, message);
   assert.deepEqual(decodeDelimited(ProtocolVersionSchema, frame), message);
-  assert.equal(serializeJsonString(ProtocolVersionSchema, message), '{"major":1,"minor":2,"patch":3}');
+  assert.equal(
+    serializeJsonString(ProtocolVersionSchema, message),
+    '{"major":1,"minor":2,"patch":3}',
+  );
 });
 
 test("decodes fragmented and coalesced streams", () => {
@@ -32,5 +35,8 @@ test("decodes fragmented and coalesced streams", () => {
 });
 
 test("rejects malformed frame lengths", () => {
-  assert.throws(() => decodeDelimited(ProtocolVersionSchema, new Uint8Array([0, 0, 0, 10, 8, 1])), FramingError);
+  assert.throws(
+    () => decodeDelimited(ProtocolVersionSchema, new Uint8Array([0, 0, 0, 10, 8, 1])),
+    FramingError,
+  );
 });

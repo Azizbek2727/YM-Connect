@@ -63,7 +63,9 @@ export function normalizeCapabilitySet(value, options = {}) {
 }
 
 export function hasCapability(capabilitySet, capability) {
-  return normalizeCapabilitySet(capabilitySet, { allowUnknown: true }).supported.includes(capability);
+  return normalizeCapabilitySet(capabilitySet, { allowUnknown: true }).supported.includes(
+    capability,
+  );
 }
 
 export function requireCapabilities(capabilitySet, requiredCapabilities) {
@@ -85,7 +87,9 @@ export function negotiateCapabilities(localValue, remoteValue, options = {}) {
   const remote = normalizeCapabilitySet(remoteValue, options);
   const localSupported = new Set(local.supported);
   const remoteSupported = new Set(remote.supported);
-  const negotiatedSupported = local.supported.filter((capability) => remoteSupported.has(capability));
+  const negotiatedSupported = local.supported.filter((capability) =>
+    remoteSupported.has(capability),
+  );
   const required = normalizeCapabilityList([...local.required, ...remote.required], options);
   const missingRequired = required.filter(
     (capability) => !localSupported.has(capability) || !remoteSupported.has(capability),
@@ -120,7 +124,9 @@ function normalizeParameters(parameters) {
     }
     const value = parameters[key];
     if (typeof value !== "string" || value.length > 1024) {
-      throw new RangeError(`capability parameter ${key} must be a string of at most 1024 characters`);
+      throw new RangeError(
+        `capability parameter ${key} must be a string of at most 1024 characters`,
+      );
     }
     normalized[key] = value;
   }

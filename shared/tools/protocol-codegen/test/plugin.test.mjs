@@ -2,10 +2,7 @@ import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
-import {
-  generateLanguage,
-  parseProtoSource,
-} from "../src/plugin.mjs";
+import { generateLanguage, parseProtoSource } from "../src/plugin.mjs";
 
 const source = `syntax = "proto3";
 package ymconnect.test;

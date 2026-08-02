@@ -3,7 +3,9 @@ const OPAQUE_ID_PATTERN = /^[a-z][a-z0-9-]{0,31}_[A-Za-z0-9_-]{22,86}$/u;
 
 export function generateOpaqueId(prefix, byteLength = 16, cryptoProvider = globalThis.crypto) {
   if (!PREFIX_PATTERN.test(prefix)) {
-    throw new RangeError("identifier prefix must start with a lowercase letter and contain only lowercase letters, digits, or hyphens");
+    throw new RangeError(
+      "identifier prefix must start with a lowercase letter and contain only lowercase letters, digits, or hyphens",
+    );
   }
   if (!Number.isInteger(byteLength) || byteLength < 16 || byteLength > 64) {
     throw new RangeError("identifier entropy length must be between 16 and 64 bytes");

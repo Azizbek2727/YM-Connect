@@ -20,7 +20,7 @@ Generated protocol models are committed. The schemas in `shared/protocol/proto/`
 The continuous-integration matrix validates the desktop components on:
 
 | Platform | GitHub-hosted image | Primary architecture |
-|---|---|---|
+| --- | --- | --- |
 | Ubuntu Linux | `ubuntu-24.04` | x86-64 |
 | macOS | `macos-15-intel` | x86-64 |
 | Windows | `windows-2022` | x86-64 |
@@ -34,7 +34,7 @@ A contributor may develop on another recent Linux distribution or on Apple silic
 Install these tools before bootstrapping the repository:
 
 | Tool | Required version | Source of truth |
-|---|---:|---|
+| --- | ---: | --- |
 | Git | 2.43 or newer | Host package manager |
 | Node.js | `24.18.0` | `.node-version` |
 | pnpm | `11.17.0` | `package.json` `packageManager` |

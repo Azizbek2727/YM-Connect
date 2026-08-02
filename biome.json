@@ -6,13 +6,7 @@
     "useIgnoreFile": true
   },
   "files": {
-    "includes": [
-      "**",
-      "!!**/node_modules/**",
-      "!!**/build/**",
-      "!!**/dist/**",
-      "!!**/target/**"
-    ]
+    "includes": ["**", "!!**/node_modules/**", "!!**/build/**", "!!**/dist/**", "!!**/target/**"]
   },
   "formatter": {
     "enabled": true,
@@ -21,21 +15,14 @@
     "indentWidth": 2,
     "lineWidth": 100,
     "lineEnding": "lf",
-    "includes": [
-      "**",
-      "!shared/generated/**",
-      "shared/generated/typescript/src/gen/**"
-    ]
+    "includes": ["**", "!shared/generated/**", "shared/generated/typescript/src/gen/**"]
   },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true
     },
-    "includes": [
-      "**",
-      "!shared/generated/**"
-    ]
+    "includes": ["**", "!shared/generated/**"]
   },
   "assist": {
     "enabled": true,
@@ -44,10 +31,7 @@
         "organizeImports": "on"
       }
     },
-    "includes": [
-      "**",
-      "!shared/generated/**"
-    ]
+    "includes": ["**", "!shared/generated/**"]
   },
   "javascript": {
     "formatter": {
