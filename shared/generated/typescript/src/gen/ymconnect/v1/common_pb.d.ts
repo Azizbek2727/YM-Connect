@@ -86,7 +86,6 @@ export interface BrowserDescriptor {
 }
 export declare const BrowserDescriptorSchema: MessageSchema<BrowserDescriptor>;
 
-export interface Empty {
-}
+export interface Empty {}
 export declare const EmptySchema: MessageSchema<Empty>;
 

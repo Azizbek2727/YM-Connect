@@ -11,9 +11,7 @@
       "adapter_api": "1",
       "provider": "yandex-music"
     },
-    "required": [
-      "CAPABILITY_PLAYBACK_READ"
-    ],
+    "required": ["CAPABILITY_PLAYBACK_READ"],
     "supported": [
       "CAPABILITY_PLAYBACK_READ",
       "CAPABILITY_PLAY",

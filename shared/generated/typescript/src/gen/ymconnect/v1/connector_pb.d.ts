@@ -58,7 +58,19 @@ export declare const ConnectorShutdownSchema: MessageSchema<ConnectorShutdown>;
 
 export interface ConnectorEnvelope {
   header: MessageHeader | undefined;
-  payload: { case: "hello"; value: ConnectorHello } | { case: "ready"; value: ConnectorReady } | { case: "playerAnnounced"; value: PlayerAnnounced } | { case: "playerStateObserved"; value: PlayerStateObserved } | { case: "playerRemoved"; value: PlayerRemoved } | { case: "commandRequest"; value: ConnectorCommandRequest } | { case: "commandResult"; value: ConnectorCommandResult } | { case: "ping"; value: ConnectorPing } | { case: "pong"; value: ConnectorPong } | { case: "error"; value: ProtocolError } | { case: "shutdown"; value: ConnectorShutdown } | { case: undefined; value?: undefined };
+  payload:
+    | { case: "hello"; value: ConnectorHello }
+    | { case: "ready"; value: ConnectorReady }
+    | { case: "playerAnnounced"; value: PlayerAnnounced }
+    | { case: "playerStateObserved"; value: PlayerStateObserved }
+    | { case: "playerRemoved"; value: PlayerRemoved }
+    | { case: "commandRequest"; value: ConnectorCommandRequest }
+    | { case: "commandResult"; value: ConnectorCommandResult }
+    | { case: "ping"; value: ConnectorPing }
+    | { case: "pong"; value: ConnectorPong }
+    | { case: "error"; value: ProtocolError }
+    | { case: "shutdown"; value: ConnectorShutdown }
+    | { case: undefined; value?: undefined };
 }
 export declare const ConnectorEnvelopeSchema: MessageSchema<ConnectorEnvelope>;
 

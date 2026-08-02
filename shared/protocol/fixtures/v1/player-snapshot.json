@@ -42,10 +42,7 @@
   "status": "PLAYBACK_STATUS_PLAYING",
   "track": {
     "album": "Cross-Language Fixtures",
-    "artists": [
-      "YM Connect Test Artist",
-      "Protocol Ensemble"
-    ],
+    "artists": ["YM Connect Test Artist", "Protocol Ensemble"],
     "artwork_url": "https://avatars.yandex.net/get-music-content/test/400x400",
     "duration_ms": "245000",
     "liked": true,

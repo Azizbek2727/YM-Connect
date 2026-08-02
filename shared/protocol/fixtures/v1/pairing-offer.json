@@ -12,10 +12,7 @@
     "parameters": {
       "security_suite": "x25519-ed25519-hkdf-sha256-chacha20-poly1305"
     },
-    "required": [
-      "CAPABILITY_ENCRYPTED_TRANSPORT",
-      "CAPABILITY_REPLAY_PROTECTION"
-    ],
+    "required": ["CAPABILITY_ENCRYPTED_TRANSPORT", "CAPABILITY_REPLAY_PROTECTION"],
     "supported": [
       "CAPABILITY_ENCRYPTED_TRANSPORT",
       "CAPABILITY_REPLAY_PROTECTION",

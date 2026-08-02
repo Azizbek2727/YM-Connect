@@ -348,7 +348,31 @@ function validateManifest(manifest) {
 }
 
 function canonicalJsonText(value) {
-  return `${JSON.stringify(deepSort(value), null, 2)}\n`;
+  return `${formatCanonicalJson(deepSort(value), 0)}\n`;
+}
+
+function formatCanonicalJson(value, indentation) {
+  if (Array.isArray(value)) {
+    if (value.length === 0) return "[]";
+    const compact = `[${value.map((item) => JSON.stringify(item)).join(", ")}]`;
+    if (value.every((item) => item === null || typeof item !== "object")) {
+      if (indentation + compact.length <= 100) return compact;
+    }
+    const prefix = " ".repeat(indentation + 2);
+    const items = value.map((item) => `${prefix}${formatCanonicalJson(item, indentation + 2)}`);
+    return `[\n${items.join(",\n")}\n${" ".repeat(indentation)}]`;
+  }
+  if (value !== null && typeof value === "object") {
+    const entries = Object.entries(value);
+    if (entries.length === 0) return "{}";
+    const prefix = " ".repeat(indentation + 2);
+    const properties = entries.map(
+      ([key, item]) =>
+        `${prefix}${JSON.stringify(key)}: ${formatCanonicalJson(item, indentation + 2)}`,
+    );
+    return `{\n${properties.join(",\n")}\n${" ".repeat(indentation)}}`;
+  }
+  return JSON.stringify(value);
 }
 
 function deepSort(value) {

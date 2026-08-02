@@ -3,16 +3,53 @@ import "./capabilities_pb.js";
 import "./common_pb.js";
 import { defineEnum, defineMessage } from "../../../runtime.js";
 
-export const PlaybackStatus = defineEnum("ymconnect.v1.PlaybackStatus", { "PLAYBACK_STATUS_UNSPECIFIED": 0, "PLAYBACK_STATUS_IDLE": 1, "PLAYBACK_STATUS_BUFFERING": 2, "PLAYBACK_STATUS_PLAYING": 3, "PLAYBACK_STATUS_PAUSED": 4, "PLAYBACK_STATUS_STOPPED": 5, "PLAYBACK_STATUS_ENDED": 6 });
-export const RepeatMode = defineEnum("ymconnect.v1.RepeatMode", { "REPEAT_MODE_UNSPECIFIED": 0, "REPEAT_MODE_OFF": 1, "REPEAT_MODE_ALL": 2, "REPEAT_MODE_ONE": 3 });
-export const PlayerHealth = defineEnum("ymconnect.v1.PlayerHealth", { "PLAYER_HEALTH_UNSPECIFIED": 0, "PLAYER_HEALTH_READY": 1, "PLAYER_HEALTH_DEGRADED": 2, "PLAYER_HEALTH_UNAVAILABLE": 3 });
-export const MediaKind = defineEnum("ymconnect.v1.MediaKind", { "MEDIA_KIND_UNSPECIFIED": 0, "MEDIA_KIND_TRACK": 1, "MEDIA_KIND_PODCAST_EPISODE": 2, "MEDIA_KIND_AUDIOBOOK_CHAPTER": 3, "MEDIA_KIND_LIVE_STREAM": 4 });
+export const PlaybackStatus = defineEnum("ymconnect.v1.PlaybackStatus", {
+  PLAYBACK_STATUS_UNSPECIFIED: 0,
+  PLAYBACK_STATUS_IDLE: 1,
+  PLAYBACK_STATUS_BUFFERING: 2,
+  PLAYBACK_STATUS_PLAYING: 3,
+  PLAYBACK_STATUS_PAUSED: 4,
+  PLAYBACK_STATUS_STOPPED: 5,
+  PLAYBACK_STATUS_ENDED: 6,
+});
+export const RepeatMode = defineEnum("ymconnect.v1.RepeatMode", {
+  REPEAT_MODE_UNSPECIFIED: 0,
+  REPEAT_MODE_OFF: 1,
+  REPEAT_MODE_ALL: 2,
+  REPEAT_MODE_ONE: 3,
+});
+export const PlayerHealth = defineEnum("ymconnect.v1.PlayerHealth", {
+  PLAYER_HEALTH_UNSPECIFIED: 0,
+  PLAYER_HEALTH_READY: 1,
+  PLAYER_HEALTH_DEGRADED: 2,
+  PLAYER_HEALTH_UNAVAILABLE: 3,
+});
+export const MediaKind = defineEnum("ymconnect.v1.MediaKind", {
+  MEDIA_KIND_UNSPECIFIED: 0,
+  MEDIA_KIND_TRACK: 1,
+  MEDIA_KIND_PODCAST_EPISODE: 2,
+  MEDIA_KIND_AUDIOBOOK_CHAPTER: 3,
+  MEDIA_KIND_LIVE_STREAM: 4,
+});
 export const TrackMetadataSchema = defineMessage("ymconnect.v1.TrackMetadata", [
   { no: 1, name: "provider", protoName: "provider", kind: "scalar", scalar: "string" },
   { no: 2, name: "mediaId", protoName: "media_id", kind: "scalar", scalar: "string" },
-  { no: 3, name: "mediaKind", protoName: "media_kind", kind: "enum", typeName: "ymconnect.v1.MediaKind" },
+  {
+    no: 3,
+    name: "mediaKind",
+    protoName: "media_kind",
+    kind: "enum",
+    typeName: "ymconnect.v1.MediaKind",
+  },
   { no: 4, name: "title", protoName: "title", kind: "scalar", scalar: "string" },
-  { no: 5, name: "artists", protoName: "artists", kind: "scalar", scalar: "string", repeated: true },
+  {
+    no: 5,
+    name: "artists",
+    protoName: "artists",
+    kind: "scalar",
+    scalar: "string",
+    repeated: true,
+  },
   { no: 6, name: "album", protoName: "album", kind: "scalar", scalar: "string" },
   { no: 7, name: "durationMs", protoName: "duration_ms", kind: "scalar", scalar: "uint64" },
   { no: 8, name: "artworkUrl", protoName: "artwork_url", kind: "scalar", scalar: "string" },
@@ -22,7 +59,13 @@ export const TrackMetadataSchema = defineMessage("ymconnect.v1.TrackMetadata", [
 
 export const PlaybackPositionSchema = defineMessage("ymconnect.v1.PlaybackPosition", [
   { no: 1, name: "positionMs", protoName: "position_ms", kind: "scalar", scalar: "uint64" },
-  { no: 2, name: "measuredAtUnixMs", protoName: "measured_at_unix_ms", kind: "scalar", scalar: "uint64" },
+  {
+    no: 2,
+    name: "measuredAtUnixMs",
+    protoName: "measured_at_unix_ms",
+    kind: "scalar",
+    scalar: "uint64",
+  },
   { no: 3, name: "playbackRate", protoName: "playback_rate", kind: "scalar", scalar: "double" },
 ]);
 
@@ -30,43 +73,148 @@ export const PlaybackOptionsSchema = defineMessage("ymconnect.v1.PlaybackOptions
   { no: 1, name: "volume", protoName: "volume", kind: "scalar", scalar: "double" },
   { no: 2, name: "muted", protoName: "muted", kind: "scalar", scalar: "bool" },
   { no: 3, name: "shuffle", protoName: "shuffle", kind: "scalar", scalar: "bool" },
-  { no: 4, name: "repeatMode", protoName: "repeat_mode", kind: "enum", typeName: "ymconnect.v1.RepeatMode" },
+  {
+    no: 4,
+    name: "repeatMode",
+    protoName: "repeat_mode",
+    kind: "enum",
+    typeName: "ymconnect.v1.RepeatMode",
+  },
 ]);
 
 export const PlayerDescriptorSchema = defineMessage("ymconnect.v1.PlayerDescriptor", [
   { no: 1, name: "playerId", protoName: "player_id", kind: "scalar", scalar: "string" },
   { no: 2, name: "displayName", protoName: "display_name", kind: "scalar", scalar: "string" },
   { no: 3, name: "provider", protoName: "provider", kind: "scalar", scalar: "string" },
-  { no: 4, name: "browser", protoName: "browser", kind: "message", typeName: "ymconnect.v1.BrowserDescriptor" },
-  { no: 5, name: "capabilities", protoName: "capabilities", kind: "message", typeName: "ymconnect.v1.CapabilitySet" },
-  { no: 6, name: "health", protoName: "health", kind: "enum", typeName: "ymconnect.v1.PlayerHealth" },
+  {
+    no: 4,
+    name: "browser",
+    protoName: "browser",
+    kind: "message",
+    typeName: "ymconnect.v1.BrowserDescriptor",
+  },
+  {
+    no: 5,
+    name: "capabilities",
+    protoName: "capabilities",
+    kind: "message",
+    typeName: "ymconnect.v1.CapabilitySet",
+  },
+  {
+    no: 6,
+    name: "health",
+    protoName: "health",
+    kind: "enum",
+    typeName: "ymconnect.v1.PlayerHealth",
+  },
 ]);
 
 export const PlayerSnapshotSchema = defineMessage("ymconnect.v1.PlayerSnapshot", [
-  { no: 1, name: "player", protoName: "player", kind: "message", typeName: "ymconnect.v1.PlayerDescriptor" },
+  {
+    no: 1,
+    name: "player",
+    protoName: "player",
+    kind: "message",
+    typeName: "ymconnect.v1.PlayerDescriptor",
+  },
   { no: 2, name: "revision", protoName: "revision", kind: "scalar", scalar: "uint64" },
-  { no: 3, name: "status", protoName: "status", kind: "enum", typeName: "ymconnect.v1.PlaybackStatus" },
-  { no: 4, name: "track", protoName: "track", kind: "message", typeName: "ymconnect.v1.TrackMetadata" },
-  { no: 5, name: "position", protoName: "position", kind: "message", typeName: "ymconnect.v1.PlaybackPosition" },
-  { no: 6, name: "options", protoName: "options", kind: "message", typeName: "ymconnect.v1.PlaybackOptions" },
-  { no: 7, name: "observedAtUnixMs", protoName: "observed_at_unix_ms", kind: "scalar", scalar: "uint64" },
+  {
+    no: 3,
+    name: "status",
+    protoName: "status",
+    kind: "enum",
+    typeName: "ymconnect.v1.PlaybackStatus",
+  },
+  {
+    no: 4,
+    name: "track",
+    protoName: "track",
+    kind: "message",
+    typeName: "ymconnect.v1.TrackMetadata",
+  },
+  {
+    no: 5,
+    name: "position",
+    protoName: "position",
+    kind: "message",
+    typeName: "ymconnect.v1.PlaybackPosition",
+  },
+  {
+    no: 6,
+    name: "options",
+    protoName: "options",
+    kind: "message",
+    typeName: "ymconnect.v1.PlaybackOptions",
+  },
+  {
+    no: 7,
+    name: "observedAtUnixMs",
+    protoName: "observed_at_unix_ms",
+    kind: "scalar",
+    scalar: "uint64",
+  },
 ]);
 
 export const PlayerRemovedSchema = defineMessage("ymconnect.v1.PlayerRemoved", [
   { no: 1, name: "playerId", protoName: "player_id", kind: "scalar", scalar: "string" },
-  { no: 2, name: "removedAtUnixMs", protoName: "removed_at_unix_ms", kind: "scalar", scalar: "uint64" },
+  {
+    no: 2,
+    name: "removedAtUnixMs",
+    protoName: "removed_at_unix_ms",
+    kind: "scalar",
+    scalar: "uint64",
+  },
   { no: 3, name: "reason", protoName: "reason", kind: "scalar", scalar: "string" },
 ]);
 
 export const ActivePlayerChangedSchema = defineMessage("ymconnect.v1.ActivePlayerChanged", [
-  { no: 1, name: "previousPlayerId", protoName: "previous_player_id", kind: "scalar", scalar: "string" },
-  { no: 2, name: "activePlayerId", protoName: "active_player_id", kind: "scalar", scalar: "string" },
-  { no: 3, name: "changedAtUnixMs", protoName: "changed_at_unix_ms", kind: "scalar", scalar: "uint64" },
+  {
+    no: 1,
+    name: "previousPlayerId",
+    protoName: "previous_player_id",
+    kind: "scalar",
+    scalar: "string",
+  },
+  {
+    no: 2,
+    name: "activePlayerId",
+    protoName: "active_player_id",
+    kind: "scalar",
+    scalar: "string",
+  },
+  {
+    no: 3,
+    name: "changedAtUnixMs",
+    protoName: "changed_at_unix_ms",
+    kind: "scalar",
+    scalar: "uint64",
+  },
 ]);
 
 export const PlayerEventSchema = defineMessage("ymconnect.v1.PlayerEvent", [
-  { no: 1, name: "snapshot", protoName: "snapshot", kind: "message", typeName: "ymconnect.v1.PlayerSnapshot", oneof: "event" },
-  { no: 2, name: "removed", protoName: "removed", kind: "message", typeName: "ymconnect.v1.PlayerRemoved", oneof: "event" },
-  { no: 3, name: "activeChanged", protoName: "active_changed", kind: "message", typeName: "ymconnect.v1.ActivePlayerChanged", oneof: "event" },
+  {
+    no: 1,
+    name: "snapshot",
+    protoName: "snapshot",
+    kind: "message",
+    typeName: "ymconnect.v1.PlayerSnapshot",
+    oneof: "event",
+  },
+  {
+    no: 2,
+    name: "removed",
+    protoName: "removed",
+    kind: "message",
+    typeName: "ymconnect.v1.PlayerRemoved",
+    oneof: "event",
+  },
+  {
+    no: 3,
+    name: "activeChanged",
+    protoName: "active_changed",
+    kind: "message",
+    typeName: "ymconnect.v1.ActivePlayerChanged",
+    oneof: "event",
+  },
 ]);
 

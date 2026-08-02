@@ -6,35 +6,125 @@ import "./errors_pb.js";
 import "./player_pb.js";
 import { defineEnum, defineMessage } from "../../../runtime.js";
 
-export const SecuritySuite = defineEnum("ymconnect.v1.SecuritySuite", { "SECURITY_SUITE_UNSPECIFIED": 0, "SECURITY_SUITE_X25519_ED25519_HKDF_SHA256_CHACHA20_POLY1305": 1 });
-export const PairingMethod = defineEnum("ymconnect.v1.PairingMethod", { "PAIRING_METHOD_UNSPECIFIED": 0, "PAIRING_METHOD_QR_CODE": 1, "PAIRING_METHOD_MANUAL_CODE": 2 });
-export const TrustState = defineEnum("ymconnect.v1.TrustState", { "TRUST_STATE_UNSPECIFIED": 0, "TRUST_STATE_PENDING": 1, "TRUST_STATE_TRUSTED": 2, "TRUST_STATE_REVOKED": 3 });
+export const SecuritySuite = defineEnum("ymconnect.v1.SecuritySuite", {
+  SECURITY_SUITE_UNSPECIFIED: 0,
+  SECURITY_SUITE_X25519_ED25519_HKDF_SHA256_CHACHA20_POLY1305: 1,
+});
+export const PairingMethod = defineEnum("ymconnect.v1.PairingMethod", {
+  PAIRING_METHOD_UNSPECIFIED: 0,
+  PAIRING_METHOD_QR_CODE: 1,
+  PAIRING_METHOD_MANUAL_CODE: 2,
+});
+export const TrustState = defineEnum("ymconnect.v1.TrustState", {
+  TRUST_STATE_UNSPECIFIED: 0,
+  TRUST_STATE_PENDING: 1,
+  TRUST_STATE_TRUSTED: 2,
+  TRUST_STATE_REVOKED: 3,
+});
 export const BridgeAdvertisementSchema = defineMessage("ymconnect.v1.BridgeAdvertisement", [
-  { no: 1, name: "bridge", protoName: "bridge", kind: "message", typeName: "ymconnect.v1.BridgeDescriptor" },
-  { no: 2, name: "protocolRange", protoName: "protocol_range", kind: "message", typeName: "ymconnect.v1.VersionRange" },
-  { no: 3, name: "capabilities", protoName: "capabilities", kind: "message", typeName: "ymconnect.v1.CapabilitySet" },
+  {
+    no: 1,
+    name: "bridge",
+    protoName: "bridge",
+    kind: "message",
+    typeName: "ymconnect.v1.BridgeDescriptor",
+  },
+  {
+    no: 2,
+    name: "protocolRange",
+    protoName: "protocol_range",
+    kind: "message",
+    typeName: "ymconnect.v1.VersionRange",
+  },
+  {
+    no: 3,
+    name: "capabilities",
+    protoName: "capabilities",
+    kind: "message",
+    typeName: "ymconnect.v1.CapabilitySet",
+  },
   { no: 4, name: "securePort", protoName: "secure_port", kind: "scalar", scalar: "uint32" },
-  { no: 5, name: "expiresAtUnixMs", protoName: "expires_at_unix_ms", kind: "scalar", scalar: "uint64" },
-  { no: 6, name: "advertisementNonce", protoName: "advertisement_nonce", kind: "scalar", scalar: "bytes" },
+  {
+    no: 5,
+    name: "expiresAtUnixMs",
+    protoName: "expires_at_unix_ms",
+    kind: "scalar",
+    scalar: "uint64",
+  },
+  {
+    no: 6,
+    name: "advertisementNonce",
+    protoName: "advertisement_nonce",
+    kind: "scalar",
+    scalar: "bytes",
+  },
   { no: 7, name: "signature", protoName: "signature", kind: "scalar", scalar: "bytes" },
 ]);
 
 export const PairingOfferSchema = defineMessage("ymconnect.v1.PairingOffer", [
   { no: 1, name: "pairingId", protoName: "pairing_id", kind: "scalar", scalar: "string" },
-  { no: 2, name: "bridge", protoName: "bridge", kind: "message", typeName: "ymconnect.v1.BridgeDescriptor" },
-  { no: 3, name: "protocolRange", protoName: "protocol_range", kind: "message", typeName: "ymconnect.v1.VersionRange" },
-  { no: 4, name: "capabilities", protoName: "capabilities", kind: "message", typeName: "ymconnect.v1.CapabilitySet" },
-  { no: 5, name: "method", protoName: "method", kind: "enum", typeName: "ymconnect.v1.PairingMethod" },
-  { no: 6, name: "expiresAtUnixMs", protoName: "expires_at_unix_ms", kind: "scalar", scalar: "uint64" },
-  { no: 7, name: "bridgeEphemeralPublicKey", protoName: "bridge_ephemeral_public_key", kind: "scalar", scalar: "bytes" },
+  {
+    no: 2,
+    name: "bridge",
+    protoName: "bridge",
+    kind: "message",
+    typeName: "ymconnect.v1.BridgeDescriptor",
+  },
+  {
+    no: 3,
+    name: "protocolRange",
+    protoName: "protocol_range",
+    kind: "message",
+    typeName: "ymconnect.v1.VersionRange",
+  },
+  {
+    no: 4,
+    name: "capabilities",
+    protoName: "capabilities",
+    kind: "message",
+    typeName: "ymconnect.v1.CapabilitySet",
+  },
+  {
+    no: 5,
+    name: "method",
+    protoName: "method",
+    kind: "enum",
+    typeName: "ymconnect.v1.PairingMethod",
+  },
+  {
+    no: 6,
+    name: "expiresAtUnixMs",
+    protoName: "expires_at_unix_ms",
+    kind: "scalar",
+    scalar: "uint64",
+  },
+  {
+    no: 7,
+    name: "bridgeEphemeralPublicKey",
+    protoName: "bridge_ephemeral_public_key",
+    kind: "scalar",
+    scalar: "bytes",
+  },
   { no: 8, name: "offerNonce", protoName: "offer_nonce", kind: "scalar", scalar: "bytes" },
   { no: 9, name: "signature", protoName: "signature", kind: "scalar", scalar: "bytes" },
 ]);
 
 export const PairingRequestSchema = defineMessage("ymconnect.v1.PairingRequest", [
   { no: 1, name: "pairingId", protoName: "pairing_id", kind: "scalar", scalar: "string" },
-  { no: 2, name: "client", protoName: "client", kind: "message", typeName: "ymconnect.v1.DeviceDescriptor" },
-  { no: 3, name: "clientEphemeralPublicKey", protoName: "client_ephemeral_public_key", kind: "scalar", scalar: "bytes" },
+  {
+    no: 2,
+    name: "client",
+    protoName: "client",
+    kind: "message",
+    typeName: "ymconnect.v1.DeviceDescriptor",
+  },
+  {
+    no: 3,
+    name: "clientEphemeralPublicKey",
+    protoName: "client_ephemeral_public_key",
+    kind: "scalar",
+    scalar: "bytes",
+  },
   { no: 4, name: "clientNonce", protoName: "client_nonce", kind: "scalar", scalar: "bytes" },
   { no: 5, name: "offerDigest", protoName: "offer_digest", kind: "scalar", scalar: "bytes" },
 ]);
@@ -42,79 +132,236 @@ export const PairingRequestSchema = defineMessage("ymconnect.v1.PairingRequest",
 export const PairingChallengeSchema = defineMessage("ymconnect.v1.PairingChallenge", [
   { no: 1, name: "pairingId", protoName: "pairing_id", kind: "scalar", scalar: "string" },
   { no: 2, name: "challenge", protoName: "challenge", kind: "scalar", scalar: "bytes" },
-  { no: 3, name: "expiresAtUnixMs", protoName: "expires_at_unix_ms", kind: "scalar", scalar: "uint64" },
+  {
+    no: 3,
+    name: "expiresAtUnixMs",
+    protoName: "expires_at_unix_ms",
+    kind: "scalar",
+    scalar: "uint64",
+  },
 ]);
 
 export const PairingProofSchema = defineMessage("ymconnect.v1.PairingProof", [
   { no: 1, name: "pairingId", protoName: "pairing_id", kind: "scalar", scalar: "string" },
-  { no: 2, name: "challengeSignature", protoName: "challenge_signature", kind: "scalar", scalar: "bytes" },
-  { no: 3, name: "verificationCode", protoName: "verification_code", kind: "scalar", scalar: "string" },
+  {
+    no: 2,
+    name: "challengeSignature",
+    protoName: "challenge_signature",
+    kind: "scalar",
+    scalar: "bytes",
+  },
+  {
+    no: 3,
+    name: "verificationCode",
+    protoName: "verification_code",
+    kind: "scalar",
+    scalar: "string",
+  },
 ]);
 
 export const PairingResultSchema = defineMessage("ymconnect.v1.PairingResult", [
   { no: 1, name: "pairingId", protoName: "pairing_id", kind: "scalar", scalar: "string" },
   { no: 2, name: "accepted", protoName: "accepted", kind: "scalar", scalar: "bool" },
   { no: 3, name: "trustId", protoName: "trust_id", kind: "scalar", scalar: "string" },
-  { no: 4, name: "bridgeIdentitySignature", protoName: "bridge_identity_signature", kind: "scalar", scalar: "bytes" },
-  { no: 5, name: "selection", protoName: "selection", kind: "message", typeName: "ymconnect.v1.ProtocolSelection" },
-  { no: 6, name: "error", protoName: "error", kind: "message", typeName: "ymconnect.v1.ProtocolError" },
+  {
+    no: 4,
+    name: "bridgeIdentitySignature",
+    protoName: "bridge_identity_signature",
+    kind: "scalar",
+    scalar: "bytes",
+  },
+  {
+    no: 5,
+    name: "selection",
+    protoName: "selection",
+    kind: "message",
+    typeName: "ymconnect.v1.ProtocolSelection",
+  },
+  {
+    no: 6,
+    name: "error",
+    protoName: "error",
+    kind: "message",
+    typeName: "ymconnect.v1.ProtocolError",
+  },
 ]);
 
 export const TrustedClientSchema = defineMessage("ymconnect.v1.TrustedClient", [
   { no: 1, name: "trustId", protoName: "trust_id", kind: "scalar", scalar: "string" },
-  { no: 2, name: "client", protoName: "client", kind: "message", typeName: "ymconnect.v1.DeviceDescriptor" },
+  {
+    no: 2,
+    name: "client",
+    protoName: "client",
+    kind: "message",
+    typeName: "ymconnect.v1.DeviceDescriptor",
+  },
   { no: 3, name: "state", protoName: "state", kind: "enum", typeName: "ymconnect.v1.TrustState" },
-  { no: 4, name: "createdAtUnixMs", protoName: "created_at_unix_ms", kind: "scalar", scalar: "uint64" },
-  { no: 5, name: "lastSeenAtUnixMs", protoName: "last_seen_at_unix_ms", kind: "scalar", scalar: "uint64" },
+  {
+    no: 4,
+    name: "createdAtUnixMs",
+    protoName: "created_at_unix_ms",
+    kind: "scalar",
+    scalar: "uint64",
+  },
+  {
+    no: 5,
+    name: "lastSeenAtUnixMs",
+    protoName: "last_seen_at_unix_ms",
+    kind: "scalar",
+    scalar: "uint64",
+  },
 ]);
 
-export const ListTrustedClientsRequestSchema = defineMessage("ymconnect.v1.ListTrustedClientsRequest", [
-]);
+export const ListTrustedClientsRequestSchema = defineMessage(
+  "ymconnect.v1.ListTrustedClientsRequest",
+  [],
+);
 
-export const ListTrustedClientsResponseSchema = defineMessage("ymconnect.v1.ListTrustedClientsResponse", [
-  { no: 1, name: "clients", protoName: "clients", kind: "message", typeName: "ymconnect.v1.TrustedClient", repeated: true },
-]);
+export const ListTrustedClientsResponseSchema = defineMessage(
+  "ymconnect.v1.ListTrustedClientsResponse",
+  [
+    {
+      no: 1,
+      name: "clients",
+      protoName: "clients",
+      kind: "message",
+      typeName: "ymconnect.v1.TrustedClient",
+      repeated: true,
+    },
+  ],
+);
 
-export const RevokeClientRequestSchema = defineMessage("ymconnect.v1.RevokeClientRequest", [
-  { no: 1, name: "trustId", protoName: "trust_id", kind: "scalar", scalar: "string" },
-]);
+export const RevokeClientRequestSchema = defineMessage(
+  "ymconnect.v1.RevokeClientRequest",
+  [{ no: 1, name: "trustId", protoName: "trust_id", kind: "scalar", scalar: "string" }],
+);
 
 export const RevokeClientResultSchema = defineMessage("ymconnect.v1.RevokeClientResult", [
   { no: 1, name: "trustId", protoName: "trust_id", kind: "scalar", scalar: "string" },
   { no: 2, name: "revoked", protoName: "revoked", kind: "scalar", scalar: "bool" },
-  { no: 3, name: "error", protoName: "error", kind: "message", typeName: "ymconnect.v1.ProtocolError" },
+  {
+    no: 3,
+    name: "error",
+    protoName: "error",
+    kind: "message",
+    typeName: "ymconnect.v1.ProtocolError",
+  },
 ]);
 
 export const ClientHelloSchema = defineMessage("ymconnect.v1.ClientHello", [
-  { no: 1, name: "client", protoName: "client", kind: "message", typeName: "ymconnect.v1.DeviceDescriptor" },
-  { no: 2, name: "protocolRange", protoName: "protocol_range", kind: "message", typeName: "ymconnect.v1.VersionRange" },
-  { no: 3, name: "capabilities", protoName: "capabilities", kind: "message", typeName: "ymconnect.v1.CapabilitySet" },
-  { no: 4, name: "securitySuite", protoName: "security_suite", kind: "enum", typeName: "ymconnect.v1.SecuritySuite" },
-  { no: 5, name: "clientEphemeralPublicKey", protoName: "client_ephemeral_public_key", kind: "scalar", scalar: "bytes" },
+  {
+    no: 1,
+    name: "client",
+    protoName: "client",
+    kind: "message",
+    typeName: "ymconnect.v1.DeviceDescriptor",
+  },
+  {
+    no: 2,
+    name: "protocolRange",
+    protoName: "protocol_range",
+    kind: "message",
+    typeName: "ymconnect.v1.VersionRange",
+  },
+  {
+    no: 3,
+    name: "capabilities",
+    protoName: "capabilities",
+    kind: "message",
+    typeName: "ymconnect.v1.CapabilitySet",
+  },
+  {
+    no: 4,
+    name: "securitySuite",
+    protoName: "security_suite",
+    kind: "enum",
+    typeName: "ymconnect.v1.SecuritySuite",
+  },
+  {
+    no: 5,
+    name: "clientEphemeralPublicKey",
+    protoName: "client_ephemeral_public_key",
+    kind: "scalar",
+    scalar: "bytes",
+  },
   { no: 6, name: "clientNonce", protoName: "client_nonce", kind: "scalar", scalar: "bytes" },
   { no: 7, name: "resumeToken", protoName: "resume_token", kind: "scalar", scalar: "string" },
 ]);
 
 export const ServerHelloSchema = defineMessage("ymconnect.v1.ServerHello", [
-  { no: 1, name: "bridge", protoName: "bridge", kind: "message", typeName: "ymconnect.v1.BridgeDescriptor" },
-  { no: 2, name: "selection", protoName: "selection", kind: "message", typeName: "ymconnect.v1.ProtocolSelection" },
-  { no: 3, name: "securitySuite", protoName: "security_suite", kind: "enum", typeName: "ymconnect.v1.SecuritySuite" },
-  { no: 4, name: "serverEphemeralPublicKey", protoName: "server_ephemeral_public_key", kind: "scalar", scalar: "bytes" },
+  {
+    no: 1,
+    name: "bridge",
+    protoName: "bridge",
+    kind: "message",
+    typeName: "ymconnect.v1.BridgeDescriptor",
+  },
+  {
+    no: 2,
+    name: "selection",
+    protoName: "selection",
+    kind: "message",
+    typeName: "ymconnect.v1.ProtocolSelection",
+  },
+  {
+    no: 3,
+    name: "securitySuite",
+    protoName: "security_suite",
+    kind: "enum",
+    typeName: "ymconnect.v1.SecuritySuite",
+  },
+  {
+    no: 4,
+    name: "serverEphemeralPublicKey",
+    protoName: "server_ephemeral_public_key",
+    kind: "scalar",
+    scalar: "bytes",
+  },
   { no: 5, name: "serverNonce", protoName: "server_nonce", kind: "scalar", scalar: "bytes" },
-  { no: 6, name: "transcriptSignature", protoName: "transcript_signature", kind: "scalar", scalar: "bytes" },
+  {
+    no: 6,
+    name: "transcriptSignature",
+    protoName: "transcript_signature",
+    kind: "scalar",
+    scalar: "bytes",
+  },
 ]);
 
 export const ClientFinishSchema = defineMessage("ymconnect.v1.ClientFinish", [
-  { no: 1, name: "transcriptSignature", protoName: "transcript_signature", kind: "scalar", scalar: "bytes" },
+  {
+    no: 1,
+    name: "transcriptSignature",
+    protoName: "transcript_signature",
+    kind: "scalar",
+    scalar: "bytes",
+  },
   { no: 2, name: "clientProof", protoName: "client_proof", kind: "scalar", scalar: "bytes" },
 ]);
 
 export const SessionEstablishedSchema = defineMessage("ymconnect.v1.SessionEstablished", [
   { no: 1, name: "sessionId", protoName: "session_id", kind: "scalar", scalar: "string" },
-  { no: 2, name: "expiresAtUnixMs", protoName: "expires_at_unix_ms", kind: "scalar", scalar: "uint64" },
+  {
+    no: 2,
+    name: "expiresAtUnixMs",
+    protoName: "expires_at_unix_ms",
+    kind: "scalar",
+    scalar: "uint64",
+  },
   { no: 3, name: "resumeToken", protoName: "resume_token", kind: "scalar", scalar: "string" },
-  { no: 4, name: "initialSendSequence", protoName: "initial_send_sequence", kind: "scalar", scalar: "uint64" },
-  { no: 5, name: "initialReceiveSequence", protoName: "initial_receive_sequence", kind: "scalar", scalar: "uint64" },
+  {
+    no: 4,
+    name: "initialSendSequence",
+    protoName: "initial_send_sequence",
+    kind: "scalar",
+    scalar: "uint64",
+  },
+  {
+    no: 5,
+    name: "initialReceiveSequence",
+    protoName: "initial_receive_sequence",
+    kind: "scalar",
+    scalar: "uint64",
+  },
 ]);
 
 export const EncryptedFrameSchema = defineMessage("ymconnect.v1.EncryptedFrame", [
@@ -125,40 +372,223 @@ export const EncryptedFrameSchema = defineMessage("ymconnect.v1.EncryptedFrame",
   { no: 5, name: "associatedData", protoName: "associated_data", kind: "scalar", scalar: "bytes" },
 ]);
 
-export const ClientPingSchema = defineMessage("ymconnect.v1.ClientPing", [
-  { no: 1, name: "nonce", protoName: "nonce", kind: "scalar", scalar: "uint64" },
-]);
+export const ClientPingSchema = defineMessage(
+  "ymconnect.v1.ClientPing",
+  [{ no: 1, name: "nonce", protoName: "nonce", kind: "scalar", scalar: "uint64" }],
+);
 
-export const ClientPongSchema = defineMessage("ymconnect.v1.ClientPong", [
-  { no: 1, name: "nonce", protoName: "nonce", kind: "scalar", scalar: "uint64" },
-]);
+export const ClientPongSchema = defineMessage(
+  "ymconnect.v1.ClientPong",
+  [{ no: 1, name: "nonce", protoName: "nonce", kind: "scalar", scalar: "uint64" }],
+);
 
 export const ClientEnvelopeSchema = defineMessage("ymconnect.v1.ClientEnvelope", [
-  { no: 1, name: "header", protoName: "header", kind: "message", typeName: "ymconnect.v1.MessageHeader" },
-  { no: 10, name: "clientHello", protoName: "client_hello", kind: "message", typeName: "ymconnect.v1.ClientHello", oneof: "payload" },
-  { no: 11, name: "serverHello", protoName: "server_hello", kind: "message", typeName: "ymconnect.v1.ServerHello", oneof: "payload" },
-  { no: 12, name: "clientFinish", protoName: "client_finish", kind: "message", typeName: "ymconnect.v1.ClientFinish", oneof: "payload" },
-  { no: 13, name: "sessionEstablished", protoName: "session_established", kind: "message", typeName: "ymconnect.v1.SessionEstablished", oneof: "payload" },
-  { no: 14, name: "pairingOffer", protoName: "pairing_offer", kind: "message", typeName: "ymconnect.v1.PairingOffer", oneof: "payload" },
-  { no: 15, name: "pairingRequest", protoName: "pairing_request", kind: "message", typeName: "ymconnect.v1.PairingRequest", oneof: "payload" },
-  { no: 16, name: "pairingChallenge", protoName: "pairing_challenge", kind: "message", typeName: "ymconnect.v1.PairingChallenge", oneof: "payload" },
-  { no: 17, name: "pairingProof", protoName: "pairing_proof", kind: "message", typeName: "ymconnect.v1.PairingProof", oneof: "payload" },
-  { no: 18, name: "pairingResult", protoName: "pairing_result", kind: "message", typeName: "ymconnect.v1.PairingResult", oneof: "payload" },
-  { no: 19, name: "listPlayersRequest", protoName: "list_players_request", kind: "message", typeName: "ymconnect.v1.ListPlayersRequest", oneof: "payload" },
-  { no: 20, name: "listPlayersResponse", protoName: "list_players_response", kind: "message", typeName: "ymconnect.v1.ListPlayersResponse", oneof: "payload" },
-  { no: 21, name: "subscribePlayersRequest", protoName: "subscribe_players_request", kind: "message", typeName: "ymconnect.v1.SubscribePlayersRequest", oneof: "payload" },
-  { no: 22, name: "subscribePlayersResponse", protoName: "subscribe_players_response", kind: "message", typeName: "ymconnect.v1.SubscribePlayersResponse", oneof: "payload" },
-  { no: 23, name: "playerEvent", protoName: "player_event", kind: "message", typeName: "ymconnect.v1.PlayerEvent", oneof: "payload" },
-  { no: 24, name: "commandRequest", protoName: "command_request", kind: "message", typeName: "ymconnect.v1.CommandRequest", oneof: "payload" },
-  { no: 25, name: "commandResult", protoName: "command_result", kind: "message", typeName: "ymconnect.v1.CommandResult", oneof: "payload" },
-  { no: 26, name: "selectPlayerRequest", protoName: "select_player_request", kind: "message", typeName: "ymconnect.v1.SelectPlayerRequest", oneof: "payload" },
-  { no: 27, name: "selectPlayerResult", protoName: "select_player_result", kind: "message", typeName: "ymconnect.v1.SelectPlayerResult", oneof: "payload" },
-  { no: 28, name: "listTrustedClientsRequest", protoName: "list_trusted_clients_request", kind: "message", typeName: "ymconnect.v1.ListTrustedClientsRequest", oneof: "payload" },
-  { no: 29, name: "listTrustedClientsResponse", protoName: "list_trusted_clients_response", kind: "message", typeName: "ymconnect.v1.ListTrustedClientsResponse", oneof: "payload" },
-  { no: 30, name: "revokeClientRequest", protoName: "revoke_client_request", kind: "message", typeName: "ymconnect.v1.RevokeClientRequest", oneof: "payload" },
-  { no: 31, name: "revokeClientResult", protoName: "revoke_client_result", kind: "message", typeName: "ymconnect.v1.RevokeClientResult", oneof: "payload" },
-  { no: 32, name: "ping", protoName: "ping", kind: "message", typeName: "ymconnect.v1.ClientPing", oneof: "payload" },
-  { no: 33, name: "pong", protoName: "pong", kind: "message", typeName: "ymconnect.v1.ClientPong", oneof: "payload" },
-  { no: 34, name: "error", protoName: "error", kind: "message", typeName: "ymconnect.v1.ProtocolError", oneof: "payload" },
+  {
+    no: 1,
+    name: "header",
+    protoName: "header",
+    kind: "message",
+    typeName: "ymconnect.v1.MessageHeader",
+  },
+  {
+    no: 10,
+    name: "clientHello",
+    protoName: "client_hello",
+    kind: "message",
+    typeName: "ymconnect.v1.ClientHello",
+    oneof: "payload",
+  },
+  {
+    no: 11,
+    name: "serverHello",
+    protoName: "server_hello",
+    kind: "message",
+    typeName: "ymconnect.v1.ServerHello",
+    oneof: "payload",
+  },
+  {
+    no: 12,
+    name: "clientFinish",
+    protoName: "client_finish",
+    kind: "message",
+    typeName: "ymconnect.v1.ClientFinish",
+    oneof: "payload",
+  },
+  {
+    no: 13,
+    name: "sessionEstablished",
+    protoName: "session_established",
+    kind: "message",
+    typeName: "ymconnect.v1.SessionEstablished",
+    oneof: "payload",
+  },
+  {
+    no: 14,
+    name: "pairingOffer",
+    protoName: "pairing_offer",
+    kind: "message",
+    typeName: "ymconnect.v1.PairingOffer",
+    oneof: "payload",
+  },
+  {
+    no: 15,
+    name: "pairingRequest",
+    protoName: "pairing_request",
+    kind: "message",
+    typeName: "ymconnect.v1.PairingRequest",
+    oneof: "payload",
+  },
+  {
+    no: 16,
+    name: "pairingChallenge",
+    protoName: "pairing_challenge",
+    kind: "message",
+    typeName: "ymconnect.v1.PairingChallenge",
+    oneof: "payload",
+  },
+  {
+    no: 17,
+    name: "pairingProof",
+    protoName: "pairing_proof",
+    kind: "message",
+    typeName: "ymconnect.v1.PairingProof",
+    oneof: "payload",
+  },
+  {
+    no: 18,
+    name: "pairingResult",
+    protoName: "pairing_result",
+    kind: "message",
+    typeName: "ymconnect.v1.PairingResult",
+    oneof: "payload",
+  },
+  {
+    no: 19,
+    name: "listPlayersRequest",
+    protoName: "list_players_request",
+    kind: "message",
+    typeName: "ymconnect.v1.ListPlayersRequest",
+    oneof: "payload",
+  },
+  {
+    no: 20,
+    name: "listPlayersResponse",
+    protoName: "list_players_response",
+    kind: "message",
+    typeName: "ymconnect.v1.ListPlayersResponse",
+    oneof: "payload",
+  },
+  {
+    no: 21,
+    name: "subscribePlayersRequest",
+    protoName: "subscribe_players_request",
+    kind: "message",
+    typeName: "ymconnect.v1.SubscribePlayersRequest",
+    oneof: "payload",
+  },
+  {
+    no: 22,
+    name: "subscribePlayersResponse",
+    protoName: "subscribe_players_response",
+    kind: "message",
+    typeName: "ymconnect.v1.SubscribePlayersResponse",
+    oneof: "payload",
+  },
+  {
+    no: 23,
+    name: "playerEvent",
+    protoName: "player_event",
+    kind: "message",
+    typeName: "ymconnect.v1.PlayerEvent",
+    oneof: "payload",
+  },
+  {
+    no: 24,
+    name: "commandRequest",
+    protoName: "command_request",
+    kind: "message",
+    typeName: "ymconnect.v1.CommandRequest",
+    oneof: "payload",
+  },
+  {
+    no: 25,
+    name: "commandResult",
+    protoName: "command_result",
+    kind: "message",
+    typeName: "ymconnect.v1.CommandResult",
+    oneof: "payload",
+  },
+  {
+    no: 26,
+    name: "selectPlayerRequest",
+    protoName: "select_player_request",
+    kind: "message",
+    typeName: "ymconnect.v1.SelectPlayerRequest",
+    oneof: "payload",
+  },
+  {
+    no: 27,
+    name: "selectPlayerResult",
+    protoName: "select_player_result",
+    kind: "message",
+    typeName: "ymconnect.v1.SelectPlayerResult",
+    oneof: "payload",
+  },
+  {
+    no: 28,
+    name: "listTrustedClientsRequest",
+    protoName: "list_trusted_clients_request",
+    kind: "message",
+    typeName: "ymconnect.v1.ListTrustedClientsRequest",
+    oneof: "payload",
+  },
+  {
+    no: 29,
+    name: "listTrustedClientsResponse",
+    protoName: "list_trusted_clients_response",
+    kind: "message",
+    typeName: "ymconnect.v1.ListTrustedClientsResponse",
+    oneof: "payload",
+  },
+  {
+    no: 30,
+    name: "revokeClientRequest",
+    protoName: "revoke_client_request",
+    kind: "message",
+    typeName: "ymconnect.v1.RevokeClientRequest",
+    oneof: "payload",
+  },
+  {
+    no: 31,
+    name: "revokeClientResult",
+    protoName: "revoke_client_result",
+    kind: "message",
+    typeName: "ymconnect.v1.RevokeClientResult",
+    oneof: "payload",
+  },
+  {
+    no: 32,
+    name: "ping",
+    protoName: "ping",
+    kind: "message",
+    typeName: "ymconnect.v1.ClientPing",
+    oneof: "payload",
+  },
+  {
+    no: 33,
+    name: "pong",
+    protoName: "pong",
+    kind: "message",
+    typeName: "ymconnect.v1.ClientPong",
+    oneof: "payload",
+  },
+  {
+    no: 34,
+    name: "error",
+    protoName: "error",
+    kind: "message",
+    typeName: "ymconnect.v1.ProtocolError",
+    oneof: "payload",
+  },
 ]);
 

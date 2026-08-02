@@ -3,108 +3,317 @@ import "./errors_pb.js";
 import "./player_pb.js";
 import { defineEnum, defineMessage } from "../../../runtime.js";
 
-export const CommandType = defineEnum("ymconnect.v1.CommandType", { "COMMAND_TYPE_UNSPECIFIED": 0, "COMMAND_TYPE_PLAY": 1, "COMMAND_TYPE_PAUSE": 2, "COMMAND_TYPE_STOP": 3, "COMMAND_TYPE_TOGGLE_PLAY_PAUSE": 4, "COMMAND_TYPE_SEEK_ABSOLUTE": 5, "COMMAND_TYPE_SEEK_RELATIVE": 6, "COMMAND_TYPE_NEXT": 7, "COMMAND_TYPE_PREVIOUS": 8, "COMMAND_TYPE_SET_VOLUME": 9, "COMMAND_TYPE_SET_MUTED": 10, "COMMAND_TYPE_SET_SHUFFLE": 11, "COMMAND_TYPE_SET_REPEAT": 12, "COMMAND_TYPE_SET_LIKE": 13 });
-export const CommandStatus = defineEnum("ymconnect.v1.CommandStatus", { "COMMAND_STATUS_UNSPECIFIED": 0, "COMMAND_STATUS_ACCEPTED": 1, "COMMAND_STATUS_APPLIED": 2, "COMMAND_STATUS_REJECTED": 3, "COMMAND_STATUS_TIMED_OUT": 4 });
-export const PlayCommandSchema = defineMessage("ymconnect.v1.PlayCommand", [
-]);
+export const CommandType = defineEnum("ymconnect.v1.CommandType", {
+  COMMAND_TYPE_UNSPECIFIED: 0,
+  COMMAND_TYPE_PLAY: 1,
+  COMMAND_TYPE_PAUSE: 2,
+  COMMAND_TYPE_STOP: 3,
+  COMMAND_TYPE_TOGGLE_PLAY_PAUSE: 4,
+  COMMAND_TYPE_SEEK_ABSOLUTE: 5,
+  COMMAND_TYPE_SEEK_RELATIVE: 6,
+  COMMAND_TYPE_NEXT: 7,
+  COMMAND_TYPE_PREVIOUS: 8,
+  COMMAND_TYPE_SET_VOLUME: 9,
+  COMMAND_TYPE_SET_MUTED: 10,
+  COMMAND_TYPE_SET_SHUFFLE: 11,
+  COMMAND_TYPE_SET_REPEAT: 12,
+  COMMAND_TYPE_SET_LIKE: 13,
+});
+export const CommandStatus = defineEnum("ymconnect.v1.CommandStatus", {
+  COMMAND_STATUS_UNSPECIFIED: 0,
+  COMMAND_STATUS_ACCEPTED: 1,
+  COMMAND_STATUS_APPLIED: 2,
+  COMMAND_STATUS_REJECTED: 3,
+  COMMAND_STATUS_TIMED_OUT: 4,
+});
+export const PlayCommandSchema = defineMessage("ymconnect.v1.PlayCommand", []);
 
-export const PauseCommandSchema = defineMessage("ymconnect.v1.PauseCommand", [
-]);
+export const PauseCommandSchema = defineMessage("ymconnect.v1.PauseCommand", []);
 
-export const StopCommandSchema = defineMessage("ymconnect.v1.StopCommand", [
-]);
+export const StopCommandSchema = defineMessage("ymconnect.v1.StopCommand", []);
 
-export const TogglePlayPauseCommandSchema = defineMessage("ymconnect.v1.TogglePlayPauseCommand", [
-]);
+export const TogglePlayPauseCommandSchema = defineMessage(
+  "ymconnect.v1.TogglePlayPauseCommand",
+  [],
+);
 
-export const NextCommandSchema = defineMessage("ymconnect.v1.NextCommand", [
-]);
+export const NextCommandSchema = defineMessage("ymconnect.v1.NextCommand", []);
 
-export const PreviousCommandSchema = defineMessage("ymconnect.v1.PreviousCommand", [
-]);
+export const PreviousCommandSchema = defineMessage("ymconnect.v1.PreviousCommand", []);
 
-export const SeekAbsoluteCommandSchema = defineMessage("ymconnect.v1.SeekAbsoluteCommand", [
-  { no: 1, name: "positionMs", protoName: "position_ms", kind: "scalar", scalar: "uint64" },
-]);
+export const SeekAbsoluteCommandSchema = defineMessage(
+  "ymconnect.v1.SeekAbsoluteCommand",
+  [{ no: 1, name: "positionMs", protoName: "position_ms", kind: "scalar", scalar: "uint64" }],
+);
 
-export const SeekRelativeCommandSchema = defineMessage("ymconnect.v1.SeekRelativeCommand", [
-  { no: 1, name: "offsetMs", protoName: "offset_ms", kind: "scalar", scalar: "sint64" },
-]);
+export const SeekRelativeCommandSchema = defineMessage(
+  "ymconnect.v1.SeekRelativeCommand",
+  [{ no: 1, name: "offsetMs", protoName: "offset_ms", kind: "scalar", scalar: "sint64" }],
+);
 
-export const SetVolumeCommandSchema = defineMessage("ymconnect.v1.SetVolumeCommand", [
-  { no: 1, name: "volume", protoName: "volume", kind: "scalar", scalar: "double" },
-]);
+export const SetVolumeCommandSchema = defineMessage(
+  "ymconnect.v1.SetVolumeCommand",
+  [{ no: 1, name: "volume", protoName: "volume", kind: "scalar", scalar: "double" }],
+);
 
-export const SetMutedCommandSchema = defineMessage("ymconnect.v1.SetMutedCommand", [
-  { no: 1, name: "muted", protoName: "muted", kind: "scalar", scalar: "bool" },
-]);
+export const SetMutedCommandSchema = defineMessage(
+  "ymconnect.v1.SetMutedCommand",
+  [{ no: 1, name: "muted", protoName: "muted", kind: "scalar", scalar: "bool" }],
+);
 
-export const SetShuffleCommandSchema = defineMessage("ymconnect.v1.SetShuffleCommand", [
-  { no: 1, name: "shuffle", protoName: "shuffle", kind: "scalar", scalar: "bool" },
-]);
+export const SetShuffleCommandSchema = defineMessage(
+  "ymconnect.v1.SetShuffleCommand",
+  [{ no: 1, name: "shuffle", protoName: "shuffle", kind: "scalar", scalar: "bool" }],
+);
 
 export const SetRepeatCommandSchema = defineMessage("ymconnect.v1.SetRepeatCommand", [
-  { no: 1, name: "repeatMode", protoName: "repeat_mode", kind: "enum", typeName: "ymconnect.v1.RepeatMode" },
+  {
+    no: 1,
+    name: "repeatMode",
+    protoName: "repeat_mode",
+    kind: "enum",
+    typeName: "ymconnect.v1.RepeatMode",
+  },
 ]);
 
-export const SetLikeCommandSchema = defineMessage("ymconnect.v1.SetLikeCommand", [
-  { no: 1, name: "liked", protoName: "liked", kind: "scalar", scalar: "bool" },
-]);
+export const SetLikeCommandSchema = defineMessage(
+  "ymconnect.v1.SetLikeCommand",
+  [{ no: 1, name: "liked", protoName: "liked", kind: "scalar", scalar: "bool" }],
+);
 
 export const PlaybackCommandSchema = defineMessage("ymconnect.v1.PlaybackCommand", [
-  { no: 1, name: "play", protoName: "play", kind: "message", typeName: "ymconnect.v1.PlayCommand", oneof: "action" },
-  { no: 2, name: "pause", protoName: "pause", kind: "message", typeName: "ymconnect.v1.PauseCommand", oneof: "action" },
-  { no: 3, name: "stop", protoName: "stop", kind: "message", typeName: "ymconnect.v1.StopCommand", oneof: "action" },
-  { no: 4, name: "togglePlayPause", protoName: "toggle_play_pause", kind: "message", typeName: "ymconnect.v1.TogglePlayPauseCommand", oneof: "action" },
-  { no: 5, name: "seekAbsolute", protoName: "seek_absolute", kind: "message", typeName: "ymconnect.v1.SeekAbsoluteCommand", oneof: "action" },
-  { no: 6, name: "seekRelative", protoName: "seek_relative", kind: "message", typeName: "ymconnect.v1.SeekRelativeCommand", oneof: "action" },
-  { no: 7, name: "next", protoName: "next", kind: "message", typeName: "ymconnect.v1.NextCommand", oneof: "action" },
-  { no: 8, name: "previous", protoName: "previous", kind: "message", typeName: "ymconnect.v1.PreviousCommand", oneof: "action" },
-  { no: 9, name: "setVolume", protoName: "set_volume", kind: "message", typeName: "ymconnect.v1.SetVolumeCommand", oneof: "action" },
-  { no: 10, name: "setMuted", protoName: "set_muted", kind: "message", typeName: "ymconnect.v1.SetMutedCommand", oneof: "action" },
-  { no: 11, name: "setShuffle", protoName: "set_shuffle", kind: "message", typeName: "ymconnect.v1.SetShuffleCommand", oneof: "action" },
-  { no: 12, name: "setRepeat", protoName: "set_repeat", kind: "message", typeName: "ymconnect.v1.SetRepeatCommand", oneof: "action" },
-  { no: 13, name: "setLike", protoName: "set_like", kind: "message", typeName: "ymconnect.v1.SetLikeCommand", oneof: "action" },
+  {
+    no: 1,
+    name: "play",
+    protoName: "play",
+    kind: "message",
+    typeName: "ymconnect.v1.PlayCommand",
+    oneof: "action",
+  },
+  {
+    no: 2,
+    name: "pause",
+    protoName: "pause",
+    kind: "message",
+    typeName: "ymconnect.v1.PauseCommand",
+    oneof: "action",
+  },
+  {
+    no: 3,
+    name: "stop",
+    protoName: "stop",
+    kind: "message",
+    typeName: "ymconnect.v1.StopCommand",
+    oneof: "action",
+  },
+  {
+    no: 4,
+    name: "togglePlayPause",
+    protoName: "toggle_play_pause",
+    kind: "message",
+    typeName: "ymconnect.v1.TogglePlayPauseCommand",
+    oneof: "action",
+  },
+  {
+    no: 5,
+    name: "seekAbsolute",
+    protoName: "seek_absolute",
+    kind: "message",
+    typeName: "ymconnect.v1.SeekAbsoluteCommand",
+    oneof: "action",
+  },
+  {
+    no: 6,
+    name: "seekRelative",
+    protoName: "seek_relative",
+    kind: "message",
+    typeName: "ymconnect.v1.SeekRelativeCommand",
+    oneof: "action",
+  },
+  {
+    no: 7,
+    name: "next",
+    protoName: "next",
+    kind: "message",
+    typeName: "ymconnect.v1.NextCommand",
+    oneof: "action",
+  },
+  {
+    no: 8,
+    name: "previous",
+    protoName: "previous",
+    kind: "message",
+    typeName: "ymconnect.v1.PreviousCommand",
+    oneof: "action",
+  },
+  {
+    no: 9,
+    name: "setVolume",
+    protoName: "set_volume",
+    kind: "message",
+    typeName: "ymconnect.v1.SetVolumeCommand",
+    oneof: "action",
+  },
+  {
+    no: 10,
+    name: "setMuted",
+    protoName: "set_muted",
+    kind: "message",
+    typeName: "ymconnect.v1.SetMutedCommand",
+    oneof: "action",
+  },
+  {
+    no: 11,
+    name: "setShuffle",
+    protoName: "set_shuffle",
+    kind: "message",
+    typeName: "ymconnect.v1.SetShuffleCommand",
+    oneof: "action",
+  },
+  {
+    no: 12,
+    name: "setRepeat",
+    protoName: "set_repeat",
+    kind: "message",
+    typeName: "ymconnect.v1.SetRepeatCommand",
+    oneof: "action",
+  },
+  {
+    no: 13,
+    name: "setLike",
+    protoName: "set_like",
+    kind: "message",
+    typeName: "ymconnect.v1.SetLikeCommand",
+    oneof: "action",
+  },
 ]);
 
 export const CommandRequestSchema = defineMessage("ymconnect.v1.CommandRequest", [
   { no: 1, name: "commandId", protoName: "command_id", kind: "scalar", scalar: "string" },
-  { no: 2, name: "targetPlayerId", protoName: "target_player_id", kind: "scalar", scalar: "string" },
-  { no: 3, name: "expectedRevision", protoName: "expected_revision", kind: "scalar", scalar: "uint64" },
-  { no: 4, name: "command", protoName: "command", kind: "message", typeName: "ymconnect.v1.PlaybackCommand" },
-  { no: 5, name: "deadlineUnixMs", protoName: "deadline_unix_ms", kind: "scalar", scalar: "uint64" },
+  {
+    no: 2,
+    name: "targetPlayerId",
+    protoName: "target_player_id",
+    kind: "scalar",
+    scalar: "string",
+  },
+  {
+    no: 3,
+    name: "expectedRevision",
+    protoName: "expected_revision",
+    kind: "scalar",
+    scalar: "uint64",
+  },
+  {
+    no: 4,
+    name: "command",
+    protoName: "command",
+    kind: "message",
+    typeName: "ymconnect.v1.PlaybackCommand",
+  },
+  {
+    no: 5,
+    name: "deadlineUnixMs",
+    protoName: "deadline_unix_ms",
+    kind: "scalar",
+    scalar: "uint64",
+  },
 ]);
 
 export const CommandResultSchema = defineMessage("ymconnect.v1.CommandResult", [
   { no: 1, name: "commandId", protoName: "command_id", kind: "scalar", scalar: "string" },
-  { no: 2, name: "status", protoName: "status", kind: "enum", typeName: "ymconnect.v1.CommandStatus" },
-  { no: 3, name: "snapshot", protoName: "snapshot", kind: "message", typeName: "ymconnect.v1.PlayerSnapshot" },
-  { no: 4, name: "error", protoName: "error", kind: "message", typeName: "ymconnect.v1.ProtocolError" },
-  { no: 5, name: "completedAtUnixMs", protoName: "completed_at_unix_ms", kind: "scalar", scalar: "uint64" },
+  {
+    no: 2,
+    name: "status",
+    protoName: "status",
+    kind: "enum",
+    typeName: "ymconnect.v1.CommandStatus",
+  },
+  {
+    no: 3,
+    name: "snapshot",
+    protoName: "snapshot",
+    kind: "message",
+    typeName: "ymconnect.v1.PlayerSnapshot",
+  },
+  {
+    no: 4,
+    name: "error",
+    protoName: "error",
+    kind: "message",
+    typeName: "ymconnect.v1.ProtocolError",
+  },
+  {
+    no: 5,
+    name: "completedAtUnixMs",
+    protoName: "completed_at_unix_ms",
+    kind: "scalar",
+    scalar: "uint64",
+  },
 ]);
 
-export const ListPlayersRequestSchema = defineMessage("ymconnect.v1.ListPlayersRequest", [
-]);
+export const ListPlayersRequestSchema = defineMessage("ymconnect.v1.ListPlayersRequest", []);
 
 export const ListPlayersResponseSchema = defineMessage("ymconnect.v1.ListPlayersResponse", [
-  { no: 1, name: "players", protoName: "players", kind: "message", typeName: "ymconnect.v1.PlayerSnapshot", repeated: true },
-  { no: 2, name: "activePlayerId", protoName: "active_player_id", kind: "scalar", scalar: "string" },
+  {
+    no: 1,
+    name: "players",
+    protoName: "players",
+    kind: "message",
+    typeName: "ymconnect.v1.PlayerSnapshot",
+    repeated: true,
+  },
+  {
+    no: 2,
+    name: "activePlayerId",
+    protoName: "active_player_id",
+    kind: "scalar",
+    scalar: "string",
+  },
 ]);
 
 export const SubscribePlayersRequestSchema = defineMessage("ymconnect.v1.SubscribePlayersRequest", [
-  { no: 1, name: "includeInitialState", protoName: "include_initial_state", kind: "scalar", scalar: "bool" },
+  {
+    no: 1,
+    name: "includeInitialState",
+    protoName: "include_initial_state",
+    kind: "scalar",
+    scalar: "bool",
+  },
 ]);
 
-export const SubscribePlayersResponseSchema = defineMessage("ymconnect.v1.SubscribePlayersResponse", [
-  { no: 1, name: "subscriptionId", protoName: "subscription_id", kind: "scalar", scalar: "string" },
-]);
+export const SubscribePlayersResponseSchema = defineMessage(
+  "ymconnect.v1.SubscribePlayersResponse",
+  [
+    {
+      no: 1,
+      name: "subscriptionId",
+      protoName: "subscription_id",
+      kind: "scalar",
+      scalar: "string",
+    },
+  ],
+);
 
-export const SelectPlayerRequestSchema = defineMessage("ymconnect.v1.SelectPlayerRequest", [
-  { no: 1, name: "playerId", protoName: "player_id", kind: "scalar", scalar: "string" },
-]);
+export const SelectPlayerRequestSchema = defineMessage(
+  "ymconnect.v1.SelectPlayerRequest",
+  [{ no: 1, name: "playerId", protoName: "player_id", kind: "scalar", scalar: "string" }],
+);
 
 export const SelectPlayerResultSchema = defineMessage("ymconnect.v1.SelectPlayerResult", [
-  { no: 1, name: "activePlayerId", protoName: "active_player_id", kind: "scalar", scalar: "string" },
-  { no: 2, name: "error", protoName: "error", kind: "message", typeName: "ymconnect.v1.ProtocolError" },
+  {
+    no: 1,
+    name: "activePlayerId",
+    protoName: "active_player_id",
+    kind: "scalar",
+    scalar: "string",
+  },
+  {
+    no: 2,
+    name: "error",
+    protoName: "error",
+    kind: "message",
+    typeName: "ymconnect.v1.ProtocolError",
+  },
 ]);
 

@@ -15,7 +15,7 @@
       "binary_sha256": "f8f54968892950e25656513a8ead630fef37d71d12b44cc2b0bef5f0044cc0fe",
       "binary_size": 159,
       "json": "connector-hello.json",
-      "json_sha256": "469dc1933d3d290054730c4e5b243d1bd2c6dff11a2c18e151073c5855506176",
+      "json_sha256": "22eee4b64d5dfcd0dd9f5a24435fc6c6ad8ed3e5d825338728458b0fdf15d312",
       "name": "connector-hello",
       "type_name": "ymconnect.v1.ConnectorHello"
     },
@@ -24,7 +24,7 @@
       "binary_sha256": "3e0c708081b45144a256f89db1ea67bd5a8238e6193b0210f97d1b8dc4f9df0d",
       "binary_size": 422,
       "json": "player-snapshot.json",
-      "json_sha256": "47d2d950f961d51ba6f1bcb2bcb638dad726c5bfbc032ea18e0ca22c317f5631",
+      "json_sha256": "d66e3f9404ecfec84f243efaf91965903ed501e51dca815f62f45a12d48a1d26",
       "name": "player-snapshot",
       "type_name": "ymconnect.v1.PlayerSnapshot"
     },
@@ -42,7 +42,7 @@
       "binary_sha256": "da87b195b64f789df28b7708ce9502d77ba32451602cacbbde13501c8e20db2c",
       "binary_size": 359,
       "json": "pairing-offer.json",
-      "json_sha256": "5d775c88a8cb8ec9d1b5983d99b1de3a30e904b47f8ea7a1eb750bfb648388d0",
+      "json_sha256": "ef592219eef58c8200efbd65c5dc22cacdea15b392164833f0843a194f837eeb",
       "name": "pairing-offer",
       "type_name": "ymconnect.v1.PairingOffer"
     },
