@@ -19,7 +19,7 @@ sourceSets {
 dependencies {
     implementation("com.google.protobuf:protobuf-javalite:4.35.1")
     testImplementation(kotlin("test"))
-    testImplementation("org.junit.jupiter:junit-jupiter:5.13.4")
+    testImplementation("org.junit.jupiter:junit-jupiter:6.1.2")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.13.4")
 }
 
