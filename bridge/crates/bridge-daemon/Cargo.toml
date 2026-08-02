@@ -1,0 +1,25 @@
+[package]
+name = "ym-connect-bridge-daemon"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+readme.workspace = true
+description = "Production process bootstrap for the YM Connect desktop Bridge."
+keywords = ["bridge", "daemon", "local-network", "yandex-music"]
+categories = ["asynchronous", "network-programming"]
+publish = false
+
+[[bin]]
+name = "ym-connect-bridge"
+path = "src/main.rs"
+
+[dependencies]
+tokio.workspace = true
+ym-connect-bridge-core.workspace = true
+
+[lints]
+workspace = true
