@@ -318,69 +318,69 @@ public final class Capabilities {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      * @return A list containing the supported.
      */
     java.util.List<ymconnect.v1.Capabilities.Capability> getSupportedList();
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      * @return The count of supported.
      */
     int getSupportedCount();
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      * @param index The index of the element to return.
      * @return The supported at the given index.
      */
     ymconnect.v1.Capabilities.Capability getSupported(int index);
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      * @return A list containing the enum numeric values on the wire for supported.
      */
     java.util.List<java.lang.Integer>
     getSupportedValueList();
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of supported at the given index.
      */
     int getSupportedValue(int index);
 
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      * @return A list containing the required.
      */
     java.util.List<ymconnect.v1.Capabilities.Capability> getRequiredList();
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      * @return The count of required.
      */
     int getRequiredCount();
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      * @param index The index of the element to return.
      * @return The required at the given index.
      */
     ymconnect.v1.Capabilities.Capability getRequired(int index);
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      * @return A list containing the enum numeric values on the wire for required.
      */
     java.util.List<java.lang.Integer>
     getRequiredValueList();
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of required at the given index.
      */
     int getRequiredValue(int index);
 
     /**
-     * <code>map&lt;string, string&gt; parameters = 3;</code>
+     * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
      */
     int getParametersCount();
     /**
-     * <code>map&lt;string, string&gt; parameters = 3;</code>
+     * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
      */
     boolean containsParameters(
         java.lang.String key);
@@ -391,19 +391,19 @@ public final class Capabilities {
     java.util.Map<java.lang.String, java.lang.String>
     getParameters();
     /**
-     * <code>map&lt;string, string&gt; parameters = 3;</code>
+     * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getParametersMap();
     /**
-     * <code>map&lt;string, string&gt; parameters = 3;</code>
+     * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
      */
 
     java.lang.String getParametersOrDefault(
         java.lang.String key,
         java.lang.String defaultValue);
     /**
-     * <code>map&lt;string, string&gt; parameters = 3;</code>
+     * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
      */
 
     java.lang.String getParametersOrThrow(
@@ -434,7 +434,7 @@ public final class Capabilities {
               }
             };
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      * @return A list containing the supported.
      */
     @java.lang.Override
@@ -443,7 +443,7 @@ public final class Capabilities {
           java.lang.Integer, ymconnect.v1.Capabilities.Capability>(supported_, supported_converter_);
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      * @return The count of supported.
      */
     @java.lang.Override
@@ -451,7 +451,7 @@ public final class Capabilities {
       return supported_.size();
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      * @param index The index of the element to return.
      * @return The supported at the given index.
      */
@@ -460,7 +460,7 @@ public final class Capabilities {
       return supported_converter_.convert(supported_.getInt(index));
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      * @return A list containing the enum numeric values on the wire for supported.
      */
     @java.lang.Override
@@ -469,7 +469,7 @@ public final class Capabilities {
       return supported_;
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of supported at the given index.
      */
@@ -486,7 +486,7 @@ public final class Capabilities {
       }
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      * @param index The index to set the value at.
      * @param value The supported to set.
      */
@@ -497,7 +497,7 @@ public final class Capabilities {
       supported_.setInt(index, value.getNumber());
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      * @param value The supported to add.
      */
     private void addSupported(ymconnect.v1.Capabilities.Capability value) {
@@ -506,7 +506,7 @@ public final class Capabilities {
       supported_.addInt(value.getNumber());
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      * @param values The supported to add.
      */
     private void addAllSupported(
@@ -517,13 +517,13 @@ public final class Capabilities {
       }
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      */
     private void clearSupported() {
       supported_ = emptyIntList();
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      * @param value The enum numeric value on the wire for supported to set.
      */
     private void setSupportedValue(
@@ -532,7 +532,7 @@ public final class Capabilities {
       supported_.setInt(index, value);
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      * @param value The enum numeric value on the wire for supported to add.
      */
     private void addSupportedValue(int value) {
@@ -540,7 +540,7 @@ public final class Capabilities {
       supported_.addInt(value);
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+     * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
      * @param values The enum numeric values on the wire for supported to add.
      */
     private void addAllSupportedValue(
@@ -564,7 +564,7 @@ public final class Capabilities {
               }
             };
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      * @return A list containing the required.
      */
     @java.lang.Override
@@ -573,7 +573,7 @@ public final class Capabilities {
           java.lang.Integer, ymconnect.v1.Capabilities.Capability>(required_, required_converter_);
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      * @return The count of required.
      */
     @java.lang.Override
@@ -581,7 +581,7 @@ public final class Capabilities {
       return required_.size();
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      * @param index The index of the element to return.
      * @return The required at the given index.
      */
@@ -590,7 +590,7 @@ public final class Capabilities {
       return required_converter_.convert(required_.getInt(index));
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      * @return A list containing the enum numeric values on the wire for required.
      */
     @java.lang.Override
@@ -599,7 +599,7 @@ public final class Capabilities {
       return required_;
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of required at the given index.
      */
@@ -616,7 +616,7 @@ public final class Capabilities {
       }
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      * @param index The index to set the value at.
      * @param value The required to set.
      */
@@ -627,7 +627,7 @@ public final class Capabilities {
       required_.setInt(index, value.getNumber());
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      * @param value The required to add.
      */
     private void addRequired(ymconnect.v1.Capabilities.Capability value) {
@@ -636,7 +636,7 @@ public final class Capabilities {
       required_.addInt(value.getNumber());
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      * @param values The required to add.
      */
     private void addAllRequired(
@@ -647,13 +647,13 @@ public final class Capabilities {
       }
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      */
     private void clearRequired() {
       required_ = emptyIntList();
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      * @param value The enum numeric value on the wire for required to set.
      */
     private void setRequiredValue(
@@ -662,7 +662,7 @@ public final class Capabilities {
       required_.setInt(index, value);
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      * @param value The enum numeric value on the wire for required to add.
      */
     private void addRequiredValue(int value) {
@@ -670,7 +670,7 @@ public final class Capabilities {
       required_.addInt(value);
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+     * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
      * @param values The enum numeric values on the wire for required to add.
      */
     private void addAllRequiredValue(
@@ -712,7 +712,7 @@ public final class Capabilities {
       return internalGetParameters().size();
     }
     /**
-     * <code>map&lt;string, string&gt; parameters = 3;</code>
+     * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
      */
     @java.lang.Override
 
@@ -730,7 +730,7 @@ public final class Capabilities {
       return getParametersMap();
     }
     /**
-     * <code>map&lt;string, string&gt; parameters = 3;</code>
+     * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
      */
     @java.lang.Override
 
@@ -739,7 +739,7 @@ public final class Capabilities {
           internalGetParameters());
     }
     /**
-     * <code>map&lt;string, string&gt; parameters = 3;</code>
+     * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
      */
     @java.lang.Override
 
@@ -752,7 +752,7 @@ public final class Capabilities {
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, string&gt; parameters = 3;</code>
+     * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
      */
     @java.lang.Override
 
@@ -767,7 +767,7 @@ public final class Capabilities {
       return map.get(key);
     }
     /**
-     * <code>map&lt;string, string&gt; parameters = 3;</code>
+     * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
      */
     private java.util.Map<java.lang.String, java.lang.String>
     getMutableParametersMap() {
@@ -870,7 +870,7 @@ public final class Capabilities {
 
 
       /**
-       * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+       * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
        * @return A list containing the supported.
        */
       @java.lang.Override
@@ -878,7 +878,7 @@ public final class Capabilities {
         return instance.getSupportedList();
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+       * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
        * @return The count of supported.
        */
       @java.lang.Override
@@ -886,7 +886,7 @@ public final class Capabilities {
         return instance.getSupportedCount();
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+       * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
        * @param index The index of the element to return.
        * @return The supported at the given index.
        */
@@ -895,7 +895,7 @@ public final class Capabilities {
         return instance.getSupported(index);
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+       * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
        * @param index The index to set the value at.
        * @param value The supported to set.
        * @return This builder for chaining.
@@ -907,7 +907,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+       * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
        * @param value The supported to add.
        * @return This builder for chaining.
        */
@@ -917,7 +917,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+       * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
        * @param values The supported to add.
        * @return This builder for chaining.
        */
@@ -927,7 +927,7 @@ public final class Capabilities {
         instance.addAllSupported(values);  return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+       * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
        * @return This builder for chaining.
        */
       public Builder clearSupported() {
@@ -936,7 +936,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+       * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
        * @return A list containing the enum numeric values on the wire for supported.
        */
       @java.lang.Override
@@ -946,7 +946,7 @@ public final class Capabilities {
             instance.getSupportedValueList());
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+       * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
        * @param index The index of the value to return.
        * @return The enum numeric value on the wire of supported at the given index.
        */
@@ -955,7 +955,7 @@ public final class Capabilities {
         return instance.getSupportedValue(index);
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+       * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
        * @param index The index to set the value at.
        * @param value The enum numeric value on the wire for supported to set.
        * @return This builder for chaining.
@@ -967,7 +967,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+       * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
        * @param value The enum numeric value on the wire for supported to add.
        * @return This builder for chaining.
        */
@@ -976,7 +976,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability supported = 1;</code>
+       * <code>repeated .ymconnect.v1.Capability supported = 1[json_name = "supported"];</code>
        * @param values The enum numeric values on the wire for supported to add.
        * @return This builder for chaining.
        */
@@ -988,7 +988,7 @@ public final class Capabilities {
       }
 
       /**
-       * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+       * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
        * @return A list containing the required.
        */
       @java.lang.Override
@@ -996,7 +996,7 @@ public final class Capabilities {
         return instance.getRequiredList();
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+       * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
        * @return The count of required.
        */
       @java.lang.Override
@@ -1004,7 +1004,7 @@ public final class Capabilities {
         return instance.getRequiredCount();
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+       * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
        * @param index The index of the element to return.
        * @return The required at the given index.
        */
@@ -1013,7 +1013,7 @@ public final class Capabilities {
         return instance.getRequired(index);
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+       * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
        * @param index The index to set the value at.
        * @param value The required to set.
        * @return This builder for chaining.
@@ -1025,7 +1025,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+       * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
        * @param value The required to add.
        * @return This builder for chaining.
        */
@@ -1035,7 +1035,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+       * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
        * @param values The required to add.
        * @return This builder for chaining.
        */
@@ -1045,7 +1045,7 @@ public final class Capabilities {
         instance.addAllRequired(values);  return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+       * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
        * @return This builder for chaining.
        */
       public Builder clearRequired() {
@@ -1054,7 +1054,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+       * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
        * @return A list containing the enum numeric values on the wire for required.
        */
       @java.lang.Override
@@ -1064,7 +1064,7 @@ public final class Capabilities {
             instance.getRequiredValueList());
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+       * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
        * @param index The index of the value to return.
        * @return The enum numeric value on the wire of required at the given index.
        */
@@ -1073,7 +1073,7 @@ public final class Capabilities {
         return instance.getRequiredValue(index);
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+       * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
        * @param index The index to set the value at.
        * @param value The enum numeric value on the wire for required to set.
        * @return This builder for chaining.
@@ -1085,7 +1085,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+       * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
        * @param value The enum numeric value on the wire for required to add.
        * @return This builder for chaining.
        */
@@ -1094,7 +1094,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability required = 2;</code>
+       * <code>repeated .ymconnect.v1.Capability required = 2[json_name = "required"];</code>
        * @param values The enum numeric values on the wire for required to add.
        * @return This builder for chaining.
        */
@@ -1111,7 +1111,7 @@ public final class Capabilities {
         return instance.getParametersMap().size();
       }
       /**
-       * <code>map&lt;string, string&gt; parameters = 3;</code>
+       * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
        */
       @java.lang.Override
 
@@ -1127,7 +1127,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; parameters = 3;</code>
+       * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
        */
 
       public Builder removeParameters(
@@ -1146,7 +1146,7 @@ public final class Capabilities {
         return getParametersMap();
       }
       /**
-       * <code>map&lt;string, string&gt; parameters = 3;</code>
+       * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
        */
       @java.lang.Override
       public java.util.Map<java.lang.String, java.lang.String> getParametersMap() {
@@ -1154,7 +1154,7 @@ public final class Capabilities {
             instance.getParametersMap());
       }
       /**
-       * <code>map&lt;string, string&gt; parameters = 3;</code>
+       * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
        */
       @java.lang.Override
 
@@ -1167,7 +1167,7 @@ public final class Capabilities {
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, string&gt; parameters = 3;</code>
+       * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
        */
       @java.lang.Override
 
@@ -1182,7 +1182,7 @@ public final class Capabilities {
         return map.get(key);
       }
       /**
-       * <code>map&lt;string, string&gt; parameters = 3;</code>
+       * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
        */
       public Builder putParameters(
           java.lang.String key,
@@ -1194,7 +1194,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; parameters = 3;</code>
+       * <code>map&lt;string, string&gt; parameters = 3[json_name = "parameters"];</code>
        */
       public Builder putAllParameters(
           java.util.Map<java.lang.String, java.lang.String> values) {
@@ -1286,62 +1286,62 @@ public final class Capabilities {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.CapabilitySet offered = 1;</code>
+     * <code>.ymconnect.v1.CapabilitySet offered = 1[json_name = "offered"];</code>
      * @return Whether the offered field is set.
      */
     boolean hasOffered();
     /**
-     * <code>.ymconnect.v1.CapabilitySet offered = 1;</code>
+     * <code>.ymconnect.v1.CapabilitySet offered = 1[json_name = "offered"];</code>
      * @return The offered.
      */
     ymconnect.v1.Capabilities.CapabilitySet getOffered();
 
     /**
-     * <code>.ymconnect.v1.CapabilitySet available = 2;</code>
+     * <code>.ymconnect.v1.CapabilitySet available = 2[json_name = "available"];</code>
      * @return Whether the available field is set.
      */
     boolean hasAvailable();
     /**
-     * <code>.ymconnect.v1.CapabilitySet available = 2;</code>
+     * <code>.ymconnect.v1.CapabilitySet available = 2[json_name = "available"];</code>
      * @return The available.
      */
     ymconnect.v1.Capabilities.CapabilitySet getAvailable();
 
     /**
-     * <code>.ymconnect.v1.CapabilitySet negotiated = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet negotiated = 3[json_name = "negotiated"];</code>
      * @return Whether the negotiated field is set.
      */
     boolean hasNegotiated();
     /**
-     * <code>.ymconnect.v1.CapabilitySet negotiated = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet negotiated = 3[json_name = "negotiated"];</code>
      * @return The negotiated.
      */
     ymconnect.v1.Capabilities.CapabilitySet getNegotiated();
 
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      * @return A list containing the missingRequired.
      */
     java.util.List<ymconnect.v1.Capabilities.Capability> getMissingRequiredList();
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      * @return The count of missingRequired.
      */
     int getMissingRequiredCount();
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      * @param index The index of the element to return.
      * @return The missingRequired at the given index.
      */
     ymconnect.v1.Capabilities.Capability getMissingRequired(int index);
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      * @return A list containing the enum numeric values on the wire for missingRequired.
      */
     java.util.List<java.lang.Integer>
     getMissingRequiredValueList();
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of missingRequired at the given index.
      */
@@ -1361,21 +1361,21 @@ public final class Capabilities {
     public static final int OFFERED_FIELD_NUMBER = 1;
     private ymconnect.v1.Capabilities.CapabilitySet offered_;
     /**
-     * <code>.ymconnect.v1.CapabilitySet offered = 1;</code>
+     * <code>.ymconnect.v1.CapabilitySet offered = 1[json_name = "offered"];</code>
      */
     @java.lang.Override
     public boolean hasOffered() {
       return offered_ != null;
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet offered = 1;</code>
+     * <code>.ymconnect.v1.CapabilitySet offered = 1[json_name = "offered"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Capabilities.CapabilitySet getOffered() {
       return offered_ == null ? ymconnect.v1.Capabilities.CapabilitySet.getDefaultInstance() : offered_;
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet offered = 1;</code>
+     * <code>.ymconnect.v1.CapabilitySet offered = 1[json_name = "offered"];</code>
      */
     private void setOffered(ymconnect.v1.Capabilities.CapabilitySet value) {
       value.getClass();
@@ -1383,7 +1383,7 @@ public final class Capabilities {
       
       }
     /**
-     * <code>.ymconnect.v1.CapabilitySet offered = 1;</code>
+     * <code>.ymconnect.v1.CapabilitySet offered = 1[json_name = "offered"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeOffered(ymconnect.v1.Capabilities.CapabilitySet value) {
@@ -1398,7 +1398,7 @@ public final class Capabilities {
       
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet offered = 1;</code>
+     * <code>.ymconnect.v1.CapabilitySet offered = 1[json_name = "offered"];</code>
      */
     private void clearOffered() {  offered_ = null;
       
@@ -1407,21 +1407,21 @@ public final class Capabilities {
     public static final int AVAILABLE_FIELD_NUMBER = 2;
     private ymconnect.v1.Capabilities.CapabilitySet available_;
     /**
-     * <code>.ymconnect.v1.CapabilitySet available = 2;</code>
+     * <code>.ymconnect.v1.CapabilitySet available = 2[json_name = "available"];</code>
      */
     @java.lang.Override
     public boolean hasAvailable() {
       return available_ != null;
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet available = 2;</code>
+     * <code>.ymconnect.v1.CapabilitySet available = 2[json_name = "available"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Capabilities.CapabilitySet getAvailable() {
       return available_ == null ? ymconnect.v1.Capabilities.CapabilitySet.getDefaultInstance() : available_;
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet available = 2;</code>
+     * <code>.ymconnect.v1.CapabilitySet available = 2[json_name = "available"];</code>
      */
     private void setAvailable(ymconnect.v1.Capabilities.CapabilitySet value) {
       value.getClass();
@@ -1429,7 +1429,7 @@ public final class Capabilities {
       
       }
     /**
-     * <code>.ymconnect.v1.CapabilitySet available = 2;</code>
+     * <code>.ymconnect.v1.CapabilitySet available = 2[json_name = "available"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeAvailable(ymconnect.v1.Capabilities.CapabilitySet value) {
@@ -1444,7 +1444,7 @@ public final class Capabilities {
       
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet available = 2;</code>
+     * <code>.ymconnect.v1.CapabilitySet available = 2[json_name = "available"];</code>
      */
     private void clearAvailable() {  available_ = null;
       
@@ -1453,21 +1453,21 @@ public final class Capabilities {
     public static final int NEGOTIATED_FIELD_NUMBER = 3;
     private ymconnect.v1.Capabilities.CapabilitySet negotiated_;
     /**
-     * <code>.ymconnect.v1.CapabilitySet negotiated = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet negotiated = 3[json_name = "negotiated"];</code>
      */
     @java.lang.Override
     public boolean hasNegotiated() {
       return negotiated_ != null;
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet negotiated = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet negotiated = 3[json_name = "negotiated"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Capabilities.CapabilitySet getNegotiated() {
       return negotiated_ == null ? ymconnect.v1.Capabilities.CapabilitySet.getDefaultInstance() : negotiated_;
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet negotiated = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet negotiated = 3[json_name = "negotiated"];</code>
      */
     private void setNegotiated(ymconnect.v1.Capabilities.CapabilitySet value) {
       value.getClass();
@@ -1475,7 +1475,7 @@ public final class Capabilities {
       
       }
     /**
-     * <code>.ymconnect.v1.CapabilitySet negotiated = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet negotiated = 3[json_name = "negotiated"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeNegotiated(ymconnect.v1.Capabilities.CapabilitySet value) {
@@ -1490,7 +1490,7 @@ public final class Capabilities {
       
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet negotiated = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet negotiated = 3[json_name = "negotiated"];</code>
      */
     private void clearNegotiated() {  negotiated_ = null;
       
@@ -1509,7 +1509,7 @@ public final class Capabilities {
               }
             };
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      * @return A list containing the missingRequired.
      */
     @java.lang.Override
@@ -1518,7 +1518,7 @@ public final class Capabilities {
           java.lang.Integer, ymconnect.v1.Capabilities.Capability>(missingRequired_, missingRequired_converter_);
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      * @return The count of missingRequired.
      */
     @java.lang.Override
@@ -1526,7 +1526,7 @@ public final class Capabilities {
       return missingRequired_.size();
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      * @param index The index of the element to return.
      * @return The missingRequired at the given index.
      */
@@ -1535,7 +1535,7 @@ public final class Capabilities {
       return missingRequired_converter_.convert(missingRequired_.getInt(index));
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      * @return A list containing the enum numeric values on the wire for missingRequired.
      */
     @java.lang.Override
@@ -1544,7 +1544,7 @@ public final class Capabilities {
       return missingRequired_;
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of missingRequired at the given index.
      */
@@ -1561,7 +1561,7 @@ public final class Capabilities {
       }
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      * @param index The index to set the value at.
      * @param value The missingRequired to set.
      */
@@ -1572,7 +1572,7 @@ public final class Capabilities {
       missingRequired_.setInt(index, value.getNumber());
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      * @param value The missingRequired to add.
      */
     private void addMissingRequired(ymconnect.v1.Capabilities.Capability value) {
@@ -1581,7 +1581,7 @@ public final class Capabilities {
       missingRequired_.addInt(value.getNumber());
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      * @param values The missingRequired to add.
      */
     private void addAllMissingRequired(
@@ -1592,13 +1592,13 @@ public final class Capabilities {
       }
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      */
     private void clearMissingRequired() {
       missingRequired_ = emptyIntList();
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      * @param value The enum numeric value on the wire for missingRequired to set.
      */
     private void setMissingRequiredValue(
@@ -1607,7 +1607,7 @@ public final class Capabilities {
       missingRequired_.setInt(index, value);
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      * @param value The enum numeric value on the wire for missingRequired to add.
      */
     private void addMissingRequiredValue(int value) {
@@ -1615,7 +1615,7 @@ public final class Capabilities {
       missingRequired_.addInt(value);
     }
     /**
-     * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+     * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
      * @param values The enum numeric values on the wire for missingRequired to add.
      */
     private void addAllMissingRequiredValue(
@@ -1722,21 +1722,21 @@ public final class Capabilities {
 
 
       /**
-       * <code>.ymconnect.v1.CapabilitySet offered = 1;</code>
+       * <code>.ymconnect.v1.CapabilitySet offered = 1[json_name = "offered"];</code>
        */
       @java.lang.Override
       public boolean hasOffered() {
         return instance.hasOffered();
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet offered = 1;</code>
+       * <code>.ymconnect.v1.CapabilitySet offered = 1[json_name = "offered"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Capabilities.CapabilitySet getOffered() {
         return instance.getOffered();
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet offered = 1;</code>
+       * <code>.ymconnect.v1.CapabilitySet offered = 1[json_name = "offered"];</code>
        */
       public Builder setOffered(ymconnect.v1.Capabilities.CapabilitySet value) {
         copyOnWrite();
@@ -1744,7 +1744,7 @@ public final class Capabilities {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.CapabilitySet offered = 1;</code>
+       * <code>.ymconnect.v1.CapabilitySet offered = 1[json_name = "offered"];</code>
        */
       public Builder setOffered(
           ymconnect.v1.Capabilities.CapabilitySet.Builder builderForValue) {
@@ -1753,7 +1753,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet offered = 1;</code>
+       * <code>.ymconnect.v1.CapabilitySet offered = 1[json_name = "offered"];</code>
        */
       public Builder mergeOffered(ymconnect.v1.Capabilities.CapabilitySet value) {
         copyOnWrite();
@@ -1761,7 +1761,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet offered = 1;</code>
+       * <code>.ymconnect.v1.CapabilitySet offered = 1[json_name = "offered"];</code>
        */
       public Builder clearOffered() {  copyOnWrite();
         instance.clearOffered();
@@ -1769,21 +1769,21 @@ public final class Capabilities {
       }
 
       /**
-       * <code>.ymconnect.v1.CapabilitySet available = 2;</code>
+       * <code>.ymconnect.v1.CapabilitySet available = 2[json_name = "available"];</code>
        */
       @java.lang.Override
       public boolean hasAvailable() {
         return instance.hasAvailable();
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet available = 2;</code>
+       * <code>.ymconnect.v1.CapabilitySet available = 2[json_name = "available"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Capabilities.CapabilitySet getAvailable() {
         return instance.getAvailable();
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet available = 2;</code>
+       * <code>.ymconnect.v1.CapabilitySet available = 2[json_name = "available"];</code>
        */
       public Builder setAvailable(ymconnect.v1.Capabilities.CapabilitySet value) {
         copyOnWrite();
@@ -1791,7 +1791,7 @@ public final class Capabilities {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.CapabilitySet available = 2;</code>
+       * <code>.ymconnect.v1.CapabilitySet available = 2[json_name = "available"];</code>
        */
       public Builder setAvailable(
           ymconnect.v1.Capabilities.CapabilitySet.Builder builderForValue) {
@@ -1800,7 +1800,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet available = 2;</code>
+       * <code>.ymconnect.v1.CapabilitySet available = 2[json_name = "available"];</code>
        */
       public Builder mergeAvailable(ymconnect.v1.Capabilities.CapabilitySet value) {
         copyOnWrite();
@@ -1808,7 +1808,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet available = 2;</code>
+       * <code>.ymconnect.v1.CapabilitySet available = 2[json_name = "available"];</code>
        */
       public Builder clearAvailable() {  copyOnWrite();
         instance.clearAvailable();
@@ -1816,21 +1816,21 @@ public final class Capabilities {
       }
 
       /**
-       * <code>.ymconnect.v1.CapabilitySet negotiated = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet negotiated = 3[json_name = "negotiated"];</code>
        */
       @java.lang.Override
       public boolean hasNegotiated() {
         return instance.hasNegotiated();
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet negotiated = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet negotiated = 3[json_name = "negotiated"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Capabilities.CapabilitySet getNegotiated() {
         return instance.getNegotiated();
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet negotiated = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet negotiated = 3[json_name = "negotiated"];</code>
        */
       public Builder setNegotiated(ymconnect.v1.Capabilities.CapabilitySet value) {
         copyOnWrite();
@@ -1838,7 +1838,7 @@ public final class Capabilities {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.CapabilitySet negotiated = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet negotiated = 3[json_name = "negotiated"];</code>
        */
       public Builder setNegotiated(
           ymconnect.v1.Capabilities.CapabilitySet.Builder builderForValue) {
@@ -1847,7 +1847,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet negotiated = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet negotiated = 3[json_name = "negotiated"];</code>
        */
       public Builder mergeNegotiated(ymconnect.v1.Capabilities.CapabilitySet value) {
         copyOnWrite();
@@ -1855,7 +1855,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet negotiated = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet negotiated = 3[json_name = "negotiated"];</code>
        */
       public Builder clearNegotiated() {  copyOnWrite();
         instance.clearNegotiated();
@@ -1863,7 +1863,7 @@ public final class Capabilities {
       }
 
       /**
-       * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+       * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
        * @return A list containing the missingRequired.
        */
       @java.lang.Override
@@ -1871,7 +1871,7 @@ public final class Capabilities {
         return instance.getMissingRequiredList();
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+       * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
        * @return The count of missingRequired.
        */
       @java.lang.Override
@@ -1879,7 +1879,7 @@ public final class Capabilities {
         return instance.getMissingRequiredCount();
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+       * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
        * @param index The index of the element to return.
        * @return The missingRequired at the given index.
        */
@@ -1888,7 +1888,7 @@ public final class Capabilities {
         return instance.getMissingRequired(index);
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+       * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
        * @param index The index to set the value at.
        * @param value The missingRequired to set.
        * @return This builder for chaining.
@@ -1900,7 +1900,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+       * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
        * @param value The missingRequired to add.
        * @return This builder for chaining.
        */
@@ -1910,7 +1910,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+       * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
        * @param values The missingRequired to add.
        * @return This builder for chaining.
        */
@@ -1920,7 +1920,7 @@ public final class Capabilities {
         instance.addAllMissingRequired(values);  return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+       * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
        * @return This builder for chaining.
        */
       public Builder clearMissingRequired() {
@@ -1929,7 +1929,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+       * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
        * @return A list containing the enum numeric values on the wire for missingRequired.
        */
       @java.lang.Override
@@ -1939,7 +1939,7 @@ public final class Capabilities {
             instance.getMissingRequiredValueList());
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+       * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
        * @param index The index of the value to return.
        * @return The enum numeric value on the wire of missingRequired at the given index.
        */
@@ -1948,7 +1948,7 @@ public final class Capabilities {
         return instance.getMissingRequiredValue(index);
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+       * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
        * @param index The index to set the value at.
        * @param value The enum numeric value on the wire for missingRequired to set.
        * @return This builder for chaining.
@@ -1960,7 +1960,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+       * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
        * @param value The enum numeric value on the wire for missingRequired to add.
        * @return This builder for chaining.
        */
@@ -1969,7 +1969,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.Capability missing_required = 4;</code>
+       * <code>repeated .ymconnect.v1.Capability missing_required = 4[json_name = "missingRequired"];</code>
        * @param values The enum numeric values on the wire for missingRequired to add.
        * @return This builder for chaining.
        */
@@ -2063,51 +2063,51 @@ public final class Capabilities {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.VersionRange local_range = 1;</code>
+     * <code>.ymconnect.v1.VersionRange local_range = 1[json_name = "localRange"];</code>
      * @return Whether the localRange field is set.
      */
     boolean hasLocalRange();
     /**
-     * <code>.ymconnect.v1.VersionRange local_range = 1;</code>
+     * <code>.ymconnect.v1.VersionRange local_range = 1[json_name = "localRange"];</code>
      * @return The localRange.
      */
     ymconnect.v1.Common.VersionRange getLocalRange();
 
     /**
-     * <code>.ymconnect.v1.VersionRange remote_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange remote_range = 2[json_name = "remoteRange"];</code>
      * @return Whether the remoteRange field is set.
      */
     boolean hasRemoteRange();
     /**
-     * <code>.ymconnect.v1.VersionRange remote_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange remote_range = 2[json_name = "remoteRange"];</code>
      * @return The remoteRange.
      */
     ymconnect.v1.Common.VersionRange getRemoteRange();
 
     /**
-     * <code>.ymconnect.v1.ProtocolVersion selected_version = 3;</code>
+     * <code>.ymconnect.v1.ProtocolVersion selected_version = 3[json_name = "selectedVersion"];</code>
      * @return Whether the selectedVersion field is set.
      */
     boolean hasSelectedVersion();
     /**
-     * <code>.ymconnect.v1.ProtocolVersion selected_version = 3;</code>
+     * <code>.ymconnect.v1.ProtocolVersion selected_version = 3[json_name = "selectedVersion"];</code>
      * @return The selectedVersion.
      */
     ymconnect.v1.Common.ProtocolVersion getSelectedVersion();
 
     /**
-     * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4;</code>
+     * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4[json_name = "capabilities"];</code>
      * @return Whether the capabilities field is set.
      */
     boolean hasCapabilities();
     /**
-     * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4;</code>
+     * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4[json_name = "capabilities"];</code>
      * @return The capabilities.
      */
     ymconnect.v1.Capabilities.CapabilityNegotiation getCapabilities();
 
     /**
-     * <code>bool compatible = 5;</code>
+     * <code>bool compatible = 5[json_name = "compatible"];</code>
      * @return The compatible.
      */
     boolean getCompatible();
@@ -2125,21 +2125,21 @@ public final class Capabilities {
     public static final int LOCAL_RANGE_FIELD_NUMBER = 1;
     private ymconnect.v1.Common.VersionRange localRange_;
     /**
-     * <code>.ymconnect.v1.VersionRange local_range = 1;</code>
+     * <code>.ymconnect.v1.VersionRange local_range = 1[json_name = "localRange"];</code>
      */
     @java.lang.Override
     public boolean hasLocalRange() {
       return localRange_ != null;
     }
     /**
-     * <code>.ymconnect.v1.VersionRange local_range = 1;</code>
+     * <code>.ymconnect.v1.VersionRange local_range = 1[json_name = "localRange"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.VersionRange getLocalRange() {
       return localRange_ == null ? ymconnect.v1.Common.VersionRange.getDefaultInstance() : localRange_;
     }
     /**
-     * <code>.ymconnect.v1.VersionRange local_range = 1;</code>
+     * <code>.ymconnect.v1.VersionRange local_range = 1[json_name = "localRange"];</code>
      */
     private void setLocalRange(ymconnect.v1.Common.VersionRange value) {
       value.getClass();
@@ -2147,7 +2147,7 @@ public final class Capabilities {
       
       }
     /**
-     * <code>.ymconnect.v1.VersionRange local_range = 1;</code>
+     * <code>.ymconnect.v1.VersionRange local_range = 1[json_name = "localRange"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeLocalRange(ymconnect.v1.Common.VersionRange value) {
@@ -2162,7 +2162,7 @@ public final class Capabilities {
       
     }
     /**
-     * <code>.ymconnect.v1.VersionRange local_range = 1;</code>
+     * <code>.ymconnect.v1.VersionRange local_range = 1[json_name = "localRange"];</code>
      */
     private void clearLocalRange() {  localRange_ = null;
       
@@ -2171,21 +2171,21 @@ public final class Capabilities {
     public static final int REMOTE_RANGE_FIELD_NUMBER = 2;
     private ymconnect.v1.Common.VersionRange remoteRange_;
     /**
-     * <code>.ymconnect.v1.VersionRange remote_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange remote_range = 2[json_name = "remoteRange"];</code>
      */
     @java.lang.Override
     public boolean hasRemoteRange() {
       return remoteRange_ != null;
     }
     /**
-     * <code>.ymconnect.v1.VersionRange remote_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange remote_range = 2[json_name = "remoteRange"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.VersionRange getRemoteRange() {
       return remoteRange_ == null ? ymconnect.v1.Common.VersionRange.getDefaultInstance() : remoteRange_;
     }
     /**
-     * <code>.ymconnect.v1.VersionRange remote_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange remote_range = 2[json_name = "remoteRange"];</code>
      */
     private void setRemoteRange(ymconnect.v1.Common.VersionRange value) {
       value.getClass();
@@ -2193,7 +2193,7 @@ public final class Capabilities {
       
       }
     /**
-     * <code>.ymconnect.v1.VersionRange remote_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange remote_range = 2[json_name = "remoteRange"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeRemoteRange(ymconnect.v1.Common.VersionRange value) {
@@ -2208,7 +2208,7 @@ public final class Capabilities {
       
     }
     /**
-     * <code>.ymconnect.v1.VersionRange remote_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange remote_range = 2[json_name = "remoteRange"];</code>
      */
     private void clearRemoteRange() {  remoteRange_ = null;
       
@@ -2217,21 +2217,21 @@ public final class Capabilities {
     public static final int SELECTED_VERSION_FIELD_NUMBER = 3;
     private ymconnect.v1.Common.ProtocolVersion selectedVersion_;
     /**
-     * <code>.ymconnect.v1.ProtocolVersion selected_version = 3;</code>
+     * <code>.ymconnect.v1.ProtocolVersion selected_version = 3[json_name = "selectedVersion"];</code>
      */
     @java.lang.Override
     public boolean hasSelectedVersion() {
       return selectedVersion_ != null;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolVersion selected_version = 3;</code>
+     * <code>.ymconnect.v1.ProtocolVersion selected_version = 3[json_name = "selectedVersion"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.ProtocolVersion getSelectedVersion() {
       return selectedVersion_ == null ? ymconnect.v1.Common.ProtocolVersion.getDefaultInstance() : selectedVersion_;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolVersion selected_version = 3;</code>
+     * <code>.ymconnect.v1.ProtocolVersion selected_version = 3[json_name = "selectedVersion"];</code>
      */
     private void setSelectedVersion(ymconnect.v1.Common.ProtocolVersion value) {
       value.getClass();
@@ -2239,7 +2239,7 @@ public final class Capabilities {
       
       }
     /**
-     * <code>.ymconnect.v1.ProtocolVersion selected_version = 3;</code>
+     * <code>.ymconnect.v1.ProtocolVersion selected_version = 3[json_name = "selectedVersion"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeSelectedVersion(ymconnect.v1.Common.ProtocolVersion value) {
@@ -2254,7 +2254,7 @@ public final class Capabilities {
       
     }
     /**
-     * <code>.ymconnect.v1.ProtocolVersion selected_version = 3;</code>
+     * <code>.ymconnect.v1.ProtocolVersion selected_version = 3[json_name = "selectedVersion"];</code>
      */
     private void clearSelectedVersion() {  selectedVersion_ = null;
       
@@ -2263,21 +2263,21 @@ public final class Capabilities {
     public static final int CAPABILITIES_FIELD_NUMBER = 4;
     private ymconnect.v1.Capabilities.CapabilityNegotiation capabilities_;
     /**
-     * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4;</code>
+     * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4[json_name = "capabilities"];</code>
      */
     @java.lang.Override
     public boolean hasCapabilities() {
       return capabilities_ != null;
     }
     /**
-     * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4;</code>
+     * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4[json_name = "capabilities"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Capabilities.CapabilityNegotiation getCapabilities() {
       return capabilities_ == null ? ymconnect.v1.Capabilities.CapabilityNegotiation.getDefaultInstance() : capabilities_;
     }
     /**
-     * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4;</code>
+     * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4[json_name = "capabilities"];</code>
      */
     private void setCapabilities(ymconnect.v1.Capabilities.CapabilityNegotiation value) {
       value.getClass();
@@ -2285,7 +2285,7 @@ public final class Capabilities {
       
       }
     /**
-     * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4;</code>
+     * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4[json_name = "capabilities"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeCapabilities(ymconnect.v1.Capabilities.CapabilityNegotiation value) {
@@ -2300,7 +2300,7 @@ public final class Capabilities {
       
     }
     /**
-     * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4;</code>
+     * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4[json_name = "capabilities"];</code>
      */
     private void clearCapabilities() {  capabilities_ = null;
       
@@ -2309,7 +2309,7 @@ public final class Capabilities {
     public static final int COMPATIBLE_FIELD_NUMBER = 5;
     private boolean compatible_;
     /**
-     * <code>bool compatible = 5;</code>
+     * <code>bool compatible = 5[json_name = "compatible"];</code>
      * @return The compatible.
      */
     @java.lang.Override
@@ -2317,7 +2317,7 @@ public final class Capabilities {
       return compatible_;
     }
     /**
-     * <code>bool compatible = 5;</code>
+     * <code>bool compatible = 5[json_name = "compatible"];</code>
      * @param value The compatible to set.
      */
     private void setCompatible(boolean value) {
@@ -2325,7 +2325,7 @@ public final class Capabilities {
       compatible_ = value;
     }
     /**
-     * <code>bool compatible = 5;</code>
+     * <code>bool compatible = 5[json_name = "compatible"];</code>
      */
     private void clearCompatible() {
       
@@ -2428,21 +2428,21 @@ public final class Capabilities {
 
 
       /**
-       * <code>.ymconnect.v1.VersionRange local_range = 1;</code>
+       * <code>.ymconnect.v1.VersionRange local_range = 1[json_name = "localRange"];</code>
        */
       @java.lang.Override
       public boolean hasLocalRange() {
         return instance.hasLocalRange();
       }
       /**
-       * <code>.ymconnect.v1.VersionRange local_range = 1;</code>
+       * <code>.ymconnect.v1.VersionRange local_range = 1[json_name = "localRange"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.VersionRange getLocalRange() {
         return instance.getLocalRange();
       }
       /**
-       * <code>.ymconnect.v1.VersionRange local_range = 1;</code>
+       * <code>.ymconnect.v1.VersionRange local_range = 1[json_name = "localRange"];</code>
        */
       public Builder setLocalRange(ymconnect.v1.Common.VersionRange value) {
         copyOnWrite();
@@ -2450,7 +2450,7 @@ public final class Capabilities {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.VersionRange local_range = 1;</code>
+       * <code>.ymconnect.v1.VersionRange local_range = 1[json_name = "localRange"];</code>
        */
       public Builder setLocalRange(
           ymconnect.v1.Common.VersionRange.Builder builderForValue) {
@@ -2459,7 +2459,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.VersionRange local_range = 1;</code>
+       * <code>.ymconnect.v1.VersionRange local_range = 1[json_name = "localRange"];</code>
        */
       public Builder mergeLocalRange(ymconnect.v1.Common.VersionRange value) {
         copyOnWrite();
@@ -2467,7 +2467,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.VersionRange local_range = 1;</code>
+       * <code>.ymconnect.v1.VersionRange local_range = 1[json_name = "localRange"];</code>
        */
       public Builder clearLocalRange() {  copyOnWrite();
         instance.clearLocalRange();
@@ -2475,21 +2475,21 @@ public final class Capabilities {
       }
 
       /**
-       * <code>.ymconnect.v1.VersionRange remote_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange remote_range = 2[json_name = "remoteRange"];</code>
        */
       @java.lang.Override
       public boolean hasRemoteRange() {
         return instance.hasRemoteRange();
       }
       /**
-       * <code>.ymconnect.v1.VersionRange remote_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange remote_range = 2[json_name = "remoteRange"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.VersionRange getRemoteRange() {
         return instance.getRemoteRange();
       }
       /**
-       * <code>.ymconnect.v1.VersionRange remote_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange remote_range = 2[json_name = "remoteRange"];</code>
        */
       public Builder setRemoteRange(ymconnect.v1.Common.VersionRange value) {
         copyOnWrite();
@@ -2497,7 +2497,7 @@ public final class Capabilities {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.VersionRange remote_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange remote_range = 2[json_name = "remoteRange"];</code>
        */
       public Builder setRemoteRange(
           ymconnect.v1.Common.VersionRange.Builder builderForValue) {
@@ -2506,7 +2506,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.VersionRange remote_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange remote_range = 2[json_name = "remoteRange"];</code>
        */
       public Builder mergeRemoteRange(ymconnect.v1.Common.VersionRange value) {
         copyOnWrite();
@@ -2514,7 +2514,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.VersionRange remote_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange remote_range = 2[json_name = "remoteRange"];</code>
        */
       public Builder clearRemoteRange() {  copyOnWrite();
         instance.clearRemoteRange();
@@ -2522,21 +2522,21 @@ public final class Capabilities {
       }
 
       /**
-       * <code>.ymconnect.v1.ProtocolVersion selected_version = 3;</code>
+       * <code>.ymconnect.v1.ProtocolVersion selected_version = 3[json_name = "selectedVersion"];</code>
        */
       @java.lang.Override
       public boolean hasSelectedVersion() {
         return instance.hasSelectedVersion();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion selected_version = 3;</code>
+       * <code>.ymconnect.v1.ProtocolVersion selected_version = 3[json_name = "selectedVersion"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.ProtocolVersion getSelectedVersion() {
         return instance.getSelectedVersion();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion selected_version = 3;</code>
+       * <code>.ymconnect.v1.ProtocolVersion selected_version = 3[json_name = "selectedVersion"];</code>
        */
       public Builder setSelectedVersion(ymconnect.v1.Common.ProtocolVersion value) {
         copyOnWrite();
@@ -2544,7 +2544,7 @@ public final class Capabilities {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion selected_version = 3;</code>
+       * <code>.ymconnect.v1.ProtocolVersion selected_version = 3[json_name = "selectedVersion"];</code>
        */
       public Builder setSelectedVersion(
           ymconnect.v1.Common.ProtocolVersion.Builder builderForValue) {
@@ -2553,7 +2553,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion selected_version = 3;</code>
+       * <code>.ymconnect.v1.ProtocolVersion selected_version = 3[json_name = "selectedVersion"];</code>
        */
       public Builder mergeSelectedVersion(ymconnect.v1.Common.ProtocolVersion value) {
         copyOnWrite();
@@ -2561,7 +2561,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion selected_version = 3;</code>
+       * <code>.ymconnect.v1.ProtocolVersion selected_version = 3[json_name = "selectedVersion"];</code>
        */
       public Builder clearSelectedVersion() {  copyOnWrite();
         instance.clearSelectedVersion();
@@ -2569,21 +2569,21 @@ public final class Capabilities {
       }
 
       /**
-       * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4;</code>
+       * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4[json_name = "capabilities"];</code>
        */
       @java.lang.Override
       public boolean hasCapabilities() {
         return instance.hasCapabilities();
       }
       /**
-       * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4;</code>
+       * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4[json_name = "capabilities"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Capabilities.CapabilityNegotiation getCapabilities() {
         return instance.getCapabilities();
       }
       /**
-       * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4;</code>
+       * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4[json_name = "capabilities"];</code>
        */
       public Builder setCapabilities(ymconnect.v1.Capabilities.CapabilityNegotiation value) {
         copyOnWrite();
@@ -2591,7 +2591,7 @@ public final class Capabilities {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4;</code>
+       * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4[json_name = "capabilities"];</code>
        */
       public Builder setCapabilities(
           ymconnect.v1.Capabilities.CapabilityNegotiation.Builder builderForValue) {
@@ -2600,7 +2600,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4;</code>
+       * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4[json_name = "capabilities"];</code>
        */
       public Builder mergeCapabilities(ymconnect.v1.Capabilities.CapabilityNegotiation value) {
         copyOnWrite();
@@ -2608,7 +2608,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4;</code>
+       * <code>.ymconnect.v1.CapabilityNegotiation capabilities = 4[json_name = "capabilities"];</code>
        */
       public Builder clearCapabilities() {  copyOnWrite();
         instance.clearCapabilities();
@@ -2616,7 +2616,7 @@ public final class Capabilities {
       }
 
       /**
-       * <code>bool compatible = 5;</code>
+       * <code>bool compatible = 5[json_name = "compatible"];</code>
        * @return The compatible.
        */
       @java.lang.Override
@@ -2624,7 +2624,7 @@ public final class Capabilities {
         return instance.getCompatible();
       }
       /**
-       * <code>bool compatible = 5;</code>
+       * <code>bool compatible = 5[json_name = "compatible"];</code>
        * @param value The compatible to set.
        * @return This builder for chaining.
        */
@@ -2634,7 +2634,7 @@ public final class Capabilities {
         return this;
       }
       /**
-       * <code>bool compatible = 5;</code>
+       * <code>bool compatible = 5[json_name = "compatible"];</code>
        * @return This builder for chaining.
        */
       public Builder clearCompatible() {

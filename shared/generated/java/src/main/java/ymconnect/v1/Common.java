@@ -459,19 +459,19 @@ public final class Common {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>uint32 major = 1;</code>
+     * <code>uint32 major = 1[json_name = "major"];</code>
      * @return The major.
      */
     int getMajor();
 
     /**
-     * <code>uint32 minor = 2;</code>
+     * <code>uint32 minor = 2[json_name = "minor"];</code>
      * @return The minor.
      */
     int getMinor();
 
     /**
-     * <code>uint32 patch = 3;</code>
+     * <code>uint32 patch = 3[json_name = "patch"];</code>
      * @return The patch.
      */
     int getPatch();
@@ -489,7 +489,7 @@ public final class Common {
     public static final int MAJOR_FIELD_NUMBER = 1;
     private int major_;
     /**
-     * <code>uint32 major = 1;</code>
+     * <code>uint32 major = 1[json_name = "major"];</code>
      * @return The major.
      */
     @java.lang.Override
@@ -497,7 +497,7 @@ public final class Common {
       return major_;
     }
     /**
-     * <code>uint32 major = 1;</code>
+     * <code>uint32 major = 1[json_name = "major"];</code>
      * @param value The major to set.
      */
     private void setMajor(int value) {
@@ -505,7 +505,7 @@ public final class Common {
       major_ = value;
     }
     /**
-     * <code>uint32 major = 1;</code>
+     * <code>uint32 major = 1[json_name = "major"];</code>
      */
     private void clearMajor() {
       
@@ -515,7 +515,7 @@ public final class Common {
     public static final int MINOR_FIELD_NUMBER = 2;
     private int minor_;
     /**
-     * <code>uint32 minor = 2;</code>
+     * <code>uint32 minor = 2[json_name = "minor"];</code>
      * @return The minor.
      */
     @java.lang.Override
@@ -523,7 +523,7 @@ public final class Common {
       return minor_;
     }
     /**
-     * <code>uint32 minor = 2;</code>
+     * <code>uint32 minor = 2[json_name = "minor"];</code>
      * @param value The minor to set.
      */
     private void setMinor(int value) {
@@ -531,7 +531,7 @@ public final class Common {
       minor_ = value;
     }
     /**
-     * <code>uint32 minor = 2;</code>
+     * <code>uint32 minor = 2[json_name = "minor"];</code>
      */
     private void clearMinor() {
       
@@ -541,7 +541,7 @@ public final class Common {
     public static final int PATCH_FIELD_NUMBER = 3;
     private int patch_;
     /**
-     * <code>uint32 patch = 3;</code>
+     * <code>uint32 patch = 3[json_name = "patch"];</code>
      * @return The patch.
      */
     @java.lang.Override
@@ -549,7 +549,7 @@ public final class Common {
       return patch_;
     }
     /**
-     * <code>uint32 patch = 3;</code>
+     * <code>uint32 patch = 3[json_name = "patch"];</code>
      * @param value The patch to set.
      */
     private void setPatch(int value) {
@@ -557,7 +557,7 @@ public final class Common {
       patch_ = value;
     }
     /**
-     * <code>uint32 patch = 3;</code>
+     * <code>uint32 patch = 3[json_name = "patch"];</code>
      */
     private void clearPatch() {
       
@@ -660,7 +660,7 @@ public final class Common {
 
 
       /**
-       * <code>uint32 major = 1;</code>
+       * <code>uint32 major = 1[json_name = "major"];</code>
        * @return The major.
        */
       @java.lang.Override
@@ -668,7 +668,7 @@ public final class Common {
         return instance.getMajor();
       }
       /**
-       * <code>uint32 major = 1;</code>
+       * <code>uint32 major = 1[json_name = "major"];</code>
        * @param value The major to set.
        * @return This builder for chaining.
        */
@@ -678,7 +678,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>uint32 major = 1;</code>
+       * <code>uint32 major = 1[json_name = "major"];</code>
        * @return This builder for chaining.
        */
       public Builder clearMajor() {
@@ -688,7 +688,7 @@ public final class Common {
       }
 
       /**
-       * <code>uint32 minor = 2;</code>
+       * <code>uint32 minor = 2[json_name = "minor"];</code>
        * @return The minor.
        */
       @java.lang.Override
@@ -696,7 +696,7 @@ public final class Common {
         return instance.getMinor();
       }
       /**
-       * <code>uint32 minor = 2;</code>
+       * <code>uint32 minor = 2[json_name = "minor"];</code>
        * @param value The minor to set.
        * @return This builder for chaining.
        */
@@ -706,7 +706,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>uint32 minor = 2;</code>
+       * <code>uint32 minor = 2[json_name = "minor"];</code>
        * @return This builder for chaining.
        */
       public Builder clearMinor() {
@@ -716,7 +716,7 @@ public final class Common {
       }
 
       /**
-       * <code>uint32 patch = 3;</code>
+       * <code>uint32 patch = 3[json_name = "patch"];</code>
        * @return The patch.
        */
       @java.lang.Override
@@ -724,7 +724,7 @@ public final class Common {
         return instance.getPatch();
       }
       /**
-       * <code>uint32 patch = 3;</code>
+       * <code>uint32 patch = 3[json_name = "patch"];</code>
        * @param value The patch to set.
        * @return This builder for chaining.
        */
@@ -734,7 +734,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>uint32 patch = 3;</code>
+       * <code>uint32 patch = 3[json_name = "patch"];</code>
        * @return This builder for chaining.
        */
       public Builder clearPatch() {
@@ -825,23 +825,23 @@ public final class Common {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.ProtocolVersion minimum = 1;</code>
+     * <code>.ymconnect.v1.ProtocolVersion minimum = 1[json_name = "minimum"];</code>
      * @return Whether the minimum field is set.
      */
     boolean hasMinimum();
     /**
-     * <code>.ymconnect.v1.ProtocolVersion minimum = 1;</code>
+     * <code>.ymconnect.v1.ProtocolVersion minimum = 1[json_name = "minimum"];</code>
      * @return The minimum.
      */
     ymconnect.v1.Common.ProtocolVersion getMinimum();
 
     /**
-     * <code>.ymconnect.v1.ProtocolVersion maximum = 2;</code>
+     * <code>.ymconnect.v1.ProtocolVersion maximum = 2[json_name = "maximum"];</code>
      * @return Whether the maximum field is set.
      */
     boolean hasMaximum();
     /**
-     * <code>.ymconnect.v1.ProtocolVersion maximum = 2;</code>
+     * <code>.ymconnect.v1.ProtocolVersion maximum = 2[json_name = "maximum"];</code>
      * @return The maximum.
      */
     ymconnect.v1.Common.ProtocolVersion getMaximum();
@@ -859,21 +859,21 @@ public final class Common {
     public static final int MINIMUM_FIELD_NUMBER = 1;
     private ymconnect.v1.Common.ProtocolVersion minimum_;
     /**
-     * <code>.ymconnect.v1.ProtocolVersion minimum = 1;</code>
+     * <code>.ymconnect.v1.ProtocolVersion minimum = 1[json_name = "minimum"];</code>
      */
     @java.lang.Override
     public boolean hasMinimum() {
       return minimum_ != null;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolVersion minimum = 1;</code>
+     * <code>.ymconnect.v1.ProtocolVersion minimum = 1[json_name = "minimum"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.ProtocolVersion getMinimum() {
       return minimum_ == null ? ymconnect.v1.Common.ProtocolVersion.getDefaultInstance() : minimum_;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolVersion minimum = 1;</code>
+     * <code>.ymconnect.v1.ProtocolVersion minimum = 1[json_name = "minimum"];</code>
      */
     private void setMinimum(ymconnect.v1.Common.ProtocolVersion value) {
       value.getClass();
@@ -881,7 +881,7 @@ public final class Common {
       
       }
     /**
-     * <code>.ymconnect.v1.ProtocolVersion minimum = 1;</code>
+     * <code>.ymconnect.v1.ProtocolVersion minimum = 1[json_name = "minimum"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeMinimum(ymconnect.v1.Common.ProtocolVersion value) {
@@ -896,7 +896,7 @@ public final class Common {
       
     }
     /**
-     * <code>.ymconnect.v1.ProtocolVersion minimum = 1;</code>
+     * <code>.ymconnect.v1.ProtocolVersion minimum = 1[json_name = "minimum"];</code>
      */
     private void clearMinimum() {  minimum_ = null;
       
@@ -905,21 +905,21 @@ public final class Common {
     public static final int MAXIMUM_FIELD_NUMBER = 2;
     private ymconnect.v1.Common.ProtocolVersion maximum_;
     /**
-     * <code>.ymconnect.v1.ProtocolVersion maximum = 2;</code>
+     * <code>.ymconnect.v1.ProtocolVersion maximum = 2[json_name = "maximum"];</code>
      */
     @java.lang.Override
     public boolean hasMaximum() {
       return maximum_ != null;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolVersion maximum = 2;</code>
+     * <code>.ymconnect.v1.ProtocolVersion maximum = 2[json_name = "maximum"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.ProtocolVersion getMaximum() {
       return maximum_ == null ? ymconnect.v1.Common.ProtocolVersion.getDefaultInstance() : maximum_;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolVersion maximum = 2;</code>
+     * <code>.ymconnect.v1.ProtocolVersion maximum = 2[json_name = "maximum"];</code>
      */
     private void setMaximum(ymconnect.v1.Common.ProtocolVersion value) {
       value.getClass();
@@ -927,7 +927,7 @@ public final class Common {
       
       }
     /**
-     * <code>.ymconnect.v1.ProtocolVersion maximum = 2;</code>
+     * <code>.ymconnect.v1.ProtocolVersion maximum = 2[json_name = "maximum"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeMaximum(ymconnect.v1.Common.ProtocolVersion value) {
@@ -942,7 +942,7 @@ public final class Common {
       
     }
     /**
-     * <code>.ymconnect.v1.ProtocolVersion maximum = 2;</code>
+     * <code>.ymconnect.v1.ProtocolVersion maximum = 2[json_name = "maximum"];</code>
      */
     private void clearMaximum() {  maximum_ = null;
       
@@ -1044,21 +1044,21 @@ public final class Common {
 
 
       /**
-       * <code>.ymconnect.v1.ProtocolVersion minimum = 1;</code>
+       * <code>.ymconnect.v1.ProtocolVersion minimum = 1[json_name = "minimum"];</code>
        */
       @java.lang.Override
       public boolean hasMinimum() {
         return instance.hasMinimum();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion minimum = 1;</code>
+       * <code>.ymconnect.v1.ProtocolVersion minimum = 1[json_name = "minimum"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.ProtocolVersion getMinimum() {
         return instance.getMinimum();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion minimum = 1;</code>
+       * <code>.ymconnect.v1.ProtocolVersion minimum = 1[json_name = "minimum"];</code>
        */
       public Builder setMinimum(ymconnect.v1.Common.ProtocolVersion value) {
         copyOnWrite();
@@ -1066,7 +1066,7 @@ public final class Common {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion minimum = 1;</code>
+       * <code>.ymconnect.v1.ProtocolVersion minimum = 1[json_name = "minimum"];</code>
        */
       public Builder setMinimum(
           ymconnect.v1.Common.ProtocolVersion.Builder builderForValue) {
@@ -1075,7 +1075,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion minimum = 1;</code>
+       * <code>.ymconnect.v1.ProtocolVersion minimum = 1[json_name = "minimum"];</code>
        */
       public Builder mergeMinimum(ymconnect.v1.Common.ProtocolVersion value) {
         copyOnWrite();
@@ -1083,7 +1083,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion minimum = 1;</code>
+       * <code>.ymconnect.v1.ProtocolVersion minimum = 1[json_name = "minimum"];</code>
        */
       public Builder clearMinimum() {  copyOnWrite();
         instance.clearMinimum();
@@ -1091,21 +1091,21 @@ public final class Common {
       }
 
       /**
-       * <code>.ymconnect.v1.ProtocolVersion maximum = 2;</code>
+       * <code>.ymconnect.v1.ProtocolVersion maximum = 2[json_name = "maximum"];</code>
        */
       @java.lang.Override
       public boolean hasMaximum() {
         return instance.hasMaximum();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion maximum = 2;</code>
+       * <code>.ymconnect.v1.ProtocolVersion maximum = 2[json_name = "maximum"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.ProtocolVersion getMaximum() {
         return instance.getMaximum();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion maximum = 2;</code>
+       * <code>.ymconnect.v1.ProtocolVersion maximum = 2[json_name = "maximum"];</code>
        */
       public Builder setMaximum(ymconnect.v1.Common.ProtocolVersion value) {
         copyOnWrite();
@@ -1113,7 +1113,7 @@ public final class Common {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion maximum = 2;</code>
+       * <code>.ymconnect.v1.ProtocolVersion maximum = 2[json_name = "maximum"];</code>
        */
       public Builder setMaximum(
           ymconnect.v1.Common.ProtocolVersion.Builder builderForValue) {
@@ -1122,7 +1122,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion maximum = 2;</code>
+       * <code>.ymconnect.v1.ProtocolVersion maximum = 2[json_name = "maximum"];</code>
        */
       public Builder mergeMaximum(ymconnect.v1.Common.ProtocolVersion value) {
         copyOnWrite();
@@ -1130,7 +1130,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion maximum = 2;</code>
+       * <code>.ymconnect.v1.ProtocolVersion maximum = 2[json_name = "maximum"];</code>
        */
       public Builder clearMaximum() {  copyOnWrite();
         instance.clearMaximum();
@@ -1217,60 +1217,60 @@ public final class Common {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1;</code>
+     * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1[json_name = "protocolVersion"];</code>
      * @return Whether the protocolVersion field is set.
      */
     boolean hasProtocolVersion();
     /**
-     * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1;</code>
+     * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1[json_name = "protocolVersion"];</code>
      * @return The protocolVersion.
      */
     ymconnect.v1.Common.ProtocolVersion getProtocolVersion();
 
     /**
-     * <code>string message_id = 2;</code>
+     * <code>string message_id = 2[json_name = "messageId"];</code>
      * @return The messageId.
      */
     java.lang.String getMessageId();
     /**
-     * <code>string message_id = 2;</code>
+     * <code>string message_id = 2[json_name = "messageId"];</code>
      * @return The bytes for messageId.
      */
     com.google.protobuf.ByteString
         getMessageIdBytes();
 
     /**
-     * <code>string correlation_id = 3;</code>
+     * <code>string correlation_id = 3[json_name = "correlationId"];</code>
      * @return The correlationId.
      */
     java.lang.String getCorrelationId();
     /**
-     * <code>string correlation_id = 3;</code>
+     * <code>string correlation_id = 3[json_name = "correlationId"];</code>
      * @return The bytes for correlationId.
      */
     com.google.protobuf.ByteString
         getCorrelationIdBytes();
 
     /**
-     * <code>uint64 sent_at_unix_ms = 4;</code>
+     * <code>uint64 sent_at_unix_ms = 4[json_name = "sentAtUnixMs"];</code>
      * @return The sentAtUnixMs.
      */
     long getSentAtUnixMs();
 
     /**
-     * <code>string sender_instance_id = 5;</code>
+     * <code>string sender_instance_id = 5[json_name = "senderInstanceId"];</code>
      * @return The senderInstanceId.
      */
     java.lang.String getSenderInstanceId();
     /**
-     * <code>string sender_instance_id = 5;</code>
+     * <code>string sender_instance_id = 5[json_name = "senderInstanceId"];</code>
      * @return The bytes for senderInstanceId.
      */
     com.google.protobuf.ByteString
         getSenderInstanceIdBytes();
 
     /**
-     * <code>uint64 sequence = 6;</code>
+     * <code>uint64 sequence = 6[json_name = "sequence"];</code>
      * @return The sequence.
      */
     long getSequence();
@@ -1291,21 +1291,21 @@ public final class Common {
     public static final int PROTOCOL_VERSION_FIELD_NUMBER = 1;
     private ymconnect.v1.Common.ProtocolVersion protocolVersion_;
     /**
-     * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1;</code>
+     * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1[json_name = "protocolVersion"];</code>
      */
     @java.lang.Override
     public boolean hasProtocolVersion() {
       return protocolVersion_ != null;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1;</code>
+     * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1[json_name = "protocolVersion"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.ProtocolVersion getProtocolVersion() {
       return protocolVersion_ == null ? ymconnect.v1.Common.ProtocolVersion.getDefaultInstance() : protocolVersion_;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1;</code>
+     * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1[json_name = "protocolVersion"];</code>
      */
     private void setProtocolVersion(ymconnect.v1.Common.ProtocolVersion value) {
       value.getClass();
@@ -1313,7 +1313,7 @@ public final class Common {
       
       }
     /**
-     * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1;</code>
+     * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1[json_name = "protocolVersion"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeProtocolVersion(ymconnect.v1.Common.ProtocolVersion value) {
@@ -1328,7 +1328,7 @@ public final class Common {
       
     }
     /**
-     * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1;</code>
+     * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1[json_name = "protocolVersion"];</code>
      */
     private void clearProtocolVersion() {  protocolVersion_ = null;
       
@@ -1337,7 +1337,7 @@ public final class Common {
     public static final int MESSAGE_ID_FIELD_NUMBER = 2;
     private java.lang.String messageId_;
     /**
-     * <code>string message_id = 2;</code>
+     * <code>string message_id = 2[json_name = "messageId"];</code>
      * @return The messageId.
      */
     @java.lang.Override
@@ -1345,7 +1345,7 @@ public final class Common {
       return messageId_;
     }
     /**
-     * <code>string message_id = 2;</code>
+     * <code>string message_id = 2[json_name = "messageId"];</code>
      * @return The bytes for messageId.
      */
     @java.lang.Override
@@ -1354,7 +1354,7 @@ public final class Common {
       return com.google.protobuf.ByteString.copyFromUtf8(messageId_);
     }
     /**
-     * <code>string message_id = 2;</code>
+     * <code>string message_id = 2[json_name = "messageId"];</code>
      * @param value The messageId to set.
      */
     private void setMessageId(
@@ -1364,14 +1364,14 @@ public final class Common {
       messageId_ = value;
     }
     /**
-     * <code>string message_id = 2;</code>
+     * <code>string message_id = 2[json_name = "messageId"];</code>
      */
     private void clearMessageId() {
       
       messageId_ = getDefaultInstance().getMessageId();
     }
     /**
-     * <code>string message_id = 2;</code>
+     * <code>string message_id = 2[json_name = "messageId"];</code>
      * @param value The bytes for messageId to set.
      */
     private void setMessageIdBytes(
@@ -1384,7 +1384,7 @@ public final class Common {
     public static final int CORRELATION_ID_FIELD_NUMBER = 3;
     private java.lang.String correlationId_;
     /**
-     * <code>string correlation_id = 3;</code>
+     * <code>string correlation_id = 3[json_name = "correlationId"];</code>
      * @return The correlationId.
      */
     @java.lang.Override
@@ -1392,7 +1392,7 @@ public final class Common {
       return correlationId_;
     }
     /**
-     * <code>string correlation_id = 3;</code>
+     * <code>string correlation_id = 3[json_name = "correlationId"];</code>
      * @return The bytes for correlationId.
      */
     @java.lang.Override
@@ -1401,7 +1401,7 @@ public final class Common {
       return com.google.protobuf.ByteString.copyFromUtf8(correlationId_);
     }
     /**
-     * <code>string correlation_id = 3;</code>
+     * <code>string correlation_id = 3[json_name = "correlationId"];</code>
      * @param value The correlationId to set.
      */
     private void setCorrelationId(
@@ -1411,14 +1411,14 @@ public final class Common {
       correlationId_ = value;
     }
     /**
-     * <code>string correlation_id = 3;</code>
+     * <code>string correlation_id = 3[json_name = "correlationId"];</code>
      */
     private void clearCorrelationId() {
       
       correlationId_ = getDefaultInstance().getCorrelationId();
     }
     /**
-     * <code>string correlation_id = 3;</code>
+     * <code>string correlation_id = 3[json_name = "correlationId"];</code>
      * @param value The bytes for correlationId to set.
      */
     private void setCorrelationIdBytes(
@@ -1431,7 +1431,7 @@ public final class Common {
     public static final int SENT_AT_UNIX_MS_FIELD_NUMBER = 4;
     private long sentAtUnixMs_;
     /**
-     * <code>uint64 sent_at_unix_ms = 4;</code>
+     * <code>uint64 sent_at_unix_ms = 4[json_name = "sentAtUnixMs"];</code>
      * @return The sentAtUnixMs.
      */
     @java.lang.Override
@@ -1439,7 +1439,7 @@ public final class Common {
       return sentAtUnixMs_;
     }
     /**
-     * <code>uint64 sent_at_unix_ms = 4;</code>
+     * <code>uint64 sent_at_unix_ms = 4[json_name = "sentAtUnixMs"];</code>
      * @param value The sentAtUnixMs to set.
      */
     private void setSentAtUnixMs(long value) {
@@ -1447,7 +1447,7 @@ public final class Common {
       sentAtUnixMs_ = value;
     }
     /**
-     * <code>uint64 sent_at_unix_ms = 4;</code>
+     * <code>uint64 sent_at_unix_ms = 4[json_name = "sentAtUnixMs"];</code>
      */
     private void clearSentAtUnixMs() {
       
@@ -1457,7 +1457,7 @@ public final class Common {
     public static final int SENDER_INSTANCE_ID_FIELD_NUMBER = 5;
     private java.lang.String senderInstanceId_;
     /**
-     * <code>string sender_instance_id = 5;</code>
+     * <code>string sender_instance_id = 5[json_name = "senderInstanceId"];</code>
      * @return The senderInstanceId.
      */
     @java.lang.Override
@@ -1465,7 +1465,7 @@ public final class Common {
       return senderInstanceId_;
     }
     /**
-     * <code>string sender_instance_id = 5;</code>
+     * <code>string sender_instance_id = 5[json_name = "senderInstanceId"];</code>
      * @return The bytes for senderInstanceId.
      */
     @java.lang.Override
@@ -1474,7 +1474,7 @@ public final class Common {
       return com.google.protobuf.ByteString.copyFromUtf8(senderInstanceId_);
     }
     /**
-     * <code>string sender_instance_id = 5;</code>
+     * <code>string sender_instance_id = 5[json_name = "senderInstanceId"];</code>
      * @param value The senderInstanceId to set.
      */
     private void setSenderInstanceId(
@@ -1484,14 +1484,14 @@ public final class Common {
       senderInstanceId_ = value;
     }
     /**
-     * <code>string sender_instance_id = 5;</code>
+     * <code>string sender_instance_id = 5[json_name = "senderInstanceId"];</code>
      */
     private void clearSenderInstanceId() {
       
       senderInstanceId_ = getDefaultInstance().getSenderInstanceId();
     }
     /**
-     * <code>string sender_instance_id = 5;</code>
+     * <code>string sender_instance_id = 5[json_name = "senderInstanceId"];</code>
      * @param value The bytes for senderInstanceId to set.
      */
     private void setSenderInstanceIdBytes(
@@ -1504,7 +1504,7 @@ public final class Common {
     public static final int SEQUENCE_FIELD_NUMBER = 6;
     private long sequence_;
     /**
-     * <code>uint64 sequence = 6;</code>
+     * <code>uint64 sequence = 6[json_name = "sequence"];</code>
      * @return The sequence.
      */
     @java.lang.Override
@@ -1512,7 +1512,7 @@ public final class Common {
       return sequence_;
     }
     /**
-     * <code>uint64 sequence = 6;</code>
+     * <code>uint64 sequence = 6[json_name = "sequence"];</code>
      * @param value The sequence to set.
      */
     private void setSequence(long value) {
@@ -1520,7 +1520,7 @@ public final class Common {
       sequence_ = value;
     }
     /**
-     * <code>uint64 sequence = 6;</code>
+     * <code>uint64 sequence = 6[json_name = "sequence"];</code>
      */
     private void clearSequence() {
       
@@ -1623,21 +1623,21 @@ public final class Common {
 
 
       /**
-       * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1;</code>
+       * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1[json_name = "protocolVersion"];</code>
        */
       @java.lang.Override
       public boolean hasProtocolVersion() {
         return instance.hasProtocolVersion();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1;</code>
+       * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1[json_name = "protocolVersion"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.ProtocolVersion getProtocolVersion() {
         return instance.getProtocolVersion();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1;</code>
+       * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1[json_name = "protocolVersion"];</code>
        */
       public Builder setProtocolVersion(ymconnect.v1.Common.ProtocolVersion value) {
         copyOnWrite();
@@ -1645,7 +1645,7 @@ public final class Common {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1;</code>
+       * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1[json_name = "protocolVersion"];</code>
        */
       public Builder setProtocolVersion(
           ymconnect.v1.Common.ProtocolVersion.Builder builderForValue) {
@@ -1654,7 +1654,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1;</code>
+       * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1[json_name = "protocolVersion"];</code>
        */
       public Builder mergeProtocolVersion(ymconnect.v1.Common.ProtocolVersion value) {
         copyOnWrite();
@@ -1662,7 +1662,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1;</code>
+       * <code>.ymconnect.v1.ProtocolVersion protocol_version = 1[json_name = "protocolVersion"];</code>
        */
       public Builder clearProtocolVersion() {  copyOnWrite();
         instance.clearProtocolVersion();
@@ -1670,7 +1670,7 @@ public final class Common {
       }
 
       /**
-       * <code>string message_id = 2;</code>
+       * <code>string message_id = 2[json_name = "messageId"];</code>
        * @return The messageId.
        */
       @java.lang.Override
@@ -1678,7 +1678,7 @@ public final class Common {
         return instance.getMessageId();
       }
       /**
-       * <code>string message_id = 2;</code>
+       * <code>string message_id = 2[json_name = "messageId"];</code>
        * @return The bytes for messageId.
        */
       @java.lang.Override
@@ -1687,7 +1687,7 @@ public final class Common {
         return instance.getMessageIdBytes();
       }
       /**
-       * <code>string message_id = 2;</code>
+       * <code>string message_id = 2[json_name = "messageId"];</code>
        * @param value The messageId to set.
        * @return This builder for chaining.
        */
@@ -1698,7 +1698,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string message_id = 2;</code>
+       * <code>string message_id = 2[json_name = "messageId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearMessageId() {
@@ -1707,7 +1707,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string message_id = 2;</code>
+       * <code>string message_id = 2[json_name = "messageId"];</code>
        * @param value The bytes for messageId to set.
        * @return This builder for chaining.
        */
@@ -1719,7 +1719,7 @@ public final class Common {
       }
 
       /**
-       * <code>string correlation_id = 3;</code>
+       * <code>string correlation_id = 3[json_name = "correlationId"];</code>
        * @return The correlationId.
        */
       @java.lang.Override
@@ -1727,7 +1727,7 @@ public final class Common {
         return instance.getCorrelationId();
       }
       /**
-       * <code>string correlation_id = 3;</code>
+       * <code>string correlation_id = 3[json_name = "correlationId"];</code>
        * @return The bytes for correlationId.
        */
       @java.lang.Override
@@ -1736,7 +1736,7 @@ public final class Common {
         return instance.getCorrelationIdBytes();
       }
       /**
-       * <code>string correlation_id = 3;</code>
+       * <code>string correlation_id = 3[json_name = "correlationId"];</code>
        * @param value The correlationId to set.
        * @return This builder for chaining.
        */
@@ -1747,7 +1747,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string correlation_id = 3;</code>
+       * <code>string correlation_id = 3[json_name = "correlationId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearCorrelationId() {
@@ -1756,7 +1756,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string correlation_id = 3;</code>
+       * <code>string correlation_id = 3[json_name = "correlationId"];</code>
        * @param value The bytes for correlationId to set.
        * @return This builder for chaining.
        */
@@ -1768,7 +1768,7 @@ public final class Common {
       }
 
       /**
-       * <code>uint64 sent_at_unix_ms = 4;</code>
+       * <code>uint64 sent_at_unix_ms = 4[json_name = "sentAtUnixMs"];</code>
        * @return The sentAtUnixMs.
        */
       @java.lang.Override
@@ -1776,7 +1776,7 @@ public final class Common {
         return instance.getSentAtUnixMs();
       }
       /**
-       * <code>uint64 sent_at_unix_ms = 4;</code>
+       * <code>uint64 sent_at_unix_ms = 4[json_name = "sentAtUnixMs"];</code>
        * @param value The sentAtUnixMs to set.
        * @return This builder for chaining.
        */
@@ -1786,7 +1786,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>uint64 sent_at_unix_ms = 4;</code>
+       * <code>uint64 sent_at_unix_ms = 4[json_name = "sentAtUnixMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearSentAtUnixMs() {
@@ -1796,7 +1796,7 @@ public final class Common {
       }
 
       /**
-       * <code>string sender_instance_id = 5;</code>
+       * <code>string sender_instance_id = 5[json_name = "senderInstanceId"];</code>
        * @return The senderInstanceId.
        */
       @java.lang.Override
@@ -1804,7 +1804,7 @@ public final class Common {
         return instance.getSenderInstanceId();
       }
       /**
-       * <code>string sender_instance_id = 5;</code>
+       * <code>string sender_instance_id = 5[json_name = "senderInstanceId"];</code>
        * @return The bytes for senderInstanceId.
        */
       @java.lang.Override
@@ -1813,7 +1813,7 @@ public final class Common {
         return instance.getSenderInstanceIdBytes();
       }
       /**
-       * <code>string sender_instance_id = 5;</code>
+       * <code>string sender_instance_id = 5[json_name = "senderInstanceId"];</code>
        * @param value The senderInstanceId to set.
        * @return This builder for chaining.
        */
@@ -1824,7 +1824,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string sender_instance_id = 5;</code>
+       * <code>string sender_instance_id = 5[json_name = "senderInstanceId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearSenderInstanceId() {
@@ -1833,7 +1833,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string sender_instance_id = 5;</code>
+       * <code>string sender_instance_id = 5[json_name = "senderInstanceId"];</code>
        * @param value The bytes for senderInstanceId to set.
        * @return This builder for chaining.
        */
@@ -1845,7 +1845,7 @@ public final class Common {
       }
 
       /**
-       * <code>uint64 sequence = 6;</code>
+       * <code>uint64 sequence = 6[json_name = "sequence"];</code>
        * @return The sequence.
        */
       @java.lang.Override
@@ -1853,7 +1853,7 @@ public final class Common {
         return instance.getSequence();
       }
       /**
-       * <code>uint64 sequence = 6;</code>
+       * <code>uint64 sequence = 6[json_name = "sequence"];</code>
        * @param value The sequence to set.
        * @return This builder for chaining.
        */
@@ -1863,7 +1863,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>uint64 sequence = 6;</code>
+       * <code>uint64 sequence = 6[json_name = "sequence"];</code>
        * @return This builder for chaining.
        */
       public Builder clearSequence() {
@@ -1957,54 +1957,54 @@ public final class Common {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string device_id = 1;</code>
+     * <code>string device_id = 1[json_name = "deviceId"];</code>
      * @return The deviceId.
      */
     java.lang.String getDeviceId();
     /**
-     * <code>string device_id = 1;</code>
+     * <code>string device_id = 1[json_name = "deviceId"];</code>
      * @return The bytes for deviceId.
      */
     com.google.protobuf.ByteString
         getDeviceIdBytes();
 
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @return The displayName.
      */
     java.lang.String getDisplayName();
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @return The bytes for displayName.
      */
     com.google.protobuf.ByteString
         getDisplayNameBytes();
 
     /**
-     * <code>.ymconnect.v1.Platform platform = 3;</code>
+     * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
      * @return The enum numeric value on the wire for platform.
      */
     int getPlatformValue();
     /**
-     * <code>.ymconnect.v1.Platform platform = 3;</code>
+     * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
      * @return The platform.
      */
     ymconnect.v1.Common.Platform getPlatform();
 
     /**
-     * <code>string app_version = 4;</code>
+     * <code>string app_version = 4[json_name = "appVersion"];</code>
      * @return The appVersion.
      */
     java.lang.String getAppVersion();
     /**
-     * <code>string app_version = 4;</code>
+     * <code>string app_version = 4[json_name = "appVersion"];</code>
      * @return The bytes for appVersion.
      */
     com.google.protobuf.ByteString
         getAppVersionBytes();
 
     /**
-     * <code>bytes identity_public_key = 5;</code>
+     * <code>bytes identity_public_key = 5[json_name = "identityPublicKey"];</code>
      * @return The identityPublicKey.
      */
     com.google.protobuf.ByteString getIdentityPublicKey();
@@ -2026,7 +2026,7 @@ public final class Common {
     public static final int DEVICE_ID_FIELD_NUMBER = 1;
     private java.lang.String deviceId_;
     /**
-     * <code>string device_id = 1;</code>
+     * <code>string device_id = 1[json_name = "deviceId"];</code>
      * @return The deviceId.
      */
     @java.lang.Override
@@ -2034,7 +2034,7 @@ public final class Common {
       return deviceId_;
     }
     /**
-     * <code>string device_id = 1;</code>
+     * <code>string device_id = 1[json_name = "deviceId"];</code>
      * @return The bytes for deviceId.
      */
     @java.lang.Override
@@ -2043,7 +2043,7 @@ public final class Common {
       return com.google.protobuf.ByteString.copyFromUtf8(deviceId_);
     }
     /**
-     * <code>string device_id = 1;</code>
+     * <code>string device_id = 1[json_name = "deviceId"];</code>
      * @param value The deviceId to set.
      */
     private void setDeviceId(
@@ -2053,14 +2053,14 @@ public final class Common {
       deviceId_ = value;
     }
     /**
-     * <code>string device_id = 1;</code>
+     * <code>string device_id = 1[json_name = "deviceId"];</code>
      */
     private void clearDeviceId() {
       
       deviceId_ = getDefaultInstance().getDeviceId();
     }
     /**
-     * <code>string device_id = 1;</code>
+     * <code>string device_id = 1[json_name = "deviceId"];</code>
      * @param value The bytes for deviceId to set.
      */
     private void setDeviceIdBytes(
@@ -2073,7 +2073,7 @@ public final class Common {
     public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
     private java.lang.String displayName_;
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @return The displayName.
      */
     @java.lang.Override
@@ -2081,7 +2081,7 @@ public final class Common {
       return displayName_;
     }
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @return The bytes for displayName.
      */
     @java.lang.Override
@@ -2090,7 +2090,7 @@ public final class Common {
       return com.google.protobuf.ByteString.copyFromUtf8(displayName_);
     }
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @param value The displayName to set.
      */
     private void setDisplayName(
@@ -2100,14 +2100,14 @@ public final class Common {
       displayName_ = value;
     }
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      */
     private void clearDisplayName() {
       
       displayName_ = getDefaultInstance().getDisplayName();
     }
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @param value The bytes for displayName to set.
      */
     private void setDisplayNameBytes(
@@ -2120,7 +2120,7 @@ public final class Common {
     public static final int PLATFORM_FIELD_NUMBER = 3;
     private int platform_;
     /**
-     * <code>.ymconnect.v1.Platform platform = 3;</code>
+     * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
      * @return The enum numeric value on the wire for platform.
      */
     @java.lang.Override
@@ -2128,7 +2128,7 @@ public final class Common {
       return platform_;
     }
     /**
-     * <code>.ymconnect.v1.Platform platform = 3;</code>
+     * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
      * @return The platform.
      */
     @java.lang.Override
@@ -2137,14 +2137,14 @@ public final class Common {
       return result == null ? ymconnect.v1.Common.Platform.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ymconnect.v1.Platform platform = 3;</code>
+     * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
      * @param value The enum numeric value on the wire for platform to set.
      */
     private void setPlatformValue(int value) {
         platform_ = value;
     }
     /**
-     * <code>.ymconnect.v1.Platform platform = 3;</code>
+     * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
      * @param value The platform to set.
      */
     private void setPlatform(ymconnect.v1.Common.Platform value) {
@@ -2152,7 +2152,7 @@ public final class Common {
       
     }
     /**
-     * <code>.ymconnect.v1.Platform platform = 3;</code>
+     * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
      */
     private void clearPlatform() {
       
@@ -2162,7 +2162,7 @@ public final class Common {
     public static final int APP_VERSION_FIELD_NUMBER = 4;
     private java.lang.String appVersion_;
     /**
-     * <code>string app_version = 4;</code>
+     * <code>string app_version = 4[json_name = "appVersion"];</code>
      * @return The appVersion.
      */
     @java.lang.Override
@@ -2170,7 +2170,7 @@ public final class Common {
       return appVersion_;
     }
     /**
-     * <code>string app_version = 4;</code>
+     * <code>string app_version = 4[json_name = "appVersion"];</code>
      * @return The bytes for appVersion.
      */
     @java.lang.Override
@@ -2179,7 +2179,7 @@ public final class Common {
       return com.google.protobuf.ByteString.copyFromUtf8(appVersion_);
     }
     /**
-     * <code>string app_version = 4;</code>
+     * <code>string app_version = 4[json_name = "appVersion"];</code>
      * @param value The appVersion to set.
      */
     private void setAppVersion(
@@ -2189,14 +2189,14 @@ public final class Common {
       appVersion_ = value;
     }
     /**
-     * <code>string app_version = 4;</code>
+     * <code>string app_version = 4[json_name = "appVersion"];</code>
      */
     private void clearAppVersion() {
       
       appVersion_ = getDefaultInstance().getAppVersion();
     }
     /**
-     * <code>string app_version = 4;</code>
+     * <code>string app_version = 4[json_name = "appVersion"];</code>
      * @param value The bytes for appVersion to set.
      */
     private void setAppVersionBytes(
@@ -2209,7 +2209,7 @@ public final class Common {
     public static final int IDENTITY_PUBLIC_KEY_FIELD_NUMBER = 5;
     private com.google.protobuf.ByteString identityPublicKey_;
     /**
-     * <code>bytes identity_public_key = 5;</code>
+     * <code>bytes identity_public_key = 5[json_name = "identityPublicKey"];</code>
      * @return The identityPublicKey.
      */
     @java.lang.Override
@@ -2217,7 +2217,7 @@ public final class Common {
       return identityPublicKey_;
     }
     /**
-     * <code>bytes identity_public_key = 5;</code>
+     * <code>bytes identity_public_key = 5[json_name = "identityPublicKey"];</code>
      * @param value The identityPublicKey to set.
      */
     private void setIdentityPublicKey(com.google.protobuf.ByteString value) {
@@ -2226,7 +2226,7 @@ public final class Common {
       identityPublicKey_ = value;
     }
     /**
-     * <code>bytes identity_public_key = 5;</code>
+     * <code>bytes identity_public_key = 5[json_name = "identityPublicKey"];</code>
      */
     private void clearIdentityPublicKey() {
       
@@ -2329,7 +2329,7 @@ public final class Common {
 
 
       /**
-       * <code>string device_id = 1;</code>
+       * <code>string device_id = 1[json_name = "deviceId"];</code>
        * @return The deviceId.
        */
       @java.lang.Override
@@ -2337,7 +2337,7 @@ public final class Common {
         return instance.getDeviceId();
       }
       /**
-       * <code>string device_id = 1;</code>
+       * <code>string device_id = 1[json_name = "deviceId"];</code>
        * @return The bytes for deviceId.
        */
       @java.lang.Override
@@ -2346,7 +2346,7 @@ public final class Common {
         return instance.getDeviceIdBytes();
       }
       /**
-       * <code>string device_id = 1;</code>
+       * <code>string device_id = 1[json_name = "deviceId"];</code>
        * @param value The deviceId to set.
        * @return This builder for chaining.
        */
@@ -2357,7 +2357,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string device_id = 1;</code>
+       * <code>string device_id = 1[json_name = "deviceId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearDeviceId() {
@@ -2366,7 +2366,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string device_id = 1;</code>
+       * <code>string device_id = 1[json_name = "deviceId"];</code>
        * @param value The bytes for deviceId to set.
        * @return This builder for chaining.
        */
@@ -2378,7 +2378,7 @@ public final class Common {
       }
 
       /**
-       * <code>string display_name = 2;</code>
+       * <code>string display_name = 2[json_name = "displayName"];</code>
        * @return The displayName.
        */
       @java.lang.Override
@@ -2386,7 +2386,7 @@ public final class Common {
         return instance.getDisplayName();
       }
       /**
-       * <code>string display_name = 2;</code>
+       * <code>string display_name = 2[json_name = "displayName"];</code>
        * @return The bytes for displayName.
        */
       @java.lang.Override
@@ -2395,7 +2395,7 @@ public final class Common {
         return instance.getDisplayNameBytes();
       }
       /**
-       * <code>string display_name = 2;</code>
+       * <code>string display_name = 2[json_name = "displayName"];</code>
        * @param value The displayName to set.
        * @return This builder for chaining.
        */
@@ -2406,7 +2406,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string display_name = 2;</code>
+       * <code>string display_name = 2[json_name = "displayName"];</code>
        * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
@@ -2415,7 +2415,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string display_name = 2;</code>
+       * <code>string display_name = 2[json_name = "displayName"];</code>
        * @param value The bytes for displayName to set.
        * @return This builder for chaining.
        */
@@ -2427,7 +2427,7 @@ public final class Common {
       }
 
       /**
-       * <code>.ymconnect.v1.Platform platform = 3;</code>
+       * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
        * @return The enum numeric value on the wire for platform.
        */
       @java.lang.Override
@@ -2435,7 +2435,7 @@ public final class Common {
         return instance.getPlatformValue();
       }
       /**
-       * <code>.ymconnect.v1.Platform platform = 3;</code>
+       * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
        * @param value The platform to set.
        * @return This builder for chaining.
        */
@@ -2445,7 +2445,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.Platform platform = 3;</code>
+       * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
        * @return The platform.
        */
       @java.lang.Override
@@ -2453,7 +2453,7 @@ public final class Common {
         return instance.getPlatform();
       }
       /**
-       * <code>.ymconnect.v1.Platform platform = 3;</code>
+       * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
        * @param value The enum numeric value on the wire for platform to set.
        * @return This builder for chaining.
        */
@@ -2463,7 +2463,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.Platform platform = 3;</code>
+       * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
        * @return This builder for chaining.
        */
       public Builder clearPlatform() {
@@ -2473,7 +2473,7 @@ public final class Common {
       }
 
       /**
-       * <code>string app_version = 4;</code>
+       * <code>string app_version = 4[json_name = "appVersion"];</code>
        * @return The appVersion.
        */
       @java.lang.Override
@@ -2481,7 +2481,7 @@ public final class Common {
         return instance.getAppVersion();
       }
       /**
-       * <code>string app_version = 4;</code>
+       * <code>string app_version = 4[json_name = "appVersion"];</code>
        * @return The bytes for appVersion.
        */
       @java.lang.Override
@@ -2490,7 +2490,7 @@ public final class Common {
         return instance.getAppVersionBytes();
       }
       /**
-       * <code>string app_version = 4;</code>
+       * <code>string app_version = 4[json_name = "appVersion"];</code>
        * @param value The appVersion to set.
        * @return This builder for chaining.
        */
@@ -2501,7 +2501,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string app_version = 4;</code>
+       * <code>string app_version = 4[json_name = "appVersion"];</code>
        * @return This builder for chaining.
        */
       public Builder clearAppVersion() {
@@ -2510,7 +2510,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string app_version = 4;</code>
+       * <code>string app_version = 4[json_name = "appVersion"];</code>
        * @param value The bytes for appVersion to set.
        * @return This builder for chaining.
        */
@@ -2522,7 +2522,7 @@ public final class Common {
       }
 
       /**
-       * <code>bytes identity_public_key = 5;</code>
+       * <code>bytes identity_public_key = 5[json_name = "identityPublicKey"];</code>
        * @return The identityPublicKey.
        */
       @java.lang.Override
@@ -2530,7 +2530,7 @@ public final class Common {
         return instance.getIdentityPublicKey();
       }
       /**
-       * <code>bytes identity_public_key = 5;</code>
+       * <code>bytes identity_public_key = 5[json_name = "identityPublicKey"];</code>
        * @param value The identityPublicKey to set.
        * @return This builder for chaining.
        */
@@ -2540,7 +2540,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>bytes identity_public_key = 5;</code>
+       * <code>bytes identity_public_key = 5[json_name = "identityPublicKey"];</code>
        * @return This builder for chaining.
        */
       public Builder clearIdentityPublicKey() {
@@ -2633,60 +2633,60 @@ public final class Common {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string bridge_id = 1;</code>
+     * <code>string bridge_id = 1[json_name = "bridgeId"];</code>
      * @return The bridgeId.
      */
     java.lang.String getBridgeId();
     /**
-     * <code>string bridge_id = 1;</code>
+     * <code>string bridge_id = 1[json_name = "bridgeId"];</code>
      * @return The bytes for bridgeId.
      */
     com.google.protobuf.ByteString
         getBridgeIdBytes();
 
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @return The displayName.
      */
     java.lang.String getDisplayName();
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @return The bytes for displayName.
      */
     com.google.protobuf.ByteString
         getDisplayNameBytes();
 
     /**
-     * <code>.ymconnect.v1.Platform platform = 3;</code>
+     * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
      * @return The enum numeric value on the wire for platform.
      */
     int getPlatformValue();
     /**
-     * <code>.ymconnect.v1.Platform platform = 3;</code>
+     * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
      * @return The platform.
      */
     ymconnect.v1.Common.Platform getPlatform();
 
     /**
-     * <code>string bridge_version = 4;</code>
+     * <code>string bridge_version = 4[json_name = "bridgeVersion"];</code>
      * @return The bridgeVersion.
      */
     java.lang.String getBridgeVersion();
     /**
-     * <code>string bridge_version = 4;</code>
+     * <code>string bridge_version = 4[json_name = "bridgeVersion"];</code>
      * @return The bytes for bridgeVersion.
      */
     com.google.protobuf.ByteString
         getBridgeVersionBytes();
 
     /**
-     * <code>bytes identity_public_key = 5;</code>
+     * <code>bytes identity_public_key = 5[json_name = "identityPublicKey"];</code>
      * @return The identityPublicKey.
      */
     com.google.protobuf.ByteString getIdentityPublicKey();
 
     /**
-     * <code>bytes certificate_fingerprint = 6;</code>
+     * <code>bytes certificate_fingerprint = 6[json_name = "certificateFingerprint"];</code>
      * @return The certificateFingerprint.
      */
     com.google.protobuf.ByteString getCertificateFingerprint();
@@ -2709,7 +2709,7 @@ public final class Common {
     public static final int BRIDGE_ID_FIELD_NUMBER = 1;
     private java.lang.String bridgeId_;
     /**
-     * <code>string bridge_id = 1;</code>
+     * <code>string bridge_id = 1[json_name = "bridgeId"];</code>
      * @return The bridgeId.
      */
     @java.lang.Override
@@ -2717,7 +2717,7 @@ public final class Common {
       return bridgeId_;
     }
     /**
-     * <code>string bridge_id = 1;</code>
+     * <code>string bridge_id = 1[json_name = "bridgeId"];</code>
      * @return The bytes for bridgeId.
      */
     @java.lang.Override
@@ -2726,7 +2726,7 @@ public final class Common {
       return com.google.protobuf.ByteString.copyFromUtf8(bridgeId_);
     }
     /**
-     * <code>string bridge_id = 1;</code>
+     * <code>string bridge_id = 1[json_name = "bridgeId"];</code>
      * @param value The bridgeId to set.
      */
     private void setBridgeId(
@@ -2736,14 +2736,14 @@ public final class Common {
       bridgeId_ = value;
     }
     /**
-     * <code>string bridge_id = 1;</code>
+     * <code>string bridge_id = 1[json_name = "bridgeId"];</code>
      */
     private void clearBridgeId() {
       
       bridgeId_ = getDefaultInstance().getBridgeId();
     }
     /**
-     * <code>string bridge_id = 1;</code>
+     * <code>string bridge_id = 1[json_name = "bridgeId"];</code>
      * @param value The bytes for bridgeId to set.
      */
     private void setBridgeIdBytes(
@@ -2756,7 +2756,7 @@ public final class Common {
     public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
     private java.lang.String displayName_;
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @return The displayName.
      */
     @java.lang.Override
@@ -2764,7 +2764,7 @@ public final class Common {
       return displayName_;
     }
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @return The bytes for displayName.
      */
     @java.lang.Override
@@ -2773,7 +2773,7 @@ public final class Common {
       return com.google.protobuf.ByteString.copyFromUtf8(displayName_);
     }
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @param value The displayName to set.
      */
     private void setDisplayName(
@@ -2783,14 +2783,14 @@ public final class Common {
       displayName_ = value;
     }
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      */
     private void clearDisplayName() {
       
       displayName_ = getDefaultInstance().getDisplayName();
     }
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @param value The bytes for displayName to set.
      */
     private void setDisplayNameBytes(
@@ -2803,7 +2803,7 @@ public final class Common {
     public static final int PLATFORM_FIELD_NUMBER = 3;
     private int platform_;
     /**
-     * <code>.ymconnect.v1.Platform platform = 3;</code>
+     * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
      * @return The enum numeric value on the wire for platform.
      */
     @java.lang.Override
@@ -2811,7 +2811,7 @@ public final class Common {
       return platform_;
     }
     /**
-     * <code>.ymconnect.v1.Platform platform = 3;</code>
+     * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
      * @return The platform.
      */
     @java.lang.Override
@@ -2820,14 +2820,14 @@ public final class Common {
       return result == null ? ymconnect.v1.Common.Platform.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ymconnect.v1.Platform platform = 3;</code>
+     * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
      * @param value The enum numeric value on the wire for platform to set.
      */
     private void setPlatformValue(int value) {
         platform_ = value;
     }
     /**
-     * <code>.ymconnect.v1.Platform platform = 3;</code>
+     * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
      * @param value The platform to set.
      */
     private void setPlatform(ymconnect.v1.Common.Platform value) {
@@ -2835,7 +2835,7 @@ public final class Common {
       
     }
     /**
-     * <code>.ymconnect.v1.Platform platform = 3;</code>
+     * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
      */
     private void clearPlatform() {
       
@@ -2845,7 +2845,7 @@ public final class Common {
     public static final int BRIDGE_VERSION_FIELD_NUMBER = 4;
     private java.lang.String bridgeVersion_;
     /**
-     * <code>string bridge_version = 4;</code>
+     * <code>string bridge_version = 4[json_name = "bridgeVersion"];</code>
      * @return The bridgeVersion.
      */
     @java.lang.Override
@@ -2853,7 +2853,7 @@ public final class Common {
       return bridgeVersion_;
     }
     /**
-     * <code>string bridge_version = 4;</code>
+     * <code>string bridge_version = 4[json_name = "bridgeVersion"];</code>
      * @return The bytes for bridgeVersion.
      */
     @java.lang.Override
@@ -2862,7 +2862,7 @@ public final class Common {
       return com.google.protobuf.ByteString.copyFromUtf8(bridgeVersion_);
     }
     /**
-     * <code>string bridge_version = 4;</code>
+     * <code>string bridge_version = 4[json_name = "bridgeVersion"];</code>
      * @param value The bridgeVersion to set.
      */
     private void setBridgeVersion(
@@ -2872,14 +2872,14 @@ public final class Common {
       bridgeVersion_ = value;
     }
     /**
-     * <code>string bridge_version = 4;</code>
+     * <code>string bridge_version = 4[json_name = "bridgeVersion"];</code>
      */
     private void clearBridgeVersion() {
       
       bridgeVersion_ = getDefaultInstance().getBridgeVersion();
     }
     /**
-     * <code>string bridge_version = 4;</code>
+     * <code>string bridge_version = 4[json_name = "bridgeVersion"];</code>
      * @param value The bytes for bridgeVersion to set.
      */
     private void setBridgeVersionBytes(
@@ -2892,7 +2892,7 @@ public final class Common {
     public static final int IDENTITY_PUBLIC_KEY_FIELD_NUMBER = 5;
     private com.google.protobuf.ByteString identityPublicKey_;
     /**
-     * <code>bytes identity_public_key = 5;</code>
+     * <code>bytes identity_public_key = 5[json_name = "identityPublicKey"];</code>
      * @return The identityPublicKey.
      */
     @java.lang.Override
@@ -2900,7 +2900,7 @@ public final class Common {
       return identityPublicKey_;
     }
     /**
-     * <code>bytes identity_public_key = 5;</code>
+     * <code>bytes identity_public_key = 5[json_name = "identityPublicKey"];</code>
      * @param value The identityPublicKey to set.
      */
     private void setIdentityPublicKey(com.google.protobuf.ByteString value) {
@@ -2909,7 +2909,7 @@ public final class Common {
       identityPublicKey_ = value;
     }
     /**
-     * <code>bytes identity_public_key = 5;</code>
+     * <code>bytes identity_public_key = 5[json_name = "identityPublicKey"];</code>
      */
     private void clearIdentityPublicKey() {
       
@@ -2919,7 +2919,7 @@ public final class Common {
     public static final int CERTIFICATE_FINGERPRINT_FIELD_NUMBER = 6;
     private com.google.protobuf.ByteString certificateFingerprint_;
     /**
-     * <code>bytes certificate_fingerprint = 6;</code>
+     * <code>bytes certificate_fingerprint = 6[json_name = "certificateFingerprint"];</code>
      * @return The certificateFingerprint.
      */
     @java.lang.Override
@@ -2927,7 +2927,7 @@ public final class Common {
       return certificateFingerprint_;
     }
     /**
-     * <code>bytes certificate_fingerprint = 6;</code>
+     * <code>bytes certificate_fingerprint = 6[json_name = "certificateFingerprint"];</code>
      * @param value The certificateFingerprint to set.
      */
     private void setCertificateFingerprint(com.google.protobuf.ByteString value) {
@@ -2936,7 +2936,7 @@ public final class Common {
       certificateFingerprint_ = value;
     }
     /**
-     * <code>bytes certificate_fingerprint = 6;</code>
+     * <code>bytes certificate_fingerprint = 6[json_name = "certificateFingerprint"];</code>
      */
     private void clearCertificateFingerprint() {
       
@@ -3039,7 +3039,7 @@ public final class Common {
 
 
       /**
-       * <code>string bridge_id = 1;</code>
+       * <code>string bridge_id = 1[json_name = "bridgeId"];</code>
        * @return The bridgeId.
        */
       @java.lang.Override
@@ -3047,7 +3047,7 @@ public final class Common {
         return instance.getBridgeId();
       }
       /**
-       * <code>string bridge_id = 1;</code>
+       * <code>string bridge_id = 1[json_name = "bridgeId"];</code>
        * @return The bytes for bridgeId.
        */
       @java.lang.Override
@@ -3056,7 +3056,7 @@ public final class Common {
         return instance.getBridgeIdBytes();
       }
       /**
-       * <code>string bridge_id = 1;</code>
+       * <code>string bridge_id = 1[json_name = "bridgeId"];</code>
        * @param value The bridgeId to set.
        * @return This builder for chaining.
        */
@@ -3067,7 +3067,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string bridge_id = 1;</code>
+       * <code>string bridge_id = 1[json_name = "bridgeId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearBridgeId() {
@@ -3076,7 +3076,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string bridge_id = 1;</code>
+       * <code>string bridge_id = 1[json_name = "bridgeId"];</code>
        * @param value The bytes for bridgeId to set.
        * @return This builder for chaining.
        */
@@ -3088,7 +3088,7 @@ public final class Common {
       }
 
       /**
-       * <code>string display_name = 2;</code>
+       * <code>string display_name = 2[json_name = "displayName"];</code>
        * @return The displayName.
        */
       @java.lang.Override
@@ -3096,7 +3096,7 @@ public final class Common {
         return instance.getDisplayName();
       }
       /**
-       * <code>string display_name = 2;</code>
+       * <code>string display_name = 2[json_name = "displayName"];</code>
        * @return The bytes for displayName.
        */
       @java.lang.Override
@@ -3105,7 +3105,7 @@ public final class Common {
         return instance.getDisplayNameBytes();
       }
       /**
-       * <code>string display_name = 2;</code>
+       * <code>string display_name = 2[json_name = "displayName"];</code>
        * @param value The displayName to set.
        * @return This builder for chaining.
        */
@@ -3116,7 +3116,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string display_name = 2;</code>
+       * <code>string display_name = 2[json_name = "displayName"];</code>
        * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
@@ -3125,7 +3125,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string display_name = 2;</code>
+       * <code>string display_name = 2[json_name = "displayName"];</code>
        * @param value The bytes for displayName to set.
        * @return This builder for chaining.
        */
@@ -3137,7 +3137,7 @@ public final class Common {
       }
 
       /**
-       * <code>.ymconnect.v1.Platform platform = 3;</code>
+       * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
        * @return The enum numeric value on the wire for platform.
        */
       @java.lang.Override
@@ -3145,7 +3145,7 @@ public final class Common {
         return instance.getPlatformValue();
       }
       /**
-       * <code>.ymconnect.v1.Platform platform = 3;</code>
+       * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
        * @param value The platform to set.
        * @return This builder for chaining.
        */
@@ -3155,7 +3155,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.Platform platform = 3;</code>
+       * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
        * @return The platform.
        */
       @java.lang.Override
@@ -3163,7 +3163,7 @@ public final class Common {
         return instance.getPlatform();
       }
       /**
-       * <code>.ymconnect.v1.Platform platform = 3;</code>
+       * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
        * @param value The enum numeric value on the wire for platform to set.
        * @return This builder for chaining.
        */
@@ -3173,7 +3173,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.Platform platform = 3;</code>
+       * <code>.ymconnect.v1.Platform platform = 3[json_name = "platform"];</code>
        * @return This builder for chaining.
        */
       public Builder clearPlatform() {
@@ -3183,7 +3183,7 @@ public final class Common {
       }
 
       /**
-       * <code>string bridge_version = 4;</code>
+       * <code>string bridge_version = 4[json_name = "bridgeVersion"];</code>
        * @return The bridgeVersion.
        */
       @java.lang.Override
@@ -3191,7 +3191,7 @@ public final class Common {
         return instance.getBridgeVersion();
       }
       /**
-       * <code>string bridge_version = 4;</code>
+       * <code>string bridge_version = 4[json_name = "bridgeVersion"];</code>
        * @return The bytes for bridgeVersion.
        */
       @java.lang.Override
@@ -3200,7 +3200,7 @@ public final class Common {
         return instance.getBridgeVersionBytes();
       }
       /**
-       * <code>string bridge_version = 4;</code>
+       * <code>string bridge_version = 4[json_name = "bridgeVersion"];</code>
        * @param value The bridgeVersion to set.
        * @return This builder for chaining.
        */
@@ -3211,7 +3211,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string bridge_version = 4;</code>
+       * <code>string bridge_version = 4[json_name = "bridgeVersion"];</code>
        * @return This builder for chaining.
        */
       public Builder clearBridgeVersion() {
@@ -3220,7 +3220,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string bridge_version = 4;</code>
+       * <code>string bridge_version = 4[json_name = "bridgeVersion"];</code>
        * @param value The bytes for bridgeVersion to set.
        * @return This builder for chaining.
        */
@@ -3232,7 +3232,7 @@ public final class Common {
       }
 
       /**
-       * <code>bytes identity_public_key = 5;</code>
+       * <code>bytes identity_public_key = 5[json_name = "identityPublicKey"];</code>
        * @return The identityPublicKey.
        */
       @java.lang.Override
@@ -3240,7 +3240,7 @@ public final class Common {
         return instance.getIdentityPublicKey();
       }
       /**
-       * <code>bytes identity_public_key = 5;</code>
+       * <code>bytes identity_public_key = 5[json_name = "identityPublicKey"];</code>
        * @param value The identityPublicKey to set.
        * @return This builder for chaining.
        */
@@ -3250,7 +3250,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>bytes identity_public_key = 5;</code>
+       * <code>bytes identity_public_key = 5[json_name = "identityPublicKey"];</code>
        * @return This builder for chaining.
        */
       public Builder clearIdentityPublicKey() {
@@ -3260,7 +3260,7 @@ public final class Common {
       }
 
       /**
-       * <code>bytes certificate_fingerprint = 6;</code>
+       * <code>bytes certificate_fingerprint = 6[json_name = "certificateFingerprint"];</code>
        * @return The certificateFingerprint.
        */
       @java.lang.Override
@@ -3268,7 +3268,7 @@ public final class Common {
         return instance.getCertificateFingerprint();
       }
       /**
-       * <code>bytes certificate_fingerprint = 6;</code>
+       * <code>bytes certificate_fingerprint = 6[json_name = "certificateFingerprint"];</code>
        * @param value The certificateFingerprint to set.
        * @return This builder for chaining.
        */
@@ -3278,7 +3278,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>bytes certificate_fingerprint = 6;</code>
+       * <code>bytes certificate_fingerprint = 6[json_name = "certificateFingerprint"];</code>
        * @return This builder for chaining.
        */
       public Builder clearCertificateFingerprint() {
@@ -3372,59 +3372,59 @@ public final class Common {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string connector_id = 1;</code>
+     * <code>string connector_id = 1[json_name = "connectorId"];</code>
      * @return The connectorId.
      */
     java.lang.String getConnectorId();
     /**
-     * <code>string connector_id = 1;</code>
+     * <code>string connector_id = 1[json_name = "connectorId"];</code>
      * @return The bytes for connectorId.
      */
     com.google.protobuf.ByteString
         getConnectorIdBytes();
 
     /**
-     * <code>.ymconnect.v1.BrowserFamily family = 2;</code>
+     * <code>.ymconnect.v1.BrowserFamily family = 2[json_name = "family"];</code>
      * @return The enum numeric value on the wire for family.
      */
     int getFamilyValue();
     /**
-     * <code>.ymconnect.v1.BrowserFamily family = 2;</code>
+     * <code>.ymconnect.v1.BrowserFamily family = 2[json_name = "family"];</code>
      * @return The family.
      */
     ymconnect.v1.Common.BrowserFamily getFamily();
 
     /**
-     * <code>string browser_version = 3;</code>
+     * <code>string browser_version = 3[json_name = "browserVersion"];</code>
      * @return The browserVersion.
      */
     java.lang.String getBrowserVersion();
     /**
-     * <code>string browser_version = 3;</code>
+     * <code>string browser_version = 3[json_name = "browserVersion"];</code>
      * @return The bytes for browserVersion.
      */
     com.google.protobuf.ByteString
         getBrowserVersionBytes();
 
     /**
-     * <code>string extension_version = 4;</code>
+     * <code>string extension_version = 4[json_name = "extensionVersion"];</code>
      * @return The extensionVersion.
      */
     java.lang.String getExtensionVersion();
     /**
-     * <code>string extension_version = 4;</code>
+     * <code>string extension_version = 4[json_name = "extensionVersion"];</code>
      * @return The bytes for extensionVersion.
      */
     com.google.protobuf.ByteString
         getExtensionVersionBytes();
 
     /**
-     * <code>string profile_id = 5;</code>
+     * <code>string profile_id = 5[json_name = "profileId"];</code>
      * @return The profileId.
      */
     java.lang.String getProfileId();
     /**
-     * <code>string profile_id = 5;</code>
+     * <code>string profile_id = 5[json_name = "profileId"];</code>
      * @return The bytes for profileId.
      */
     com.google.protobuf.ByteString
@@ -3447,7 +3447,7 @@ public final class Common {
     public static final int CONNECTOR_ID_FIELD_NUMBER = 1;
     private java.lang.String connectorId_;
     /**
-     * <code>string connector_id = 1;</code>
+     * <code>string connector_id = 1[json_name = "connectorId"];</code>
      * @return The connectorId.
      */
     @java.lang.Override
@@ -3455,7 +3455,7 @@ public final class Common {
       return connectorId_;
     }
     /**
-     * <code>string connector_id = 1;</code>
+     * <code>string connector_id = 1[json_name = "connectorId"];</code>
      * @return The bytes for connectorId.
      */
     @java.lang.Override
@@ -3464,7 +3464,7 @@ public final class Common {
       return com.google.protobuf.ByteString.copyFromUtf8(connectorId_);
     }
     /**
-     * <code>string connector_id = 1;</code>
+     * <code>string connector_id = 1[json_name = "connectorId"];</code>
      * @param value The connectorId to set.
      */
     private void setConnectorId(
@@ -3474,14 +3474,14 @@ public final class Common {
       connectorId_ = value;
     }
     /**
-     * <code>string connector_id = 1;</code>
+     * <code>string connector_id = 1[json_name = "connectorId"];</code>
      */
     private void clearConnectorId() {
       
       connectorId_ = getDefaultInstance().getConnectorId();
     }
     /**
-     * <code>string connector_id = 1;</code>
+     * <code>string connector_id = 1[json_name = "connectorId"];</code>
      * @param value The bytes for connectorId to set.
      */
     private void setConnectorIdBytes(
@@ -3494,7 +3494,7 @@ public final class Common {
     public static final int FAMILY_FIELD_NUMBER = 2;
     private int family_;
     /**
-     * <code>.ymconnect.v1.BrowserFamily family = 2;</code>
+     * <code>.ymconnect.v1.BrowserFamily family = 2[json_name = "family"];</code>
      * @return The enum numeric value on the wire for family.
      */
     @java.lang.Override
@@ -3502,7 +3502,7 @@ public final class Common {
       return family_;
     }
     /**
-     * <code>.ymconnect.v1.BrowserFamily family = 2;</code>
+     * <code>.ymconnect.v1.BrowserFamily family = 2[json_name = "family"];</code>
      * @return The family.
      */
     @java.lang.Override
@@ -3511,14 +3511,14 @@ public final class Common {
       return result == null ? ymconnect.v1.Common.BrowserFamily.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ymconnect.v1.BrowserFamily family = 2;</code>
+     * <code>.ymconnect.v1.BrowserFamily family = 2[json_name = "family"];</code>
      * @param value The enum numeric value on the wire for family to set.
      */
     private void setFamilyValue(int value) {
         family_ = value;
     }
     /**
-     * <code>.ymconnect.v1.BrowserFamily family = 2;</code>
+     * <code>.ymconnect.v1.BrowserFamily family = 2[json_name = "family"];</code>
      * @param value The family to set.
      */
     private void setFamily(ymconnect.v1.Common.BrowserFamily value) {
@@ -3526,7 +3526,7 @@ public final class Common {
       
     }
     /**
-     * <code>.ymconnect.v1.BrowserFamily family = 2;</code>
+     * <code>.ymconnect.v1.BrowserFamily family = 2[json_name = "family"];</code>
      */
     private void clearFamily() {
       
@@ -3536,7 +3536,7 @@ public final class Common {
     public static final int BROWSER_VERSION_FIELD_NUMBER = 3;
     private java.lang.String browserVersion_;
     /**
-     * <code>string browser_version = 3;</code>
+     * <code>string browser_version = 3[json_name = "browserVersion"];</code>
      * @return The browserVersion.
      */
     @java.lang.Override
@@ -3544,7 +3544,7 @@ public final class Common {
       return browserVersion_;
     }
     /**
-     * <code>string browser_version = 3;</code>
+     * <code>string browser_version = 3[json_name = "browserVersion"];</code>
      * @return The bytes for browserVersion.
      */
     @java.lang.Override
@@ -3553,7 +3553,7 @@ public final class Common {
       return com.google.protobuf.ByteString.copyFromUtf8(browserVersion_);
     }
     /**
-     * <code>string browser_version = 3;</code>
+     * <code>string browser_version = 3[json_name = "browserVersion"];</code>
      * @param value The browserVersion to set.
      */
     private void setBrowserVersion(
@@ -3563,14 +3563,14 @@ public final class Common {
       browserVersion_ = value;
     }
     /**
-     * <code>string browser_version = 3;</code>
+     * <code>string browser_version = 3[json_name = "browserVersion"];</code>
      */
     private void clearBrowserVersion() {
       
       browserVersion_ = getDefaultInstance().getBrowserVersion();
     }
     /**
-     * <code>string browser_version = 3;</code>
+     * <code>string browser_version = 3[json_name = "browserVersion"];</code>
      * @param value The bytes for browserVersion to set.
      */
     private void setBrowserVersionBytes(
@@ -3583,7 +3583,7 @@ public final class Common {
     public static final int EXTENSION_VERSION_FIELD_NUMBER = 4;
     private java.lang.String extensionVersion_;
     /**
-     * <code>string extension_version = 4;</code>
+     * <code>string extension_version = 4[json_name = "extensionVersion"];</code>
      * @return The extensionVersion.
      */
     @java.lang.Override
@@ -3591,7 +3591,7 @@ public final class Common {
       return extensionVersion_;
     }
     /**
-     * <code>string extension_version = 4;</code>
+     * <code>string extension_version = 4[json_name = "extensionVersion"];</code>
      * @return The bytes for extensionVersion.
      */
     @java.lang.Override
@@ -3600,7 +3600,7 @@ public final class Common {
       return com.google.protobuf.ByteString.copyFromUtf8(extensionVersion_);
     }
     /**
-     * <code>string extension_version = 4;</code>
+     * <code>string extension_version = 4[json_name = "extensionVersion"];</code>
      * @param value The extensionVersion to set.
      */
     private void setExtensionVersion(
@@ -3610,14 +3610,14 @@ public final class Common {
       extensionVersion_ = value;
     }
     /**
-     * <code>string extension_version = 4;</code>
+     * <code>string extension_version = 4[json_name = "extensionVersion"];</code>
      */
     private void clearExtensionVersion() {
       
       extensionVersion_ = getDefaultInstance().getExtensionVersion();
     }
     /**
-     * <code>string extension_version = 4;</code>
+     * <code>string extension_version = 4[json_name = "extensionVersion"];</code>
      * @param value The bytes for extensionVersion to set.
      */
     private void setExtensionVersionBytes(
@@ -3630,7 +3630,7 @@ public final class Common {
     public static final int PROFILE_ID_FIELD_NUMBER = 5;
     private java.lang.String profileId_;
     /**
-     * <code>string profile_id = 5;</code>
+     * <code>string profile_id = 5[json_name = "profileId"];</code>
      * @return The profileId.
      */
     @java.lang.Override
@@ -3638,7 +3638,7 @@ public final class Common {
       return profileId_;
     }
     /**
-     * <code>string profile_id = 5;</code>
+     * <code>string profile_id = 5[json_name = "profileId"];</code>
      * @return The bytes for profileId.
      */
     @java.lang.Override
@@ -3647,7 +3647,7 @@ public final class Common {
       return com.google.protobuf.ByteString.copyFromUtf8(profileId_);
     }
     /**
-     * <code>string profile_id = 5;</code>
+     * <code>string profile_id = 5[json_name = "profileId"];</code>
      * @param value The profileId to set.
      */
     private void setProfileId(
@@ -3657,14 +3657,14 @@ public final class Common {
       profileId_ = value;
     }
     /**
-     * <code>string profile_id = 5;</code>
+     * <code>string profile_id = 5[json_name = "profileId"];</code>
      */
     private void clearProfileId() {
       
       profileId_ = getDefaultInstance().getProfileId();
     }
     /**
-     * <code>string profile_id = 5;</code>
+     * <code>string profile_id = 5[json_name = "profileId"];</code>
      * @param value The bytes for profileId to set.
      */
     private void setProfileIdBytes(
@@ -3770,7 +3770,7 @@ public final class Common {
 
 
       /**
-       * <code>string connector_id = 1;</code>
+       * <code>string connector_id = 1[json_name = "connectorId"];</code>
        * @return The connectorId.
        */
       @java.lang.Override
@@ -3778,7 +3778,7 @@ public final class Common {
         return instance.getConnectorId();
       }
       /**
-       * <code>string connector_id = 1;</code>
+       * <code>string connector_id = 1[json_name = "connectorId"];</code>
        * @return The bytes for connectorId.
        */
       @java.lang.Override
@@ -3787,7 +3787,7 @@ public final class Common {
         return instance.getConnectorIdBytes();
       }
       /**
-       * <code>string connector_id = 1;</code>
+       * <code>string connector_id = 1[json_name = "connectorId"];</code>
        * @param value The connectorId to set.
        * @return This builder for chaining.
        */
@@ -3798,7 +3798,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string connector_id = 1;</code>
+       * <code>string connector_id = 1[json_name = "connectorId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearConnectorId() {
@@ -3807,7 +3807,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string connector_id = 1;</code>
+       * <code>string connector_id = 1[json_name = "connectorId"];</code>
        * @param value The bytes for connectorId to set.
        * @return This builder for chaining.
        */
@@ -3819,7 +3819,7 @@ public final class Common {
       }
 
       /**
-       * <code>.ymconnect.v1.BrowserFamily family = 2;</code>
+       * <code>.ymconnect.v1.BrowserFamily family = 2[json_name = "family"];</code>
        * @return The enum numeric value on the wire for family.
        */
       @java.lang.Override
@@ -3827,7 +3827,7 @@ public final class Common {
         return instance.getFamilyValue();
       }
       /**
-       * <code>.ymconnect.v1.BrowserFamily family = 2;</code>
+       * <code>.ymconnect.v1.BrowserFamily family = 2[json_name = "family"];</code>
        * @param value The family to set.
        * @return This builder for chaining.
        */
@@ -3837,7 +3837,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.BrowserFamily family = 2;</code>
+       * <code>.ymconnect.v1.BrowserFamily family = 2[json_name = "family"];</code>
        * @return The family.
        */
       @java.lang.Override
@@ -3845,7 +3845,7 @@ public final class Common {
         return instance.getFamily();
       }
       /**
-       * <code>.ymconnect.v1.BrowserFamily family = 2;</code>
+       * <code>.ymconnect.v1.BrowserFamily family = 2[json_name = "family"];</code>
        * @param value The enum numeric value on the wire for family to set.
        * @return This builder for chaining.
        */
@@ -3855,7 +3855,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.BrowserFamily family = 2;</code>
+       * <code>.ymconnect.v1.BrowserFamily family = 2[json_name = "family"];</code>
        * @return This builder for chaining.
        */
       public Builder clearFamily() {
@@ -3865,7 +3865,7 @@ public final class Common {
       }
 
       /**
-       * <code>string browser_version = 3;</code>
+       * <code>string browser_version = 3[json_name = "browserVersion"];</code>
        * @return The browserVersion.
        */
       @java.lang.Override
@@ -3873,7 +3873,7 @@ public final class Common {
         return instance.getBrowserVersion();
       }
       /**
-       * <code>string browser_version = 3;</code>
+       * <code>string browser_version = 3[json_name = "browserVersion"];</code>
        * @return The bytes for browserVersion.
        */
       @java.lang.Override
@@ -3882,7 +3882,7 @@ public final class Common {
         return instance.getBrowserVersionBytes();
       }
       /**
-       * <code>string browser_version = 3;</code>
+       * <code>string browser_version = 3[json_name = "browserVersion"];</code>
        * @param value The browserVersion to set.
        * @return This builder for chaining.
        */
@@ -3893,7 +3893,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string browser_version = 3;</code>
+       * <code>string browser_version = 3[json_name = "browserVersion"];</code>
        * @return This builder for chaining.
        */
       public Builder clearBrowserVersion() {
@@ -3902,7 +3902,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string browser_version = 3;</code>
+       * <code>string browser_version = 3[json_name = "browserVersion"];</code>
        * @param value The bytes for browserVersion to set.
        * @return This builder for chaining.
        */
@@ -3914,7 +3914,7 @@ public final class Common {
       }
 
       /**
-       * <code>string extension_version = 4;</code>
+       * <code>string extension_version = 4[json_name = "extensionVersion"];</code>
        * @return The extensionVersion.
        */
       @java.lang.Override
@@ -3922,7 +3922,7 @@ public final class Common {
         return instance.getExtensionVersion();
       }
       /**
-       * <code>string extension_version = 4;</code>
+       * <code>string extension_version = 4[json_name = "extensionVersion"];</code>
        * @return The bytes for extensionVersion.
        */
       @java.lang.Override
@@ -3931,7 +3931,7 @@ public final class Common {
         return instance.getExtensionVersionBytes();
       }
       /**
-       * <code>string extension_version = 4;</code>
+       * <code>string extension_version = 4[json_name = "extensionVersion"];</code>
        * @param value The extensionVersion to set.
        * @return This builder for chaining.
        */
@@ -3942,7 +3942,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string extension_version = 4;</code>
+       * <code>string extension_version = 4[json_name = "extensionVersion"];</code>
        * @return This builder for chaining.
        */
       public Builder clearExtensionVersion() {
@@ -3951,7 +3951,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string extension_version = 4;</code>
+       * <code>string extension_version = 4[json_name = "extensionVersion"];</code>
        * @param value The bytes for extensionVersion to set.
        * @return This builder for chaining.
        */
@@ -3963,7 +3963,7 @@ public final class Common {
       }
 
       /**
-       * <code>string profile_id = 5;</code>
+       * <code>string profile_id = 5[json_name = "profileId"];</code>
        * @return The profileId.
        */
       @java.lang.Override
@@ -3971,7 +3971,7 @@ public final class Common {
         return instance.getProfileId();
       }
       /**
-       * <code>string profile_id = 5;</code>
+       * <code>string profile_id = 5[json_name = "profileId"];</code>
        * @return The bytes for profileId.
        */
       @java.lang.Override
@@ -3980,7 +3980,7 @@ public final class Common {
         return instance.getProfileIdBytes();
       }
       /**
-       * <code>string profile_id = 5;</code>
+       * <code>string profile_id = 5[json_name = "profileId"];</code>
        * @param value The profileId to set.
        * @return This builder for chaining.
        */
@@ -3991,7 +3991,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string profile_id = 5;</code>
+       * <code>string profile_id = 5[json_name = "profileId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearProfileId() {
@@ -4000,7 +4000,7 @@ public final class Common {
         return this;
       }
       /**
-       * <code>string profile_id = 5;</code>
+       * <code>string profile_id = 5[json_name = "profileId"];</code>
        * @param value The bytes for profileId to set.
        * @return This builder for chaining.
        */

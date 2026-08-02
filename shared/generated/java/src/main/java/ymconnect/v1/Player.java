@@ -477,71 +477,71 @@ public final class Player {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string provider = 1;</code>
+     * <code>string provider = 1[json_name = "provider"];</code>
      * @return The provider.
      */
     java.lang.String getProvider();
     /**
-     * <code>string provider = 1;</code>
+     * <code>string provider = 1[json_name = "provider"];</code>
      * @return The bytes for provider.
      */
     com.google.protobuf.ByteString
         getProviderBytes();
 
     /**
-     * <code>string media_id = 2;</code>
+     * <code>string media_id = 2[json_name = "mediaId"];</code>
      * @return The mediaId.
      */
     java.lang.String getMediaId();
     /**
-     * <code>string media_id = 2;</code>
+     * <code>string media_id = 2[json_name = "mediaId"];</code>
      * @return The bytes for mediaId.
      */
     com.google.protobuf.ByteString
         getMediaIdBytes();
 
     /**
-     * <code>.ymconnect.v1.MediaKind media_kind = 3;</code>
+     * <code>.ymconnect.v1.MediaKind media_kind = 3[json_name = "mediaKind"];</code>
      * @return The enum numeric value on the wire for mediaKind.
      */
     int getMediaKindValue();
     /**
-     * <code>.ymconnect.v1.MediaKind media_kind = 3;</code>
+     * <code>.ymconnect.v1.MediaKind media_kind = 3[json_name = "mediaKind"];</code>
      * @return The mediaKind.
      */
     ymconnect.v1.Player.MediaKind getMediaKind();
 
     /**
-     * <code>string title = 4;</code>
+     * <code>string title = 4[json_name = "title"];</code>
      * @return The title.
      */
     java.lang.String getTitle();
     /**
-     * <code>string title = 4;</code>
+     * <code>string title = 4[json_name = "title"];</code>
      * @return The bytes for title.
      */
     com.google.protobuf.ByteString
         getTitleBytes();
 
     /**
-     * <code>repeated string artists = 5;</code>
+     * <code>repeated string artists = 5[json_name = "artists"];</code>
      * @return A list containing the artists.
      */
     java.util.List<java.lang.String>
         getArtistsList();
     /**
-     * <code>repeated string artists = 5;</code>
+     * <code>repeated string artists = 5[json_name = "artists"];</code>
      * @return The count of artists.
      */
     int getArtistsCount();
     /**
-     * <code>repeated string artists = 5;</code>
+     * <code>repeated string artists = 5[json_name = "artists"];</code>
      * @param index The index of the element to return.
      * @return The artists at the given index.
      */
     java.lang.String getArtists(int index);
     /**
-     * <code>repeated string artists = 5;</code>
+     * <code>repeated string artists = 5[json_name = "artists"];</code>
      * @param index The index of the element to return.
      * @return The artists at the given index.
      */
@@ -549,43 +549,43 @@ public final class Player {
         getArtistsBytes(int index);
 
     /**
-     * <code>string album = 6;</code>
+     * <code>string album = 6[json_name = "album"];</code>
      * @return The album.
      */
     java.lang.String getAlbum();
     /**
-     * <code>string album = 6;</code>
+     * <code>string album = 6[json_name = "album"];</code>
      * @return The bytes for album.
      */
     com.google.protobuf.ByteString
         getAlbumBytes();
 
     /**
-     * <code>uint64 duration_ms = 7;</code>
+     * <code>uint64 duration_ms = 7[json_name = "durationMs"];</code>
      * @return The durationMs.
      */
     long getDurationMs();
 
     /**
-     * <code>string artwork_url = 8;</code>
+     * <code>string artwork_url = 8[json_name = "artworkUrl"];</code>
      * @return The artworkUrl.
      */
     java.lang.String getArtworkUrl();
     /**
-     * <code>string artwork_url = 8;</code>
+     * <code>string artwork_url = 8[json_name = "artworkUrl"];</code>
      * @return The bytes for artworkUrl.
      */
     com.google.protobuf.ByteString
         getArtworkUrlBytes();
 
     /**
-     * <code>bool explicit_content = 9;</code>
+     * <code>bool explicit_content = 9[json_name = "explicitContent"];</code>
      * @return The explicitContent.
      */
     boolean getExplicitContent();
 
     /**
-     * <code>bool liked = 10;</code>
+     * <code>bool liked = 10[json_name = "liked"];</code>
      * @return The liked.
      */
     boolean getLiked();
@@ -609,7 +609,7 @@ public final class Player {
     public static final int PROVIDER_FIELD_NUMBER = 1;
     private java.lang.String provider_;
     /**
-     * <code>string provider = 1;</code>
+     * <code>string provider = 1[json_name = "provider"];</code>
      * @return The provider.
      */
     @java.lang.Override
@@ -617,7 +617,7 @@ public final class Player {
       return provider_;
     }
     /**
-     * <code>string provider = 1;</code>
+     * <code>string provider = 1[json_name = "provider"];</code>
      * @return The bytes for provider.
      */
     @java.lang.Override
@@ -626,7 +626,7 @@ public final class Player {
       return com.google.protobuf.ByteString.copyFromUtf8(provider_);
     }
     /**
-     * <code>string provider = 1;</code>
+     * <code>string provider = 1[json_name = "provider"];</code>
      * @param value The provider to set.
      */
     private void setProvider(
@@ -636,14 +636,14 @@ public final class Player {
       provider_ = value;
     }
     /**
-     * <code>string provider = 1;</code>
+     * <code>string provider = 1[json_name = "provider"];</code>
      */
     private void clearProvider() {
       
       provider_ = getDefaultInstance().getProvider();
     }
     /**
-     * <code>string provider = 1;</code>
+     * <code>string provider = 1[json_name = "provider"];</code>
      * @param value The bytes for provider to set.
      */
     private void setProviderBytes(
@@ -656,7 +656,7 @@ public final class Player {
     public static final int MEDIA_ID_FIELD_NUMBER = 2;
     private java.lang.String mediaId_;
     /**
-     * <code>string media_id = 2;</code>
+     * <code>string media_id = 2[json_name = "mediaId"];</code>
      * @return The mediaId.
      */
     @java.lang.Override
@@ -664,7 +664,7 @@ public final class Player {
       return mediaId_;
     }
     /**
-     * <code>string media_id = 2;</code>
+     * <code>string media_id = 2[json_name = "mediaId"];</code>
      * @return The bytes for mediaId.
      */
     @java.lang.Override
@@ -673,7 +673,7 @@ public final class Player {
       return com.google.protobuf.ByteString.copyFromUtf8(mediaId_);
     }
     /**
-     * <code>string media_id = 2;</code>
+     * <code>string media_id = 2[json_name = "mediaId"];</code>
      * @param value The mediaId to set.
      */
     private void setMediaId(
@@ -683,14 +683,14 @@ public final class Player {
       mediaId_ = value;
     }
     /**
-     * <code>string media_id = 2;</code>
+     * <code>string media_id = 2[json_name = "mediaId"];</code>
      */
     private void clearMediaId() {
       
       mediaId_ = getDefaultInstance().getMediaId();
     }
     /**
-     * <code>string media_id = 2;</code>
+     * <code>string media_id = 2[json_name = "mediaId"];</code>
      * @param value The bytes for mediaId to set.
      */
     private void setMediaIdBytes(
@@ -703,7 +703,7 @@ public final class Player {
     public static final int MEDIA_KIND_FIELD_NUMBER = 3;
     private int mediaKind_;
     /**
-     * <code>.ymconnect.v1.MediaKind media_kind = 3;</code>
+     * <code>.ymconnect.v1.MediaKind media_kind = 3[json_name = "mediaKind"];</code>
      * @return The enum numeric value on the wire for mediaKind.
      */
     @java.lang.Override
@@ -711,7 +711,7 @@ public final class Player {
       return mediaKind_;
     }
     /**
-     * <code>.ymconnect.v1.MediaKind media_kind = 3;</code>
+     * <code>.ymconnect.v1.MediaKind media_kind = 3[json_name = "mediaKind"];</code>
      * @return The mediaKind.
      */
     @java.lang.Override
@@ -720,14 +720,14 @@ public final class Player {
       return result == null ? ymconnect.v1.Player.MediaKind.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ymconnect.v1.MediaKind media_kind = 3;</code>
+     * <code>.ymconnect.v1.MediaKind media_kind = 3[json_name = "mediaKind"];</code>
      * @param value The enum numeric value on the wire for mediaKind to set.
      */
     private void setMediaKindValue(int value) {
         mediaKind_ = value;
     }
     /**
-     * <code>.ymconnect.v1.MediaKind media_kind = 3;</code>
+     * <code>.ymconnect.v1.MediaKind media_kind = 3[json_name = "mediaKind"];</code>
      * @param value The mediaKind to set.
      */
     private void setMediaKind(ymconnect.v1.Player.MediaKind value) {
@@ -735,7 +735,7 @@ public final class Player {
       
     }
     /**
-     * <code>.ymconnect.v1.MediaKind media_kind = 3;</code>
+     * <code>.ymconnect.v1.MediaKind media_kind = 3[json_name = "mediaKind"];</code>
      */
     private void clearMediaKind() {
       
@@ -745,7 +745,7 @@ public final class Player {
     public static final int TITLE_FIELD_NUMBER = 4;
     private java.lang.String title_;
     /**
-     * <code>string title = 4;</code>
+     * <code>string title = 4[json_name = "title"];</code>
      * @return The title.
      */
     @java.lang.Override
@@ -753,7 +753,7 @@ public final class Player {
       return title_;
     }
     /**
-     * <code>string title = 4;</code>
+     * <code>string title = 4[json_name = "title"];</code>
      * @return The bytes for title.
      */
     @java.lang.Override
@@ -762,7 +762,7 @@ public final class Player {
       return com.google.protobuf.ByteString.copyFromUtf8(title_);
     }
     /**
-     * <code>string title = 4;</code>
+     * <code>string title = 4[json_name = "title"];</code>
      * @param value The title to set.
      */
     private void setTitle(
@@ -772,14 +772,14 @@ public final class Player {
       title_ = value;
     }
     /**
-     * <code>string title = 4;</code>
+     * <code>string title = 4[json_name = "title"];</code>
      */
     private void clearTitle() {
       
       title_ = getDefaultInstance().getTitle();
     }
     /**
-     * <code>string title = 4;</code>
+     * <code>string title = 4[json_name = "title"];</code>
      * @param value The bytes for title to set.
      */
     private void setTitleBytes(
@@ -792,7 +792,7 @@ public final class Player {
     public static final int ARTISTS_FIELD_NUMBER = 5;
     private com.google.protobuf.Internal.ProtobufList<java.lang.String> artists_;
     /**
-     * <code>repeated string artists = 5;</code>
+     * <code>repeated string artists = 5[json_name = "artists"];</code>
      * @return A list containing the artists.
      */
     @java.lang.Override
@@ -800,7 +800,7 @@ public final class Player {
       return artists_;
     }
     /**
-     * <code>repeated string artists = 5;</code>
+     * <code>repeated string artists = 5[json_name = "artists"];</code>
      * @return The count of artists.
      */
     @java.lang.Override
@@ -808,7 +808,7 @@ public final class Player {
       return artists_.size();
     }
     /**
-     * <code>repeated string artists = 5;</code>
+     * <code>repeated string artists = 5[json_name = "artists"];</code>
      * @param index The index of the element to return.
      * @return The artists at the given index.
      */
@@ -817,7 +817,7 @@ public final class Player {
       return artists_.get(index);
     }
     /**
-     * <code>repeated string artists = 5;</code>
+     * <code>repeated string artists = 5[json_name = "artists"];</code>
      * @param index The index of the value to return.
      * @return The bytes of the artists at the given index.
      */
@@ -835,7 +835,7 @@ public final class Player {
        }
     }
     /**
-     * <code>repeated string artists = 5;</code>
+     * <code>repeated string artists = 5[json_name = "artists"];</code>
      * @param index The index to set the value at.
      * @param value The artists to set.
      */
@@ -846,7 +846,7 @@ public final class Player {
       artists_.set(index, value);
     }
     /**
-     * <code>repeated string artists = 5;</code>
+     * <code>repeated string artists = 5[json_name = "artists"];</code>
      * @param value The artists to add.
      */
     private void addArtists(
@@ -856,7 +856,7 @@ public final class Player {
       artists_.add(value);
     }
     /**
-     * <code>repeated string artists = 5;</code>
+     * <code>repeated string artists = 5[json_name = "artists"];</code>
      * @param values The artists to add.
      */
     private void addAllArtists(
@@ -866,13 +866,13 @@ public final class Player {
           values, artists_);
     }
     /**
-     * <code>repeated string artists = 5;</code>
+     * <code>repeated string artists = 5[json_name = "artists"];</code>
      */
     private void clearArtists() {
       artists_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
     }
     /**
-     * <code>repeated string artists = 5;</code>
+     * <code>repeated string artists = 5[json_name = "artists"];</code>
      * @param value The bytes of the artists to add.
      */
     private void addArtistsBytes(
@@ -885,7 +885,7 @@ public final class Player {
     public static final int ALBUM_FIELD_NUMBER = 6;
     private java.lang.String album_;
     /**
-     * <code>string album = 6;</code>
+     * <code>string album = 6[json_name = "album"];</code>
      * @return The album.
      */
     @java.lang.Override
@@ -893,7 +893,7 @@ public final class Player {
       return album_;
     }
     /**
-     * <code>string album = 6;</code>
+     * <code>string album = 6[json_name = "album"];</code>
      * @return The bytes for album.
      */
     @java.lang.Override
@@ -902,7 +902,7 @@ public final class Player {
       return com.google.protobuf.ByteString.copyFromUtf8(album_);
     }
     /**
-     * <code>string album = 6;</code>
+     * <code>string album = 6[json_name = "album"];</code>
      * @param value The album to set.
      */
     private void setAlbum(
@@ -912,14 +912,14 @@ public final class Player {
       album_ = value;
     }
     /**
-     * <code>string album = 6;</code>
+     * <code>string album = 6[json_name = "album"];</code>
      */
     private void clearAlbum() {
       
       album_ = getDefaultInstance().getAlbum();
     }
     /**
-     * <code>string album = 6;</code>
+     * <code>string album = 6[json_name = "album"];</code>
      * @param value The bytes for album to set.
      */
     private void setAlbumBytes(
@@ -932,7 +932,7 @@ public final class Player {
     public static final int DURATION_MS_FIELD_NUMBER = 7;
     private long durationMs_;
     /**
-     * <code>uint64 duration_ms = 7;</code>
+     * <code>uint64 duration_ms = 7[json_name = "durationMs"];</code>
      * @return The durationMs.
      */
     @java.lang.Override
@@ -940,7 +940,7 @@ public final class Player {
       return durationMs_;
     }
     /**
-     * <code>uint64 duration_ms = 7;</code>
+     * <code>uint64 duration_ms = 7[json_name = "durationMs"];</code>
      * @param value The durationMs to set.
      */
     private void setDurationMs(long value) {
@@ -948,7 +948,7 @@ public final class Player {
       durationMs_ = value;
     }
     /**
-     * <code>uint64 duration_ms = 7;</code>
+     * <code>uint64 duration_ms = 7[json_name = "durationMs"];</code>
      */
     private void clearDurationMs() {
       
@@ -958,7 +958,7 @@ public final class Player {
     public static final int ARTWORK_URL_FIELD_NUMBER = 8;
     private java.lang.String artworkUrl_;
     /**
-     * <code>string artwork_url = 8;</code>
+     * <code>string artwork_url = 8[json_name = "artworkUrl"];</code>
      * @return The artworkUrl.
      */
     @java.lang.Override
@@ -966,7 +966,7 @@ public final class Player {
       return artworkUrl_;
     }
     /**
-     * <code>string artwork_url = 8;</code>
+     * <code>string artwork_url = 8[json_name = "artworkUrl"];</code>
      * @return The bytes for artworkUrl.
      */
     @java.lang.Override
@@ -975,7 +975,7 @@ public final class Player {
       return com.google.protobuf.ByteString.copyFromUtf8(artworkUrl_);
     }
     /**
-     * <code>string artwork_url = 8;</code>
+     * <code>string artwork_url = 8[json_name = "artworkUrl"];</code>
      * @param value The artworkUrl to set.
      */
     private void setArtworkUrl(
@@ -985,14 +985,14 @@ public final class Player {
       artworkUrl_ = value;
     }
     /**
-     * <code>string artwork_url = 8;</code>
+     * <code>string artwork_url = 8[json_name = "artworkUrl"];</code>
      */
     private void clearArtworkUrl() {
       
       artworkUrl_ = getDefaultInstance().getArtworkUrl();
     }
     /**
-     * <code>string artwork_url = 8;</code>
+     * <code>string artwork_url = 8[json_name = "artworkUrl"];</code>
      * @param value The bytes for artworkUrl to set.
      */
     private void setArtworkUrlBytes(
@@ -1005,7 +1005,7 @@ public final class Player {
     public static final int EXPLICIT_CONTENT_FIELD_NUMBER = 9;
     private boolean explicitContent_;
     /**
-     * <code>bool explicit_content = 9;</code>
+     * <code>bool explicit_content = 9[json_name = "explicitContent"];</code>
      * @return The explicitContent.
      */
     @java.lang.Override
@@ -1013,7 +1013,7 @@ public final class Player {
       return explicitContent_;
     }
     /**
-     * <code>bool explicit_content = 9;</code>
+     * <code>bool explicit_content = 9[json_name = "explicitContent"];</code>
      * @param value The explicitContent to set.
      */
     private void setExplicitContent(boolean value) {
@@ -1021,7 +1021,7 @@ public final class Player {
       explicitContent_ = value;
     }
     /**
-     * <code>bool explicit_content = 9;</code>
+     * <code>bool explicit_content = 9[json_name = "explicitContent"];</code>
      */
     private void clearExplicitContent() {
       
@@ -1031,7 +1031,7 @@ public final class Player {
     public static final int LIKED_FIELD_NUMBER = 10;
     private boolean liked_;
     /**
-     * <code>bool liked = 10;</code>
+     * <code>bool liked = 10[json_name = "liked"];</code>
      * @return The liked.
      */
     @java.lang.Override
@@ -1039,7 +1039,7 @@ public final class Player {
       return liked_;
     }
     /**
-     * <code>bool liked = 10;</code>
+     * <code>bool liked = 10[json_name = "liked"];</code>
      * @param value The liked to set.
      */
     private void setLiked(boolean value) {
@@ -1047,7 +1047,7 @@ public final class Player {
       liked_ = value;
     }
     /**
-     * <code>bool liked = 10;</code>
+     * <code>bool liked = 10[json_name = "liked"];</code>
      */
     private void clearLiked() {
       
@@ -1150,7 +1150,7 @@ public final class Player {
 
 
       /**
-       * <code>string provider = 1;</code>
+       * <code>string provider = 1[json_name = "provider"];</code>
        * @return The provider.
        */
       @java.lang.Override
@@ -1158,7 +1158,7 @@ public final class Player {
         return instance.getProvider();
       }
       /**
-       * <code>string provider = 1;</code>
+       * <code>string provider = 1[json_name = "provider"];</code>
        * @return The bytes for provider.
        */
       @java.lang.Override
@@ -1167,7 +1167,7 @@ public final class Player {
         return instance.getProviderBytes();
       }
       /**
-       * <code>string provider = 1;</code>
+       * <code>string provider = 1[json_name = "provider"];</code>
        * @param value The provider to set.
        * @return This builder for chaining.
        */
@@ -1178,7 +1178,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string provider = 1;</code>
+       * <code>string provider = 1[json_name = "provider"];</code>
        * @return This builder for chaining.
        */
       public Builder clearProvider() {
@@ -1187,7 +1187,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string provider = 1;</code>
+       * <code>string provider = 1[json_name = "provider"];</code>
        * @param value The bytes for provider to set.
        * @return This builder for chaining.
        */
@@ -1199,7 +1199,7 @@ public final class Player {
       }
 
       /**
-       * <code>string media_id = 2;</code>
+       * <code>string media_id = 2[json_name = "mediaId"];</code>
        * @return The mediaId.
        */
       @java.lang.Override
@@ -1207,7 +1207,7 @@ public final class Player {
         return instance.getMediaId();
       }
       /**
-       * <code>string media_id = 2;</code>
+       * <code>string media_id = 2[json_name = "mediaId"];</code>
        * @return The bytes for mediaId.
        */
       @java.lang.Override
@@ -1216,7 +1216,7 @@ public final class Player {
         return instance.getMediaIdBytes();
       }
       /**
-       * <code>string media_id = 2;</code>
+       * <code>string media_id = 2[json_name = "mediaId"];</code>
        * @param value The mediaId to set.
        * @return This builder for chaining.
        */
@@ -1227,7 +1227,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string media_id = 2;</code>
+       * <code>string media_id = 2[json_name = "mediaId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearMediaId() {
@@ -1236,7 +1236,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string media_id = 2;</code>
+       * <code>string media_id = 2[json_name = "mediaId"];</code>
        * @param value The bytes for mediaId to set.
        * @return This builder for chaining.
        */
@@ -1248,7 +1248,7 @@ public final class Player {
       }
 
       /**
-       * <code>.ymconnect.v1.MediaKind media_kind = 3;</code>
+       * <code>.ymconnect.v1.MediaKind media_kind = 3[json_name = "mediaKind"];</code>
        * @return The enum numeric value on the wire for mediaKind.
        */
       @java.lang.Override
@@ -1256,7 +1256,7 @@ public final class Player {
         return instance.getMediaKindValue();
       }
       /**
-       * <code>.ymconnect.v1.MediaKind media_kind = 3;</code>
+       * <code>.ymconnect.v1.MediaKind media_kind = 3[json_name = "mediaKind"];</code>
        * @param value The mediaKind to set.
        * @return This builder for chaining.
        */
@@ -1266,7 +1266,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.MediaKind media_kind = 3;</code>
+       * <code>.ymconnect.v1.MediaKind media_kind = 3[json_name = "mediaKind"];</code>
        * @return The mediaKind.
        */
       @java.lang.Override
@@ -1274,7 +1274,7 @@ public final class Player {
         return instance.getMediaKind();
       }
       /**
-       * <code>.ymconnect.v1.MediaKind media_kind = 3;</code>
+       * <code>.ymconnect.v1.MediaKind media_kind = 3[json_name = "mediaKind"];</code>
        * @param value The enum numeric value on the wire for mediaKind to set.
        * @return This builder for chaining.
        */
@@ -1284,7 +1284,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.MediaKind media_kind = 3;</code>
+       * <code>.ymconnect.v1.MediaKind media_kind = 3[json_name = "mediaKind"];</code>
        * @return This builder for chaining.
        */
       public Builder clearMediaKind() {
@@ -1294,7 +1294,7 @@ public final class Player {
       }
 
       /**
-       * <code>string title = 4;</code>
+       * <code>string title = 4[json_name = "title"];</code>
        * @return The title.
        */
       @java.lang.Override
@@ -1302,7 +1302,7 @@ public final class Player {
         return instance.getTitle();
       }
       /**
-       * <code>string title = 4;</code>
+       * <code>string title = 4[json_name = "title"];</code>
        * @return The bytes for title.
        */
       @java.lang.Override
@@ -1311,7 +1311,7 @@ public final class Player {
         return instance.getTitleBytes();
       }
       /**
-       * <code>string title = 4;</code>
+       * <code>string title = 4[json_name = "title"];</code>
        * @param value The title to set.
        * @return This builder for chaining.
        */
@@ -1322,7 +1322,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string title = 4;</code>
+       * <code>string title = 4[json_name = "title"];</code>
        * @return This builder for chaining.
        */
       public Builder clearTitle() {
@@ -1331,7 +1331,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string title = 4;</code>
+       * <code>string title = 4[json_name = "title"];</code>
        * @param value The bytes for title to set.
        * @return This builder for chaining.
        */
@@ -1343,7 +1343,7 @@ public final class Player {
       }
 
       /**
-       * <code>repeated string artists = 5;</code>
+       * <code>repeated string artists = 5[json_name = "artists"];</code>
        * @return A list containing the artists.
        */
       @java.lang.Override
@@ -1353,7 +1353,7 @@ public final class Player {
             instance.getArtistsList());
       }
       /**
-       * <code>repeated string artists = 5;</code>
+       * <code>repeated string artists = 5[json_name = "artists"];</code>
        * @return The count of artists.
        */
       @java.lang.Override
@@ -1361,7 +1361,7 @@ public final class Player {
         return instance.getArtistsCount();
       }
       /**
-       * <code>repeated string artists = 5;</code>
+       * <code>repeated string artists = 5[json_name = "artists"];</code>
        * @param index The index of the element to return.
        * @return The artists at the given index.
        */
@@ -1370,7 +1370,7 @@ public final class Player {
         return instance.getArtists(index);
       }
       /**
-       * <code>repeated string artists = 5;</code>
+       * <code>repeated string artists = 5[json_name = "artists"];</code>
        * @param index The index of the value to return.
        * @return The bytes of the artists at the given index.
        */
@@ -1380,7 +1380,7 @@ public final class Player {
         return instance.getArtistsBytes(index);
       }
       /**
-       * <code>repeated string artists = 5;</code>
+       * <code>repeated string artists = 5[json_name = "artists"];</code>
        * @param index The index to set the value at.
        * @param value The artists to set.
        * @return This builder for chaining.
@@ -1392,7 +1392,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>repeated string artists = 5;</code>
+       * <code>repeated string artists = 5[json_name = "artists"];</code>
        * @param value The artists to add.
        * @return This builder for chaining.
        */
@@ -1403,7 +1403,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>repeated string artists = 5;</code>
+       * <code>repeated string artists = 5[json_name = "artists"];</code>
        * @param values The artists to add.
        * @return This builder for chaining.
        */
@@ -1414,7 +1414,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>repeated string artists = 5;</code>
+       * <code>repeated string artists = 5[json_name = "artists"];</code>
        * @return This builder for chaining.
        */
       public Builder clearArtists() {
@@ -1423,7 +1423,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>repeated string artists = 5;</code>
+       * <code>repeated string artists = 5[json_name = "artists"];</code>
        * @param value The bytes of the artists to add.
        * @return This builder for chaining.
        */
@@ -1435,7 +1435,7 @@ public final class Player {
       }
 
       /**
-       * <code>string album = 6;</code>
+       * <code>string album = 6[json_name = "album"];</code>
        * @return The album.
        */
       @java.lang.Override
@@ -1443,7 +1443,7 @@ public final class Player {
         return instance.getAlbum();
       }
       /**
-       * <code>string album = 6;</code>
+       * <code>string album = 6[json_name = "album"];</code>
        * @return The bytes for album.
        */
       @java.lang.Override
@@ -1452,7 +1452,7 @@ public final class Player {
         return instance.getAlbumBytes();
       }
       /**
-       * <code>string album = 6;</code>
+       * <code>string album = 6[json_name = "album"];</code>
        * @param value The album to set.
        * @return This builder for chaining.
        */
@@ -1463,7 +1463,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string album = 6;</code>
+       * <code>string album = 6[json_name = "album"];</code>
        * @return This builder for chaining.
        */
       public Builder clearAlbum() {
@@ -1472,7 +1472,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string album = 6;</code>
+       * <code>string album = 6[json_name = "album"];</code>
        * @param value The bytes for album to set.
        * @return This builder for chaining.
        */
@@ -1484,7 +1484,7 @@ public final class Player {
       }
 
       /**
-       * <code>uint64 duration_ms = 7;</code>
+       * <code>uint64 duration_ms = 7[json_name = "durationMs"];</code>
        * @return The durationMs.
        */
       @java.lang.Override
@@ -1492,7 +1492,7 @@ public final class Player {
         return instance.getDurationMs();
       }
       /**
-       * <code>uint64 duration_ms = 7;</code>
+       * <code>uint64 duration_ms = 7[json_name = "durationMs"];</code>
        * @param value The durationMs to set.
        * @return This builder for chaining.
        */
@@ -1502,7 +1502,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>uint64 duration_ms = 7;</code>
+       * <code>uint64 duration_ms = 7[json_name = "durationMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearDurationMs() {
@@ -1512,7 +1512,7 @@ public final class Player {
       }
 
       /**
-       * <code>string artwork_url = 8;</code>
+       * <code>string artwork_url = 8[json_name = "artworkUrl"];</code>
        * @return The artworkUrl.
        */
       @java.lang.Override
@@ -1520,7 +1520,7 @@ public final class Player {
         return instance.getArtworkUrl();
       }
       /**
-       * <code>string artwork_url = 8;</code>
+       * <code>string artwork_url = 8[json_name = "artworkUrl"];</code>
        * @return The bytes for artworkUrl.
        */
       @java.lang.Override
@@ -1529,7 +1529,7 @@ public final class Player {
         return instance.getArtworkUrlBytes();
       }
       /**
-       * <code>string artwork_url = 8;</code>
+       * <code>string artwork_url = 8[json_name = "artworkUrl"];</code>
        * @param value The artworkUrl to set.
        * @return This builder for chaining.
        */
@@ -1540,7 +1540,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string artwork_url = 8;</code>
+       * <code>string artwork_url = 8[json_name = "artworkUrl"];</code>
        * @return This builder for chaining.
        */
       public Builder clearArtworkUrl() {
@@ -1549,7 +1549,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string artwork_url = 8;</code>
+       * <code>string artwork_url = 8[json_name = "artworkUrl"];</code>
        * @param value The bytes for artworkUrl to set.
        * @return This builder for chaining.
        */
@@ -1561,7 +1561,7 @@ public final class Player {
       }
 
       /**
-       * <code>bool explicit_content = 9;</code>
+       * <code>bool explicit_content = 9[json_name = "explicitContent"];</code>
        * @return The explicitContent.
        */
       @java.lang.Override
@@ -1569,7 +1569,7 @@ public final class Player {
         return instance.getExplicitContent();
       }
       /**
-       * <code>bool explicit_content = 9;</code>
+       * <code>bool explicit_content = 9[json_name = "explicitContent"];</code>
        * @param value The explicitContent to set.
        * @return This builder for chaining.
        */
@@ -1579,7 +1579,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>bool explicit_content = 9;</code>
+       * <code>bool explicit_content = 9[json_name = "explicitContent"];</code>
        * @return This builder for chaining.
        */
       public Builder clearExplicitContent() {
@@ -1589,7 +1589,7 @@ public final class Player {
       }
 
       /**
-       * <code>bool liked = 10;</code>
+       * <code>bool liked = 10[json_name = "liked"];</code>
        * @return The liked.
        */
       @java.lang.Override
@@ -1597,7 +1597,7 @@ public final class Player {
         return instance.getLiked();
       }
       /**
-       * <code>bool liked = 10;</code>
+       * <code>bool liked = 10[json_name = "liked"];</code>
        * @param value The liked to set.
        * @return This builder for chaining.
        */
@@ -1607,7 +1607,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>bool liked = 10;</code>
+       * <code>bool liked = 10[json_name = "liked"];</code>
        * @return This builder for chaining.
        */
       public Builder clearLiked() {
@@ -1705,19 +1705,19 @@ public final class Player {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>uint64 position_ms = 1;</code>
+     * <code>uint64 position_ms = 1[json_name = "positionMs"];</code>
      * @return The positionMs.
      */
     long getPositionMs();
 
     /**
-     * <code>uint64 measured_at_unix_ms = 2;</code>
+     * <code>uint64 measured_at_unix_ms = 2[json_name = "measuredAtUnixMs"];</code>
      * @return The measuredAtUnixMs.
      */
     long getMeasuredAtUnixMs();
 
     /**
-     * <code>double playback_rate = 3;</code>
+     * <code>double playback_rate = 3[json_name = "playbackRate"];</code>
      * @return The playbackRate.
      */
     double getPlaybackRate();
@@ -1735,7 +1735,7 @@ public final class Player {
     public static final int POSITION_MS_FIELD_NUMBER = 1;
     private long positionMs_;
     /**
-     * <code>uint64 position_ms = 1;</code>
+     * <code>uint64 position_ms = 1[json_name = "positionMs"];</code>
      * @return The positionMs.
      */
     @java.lang.Override
@@ -1743,7 +1743,7 @@ public final class Player {
       return positionMs_;
     }
     /**
-     * <code>uint64 position_ms = 1;</code>
+     * <code>uint64 position_ms = 1[json_name = "positionMs"];</code>
      * @param value The positionMs to set.
      */
     private void setPositionMs(long value) {
@@ -1751,7 +1751,7 @@ public final class Player {
       positionMs_ = value;
     }
     /**
-     * <code>uint64 position_ms = 1;</code>
+     * <code>uint64 position_ms = 1[json_name = "positionMs"];</code>
      */
     private void clearPositionMs() {
       
@@ -1761,7 +1761,7 @@ public final class Player {
     public static final int MEASURED_AT_UNIX_MS_FIELD_NUMBER = 2;
     private long measuredAtUnixMs_;
     /**
-     * <code>uint64 measured_at_unix_ms = 2;</code>
+     * <code>uint64 measured_at_unix_ms = 2[json_name = "measuredAtUnixMs"];</code>
      * @return The measuredAtUnixMs.
      */
     @java.lang.Override
@@ -1769,7 +1769,7 @@ public final class Player {
       return measuredAtUnixMs_;
     }
     /**
-     * <code>uint64 measured_at_unix_ms = 2;</code>
+     * <code>uint64 measured_at_unix_ms = 2[json_name = "measuredAtUnixMs"];</code>
      * @param value The measuredAtUnixMs to set.
      */
     private void setMeasuredAtUnixMs(long value) {
@@ -1777,7 +1777,7 @@ public final class Player {
       measuredAtUnixMs_ = value;
     }
     /**
-     * <code>uint64 measured_at_unix_ms = 2;</code>
+     * <code>uint64 measured_at_unix_ms = 2[json_name = "measuredAtUnixMs"];</code>
      */
     private void clearMeasuredAtUnixMs() {
       
@@ -1787,7 +1787,7 @@ public final class Player {
     public static final int PLAYBACK_RATE_FIELD_NUMBER = 3;
     private double playbackRate_;
     /**
-     * <code>double playback_rate = 3;</code>
+     * <code>double playback_rate = 3[json_name = "playbackRate"];</code>
      * @return The playbackRate.
      */
     @java.lang.Override
@@ -1795,7 +1795,7 @@ public final class Player {
       return playbackRate_;
     }
     /**
-     * <code>double playback_rate = 3;</code>
+     * <code>double playback_rate = 3[json_name = "playbackRate"];</code>
      * @param value The playbackRate to set.
      */
     private void setPlaybackRate(double value) {
@@ -1803,7 +1803,7 @@ public final class Player {
       playbackRate_ = value;
     }
     /**
-     * <code>double playback_rate = 3;</code>
+     * <code>double playback_rate = 3[json_name = "playbackRate"];</code>
      */
     private void clearPlaybackRate() {
       
@@ -1906,7 +1906,7 @@ public final class Player {
 
 
       /**
-       * <code>uint64 position_ms = 1;</code>
+       * <code>uint64 position_ms = 1[json_name = "positionMs"];</code>
        * @return The positionMs.
        */
       @java.lang.Override
@@ -1914,7 +1914,7 @@ public final class Player {
         return instance.getPositionMs();
       }
       /**
-       * <code>uint64 position_ms = 1;</code>
+       * <code>uint64 position_ms = 1[json_name = "positionMs"];</code>
        * @param value The positionMs to set.
        * @return This builder for chaining.
        */
@@ -1924,7 +1924,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>uint64 position_ms = 1;</code>
+       * <code>uint64 position_ms = 1[json_name = "positionMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearPositionMs() {
@@ -1934,7 +1934,7 @@ public final class Player {
       }
 
       /**
-       * <code>uint64 measured_at_unix_ms = 2;</code>
+       * <code>uint64 measured_at_unix_ms = 2[json_name = "measuredAtUnixMs"];</code>
        * @return The measuredAtUnixMs.
        */
       @java.lang.Override
@@ -1942,7 +1942,7 @@ public final class Player {
         return instance.getMeasuredAtUnixMs();
       }
       /**
-       * <code>uint64 measured_at_unix_ms = 2;</code>
+       * <code>uint64 measured_at_unix_ms = 2[json_name = "measuredAtUnixMs"];</code>
        * @param value The measuredAtUnixMs to set.
        * @return This builder for chaining.
        */
@@ -1952,7 +1952,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>uint64 measured_at_unix_ms = 2;</code>
+       * <code>uint64 measured_at_unix_ms = 2[json_name = "measuredAtUnixMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearMeasuredAtUnixMs() {
@@ -1962,7 +1962,7 @@ public final class Player {
       }
 
       /**
-       * <code>double playback_rate = 3;</code>
+       * <code>double playback_rate = 3[json_name = "playbackRate"];</code>
        * @return The playbackRate.
        */
       @java.lang.Override
@@ -1970,7 +1970,7 @@ public final class Player {
         return instance.getPlaybackRate();
       }
       /**
-       * <code>double playback_rate = 3;</code>
+       * <code>double playback_rate = 3[json_name = "playbackRate"];</code>
        * @param value The playbackRate to set.
        * @return This builder for chaining.
        */
@@ -1980,7 +1980,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>double playback_rate = 3;</code>
+       * <code>double playback_rate = 3[json_name = "playbackRate"];</code>
        * @return This builder for chaining.
        */
       public Builder clearPlaybackRate() {
@@ -2071,30 +2071,30 @@ public final class Player {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>double volume = 1;</code>
+     * <code>double volume = 1[json_name = "volume"];</code>
      * @return The volume.
      */
     double getVolume();
 
     /**
-     * <code>bool muted = 2;</code>
+     * <code>bool muted = 2[json_name = "muted"];</code>
      * @return The muted.
      */
     boolean getMuted();
 
     /**
-     * <code>bool shuffle = 3;</code>
+     * <code>bool shuffle = 3[json_name = "shuffle"];</code>
      * @return The shuffle.
      */
     boolean getShuffle();
 
     /**
-     * <code>.ymconnect.v1.RepeatMode repeat_mode = 4;</code>
+     * <code>.ymconnect.v1.RepeatMode repeat_mode = 4[json_name = "repeatMode"];</code>
      * @return The enum numeric value on the wire for repeatMode.
      */
     int getRepeatModeValue();
     /**
-     * <code>.ymconnect.v1.RepeatMode repeat_mode = 4;</code>
+     * <code>.ymconnect.v1.RepeatMode repeat_mode = 4[json_name = "repeatMode"];</code>
      * @return The repeatMode.
      */
     ymconnect.v1.Player.RepeatMode getRepeatMode();
@@ -2112,7 +2112,7 @@ public final class Player {
     public static final int VOLUME_FIELD_NUMBER = 1;
     private double volume_;
     /**
-     * <code>double volume = 1;</code>
+     * <code>double volume = 1[json_name = "volume"];</code>
      * @return The volume.
      */
     @java.lang.Override
@@ -2120,7 +2120,7 @@ public final class Player {
       return volume_;
     }
     /**
-     * <code>double volume = 1;</code>
+     * <code>double volume = 1[json_name = "volume"];</code>
      * @param value The volume to set.
      */
     private void setVolume(double value) {
@@ -2128,7 +2128,7 @@ public final class Player {
       volume_ = value;
     }
     /**
-     * <code>double volume = 1;</code>
+     * <code>double volume = 1[json_name = "volume"];</code>
      */
     private void clearVolume() {
       
@@ -2138,7 +2138,7 @@ public final class Player {
     public static final int MUTED_FIELD_NUMBER = 2;
     private boolean muted_;
     /**
-     * <code>bool muted = 2;</code>
+     * <code>bool muted = 2[json_name = "muted"];</code>
      * @return The muted.
      */
     @java.lang.Override
@@ -2146,7 +2146,7 @@ public final class Player {
       return muted_;
     }
     /**
-     * <code>bool muted = 2;</code>
+     * <code>bool muted = 2[json_name = "muted"];</code>
      * @param value The muted to set.
      */
     private void setMuted(boolean value) {
@@ -2154,7 +2154,7 @@ public final class Player {
       muted_ = value;
     }
     /**
-     * <code>bool muted = 2;</code>
+     * <code>bool muted = 2[json_name = "muted"];</code>
      */
     private void clearMuted() {
       
@@ -2164,7 +2164,7 @@ public final class Player {
     public static final int SHUFFLE_FIELD_NUMBER = 3;
     private boolean shuffle_;
     /**
-     * <code>bool shuffle = 3;</code>
+     * <code>bool shuffle = 3[json_name = "shuffle"];</code>
      * @return The shuffle.
      */
     @java.lang.Override
@@ -2172,7 +2172,7 @@ public final class Player {
       return shuffle_;
     }
     /**
-     * <code>bool shuffle = 3;</code>
+     * <code>bool shuffle = 3[json_name = "shuffle"];</code>
      * @param value The shuffle to set.
      */
     private void setShuffle(boolean value) {
@@ -2180,7 +2180,7 @@ public final class Player {
       shuffle_ = value;
     }
     /**
-     * <code>bool shuffle = 3;</code>
+     * <code>bool shuffle = 3[json_name = "shuffle"];</code>
      */
     private void clearShuffle() {
       
@@ -2190,7 +2190,7 @@ public final class Player {
     public static final int REPEAT_MODE_FIELD_NUMBER = 4;
     private int repeatMode_;
     /**
-     * <code>.ymconnect.v1.RepeatMode repeat_mode = 4;</code>
+     * <code>.ymconnect.v1.RepeatMode repeat_mode = 4[json_name = "repeatMode"];</code>
      * @return The enum numeric value on the wire for repeatMode.
      */
     @java.lang.Override
@@ -2198,7 +2198,7 @@ public final class Player {
       return repeatMode_;
     }
     /**
-     * <code>.ymconnect.v1.RepeatMode repeat_mode = 4;</code>
+     * <code>.ymconnect.v1.RepeatMode repeat_mode = 4[json_name = "repeatMode"];</code>
      * @return The repeatMode.
      */
     @java.lang.Override
@@ -2207,14 +2207,14 @@ public final class Player {
       return result == null ? ymconnect.v1.Player.RepeatMode.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ymconnect.v1.RepeatMode repeat_mode = 4;</code>
+     * <code>.ymconnect.v1.RepeatMode repeat_mode = 4[json_name = "repeatMode"];</code>
      * @param value The enum numeric value on the wire for repeatMode to set.
      */
     private void setRepeatModeValue(int value) {
         repeatMode_ = value;
     }
     /**
-     * <code>.ymconnect.v1.RepeatMode repeat_mode = 4;</code>
+     * <code>.ymconnect.v1.RepeatMode repeat_mode = 4[json_name = "repeatMode"];</code>
      * @param value The repeatMode to set.
      */
     private void setRepeatMode(ymconnect.v1.Player.RepeatMode value) {
@@ -2222,7 +2222,7 @@ public final class Player {
       
     }
     /**
-     * <code>.ymconnect.v1.RepeatMode repeat_mode = 4;</code>
+     * <code>.ymconnect.v1.RepeatMode repeat_mode = 4[json_name = "repeatMode"];</code>
      */
     private void clearRepeatMode() {
       
@@ -2325,7 +2325,7 @@ public final class Player {
 
 
       /**
-       * <code>double volume = 1;</code>
+       * <code>double volume = 1[json_name = "volume"];</code>
        * @return The volume.
        */
       @java.lang.Override
@@ -2333,7 +2333,7 @@ public final class Player {
         return instance.getVolume();
       }
       /**
-       * <code>double volume = 1;</code>
+       * <code>double volume = 1[json_name = "volume"];</code>
        * @param value The volume to set.
        * @return This builder for chaining.
        */
@@ -2343,7 +2343,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>double volume = 1;</code>
+       * <code>double volume = 1[json_name = "volume"];</code>
        * @return This builder for chaining.
        */
       public Builder clearVolume() {
@@ -2353,7 +2353,7 @@ public final class Player {
       }
 
       /**
-       * <code>bool muted = 2;</code>
+       * <code>bool muted = 2[json_name = "muted"];</code>
        * @return The muted.
        */
       @java.lang.Override
@@ -2361,7 +2361,7 @@ public final class Player {
         return instance.getMuted();
       }
       /**
-       * <code>bool muted = 2;</code>
+       * <code>bool muted = 2[json_name = "muted"];</code>
        * @param value The muted to set.
        * @return This builder for chaining.
        */
@@ -2371,7 +2371,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>bool muted = 2;</code>
+       * <code>bool muted = 2[json_name = "muted"];</code>
        * @return This builder for chaining.
        */
       public Builder clearMuted() {
@@ -2381,7 +2381,7 @@ public final class Player {
       }
 
       /**
-       * <code>bool shuffle = 3;</code>
+       * <code>bool shuffle = 3[json_name = "shuffle"];</code>
        * @return The shuffle.
        */
       @java.lang.Override
@@ -2389,7 +2389,7 @@ public final class Player {
         return instance.getShuffle();
       }
       /**
-       * <code>bool shuffle = 3;</code>
+       * <code>bool shuffle = 3[json_name = "shuffle"];</code>
        * @param value The shuffle to set.
        * @return This builder for chaining.
        */
@@ -2399,7 +2399,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>bool shuffle = 3;</code>
+       * <code>bool shuffle = 3[json_name = "shuffle"];</code>
        * @return This builder for chaining.
        */
       public Builder clearShuffle() {
@@ -2409,7 +2409,7 @@ public final class Player {
       }
 
       /**
-       * <code>.ymconnect.v1.RepeatMode repeat_mode = 4;</code>
+       * <code>.ymconnect.v1.RepeatMode repeat_mode = 4[json_name = "repeatMode"];</code>
        * @return The enum numeric value on the wire for repeatMode.
        */
       @java.lang.Override
@@ -2417,7 +2417,7 @@ public final class Player {
         return instance.getRepeatModeValue();
       }
       /**
-       * <code>.ymconnect.v1.RepeatMode repeat_mode = 4;</code>
+       * <code>.ymconnect.v1.RepeatMode repeat_mode = 4[json_name = "repeatMode"];</code>
        * @param value The repeatMode to set.
        * @return This builder for chaining.
        */
@@ -2427,7 +2427,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.RepeatMode repeat_mode = 4;</code>
+       * <code>.ymconnect.v1.RepeatMode repeat_mode = 4[json_name = "repeatMode"];</code>
        * @return The repeatMode.
        */
       @java.lang.Override
@@ -2435,7 +2435,7 @@ public final class Player {
         return instance.getRepeatMode();
       }
       /**
-       * <code>.ymconnect.v1.RepeatMode repeat_mode = 4;</code>
+       * <code>.ymconnect.v1.RepeatMode repeat_mode = 4[json_name = "repeatMode"];</code>
        * @param value The enum numeric value on the wire for repeatMode to set.
        * @return This builder for chaining.
        */
@@ -2445,7 +2445,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.RepeatMode repeat_mode = 4;</code>
+       * <code>.ymconnect.v1.RepeatMode repeat_mode = 4[json_name = "repeatMode"];</code>
        * @return This builder for chaining.
        */
       public Builder clearRepeatMode() {
@@ -2537,70 +2537,70 @@ public final class Player {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @return The playerId.
      */
     java.lang.String getPlayerId();
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @return The bytes for playerId.
      */
     com.google.protobuf.ByteString
         getPlayerIdBytes();
 
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @return The displayName.
      */
     java.lang.String getDisplayName();
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @return The bytes for displayName.
      */
     com.google.protobuf.ByteString
         getDisplayNameBytes();
 
     /**
-     * <code>string provider = 3;</code>
+     * <code>string provider = 3[json_name = "provider"];</code>
      * @return The provider.
      */
     java.lang.String getProvider();
     /**
-     * <code>string provider = 3;</code>
+     * <code>string provider = 3[json_name = "provider"];</code>
      * @return The bytes for provider.
      */
     com.google.protobuf.ByteString
         getProviderBytes();
 
     /**
-     * <code>.ymconnect.v1.BrowserDescriptor browser = 4;</code>
+     * <code>.ymconnect.v1.BrowserDescriptor browser = 4[json_name = "browser"];</code>
      * @return Whether the browser field is set.
      */
     boolean hasBrowser();
     /**
-     * <code>.ymconnect.v1.BrowserDescriptor browser = 4;</code>
+     * <code>.ymconnect.v1.BrowserDescriptor browser = 4[json_name = "browser"];</code>
      * @return The browser.
      */
     ymconnect.v1.Common.BrowserDescriptor getBrowser();
 
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 5;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 5[json_name = "capabilities"];</code>
      * @return Whether the capabilities field is set.
      */
     boolean hasCapabilities();
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 5;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 5[json_name = "capabilities"];</code>
      * @return The capabilities.
      */
     ymconnect.v1.Capabilities.CapabilitySet getCapabilities();
 
     /**
-     * <code>.ymconnect.v1.PlayerHealth health = 6;</code>
+     * <code>.ymconnect.v1.PlayerHealth health = 6[json_name = "health"];</code>
      * @return The enum numeric value on the wire for health.
      */
     int getHealthValue();
     /**
-     * <code>.ymconnect.v1.PlayerHealth health = 6;</code>
+     * <code>.ymconnect.v1.PlayerHealth health = 6[json_name = "health"];</code>
      * @return The health.
      */
     ymconnect.v1.Player.PlayerHealth getHealth();
@@ -2621,7 +2621,7 @@ public final class Player {
     public static final int PLAYER_ID_FIELD_NUMBER = 1;
     private java.lang.String playerId_;
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @return The playerId.
      */
     @java.lang.Override
@@ -2629,7 +2629,7 @@ public final class Player {
       return playerId_;
     }
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @return The bytes for playerId.
      */
     @java.lang.Override
@@ -2638,7 +2638,7 @@ public final class Player {
       return com.google.protobuf.ByteString.copyFromUtf8(playerId_);
     }
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @param value The playerId to set.
      */
     private void setPlayerId(
@@ -2648,14 +2648,14 @@ public final class Player {
       playerId_ = value;
     }
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      */
     private void clearPlayerId() {
       
       playerId_ = getDefaultInstance().getPlayerId();
     }
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @param value The bytes for playerId to set.
      */
     private void setPlayerIdBytes(
@@ -2668,7 +2668,7 @@ public final class Player {
     public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
     private java.lang.String displayName_;
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @return The displayName.
      */
     @java.lang.Override
@@ -2676,7 +2676,7 @@ public final class Player {
       return displayName_;
     }
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @return The bytes for displayName.
      */
     @java.lang.Override
@@ -2685,7 +2685,7 @@ public final class Player {
       return com.google.protobuf.ByteString.copyFromUtf8(displayName_);
     }
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @param value The displayName to set.
      */
     private void setDisplayName(
@@ -2695,14 +2695,14 @@ public final class Player {
       displayName_ = value;
     }
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      */
     private void clearDisplayName() {
       
       displayName_ = getDefaultInstance().getDisplayName();
     }
     /**
-     * <code>string display_name = 2;</code>
+     * <code>string display_name = 2[json_name = "displayName"];</code>
      * @param value The bytes for displayName to set.
      */
     private void setDisplayNameBytes(
@@ -2715,7 +2715,7 @@ public final class Player {
     public static final int PROVIDER_FIELD_NUMBER = 3;
     private java.lang.String provider_;
     /**
-     * <code>string provider = 3;</code>
+     * <code>string provider = 3[json_name = "provider"];</code>
      * @return The provider.
      */
     @java.lang.Override
@@ -2723,7 +2723,7 @@ public final class Player {
       return provider_;
     }
     /**
-     * <code>string provider = 3;</code>
+     * <code>string provider = 3[json_name = "provider"];</code>
      * @return The bytes for provider.
      */
     @java.lang.Override
@@ -2732,7 +2732,7 @@ public final class Player {
       return com.google.protobuf.ByteString.copyFromUtf8(provider_);
     }
     /**
-     * <code>string provider = 3;</code>
+     * <code>string provider = 3[json_name = "provider"];</code>
      * @param value The provider to set.
      */
     private void setProvider(
@@ -2742,14 +2742,14 @@ public final class Player {
       provider_ = value;
     }
     /**
-     * <code>string provider = 3;</code>
+     * <code>string provider = 3[json_name = "provider"];</code>
      */
     private void clearProvider() {
       
       provider_ = getDefaultInstance().getProvider();
     }
     /**
-     * <code>string provider = 3;</code>
+     * <code>string provider = 3[json_name = "provider"];</code>
      * @param value The bytes for provider to set.
      */
     private void setProviderBytes(
@@ -2762,21 +2762,21 @@ public final class Player {
     public static final int BROWSER_FIELD_NUMBER = 4;
     private ymconnect.v1.Common.BrowserDescriptor browser_;
     /**
-     * <code>.ymconnect.v1.BrowserDescriptor browser = 4;</code>
+     * <code>.ymconnect.v1.BrowserDescriptor browser = 4[json_name = "browser"];</code>
      */
     @java.lang.Override
     public boolean hasBrowser() {
       return browser_ != null;
     }
     /**
-     * <code>.ymconnect.v1.BrowserDescriptor browser = 4;</code>
+     * <code>.ymconnect.v1.BrowserDescriptor browser = 4[json_name = "browser"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.BrowserDescriptor getBrowser() {
       return browser_ == null ? ymconnect.v1.Common.BrowserDescriptor.getDefaultInstance() : browser_;
     }
     /**
-     * <code>.ymconnect.v1.BrowserDescriptor browser = 4;</code>
+     * <code>.ymconnect.v1.BrowserDescriptor browser = 4[json_name = "browser"];</code>
      */
     private void setBrowser(ymconnect.v1.Common.BrowserDescriptor value) {
       value.getClass();
@@ -2784,7 +2784,7 @@ public final class Player {
       
       }
     /**
-     * <code>.ymconnect.v1.BrowserDescriptor browser = 4;</code>
+     * <code>.ymconnect.v1.BrowserDescriptor browser = 4[json_name = "browser"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeBrowser(ymconnect.v1.Common.BrowserDescriptor value) {
@@ -2799,7 +2799,7 @@ public final class Player {
       
     }
     /**
-     * <code>.ymconnect.v1.BrowserDescriptor browser = 4;</code>
+     * <code>.ymconnect.v1.BrowserDescriptor browser = 4[json_name = "browser"];</code>
      */
     private void clearBrowser() {  browser_ = null;
       
@@ -2808,21 +2808,21 @@ public final class Player {
     public static final int CAPABILITIES_FIELD_NUMBER = 5;
     private ymconnect.v1.Capabilities.CapabilitySet capabilities_;
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 5;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 5[json_name = "capabilities"];</code>
      */
     @java.lang.Override
     public boolean hasCapabilities() {
       return capabilities_ != null;
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 5;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 5[json_name = "capabilities"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Capabilities.CapabilitySet getCapabilities() {
       return capabilities_ == null ? ymconnect.v1.Capabilities.CapabilitySet.getDefaultInstance() : capabilities_;
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 5;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 5[json_name = "capabilities"];</code>
      */
     private void setCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
       value.getClass();
@@ -2830,7 +2830,7 @@ public final class Player {
       
       }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 5;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 5[json_name = "capabilities"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
@@ -2845,7 +2845,7 @@ public final class Player {
       
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 5;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 5[json_name = "capabilities"];</code>
      */
     private void clearCapabilities() {  capabilities_ = null;
       
@@ -2854,7 +2854,7 @@ public final class Player {
     public static final int HEALTH_FIELD_NUMBER = 6;
     private int health_;
     /**
-     * <code>.ymconnect.v1.PlayerHealth health = 6;</code>
+     * <code>.ymconnect.v1.PlayerHealth health = 6[json_name = "health"];</code>
      * @return The enum numeric value on the wire for health.
      */
     @java.lang.Override
@@ -2862,7 +2862,7 @@ public final class Player {
       return health_;
     }
     /**
-     * <code>.ymconnect.v1.PlayerHealth health = 6;</code>
+     * <code>.ymconnect.v1.PlayerHealth health = 6[json_name = "health"];</code>
      * @return The health.
      */
     @java.lang.Override
@@ -2871,14 +2871,14 @@ public final class Player {
       return result == null ? ymconnect.v1.Player.PlayerHealth.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ymconnect.v1.PlayerHealth health = 6;</code>
+     * <code>.ymconnect.v1.PlayerHealth health = 6[json_name = "health"];</code>
      * @param value The enum numeric value on the wire for health to set.
      */
     private void setHealthValue(int value) {
         health_ = value;
     }
     /**
-     * <code>.ymconnect.v1.PlayerHealth health = 6;</code>
+     * <code>.ymconnect.v1.PlayerHealth health = 6[json_name = "health"];</code>
      * @param value The health to set.
      */
     private void setHealth(ymconnect.v1.Player.PlayerHealth value) {
@@ -2886,7 +2886,7 @@ public final class Player {
       
     }
     /**
-     * <code>.ymconnect.v1.PlayerHealth health = 6;</code>
+     * <code>.ymconnect.v1.PlayerHealth health = 6[json_name = "health"];</code>
      */
     private void clearHealth() {
       
@@ -2989,7 +2989,7 @@ public final class Player {
 
 
       /**
-       * <code>string player_id = 1;</code>
+       * <code>string player_id = 1[json_name = "playerId"];</code>
        * @return The playerId.
        */
       @java.lang.Override
@@ -2997,7 +2997,7 @@ public final class Player {
         return instance.getPlayerId();
       }
       /**
-       * <code>string player_id = 1;</code>
+       * <code>string player_id = 1[json_name = "playerId"];</code>
        * @return The bytes for playerId.
        */
       @java.lang.Override
@@ -3006,7 +3006,7 @@ public final class Player {
         return instance.getPlayerIdBytes();
       }
       /**
-       * <code>string player_id = 1;</code>
+       * <code>string player_id = 1[json_name = "playerId"];</code>
        * @param value The playerId to set.
        * @return This builder for chaining.
        */
@@ -3017,7 +3017,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string player_id = 1;</code>
+       * <code>string player_id = 1[json_name = "playerId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearPlayerId() {
@@ -3026,7 +3026,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string player_id = 1;</code>
+       * <code>string player_id = 1[json_name = "playerId"];</code>
        * @param value The bytes for playerId to set.
        * @return This builder for chaining.
        */
@@ -3038,7 +3038,7 @@ public final class Player {
       }
 
       /**
-       * <code>string display_name = 2;</code>
+       * <code>string display_name = 2[json_name = "displayName"];</code>
        * @return The displayName.
        */
       @java.lang.Override
@@ -3046,7 +3046,7 @@ public final class Player {
         return instance.getDisplayName();
       }
       /**
-       * <code>string display_name = 2;</code>
+       * <code>string display_name = 2[json_name = "displayName"];</code>
        * @return The bytes for displayName.
        */
       @java.lang.Override
@@ -3055,7 +3055,7 @@ public final class Player {
         return instance.getDisplayNameBytes();
       }
       /**
-       * <code>string display_name = 2;</code>
+       * <code>string display_name = 2[json_name = "displayName"];</code>
        * @param value The displayName to set.
        * @return This builder for chaining.
        */
@@ -3066,7 +3066,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string display_name = 2;</code>
+       * <code>string display_name = 2[json_name = "displayName"];</code>
        * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
@@ -3075,7 +3075,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string display_name = 2;</code>
+       * <code>string display_name = 2[json_name = "displayName"];</code>
        * @param value The bytes for displayName to set.
        * @return This builder for chaining.
        */
@@ -3087,7 +3087,7 @@ public final class Player {
       }
 
       /**
-       * <code>string provider = 3;</code>
+       * <code>string provider = 3[json_name = "provider"];</code>
        * @return The provider.
        */
       @java.lang.Override
@@ -3095,7 +3095,7 @@ public final class Player {
         return instance.getProvider();
       }
       /**
-       * <code>string provider = 3;</code>
+       * <code>string provider = 3[json_name = "provider"];</code>
        * @return The bytes for provider.
        */
       @java.lang.Override
@@ -3104,7 +3104,7 @@ public final class Player {
         return instance.getProviderBytes();
       }
       /**
-       * <code>string provider = 3;</code>
+       * <code>string provider = 3[json_name = "provider"];</code>
        * @param value The provider to set.
        * @return This builder for chaining.
        */
@@ -3115,7 +3115,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string provider = 3;</code>
+       * <code>string provider = 3[json_name = "provider"];</code>
        * @return This builder for chaining.
        */
       public Builder clearProvider() {
@@ -3124,7 +3124,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string provider = 3;</code>
+       * <code>string provider = 3[json_name = "provider"];</code>
        * @param value The bytes for provider to set.
        * @return This builder for chaining.
        */
@@ -3136,21 +3136,21 @@ public final class Player {
       }
 
       /**
-       * <code>.ymconnect.v1.BrowserDescriptor browser = 4;</code>
+       * <code>.ymconnect.v1.BrowserDescriptor browser = 4[json_name = "browser"];</code>
        */
       @java.lang.Override
       public boolean hasBrowser() {
         return instance.hasBrowser();
       }
       /**
-       * <code>.ymconnect.v1.BrowserDescriptor browser = 4;</code>
+       * <code>.ymconnect.v1.BrowserDescriptor browser = 4[json_name = "browser"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.BrowserDescriptor getBrowser() {
         return instance.getBrowser();
       }
       /**
-       * <code>.ymconnect.v1.BrowserDescriptor browser = 4;</code>
+       * <code>.ymconnect.v1.BrowserDescriptor browser = 4[json_name = "browser"];</code>
        */
       public Builder setBrowser(ymconnect.v1.Common.BrowserDescriptor value) {
         copyOnWrite();
@@ -3158,7 +3158,7 @@ public final class Player {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.BrowserDescriptor browser = 4;</code>
+       * <code>.ymconnect.v1.BrowserDescriptor browser = 4[json_name = "browser"];</code>
        */
       public Builder setBrowser(
           ymconnect.v1.Common.BrowserDescriptor.Builder builderForValue) {
@@ -3167,7 +3167,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.BrowserDescriptor browser = 4;</code>
+       * <code>.ymconnect.v1.BrowserDescriptor browser = 4[json_name = "browser"];</code>
        */
       public Builder mergeBrowser(ymconnect.v1.Common.BrowserDescriptor value) {
         copyOnWrite();
@@ -3175,7 +3175,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.BrowserDescriptor browser = 4;</code>
+       * <code>.ymconnect.v1.BrowserDescriptor browser = 4[json_name = "browser"];</code>
        */
       public Builder clearBrowser() {  copyOnWrite();
         instance.clearBrowser();
@@ -3183,21 +3183,21 @@ public final class Player {
       }
 
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 5;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 5[json_name = "capabilities"];</code>
        */
       @java.lang.Override
       public boolean hasCapabilities() {
         return instance.hasCapabilities();
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 5;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 5[json_name = "capabilities"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Capabilities.CapabilitySet getCapabilities() {
         return instance.getCapabilities();
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 5;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 5[json_name = "capabilities"];</code>
        */
       public Builder setCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
         copyOnWrite();
@@ -3205,7 +3205,7 @@ public final class Player {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 5;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 5[json_name = "capabilities"];</code>
        */
       public Builder setCapabilities(
           ymconnect.v1.Capabilities.CapabilitySet.Builder builderForValue) {
@@ -3214,7 +3214,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 5;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 5[json_name = "capabilities"];</code>
        */
       public Builder mergeCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
         copyOnWrite();
@@ -3222,7 +3222,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 5;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 5[json_name = "capabilities"];</code>
        */
       public Builder clearCapabilities() {  copyOnWrite();
         instance.clearCapabilities();
@@ -3230,7 +3230,7 @@ public final class Player {
       }
 
       /**
-       * <code>.ymconnect.v1.PlayerHealth health = 6;</code>
+       * <code>.ymconnect.v1.PlayerHealth health = 6[json_name = "health"];</code>
        * @return The enum numeric value on the wire for health.
        */
       @java.lang.Override
@@ -3238,7 +3238,7 @@ public final class Player {
         return instance.getHealthValue();
       }
       /**
-       * <code>.ymconnect.v1.PlayerHealth health = 6;</code>
+       * <code>.ymconnect.v1.PlayerHealth health = 6[json_name = "health"];</code>
        * @param value The health to set.
        * @return This builder for chaining.
        */
@@ -3248,7 +3248,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerHealth health = 6;</code>
+       * <code>.ymconnect.v1.PlayerHealth health = 6[json_name = "health"];</code>
        * @return The health.
        */
       @java.lang.Override
@@ -3256,7 +3256,7 @@ public final class Player {
         return instance.getHealth();
       }
       /**
-       * <code>.ymconnect.v1.PlayerHealth health = 6;</code>
+       * <code>.ymconnect.v1.PlayerHealth health = 6[json_name = "health"];</code>
        * @param value The enum numeric value on the wire for health to set.
        * @return This builder for chaining.
        */
@@ -3266,7 +3266,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerHealth health = 6;</code>
+       * <code>.ymconnect.v1.PlayerHealth health = 6[json_name = "health"];</code>
        * @return This builder for chaining.
        */
       public Builder clearHealth() {
@@ -3360,68 +3360,68 @@ public final class Player {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.PlayerDescriptor player = 1;</code>
+     * <code>.ymconnect.v1.PlayerDescriptor player = 1[json_name = "player"];</code>
      * @return Whether the player field is set.
      */
     boolean hasPlayer();
     /**
-     * <code>.ymconnect.v1.PlayerDescriptor player = 1;</code>
+     * <code>.ymconnect.v1.PlayerDescriptor player = 1[json_name = "player"];</code>
      * @return The player.
      */
     ymconnect.v1.Player.PlayerDescriptor getPlayer();
 
     /**
-     * <code>uint64 revision = 2;</code>
+     * <code>uint64 revision = 2[json_name = "revision"];</code>
      * @return The revision.
      */
     long getRevision();
 
     /**
-     * <code>.ymconnect.v1.PlaybackStatus status = 3;</code>
+     * <code>.ymconnect.v1.PlaybackStatus status = 3[json_name = "status"];</code>
      * @return The enum numeric value on the wire for status.
      */
     int getStatusValue();
     /**
-     * <code>.ymconnect.v1.PlaybackStatus status = 3;</code>
+     * <code>.ymconnect.v1.PlaybackStatus status = 3[json_name = "status"];</code>
      * @return The status.
      */
     ymconnect.v1.Player.PlaybackStatus getStatus();
 
     /**
-     * <code>.ymconnect.v1.TrackMetadata track = 4;</code>
+     * <code>.ymconnect.v1.TrackMetadata track = 4[json_name = "track"];</code>
      * @return Whether the track field is set.
      */
     boolean hasTrack();
     /**
-     * <code>.ymconnect.v1.TrackMetadata track = 4;</code>
+     * <code>.ymconnect.v1.TrackMetadata track = 4[json_name = "track"];</code>
      * @return The track.
      */
     ymconnect.v1.Player.TrackMetadata getTrack();
 
     /**
-     * <code>.ymconnect.v1.PlaybackPosition position = 5;</code>
+     * <code>.ymconnect.v1.PlaybackPosition position = 5[json_name = "position"];</code>
      * @return Whether the position field is set.
      */
     boolean hasPosition();
     /**
-     * <code>.ymconnect.v1.PlaybackPosition position = 5;</code>
+     * <code>.ymconnect.v1.PlaybackPosition position = 5[json_name = "position"];</code>
      * @return The position.
      */
     ymconnect.v1.Player.PlaybackPosition getPosition();
 
     /**
-     * <code>.ymconnect.v1.PlaybackOptions options = 6;</code>
+     * <code>.ymconnect.v1.PlaybackOptions options = 6[json_name = "options"];</code>
      * @return Whether the options field is set.
      */
     boolean hasOptions();
     /**
-     * <code>.ymconnect.v1.PlaybackOptions options = 6;</code>
+     * <code>.ymconnect.v1.PlaybackOptions options = 6[json_name = "options"];</code>
      * @return The options.
      */
     ymconnect.v1.Player.PlaybackOptions getOptions();
 
     /**
-     * <code>uint64 observed_at_unix_ms = 7;</code>
+     * <code>uint64 observed_at_unix_ms = 7[json_name = "observedAtUnixMs"];</code>
      * @return The observedAtUnixMs.
      */
     long getObservedAtUnixMs();
@@ -3439,21 +3439,21 @@ public final class Player {
     public static final int PLAYER_FIELD_NUMBER = 1;
     private ymconnect.v1.Player.PlayerDescriptor player_;
     /**
-     * <code>.ymconnect.v1.PlayerDescriptor player = 1;</code>
+     * <code>.ymconnect.v1.PlayerDescriptor player = 1[json_name = "player"];</code>
      */
     @java.lang.Override
     public boolean hasPlayer() {
       return player_ != null;
     }
     /**
-     * <code>.ymconnect.v1.PlayerDescriptor player = 1;</code>
+     * <code>.ymconnect.v1.PlayerDescriptor player = 1[json_name = "player"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Player.PlayerDescriptor getPlayer() {
       return player_ == null ? ymconnect.v1.Player.PlayerDescriptor.getDefaultInstance() : player_;
     }
     /**
-     * <code>.ymconnect.v1.PlayerDescriptor player = 1;</code>
+     * <code>.ymconnect.v1.PlayerDescriptor player = 1[json_name = "player"];</code>
      */
     private void setPlayer(ymconnect.v1.Player.PlayerDescriptor value) {
       value.getClass();
@@ -3461,7 +3461,7 @@ public final class Player {
       
       }
     /**
-     * <code>.ymconnect.v1.PlayerDescriptor player = 1;</code>
+     * <code>.ymconnect.v1.PlayerDescriptor player = 1[json_name = "player"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergePlayer(ymconnect.v1.Player.PlayerDescriptor value) {
@@ -3476,7 +3476,7 @@ public final class Player {
       
     }
     /**
-     * <code>.ymconnect.v1.PlayerDescriptor player = 1;</code>
+     * <code>.ymconnect.v1.PlayerDescriptor player = 1[json_name = "player"];</code>
      */
     private void clearPlayer() {  player_ = null;
       
@@ -3485,7 +3485,7 @@ public final class Player {
     public static final int REVISION_FIELD_NUMBER = 2;
     private long revision_;
     /**
-     * <code>uint64 revision = 2;</code>
+     * <code>uint64 revision = 2[json_name = "revision"];</code>
      * @return The revision.
      */
     @java.lang.Override
@@ -3493,7 +3493,7 @@ public final class Player {
       return revision_;
     }
     /**
-     * <code>uint64 revision = 2;</code>
+     * <code>uint64 revision = 2[json_name = "revision"];</code>
      * @param value The revision to set.
      */
     private void setRevision(long value) {
@@ -3501,7 +3501,7 @@ public final class Player {
       revision_ = value;
     }
     /**
-     * <code>uint64 revision = 2;</code>
+     * <code>uint64 revision = 2[json_name = "revision"];</code>
      */
     private void clearRevision() {
       
@@ -3511,7 +3511,7 @@ public final class Player {
     public static final int STATUS_FIELD_NUMBER = 3;
     private int status_;
     /**
-     * <code>.ymconnect.v1.PlaybackStatus status = 3;</code>
+     * <code>.ymconnect.v1.PlaybackStatus status = 3[json_name = "status"];</code>
      * @return The enum numeric value on the wire for status.
      */
     @java.lang.Override
@@ -3519,7 +3519,7 @@ public final class Player {
       return status_;
     }
     /**
-     * <code>.ymconnect.v1.PlaybackStatus status = 3;</code>
+     * <code>.ymconnect.v1.PlaybackStatus status = 3[json_name = "status"];</code>
      * @return The status.
      */
     @java.lang.Override
@@ -3528,14 +3528,14 @@ public final class Player {
       return result == null ? ymconnect.v1.Player.PlaybackStatus.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ymconnect.v1.PlaybackStatus status = 3;</code>
+     * <code>.ymconnect.v1.PlaybackStatus status = 3[json_name = "status"];</code>
      * @param value The enum numeric value on the wire for status to set.
      */
     private void setStatusValue(int value) {
         status_ = value;
     }
     /**
-     * <code>.ymconnect.v1.PlaybackStatus status = 3;</code>
+     * <code>.ymconnect.v1.PlaybackStatus status = 3[json_name = "status"];</code>
      * @param value The status to set.
      */
     private void setStatus(ymconnect.v1.Player.PlaybackStatus value) {
@@ -3543,7 +3543,7 @@ public final class Player {
       
     }
     /**
-     * <code>.ymconnect.v1.PlaybackStatus status = 3;</code>
+     * <code>.ymconnect.v1.PlaybackStatus status = 3[json_name = "status"];</code>
      */
     private void clearStatus() {
       
@@ -3553,21 +3553,21 @@ public final class Player {
     public static final int TRACK_FIELD_NUMBER = 4;
     private ymconnect.v1.Player.TrackMetadata track_;
     /**
-     * <code>.ymconnect.v1.TrackMetadata track = 4;</code>
+     * <code>.ymconnect.v1.TrackMetadata track = 4[json_name = "track"];</code>
      */
     @java.lang.Override
     public boolean hasTrack() {
       return track_ != null;
     }
     /**
-     * <code>.ymconnect.v1.TrackMetadata track = 4;</code>
+     * <code>.ymconnect.v1.TrackMetadata track = 4[json_name = "track"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Player.TrackMetadata getTrack() {
       return track_ == null ? ymconnect.v1.Player.TrackMetadata.getDefaultInstance() : track_;
     }
     /**
-     * <code>.ymconnect.v1.TrackMetadata track = 4;</code>
+     * <code>.ymconnect.v1.TrackMetadata track = 4[json_name = "track"];</code>
      */
     private void setTrack(ymconnect.v1.Player.TrackMetadata value) {
       value.getClass();
@@ -3575,7 +3575,7 @@ public final class Player {
       
       }
     /**
-     * <code>.ymconnect.v1.TrackMetadata track = 4;</code>
+     * <code>.ymconnect.v1.TrackMetadata track = 4[json_name = "track"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeTrack(ymconnect.v1.Player.TrackMetadata value) {
@@ -3590,7 +3590,7 @@ public final class Player {
       
     }
     /**
-     * <code>.ymconnect.v1.TrackMetadata track = 4;</code>
+     * <code>.ymconnect.v1.TrackMetadata track = 4[json_name = "track"];</code>
      */
     private void clearTrack() {  track_ = null;
       
@@ -3599,21 +3599,21 @@ public final class Player {
     public static final int POSITION_FIELD_NUMBER = 5;
     private ymconnect.v1.Player.PlaybackPosition position_;
     /**
-     * <code>.ymconnect.v1.PlaybackPosition position = 5;</code>
+     * <code>.ymconnect.v1.PlaybackPosition position = 5[json_name = "position"];</code>
      */
     @java.lang.Override
     public boolean hasPosition() {
       return position_ != null;
     }
     /**
-     * <code>.ymconnect.v1.PlaybackPosition position = 5;</code>
+     * <code>.ymconnect.v1.PlaybackPosition position = 5[json_name = "position"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Player.PlaybackPosition getPosition() {
       return position_ == null ? ymconnect.v1.Player.PlaybackPosition.getDefaultInstance() : position_;
     }
     /**
-     * <code>.ymconnect.v1.PlaybackPosition position = 5;</code>
+     * <code>.ymconnect.v1.PlaybackPosition position = 5[json_name = "position"];</code>
      */
     private void setPosition(ymconnect.v1.Player.PlaybackPosition value) {
       value.getClass();
@@ -3621,7 +3621,7 @@ public final class Player {
       
       }
     /**
-     * <code>.ymconnect.v1.PlaybackPosition position = 5;</code>
+     * <code>.ymconnect.v1.PlaybackPosition position = 5[json_name = "position"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergePosition(ymconnect.v1.Player.PlaybackPosition value) {
@@ -3636,7 +3636,7 @@ public final class Player {
       
     }
     /**
-     * <code>.ymconnect.v1.PlaybackPosition position = 5;</code>
+     * <code>.ymconnect.v1.PlaybackPosition position = 5[json_name = "position"];</code>
      */
     private void clearPosition() {  position_ = null;
       
@@ -3645,21 +3645,21 @@ public final class Player {
     public static final int OPTIONS_FIELD_NUMBER = 6;
     private ymconnect.v1.Player.PlaybackOptions options_;
     /**
-     * <code>.ymconnect.v1.PlaybackOptions options = 6;</code>
+     * <code>.ymconnect.v1.PlaybackOptions options = 6[json_name = "options"];</code>
      */
     @java.lang.Override
     public boolean hasOptions() {
       return options_ != null;
     }
     /**
-     * <code>.ymconnect.v1.PlaybackOptions options = 6;</code>
+     * <code>.ymconnect.v1.PlaybackOptions options = 6[json_name = "options"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Player.PlaybackOptions getOptions() {
       return options_ == null ? ymconnect.v1.Player.PlaybackOptions.getDefaultInstance() : options_;
     }
     /**
-     * <code>.ymconnect.v1.PlaybackOptions options = 6;</code>
+     * <code>.ymconnect.v1.PlaybackOptions options = 6[json_name = "options"];</code>
      */
     private void setOptions(ymconnect.v1.Player.PlaybackOptions value) {
       value.getClass();
@@ -3667,7 +3667,7 @@ public final class Player {
       
       }
     /**
-     * <code>.ymconnect.v1.PlaybackOptions options = 6;</code>
+     * <code>.ymconnect.v1.PlaybackOptions options = 6[json_name = "options"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeOptions(ymconnect.v1.Player.PlaybackOptions value) {
@@ -3682,7 +3682,7 @@ public final class Player {
       
     }
     /**
-     * <code>.ymconnect.v1.PlaybackOptions options = 6;</code>
+     * <code>.ymconnect.v1.PlaybackOptions options = 6[json_name = "options"];</code>
      */
     private void clearOptions() {  options_ = null;
       
@@ -3691,7 +3691,7 @@ public final class Player {
     public static final int OBSERVED_AT_UNIX_MS_FIELD_NUMBER = 7;
     private long observedAtUnixMs_;
     /**
-     * <code>uint64 observed_at_unix_ms = 7;</code>
+     * <code>uint64 observed_at_unix_ms = 7[json_name = "observedAtUnixMs"];</code>
      * @return The observedAtUnixMs.
      */
     @java.lang.Override
@@ -3699,7 +3699,7 @@ public final class Player {
       return observedAtUnixMs_;
     }
     /**
-     * <code>uint64 observed_at_unix_ms = 7;</code>
+     * <code>uint64 observed_at_unix_ms = 7[json_name = "observedAtUnixMs"];</code>
      * @param value The observedAtUnixMs to set.
      */
     private void setObservedAtUnixMs(long value) {
@@ -3707,7 +3707,7 @@ public final class Player {
       observedAtUnixMs_ = value;
     }
     /**
-     * <code>uint64 observed_at_unix_ms = 7;</code>
+     * <code>uint64 observed_at_unix_ms = 7[json_name = "observedAtUnixMs"];</code>
      */
     private void clearObservedAtUnixMs() {
       
@@ -3810,21 +3810,21 @@ public final class Player {
 
 
       /**
-       * <code>.ymconnect.v1.PlayerDescriptor player = 1;</code>
+       * <code>.ymconnect.v1.PlayerDescriptor player = 1[json_name = "player"];</code>
        */
       @java.lang.Override
       public boolean hasPlayer() {
         return instance.hasPlayer();
       }
       /**
-       * <code>.ymconnect.v1.PlayerDescriptor player = 1;</code>
+       * <code>.ymconnect.v1.PlayerDescriptor player = 1[json_name = "player"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Player.PlayerDescriptor getPlayer() {
         return instance.getPlayer();
       }
       /**
-       * <code>.ymconnect.v1.PlayerDescriptor player = 1;</code>
+       * <code>.ymconnect.v1.PlayerDescriptor player = 1[json_name = "player"];</code>
        */
       public Builder setPlayer(ymconnect.v1.Player.PlayerDescriptor value) {
         copyOnWrite();
@@ -3832,7 +3832,7 @@ public final class Player {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.PlayerDescriptor player = 1;</code>
+       * <code>.ymconnect.v1.PlayerDescriptor player = 1[json_name = "player"];</code>
        */
       public Builder setPlayer(
           ymconnect.v1.Player.PlayerDescriptor.Builder builderForValue) {
@@ -3841,7 +3841,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerDescriptor player = 1;</code>
+       * <code>.ymconnect.v1.PlayerDescriptor player = 1[json_name = "player"];</code>
        */
       public Builder mergePlayer(ymconnect.v1.Player.PlayerDescriptor value) {
         copyOnWrite();
@@ -3849,7 +3849,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerDescriptor player = 1;</code>
+       * <code>.ymconnect.v1.PlayerDescriptor player = 1[json_name = "player"];</code>
        */
       public Builder clearPlayer() {  copyOnWrite();
         instance.clearPlayer();
@@ -3857,7 +3857,7 @@ public final class Player {
       }
 
       /**
-       * <code>uint64 revision = 2;</code>
+       * <code>uint64 revision = 2[json_name = "revision"];</code>
        * @return The revision.
        */
       @java.lang.Override
@@ -3865,7 +3865,7 @@ public final class Player {
         return instance.getRevision();
       }
       /**
-       * <code>uint64 revision = 2;</code>
+       * <code>uint64 revision = 2[json_name = "revision"];</code>
        * @param value The revision to set.
        * @return This builder for chaining.
        */
@@ -3875,7 +3875,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>uint64 revision = 2;</code>
+       * <code>uint64 revision = 2[json_name = "revision"];</code>
        * @return This builder for chaining.
        */
       public Builder clearRevision() {
@@ -3885,7 +3885,7 @@ public final class Player {
       }
 
       /**
-       * <code>.ymconnect.v1.PlaybackStatus status = 3;</code>
+       * <code>.ymconnect.v1.PlaybackStatus status = 3[json_name = "status"];</code>
        * @return The enum numeric value on the wire for status.
        */
       @java.lang.Override
@@ -3893,7 +3893,7 @@ public final class Player {
         return instance.getStatusValue();
       }
       /**
-       * <code>.ymconnect.v1.PlaybackStatus status = 3;</code>
+       * <code>.ymconnect.v1.PlaybackStatus status = 3[json_name = "status"];</code>
        * @param value The status to set.
        * @return This builder for chaining.
        */
@@ -3903,7 +3903,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlaybackStatus status = 3;</code>
+       * <code>.ymconnect.v1.PlaybackStatus status = 3[json_name = "status"];</code>
        * @return The status.
        */
       @java.lang.Override
@@ -3911,7 +3911,7 @@ public final class Player {
         return instance.getStatus();
       }
       /**
-       * <code>.ymconnect.v1.PlaybackStatus status = 3;</code>
+       * <code>.ymconnect.v1.PlaybackStatus status = 3[json_name = "status"];</code>
        * @param value The enum numeric value on the wire for status to set.
        * @return This builder for chaining.
        */
@@ -3921,7 +3921,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlaybackStatus status = 3;</code>
+       * <code>.ymconnect.v1.PlaybackStatus status = 3[json_name = "status"];</code>
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
@@ -3931,21 +3931,21 @@ public final class Player {
       }
 
       /**
-       * <code>.ymconnect.v1.TrackMetadata track = 4;</code>
+       * <code>.ymconnect.v1.TrackMetadata track = 4[json_name = "track"];</code>
        */
       @java.lang.Override
       public boolean hasTrack() {
         return instance.hasTrack();
       }
       /**
-       * <code>.ymconnect.v1.TrackMetadata track = 4;</code>
+       * <code>.ymconnect.v1.TrackMetadata track = 4[json_name = "track"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Player.TrackMetadata getTrack() {
         return instance.getTrack();
       }
       /**
-       * <code>.ymconnect.v1.TrackMetadata track = 4;</code>
+       * <code>.ymconnect.v1.TrackMetadata track = 4[json_name = "track"];</code>
        */
       public Builder setTrack(ymconnect.v1.Player.TrackMetadata value) {
         copyOnWrite();
@@ -3953,7 +3953,7 @@ public final class Player {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.TrackMetadata track = 4;</code>
+       * <code>.ymconnect.v1.TrackMetadata track = 4[json_name = "track"];</code>
        */
       public Builder setTrack(
           ymconnect.v1.Player.TrackMetadata.Builder builderForValue) {
@@ -3962,7 +3962,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.TrackMetadata track = 4;</code>
+       * <code>.ymconnect.v1.TrackMetadata track = 4[json_name = "track"];</code>
        */
       public Builder mergeTrack(ymconnect.v1.Player.TrackMetadata value) {
         copyOnWrite();
@@ -3970,7 +3970,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.TrackMetadata track = 4;</code>
+       * <code>.ymconnect.v1.TrackMetadata track = 4[json_name = "track"];</code>
        */
       public Builder clearTrack() {  copyOnWrite();
         instance.clearTrack();
@@ -3978,21 +3978,21 @@ public final class Player {
       }
 
       /**
-       * <code>.ymconnect.v1.PlaybackPosition position = 5;</code>
+       * <code>.ymconnect.v1.PlaybackPosition position = 5[json_name = "position"];</code>
        */
       @java.lang.Override
       public boolean hasPosition() {
         return instance.hasPosition();
       }
       /**
-       * <code>.ymconnect.v1.PlaybackPosition position = 5;</code>
+       * <code>.ymconnect.v1.PlaybackPosition position = 5[json_name = "position"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Player.PlaybackPosition getPosition() {
         return instance.getPosition();
       }
       /**
-       * <code>.ymconnect.v1.PlaybackPosition position = 5;</code>
+       * <code>.ymconnect.v1.PlaybackPosition position = 5[json_name = "position"];</code>
        */
       public Builder setPosition(ymconnect.v1.Player.PlaybackPosition value) {
         copyOnWrite();
@@ -4000,7 +4000,7 @@ public final class Player {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.PlaybackPosition position = 5;</code>
+       * <code>.ymconnect.v1.PlaybackPosition position = 5[json_name = "position"];</code>
        */
       public Builder setPosition(
           ymconnect.v1.Player.PlaybackPosition.Builder builderForValue) {
@@ -4009,7 +4009,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlaybackPosition position = 5;</code>
+       * <code>.ymconnect.v1.PlaybackPosition position = 5[json_name = "position"];</code>
        */
       public Builder mergePosition(ymconnect.v1.Player.PlaybackPosition value) {
         copyOnWrite();
@@ -4017,7 +4017,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlaybackPosition position = 5;</code>
+       * <code>.ymconnect.v1.PlaybackPosition position = 5[json_name = "position"];</code>
        */
       public Builder clearPosition() {  copyOnWrite();
         instance.clearPosition();
@@ -4025,21 +4025,21 @@ public final class Player {
       }
 
       /**
-       * <code>.ymconnect.v1.PlaybackOptions options = 6;</code>
+       * <code>.ymconnect.v1.PlaybackOptions options = 6[json_name = "options"];</code>
        */
       @java.lang.Override
       public boolean hasOptions() {
         return instance.hasOptions();
       }
       /**
-       * <code>.ymconnect.v1.PlaybackOptions options = 6;</code>
+       * <code>.ymconnect.v1.PlaybackOptions options = 6[json_name = "options"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Player.PlaybackOptions getOptions() {
         return instance.getOptions();
       }
       /**
-       * <code>.ymconnect.v1.PlaybackOptions options = 6;</code>
+       * <code>.ymconnect.v1.PlaybackOptions options = 6[json_name = "options"];</code>
        */
       public Builder setOptions(ymconnect.v1.Player.PlaybackOptions value) {
         copyOnWrite();
@@ -4047,7 +4047,7 @@ public final class Player {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.PlaybackOptions options = 6;</code>
+       * <code>.ymconnect.v1.PlaybackOptions options = 6[json_name = "options"];</code>
        */
       public Builder setOptions(
           ymconnect.v1.Player.PlaybackOptions.Builder builderForValue) {
@@ -4056,7 +4056,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlaybackOptions options = 6;</code>
+       * <code>.ymconnect.v1.PlaybackOptions options = 6[json_name = "options"];</code>
        */
       public Builder mergeOptions(ymconnect.v1.Player.PlaybackOptions value) {
         copyOnWrite();
@@ -4064,7 +4064,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlaybackOptions options = 6;</code>
+       * <code>.ymconnect.v1.PlaybackOptions options = 6[json_name = "options"];</code>
        */
       public Builder clearOptions() {  copyOnWrite();
         instance.clearOptions();
@@ -4072,7 +4072,7 @@ public final class Player {
       }
 
       /**
-       * <code>uint64 observed_at_unix_ms = 7;</code>
+       * <code>uint64 observed_at_unix_ms = 7[json_name = "observedAtUnixMs"];</code>
        * @return The observedAtUnixMs.
        */
       @java.lang.Override
@@ -4080,7 +4080,7 @@ public final class Player {
         return instance.getObservedAtUnixMs();
       }
       /**
-       * <code>uint64 observed_at_unix_ms = 7;</code>
+       * <code>uint64 observed_at_unix_ms = 7[json_name = "observedAtUnixMs"];</code>
        * @param value The observedAtUnixMs to set.
        * @return This builder for chaining.
        */
@@ -4090,7 +4090,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>uint64 observed_at_unix_ms = 7;</code>
+       * <code>uint64 observed_at_unix_ms = 7[json_name = "observedAtUnixMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearObservedAtUnixMs() {
@@ -4185,30 +4185,30 @@ public final class Player {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @return The playerId.
      */
     java.lang.String getPlayerId();
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @return The bytes for playerId.
      */
     com.google.protobuf.ByteString
         getPlayerIdBytes();
 
     /**
-     * <code>uint64 removed_at_unix_ms = 2;</code>
+     * <code>uint64 removed_at_unix_ms = 2[json_name = "removedAtUnixMs"];</code>
      * @return The removedAtUnixMs.
      */
     long getRemovedAtUnixMs();
 
     /**
-     * <code>string reason = 3;</code>
+     * <code>string reason = 3[json_name = "reason"];</code>
      * @return The reason.
      */
     java.lang.String getReason();
     /**
-     * <code>string reason = 3;</code>
+     * <code>string reason = 3[json_name = "reason"];</code>
      * @return The bytes for reason.
      */
     com.google.protobuf.ByteString
@@ -4229,7 +4229,7 @@ public final class Player {
     public static final int PLAYER_ID_FIELD_NUMBER = 1;
     private java.lang.String playerId_;
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @return The playerId.
      */
     @java.lang.Override
@@ -4237,7 +4237,7 @@ public final class Player {
       return playerId_;
     }
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @return The bytes for playerId.
      */
     @java.lang.Override
@@ -4246,7 +4246,7 @@ public final class Player {
       return com.google.protobuf.ByteString.copyFromUtf8(playerId_);
     }
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @param value The playerId to set.
      */
     private void setPlayerId(
@@ -4256,14 +4256,14 @@ public final class Player {
       playerId_ = value;
     }
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      */
     private void clearPlayerId() {
       
       playerId_ = getDefaultInstance().getPlayerId();
     }
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @param value The bytes for playerId to set.
      */
     private void setPlayerIdBytes(
@@ -4276,7 +4276,7 @@ public final class Player {
     public static final int REMOVED_AT_UNIX_MS_FIELD_NUMBER = 2;
     private long removedAtUnixMs_;
     /**
-     * <code>uint64 removed_at_unix_ms = 2;</code>
+     * <code>uint64 removed_at_unix_ms = 2[json_name = "removedAtUnixMs"];</code>
      * @return The removedAtUnixMs.
      */
     @java.lang.Override
@@ -4284,7 +4284,7 @@ public final class Player {
       return removedAtUnixMs_;
     }
     /**
-     * <code>uint64 removed_at_unix_ms = 2;</code>
+     * <code>uint64 removed_at_unix_ms = 2[json_name = "removedAtUnixMs"];</code>
      * @param value The removedAtUnixMs to set.
      */
     private void setRemovedAtUnixMs(long value) {
@@ -4292,7 +4292,7 @@ public final class Player {
       removedAtUnixMs_ = value;
     }
     /**
-     * <code>uint64 removed_at_unix_ms = 2;</code>
+     * <code>uint64 removed_at_unix_ms = 2[json_name = "removedAtUnixMs"];</code>
      */
     private void clearRemovedAtUnixMs() {
       
@@ -4302,7 +4302,7 @@ public final class Player {
     public static final int REASON_FIELD_NUMBER = 3;
     private java.lang.String reason_;
     /**
-     * <code>string reason = 3;</code>
+     * <code>string reason = 3[json_name = "reason"];</code>
      * @return The reason.
      */
     @java.lang.Override
@@ -4310,7 +4310,7 @@ public final class Player {
       return reason_;
     }
     /**
-     * <code>string reason = 3;</code>
+     * <code>string reason = 3[json_name = "reason"];</code>
      * @return The bytes for reason.
      */
     @java.lang.Override
@@ -4319,7 +4319,7 @@ public final class Player {
       return com.google.protobuf.ByteString.copyFromUtf8(reason_);
     }
     /**
-     * <code>string reason = 3;</code>
+     * <code>string reason = 3[json_name = "reason"];</code>
      * @param value The reason to set.
      */
     private void setReason(
@@ -4329,14 +4329,14 @@ public final class Player {
       reason_ = value;
     }
     /**
-     * <code>string reason = 3;</code>
+     * <code>string reason = 3[json_name = "reason"];</code>
      */
     private void clearReason() {
       
       reason_ = getDefaultInstance().getReason();
     }
     /**
-     * <code>string reason = 3;</code>
+     * <code>string reason = 3[json_name = "reason"];</code>
      * @param value The bytes for reason to set.
      */
     private void setReasonBytes(
@@ -4442,7 +4442,7 @@ public final class Player {
 
 
       /**
-       * <code>string player_id = 1;</code>
+       * <code>string player_id = 1[json_name = "playerId"];</code>
        * @return The playerId.
        */
       @java.lang.Override
@@ -4450,7 +4450,7 @@ public final class Player {
         return instance.getPlayerId();
       }
       /**
-       * <code>string player_id = 1;</code>
+       * <code>string player_id = 1[json_name = "playerId"];</code>
        * @return The bytes for playerId.
        */
       @java.lang.Override
@@ -4459,7 +4459,7 @@ public final class Player {
         return instance.getPlayerIdBytes();
       }
       /**
-       * <code>string player_id = 1;</code>
+       * <code>string player_id = 1[json_name = "playerId"];</code>
        * @param value The playerId to set.
        * @return This builder for chaining.
        */
@@ -4470,7 +4470,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string player_id = 1;</code>
+       * <code>string player_id = 1[json_name = "playerId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearPlayerId() {
@@ -4479,7 +4479,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string player_id = 1;</code>
+       * <code>string player_id = 1[json_name = "playerId"];</code>
        * @param value The bytes for playerId to set.
        * @return This builder for chaining.
        */
@@ -4491,7 +4491,7 @@ public final class Player {
       }
 
       /**
-       * <code>uint64 removed_at_unix_ms = 2;</code>
+       * <code>uint64 removed_at_unix_ms = 2[json_name = "removedAtUnixMs"];</code>
        * @return The removedAtUnixMs.
        */
       @java.lang.Override
@@ -4499,7 +4499,7 @@ public final class Player {
         return instance.getRemovedAtUnixMs();
       }
       /**
-       * <code>uint64 removed_at_unix_ms = 2;</code>
+       * <code>uint64 removed_at_unix_ms = 2[json_name = "removedAtUnixMs"];</code>
        * @param value The removedAtUnixMs to set.
        * @return This builder for chaining.
        */
@@ -4509,7 +4509,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>uint64 removed_at_unix_ms = 2;</code>
+       * <code>uint64 removed_at_unix_ms = 2[json_name = "removedAtUnixMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearRemovedAtUnixMs() {
@@ -4519,7 +4519,7 @@ public final class Player {
       }
 
       /**
-       * <code>string reason = 3;</code>
+       * <code>string reason = 3[json_name = "reason"];</code>
        * @return The reason.
        */
       @java.lang.Override
@@ -4527,7 +4527,7 @@ public final class Player {
         return instance.getReason();
       }
       /**
-       * <code>string reason = 3;</code>
+       * <code>string reason = 3[json_name = "reason"];</code>
        * @return The bytes for reason.
        */
       @java.lang.Override
@@ -4536,7 +4536,7 @@ public final class Player {
         return instance.getReasonBytes();
       }
       /**
-       * <code>string reason = 3;</code>
+       * <code>string reason = 3[json_name = "reason"];</code>
        * @param value The reason to set.
        * @return This builder for chaining.
        */
@@ -4547,7 +4547,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string reason = 3;</code>
+       * <code>string reason = 3[json_name = "reason"];</code>
        * @return This builder for chaining.
        */
       public Builder clearReason() {
@@ -4556,7 +4556,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string reason = 3;</code>
+       * <code>string reason = 3[json_name = "reason"];</code>
        * @param value The bytes for reason to set.
        * @return This builder for chaining.
        */
@@ -4649,31 +4649,31 @@ public final class Player {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string previous_player_id = 1;</code>
+     * <code>string previous_player_id = 1[json_name = "previousPlayerId"];</code>
      * @return The previousPlayerId.
      */
     java.lang.String getPreviousPlayerId();
     /**
-     * <code>string previous_player_id = 1;</code>
+     * <code>string previous_player_id = 1[json_name = "previousPlayerId"];</code>
      * @return The bytes for previousPlayerId.
      */
     com.google.protobuf.ByteString
         getPreviousPlayerIdBytes();
 
     /**
-     * <code>string active_player_id = 2;</code>
+     * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
      * @return The activePlayerId.
      */
     java.lang.String getActivePlayerId();
     /**
-     * <code>string active_player_id = 2;</code>
+     * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
      * @return The bytes for activePlayerId.
      */
     com.google.protobuf.ByteString
         getActivePlayerIdBytes();
 
     /**
-     * <code>uint64 changed_at_unix_ms = 3;</code>
+     * <code>uint64 changed_at_unix_ms = 3[json_name = "changedAtUnixMs"];</code>
      * @return The changedAtUnixMs.
      */
     long getChangedAtUnixMs();
@@ -4693,7 +4693,7 @@ public final class Player {
     public static final int PREVIOUS_PLAYER_ID_FIELD_NUMBER = 1;
     private java.lang.String previousPlayerId_;
     /**
-     * <code>string previous_player_id = 1;</code>
+     * <code>string previous_player_id = 1[json_name = "previousPlayerId"];</code>
      * @return The previousPlayerId.
      */
     @java.lang.Override
@@ -4701,7 +4701,7 @@ public final class Player {
       return previousPlayerId_;
     }
     /**
-     * <code>string previous_player_id = 1;</code>
+     * <code>string previous_player_id = 1[json_name = "previousPlayerId"];</code>
      * @return The bytes for previousPlayerId.
      */
     @java.lang.Override
@@ -4710,7 +4710,7 @@ public final class Player {
       return com.google.protobuf.ByteString.copyFromUtf8(previousPlayerId_);
     }
     /**
-     * <code>string previous_player_id = 1;</code>
+     * <code>string previous_player_id = 1[json_name = "previousPlayerId"];</code>
      * @param value The previousPlayerId to set.
      */
     private void setPreviousPlayerId(
@@ -4720,14 +4720,14 @@ public final class Player {
       previousPlayerId_ = value;
     }
     /**
-     * <code>string previous_player_id = 1;</code>
+     * <code>string previous_player_id = 1[json_name = "previousPlayerId"];</code>
      */
     private void clearPreviousPlayerId() {
       
       previousPlayerId_ = getDefaultInstance().getPreviousPlayerId();
     }
     /**
-     * <code>string previous_player_id = 1;</code>
+     * <code>string previous_player_id = 1[json_name = "previousPlayerId"];</code>
      * @param value The bytes for previousPlayerId to set.
      */
     private void setPreviousPlayerIdBytes(
@@ -4740,7 +4740,7 @@ public final class Player {
     public static final int ACTIVE_PLAYER_ID_FIELD_NUMBER = 2;
     private java.lang.String activePlayerId_;
     /**
-     * <code>string active_player_id = 2;</code>
+     * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
      * @return The activePlayerId.
      */
     @java.lang.Override
@@ -4748,7 +4748,7 @@ public final class Player {
       return activePlayerId_;
     }
     /**
-     * <code>string active_player_id = 2;</code>
+     * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
      * @return The bytes for activePlayerId.
      */
     @java.lang.Override
@@ -4757,7 +4757,7 @@ public final class Player {
       return com.google.protobuf.ByteString.copyFromUtf8(activePlayerId_);
     }
     /**
-     * <code>string active_player_id = 2;</code>
+     * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
      * @param value The activePlayerId to set.
      */
     private void setActivePlayerId(
@@ -4767,14 +4767,14 @@ public final class Player {
       activePlayerId_ = value;
     }
     /**
-     * <code>string active_player_id = 2;</code>
+     * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
      */
     private void clearActivePlayerId() {
       
       activePlayerId_ = getDefaultInstance().getActivePlayerId();
     }
     /**
-     * <code>string active_player_id = 2;</code>
+     * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
      * @param value The bytes for activePlayerId to set.
      */
     private void setActivePlayerIdBytes(
@@ -4787,7 +4787,7 @@ public final class Player {
     public static final int CHANGED_AT_UNIX_MS_FIELD_NUMBER = 3;
     private long changedAtUnixMs_;
     /**
-     * <code>uint64 changed_at_unix_ms = 3;</code>
+     * <code>uint64 changed_at_unix_ms = 3[json_name = "changedAtUnixMs"];</code>
      * @return The changedAtUnixMs.
      */
     @java.lang.Override
@@ -4795,7 +4795,7 @@ public final class Player {
       return changedAtUnixMs_;
     }
     /**
-     * <code>uint64 changed_at_unix_ms = 3;</code>
+     * <code>uint64 changed_at_unix_ms = 3[json_name = "changedAtUnixMs"];</code>
      * @param value The changedAtUnixMs to set.
      */
     private void setChangedAtUnixMs(long value) {
@@ -4803,7 +4803,7 @@ public final class Player {
       changedAtUnixMs_ = value;
     }
     /**
-     * <code>uint64 changed_at_unix_ms = 3;</code>
+     * <code>uint64 changed_at_unix_ms = 3[json_name = "changedAtUnixMs"];</code>
      */
     private void clearChangedAtUnixMs() {
       
@@ -4906,7 +4906,7 @@ public final class Player {
 
 
       /**
-       * <code>string previous_player_id = 1;</code>
+       * <code>string previous_player_id = 1[json_name = "previousPlayerId"];</code>
        * @return The previousPlayerId.
        */
       @java.lang.Override
@@ -4914,7 +4914,7 @@ public final class Player {
         return instance.getPreviousPlayerId();
       }
       /**
-       * <code>string previous_player_id = 1;</code>
+       * <code>string previous_player_id = 1[json_name = "previousPlayerId"];</code>
        * @return The bytes for previousPlayerId.
        */
       @java.lang.Override
@@ -4923,7 +4923,7 @@ public final class Player {
         return instance.getPreviousPlayerIdBytes();
       }
       /**
-       * <code>string previous_player_id = 1;</code>
+       * <code>string previous_player_id = 1[json_name = "previousPlayerId"];</code>
        * @param value The previousPlayerId to set.
        * @return This builder for chaining.
        */
@@ -4934,7 +4934,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string previous_player_id = 1;</code>
+       * <code>string previous_player_id = 1[json_name = "previousPlayerId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearPreviousPlayerId() {
@@ -4943,7 +4943,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string previous_player_id = 1;</code>
+       * <code>string previous_player_id = 1[json_name = "previousPlayerId"];</code>
        * @param value The bytes for previousPlayerId to set.
        * @return This builder for chaining.
        */
@@ -4955,7 +4955,7 @@ public final class Player {
       }
 
       /**
-       * <code>string active_player_id = 2;</code>
+       * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
        * @return The activePlayerId.
        */
       @java.lang.Override
@@ -4963,7 +4963,7 @@ public final class Player {
         return instance.getActivePlayerId();
       }
       /**
-       * <code>string active_player_id = 2;</code>
+       * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
        * @return The bytes for activePlayerId.
        */
       @java.lang.Override
@@ -4972,7 +4972,7 @@ public final class Player {
         return instance.getActivePlayerIdBytes();
       }
       /**
-       * <code>string active_player_id = 2;</code>
+       * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
        * @param value The activePlayerId to set.
        * @return This builder for chaining.
        */
@@ -4983,7 +4983,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string active_player_id = 2;</code>
+       * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearActivePlayerId() {
@@ -4992,7 +4992,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>string active_player_id = 2;</code>
+       * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
        * @param value The bytes for activePlayerId to set.
        * @return This builder for chaining.
        */
@@ -5004,7 +5004,7 @@ public final class Player {
       }
 
       /**
-       * <code>uint64 changed_at_unix_ms = 3;</code>
+       * <code>uint64 changed_at_unix_ms = 3[json_name = "changedAtUnixMs"];</code>
        * @return The changedAtUnixMs.
        */
       @java.lang.Override
@@ -5012,7 +5012,7 @@ public final class Player {
         return instance.getChangedAtUnixMs();
       }
       /**
-       * <code>uint64 changed_at_unix_ms = 3;</code>
+       * <code>uint64 changed_at_unix_ms = 3[json_name = "changedAtUnixMs"];</code>
        * @param value The changedAtUnixMs to set.
        * @return This builder for chaining.
        */
@@ -5022,7 +5022,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>uint64 changed_at_unix_ms = 3;</code>
+       * <code>uint64 changed_at_unix_ms = 3[json_name = "changedAtUnixMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearChangedAtUnixMs() {
@@ -5113,34 +5113,34 @@ public final class Player {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      * @return Whether the snapshot field is set.
      */
     boolean hasSnapshot();
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      * @return The snapshot.
      */
     ymconnect.v1.Player.PlayerSnapshot getSnapshot();
 
     /**
-     * <code>.ymconnect.v1.PlayerRemoved removed = 2;</code>
+     * <code>.ymconnect.v1.PlayerRemoved removed = 2[json_name = "removed"];</code>
      * @return Whether the removed field is set.
      */
     boolean hasRemoved();
     /**
-     * <code>.ymconnect.v1.PlayerRemoved removed = 2;</code>
+     * <code>.ymconnect.v1.PlayerRemoved removed = 2[json_name = "removed"];</code>
      * @return The removed.
      */
     ymconnect.v1.Player.PlayerRemoved getRemoved();
 
     /**
-     * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3;</code>
+     * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3[json_name = "activeChanged"];</code>
      * @return Whether the activeChanged field is set.
      */
     boolean hasActiveChanged();
     /**
-     * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3;</code>
+     * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3[json_name = "activeChanged"];</code>
      * @return The activeChanged.
      */
     ymconnect.v1.Player.ActivePlayerChanged getActiveChanged();
@@ -5204,14 +5204,14 @@ public final class Player {
 
     public static final int SNAPSHOT_FIELD_NUMBER = 1;
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      */
     @java.lang.Override
     public boolean hasSnapshot() {
       return eventCase_ == 1;
     }
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Player.PlayerSnapshot getSnapshot() {
@@ -5221,7 +5221,7 @@ public final class Player {
       return ymconnect.v1.Player.PlayerSnapshot.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      */
     private void setSnapshot(ymconnect.v1.Player.PlayerSnapshot value) {
       value.getClass();
@@ -5229,7 +5229,7 @@ public final class Player {
       eventCase_ = 1;
     }
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      */
     private void mergeSnapshot(ymconnect.v1.Player.PlayerSnapshot value) {
       value.getClass();
@@ -5243,7 +5243,7 @@ public final class Player {
       eventCase_ = 1;
     }
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      */
     private void clearSnapshot() {
       if (eventCase_ == 1) {
@@ -5254,14 +5254,14 @@ public final class Player {
 
     public static final int REMOVED_FIELD_NUMBER = 2;
     /**
-     * <code>.ymconnect.v1.PlayerRemoved removed = 2;</code>
+     * <code>.ymconnect.v1.PlayerRemoved removed = 2[json_name = "removed"];</code>
      */
     @java.lang.Override
     public boolean hasRemoved() {
       return eventCase_ == 2;
     }
     /**
-     * <code>.ymconnect.v1.PlayerRemoved removed = 2;</code>
+     * <code>.ymconnect.v1.PlayerRemoved removed = 2[json_name = "removed"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Player.PlayerRemoved getRemoved() {
@@ -5271,7 +5271,7 @@ public final class Player {
       return ymconnect.v1.Player.PlayerRemoved.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.PlayerRemoved removed = 2;</code>
+     * <code>.ymconnect.v1.PlayerRemoved removed = 2[json_name = "removed"];</code>
      */
     private void setRemoved(ymconnect.v1.Player.PlayerRemoved value) {
       value.getClass();
@@ -5279,7 +5279,7 @@ public final class Player {
       eventCase_ = 2;
     }
     /**
-     * <code>.ymconnect.v1.PlayerRemoved removed = 2;</code>
+     * <code>.ymconnect.v1.PlayerRemoved removed = 2[json_name = "removed"];</code>
      */
     private void mergeRemoved(ymconnect.v1.Player.PlayerRemoved value) {
       value.getClass();
@@ -5293,7 +5293,7 @@ public final class Player {
       eventCase_ = 2;
     }
     /**
-     * <code>.ymconnect.v1.PlayerRemoved removed = 2;</code>
+     * <code>.ymconnect.v1.PlayerRemoved removed = 2[json_name = "removed"];</code>
      */
     private void clearRemoved() {
       if (eventCase_ == 2) {
@@ -5304,14 +5304,14 @@ public final class Player {
 
     public static final int ACTIVE_CHANGED_FIELD_NUMBER = 3;
     /**
-     * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3;</code>
+     * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3[json_name = "activeChanged"];</code>
      */
     @java.lang.Override
     public boolean hasActiveChanged() {
       return eventCase_ == 3;
     }
     /**
-     * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3;</code>
+     * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3[json_name = "activeChanged"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Player.ActivePlayerChanged getActiveChanged() {
@@ -5321,7 +5321,7 @@ public final class Player {
       return ymconnect.v1.Player.ActivePlayerChanged.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3;</code>
+     * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3[json_name = "activeChanged"];</code>
      */
     private void setActiveChanged(ymconnect.v1.Player.ActivePlayerChanged value) {
       value.getClass();
@@ -5329,7 +5329,7 @@ public final class Player {
       eventCase_ = 3;
     }
     /**
-     * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3;</code>
+     * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3[json_name = "activeChanged"];</code>
      */
     private void mergeActiveChanged(ymconnect.v1.Player.ActivePlayerChanged value) {
       value.getClass();
@@ -5343,7 +5343,7 @@ public final class Player {
       eventCase_ = 3;
     }
     /**
-     * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3;</code>
+     * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3[json_name = "activeChanged"];</code>
      */
     private void clearActiveChanged() {
       if (eventCase_ == 3) {
@@ -5460,21 +5460,21 @@ public final class Player {
 
 
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       @java.lang.Override
       public boolean hasSnapshot() {
         return instance.hasSnapshot();
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Player.PlayerSnapshot getSnapshot() {
         return instance.getSnapshot();
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       public Builder setSnapshot(ymconnect.v1.Player.PlayerSnapshot value) {
         copyOnWrite();
@@ -5482,7 +5482,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       public Builder setSnapshot(
           ymconnect.v1.Player.PlayerSnapshot.Builder builderForValue) {
@@ -5491,7 +5491,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       public Builder mergeSnapshot(ymconnect.v1.Player.PlayerSnapshot value) {
         copyOnWrite();
@@ -5499,7 +5499,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       public Builder clearSnapshot() {
         copyOnWrite();
@@ -5508,21 +5508,21 @@ public final class Player {
       }
 
       /**
-       * <code>.ymconnect.v1.PlayerRemoved removed = 2;</code>
+       * <code>.ymconnect.v1.PlayerRemoved removed = 2[json_name = "removed"];</code>
        */
       @java.lang.Override
       public boolean hasRemoved() {
         return instance.hasRemoved();
       }
       /**
-       * <code>.ymconnect.v1.PlayerRemoved removed = 2;</code>
+       * <code>.ymconnect.v1.PlayerRemoved removed = 2[json_name = "removed"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Player.PlayerRemoved getRemoved() {
         return instance.getRemoved();
       }
       /**
-       * <code>.ymconnect.v1.PlayerRemoved removed = 2;</code>
+       * <code>.ymconnect.v1.PlayerRemoved removed = 2[json_name = "removed"];</code>
        */
       public Builder setRemoved(ymconnect.v1.Player.PlayerRemoved value) {
         copyOnWrite();
@@ -5530,7 +5530,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerRemoved removed = 2;</code>
+       * <code>.ymconnect.v1.PlayerRemoved removed = 2[json_name = "removed"];</code>
        */
       public Builder setRemoved(
           ymconnect.v1.Player.PlayerRemoved.Builder builderForValue) {
@@ -5539,7 +5539,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerRemoved removed = 2;</code>
+       * <code>.ymconnect.v1.PlayerRemoved removed = 2[json_name = "removed"];</code>
        */
       public Builder mergeRemoved(ymconnect.v1.Player.PlayerRemoved value) {
         copyOnWrite();
@@ -5547,7 +5547,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerRemoved removed = 2;</code>
+       * <code>.ymconnect.v1.PlayerRemoved removed = 2[json_name = "removed"];</code>
        */
       public Builder clearRemoved() {
         copyOnWrite();
@@ -5556,21 +5556,21 @@ public final class Player {
       }
 
       /**
-       * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3;</code>
+       * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3[json_name = "activeChanged"];</code>
        */
       @java.lang.Override
       public boolean hasActiveChanged() {
         return instance.hasActiveChanged();
       }
       /**
-       * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3;</code>
+       * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3[json_name = "activeChanged"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Player.ActivePlayerChanged getActiveChanged() {
         return instance.getActiveChanged();
       }
       /**
-       * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3;</code>
+       * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3[json_name = "activeChanged"];</code>
        */
       public Builder setActiveChanged(ymconnect.v1.Player.ActivePlayerChanged value) {
         copyOnWrite();
@@ -5578,7 +5578,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3;</code>
+       * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3[json_name = "activeChanged"];</code>
        */
       public Builder setActiveChanged(
           ymconnect.v1.Player.ActivePlayerChanged.Builder builderForValue) {
@@ -5587,7 +5587,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3;</code>
+       * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3[json_name = "activeChanged"];</code>
        */
       public Builder mergeActiveChanged(ymconnect.v1.Player.ActivePlayerChanged value) {
         copyOnWrite();
@@ -5595,7 +5595,7 @@ public final class Player {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3;</code>
+       * <code>.ymconnect.v1.ActivePlayerChanged active_changed = 3[json_name = "activeChanged"];</code>
        */
       public Builder clearActiveChanged() {
         copyOnWrite();

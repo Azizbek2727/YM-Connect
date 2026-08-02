@@ -1406,7 +1406,7 @@ public final class Control {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>uint64 position_ms = 1;</code>
+     * <code>uint64 position_ms = 1[json_name = "positionMs"];</code>
      * @return The positionMs.
      */
     long getPositionMs();
@@ -1424,7 +1424,7 @@ public final class Control {
     public static final int POSITION_MS_FIELD_NUMBER = 1;
     private long positionMs_;
     /**
-     * <code>uint64 position_ms = 1;</code>
+     * <code>uint64 position_ms = 1[json_name = "positionMs"];</code>
      * @return The positionMs.
      */
     @java.lang.Override
@@ -1432,7 +1432,7 @@ public final class Control {
       return positionMs_;
     }
     /**
-     * <code>uint64 position_ms = 1;</code>
+     * <code>uint64 position_ms = 1[json_name = "positionMs"];</code>
      * @param value The positionMs to set.
      */
     private void setPositionMs(long value) {
@@ -1440,7 +1440,7 @@ public final class Control {
       positionMs_ = value;
     }
     /**
-     * <code>uint64 position_ms = 1;</code>
+     * <code>uint64 position_ms = 1[json_name = "positionMs"];</code>
      */
     private void clearPositionMs() {
       
@@ -1543,7 +1543,7 @@ public final class Control {
 
 
       /**
-       * <code>uint64 position_ms = 1;</code>
+       * <code>uint64 position_ms = 1[json_name = "positionMs"];</code>
        * @return The positionMs.
        */
       @java.lang.Override
@@ -1551,7 +1551,7 @@ public final class Control {
         return instance.getPositionMs();
       }
       /**
-       * <code>uint64 position_ms = 1;</code>
+       * <code>uint64 position_ms = 1[json_name = "positionMs"];</code>
        * @param value The positionMs to set.
        * @return This builder for chaining.
        */
@@ -1561,7 +1561,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>uint64 position_ms = 1;</code>
+       * <code>uint64 position_ms = 1[json_name = "positionMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearPositionMs() {
@@ -1649,7 +1649,7 @@ public final class Control {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>sint64 offset_ms = 1;</code>
+     * <code>sint64 offset_ms = 1[json_name = "offsetMs"];</code>
      * @return The offsetMs.
      */
     long getOffsetMs();
@@ -1667,7 +1667,7 @@ public final class Control {
     public static final int OFFSET_MS_FIELD_NUMBER = 1;
     private long offsetMs_;
     /**
-     * <code>sint64 offset_ms = 1;</code>
+     * <code>sint64 offset_ms = 1[json_name = "offsetMs"];</code>
      * @return The offsetMs.
      */
     @java.lang.Override
@@ -1675,7 +1675,7 @@ public final class Control {
       return offsetMs_;
     }
     /**
-     * <code>sint64 offset_ms = 1;</code>
+     * <code>sint64 offset_ms = 1[json_name = "offsetMs"];</code>
      * @param value The offsetMs to set.
      */
     private void setOffsetMs(long value) {
@@ -1683,7 +1683,7 @@ public final class Control {
       offsetMs_ = value;
     }
     /**
-     * <code>sint64 offset_ms = 1;</code>
+     * <code>sint64 offset_ms = 1[json_name = "offsetMs"];</code>
      */
     private void clearOffsetMs() {
       
@@ -1786,7 +1786,7 @@ public final class Control {
 
 
       /**
-       * <code>sint64 offset_ms = 1;</code>
+       * <code>sint64 offset_ms = 1[json_name = "offsetMs"];</code>
        * @return The offsetMs.
        */
       @java.lang.Override
@@ -1794,7 +1794,7 @@ public final class Control {
         return instance.getOffsetMs();
       }
       /**
-       * <code>sint64 offset_ms = 1;</code>
+       * <code>sint64 offset_ms = 1[json_name = "offsetMs"];</code>
        * @param value The offsetMs to set.
        * @return This builder for chaining.
        */
@@ -1804,7 +1804,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>sint64 offset_ms = 1;</code>
+       * <code>sint64 offset_ms = 1[json_name = "offsetMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearOffsetMs() {
@@ -1892,7 +1892,7 @@ public final class Control {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>double volume = 1;</code>
+     * <code>double volume = 1[json_name = "volume"];</code>
      * @return The volume.
      */
     double getVolume();
@@ -1910,7 +1910,7 @@ public final class Control {
     public static final int VOLUME_FIELD_NUMBER = 1;
     private double volume_;
     /**
-     * <code>double volume = 1;</code>
+     * <code>double volume = 1[json_name = "volume"];</code>
      * @return The volume.
      */
     @java.lang.Override
@@ -1918,7 +1918,7 @@ public final class Control {
       return volume_;
     }
     /**
-     * <code>double volume = 1;</code>
+     * <code>double volume = 1[json_name = "volume"];</code>
      * @param value The volume to set.
      */
     private void setVolume(double value) {
@@ -1926,7 +1926,7 @@ public final class Control {
       volume_ = value;
     }
     /**
-     * <code>double volume = 1;</code>
+     * <code>double volume = 1[json_name = "volume"];</code>
      */
     private void clearVolume() {
       
@@ -2029,7 +2029,7 @@ public final class Control {
 
 
       /**
-       * <code>double volume = 1;</code>
+       * <code>double volume = 1[json_name = "volume"];</code>
        * @return The volume.
        */
       @java.lang.Override
@@ -2037,7 +2037,7 @@ public final class Control {
         return instance.getVolume();
       }
       /**
-       * <code>double volume = 1;</code>
+       * <code>double volume = 1[json_name = "volume"];</code>
        * @param value The volume to set.
        * @return This builder for chaining.
        */
@@ -2047,7 +2047,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>double volume = 1;</code>
+       * <code>double volume = 1[json_name = "volume"];</code>
        * @return This builder for chaining.
        */
       public Builder clearVolume() {
@@ -2135,7 +2135,7 @@ public final class Control {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>bool muted = 1;</code>
+     * <code>bool muted = 1[json_name = "muted"];</code>
      * @return The muted.
      */
     boolean getMuted();
@@ -2153,7 +2153,7 @@ public final class Control {
     public static final int MUTED_FIELD_NUMBER = 1;
     private boolean muted_;
     /**
-     * <code>bool muted = 1;</code>
+     * <code>bool muted = 1[json_name = "muted"];</code>
      * @return The muted.
      */
     @java.lang.Override
@@ -2161,7 +2161,7 @@ public final class Control {
       return muted_;
     }
     /**
-     * <code>bool muted = 1;</code>
+     * <code>bool muted = 1[json_name = "muted"];</code>
      * @param value The muted to set.
      */
     private void setMuted(boolean value) {
@@ -2169,7 +2169,7 @@ public final class Control {
       muted_ = value;
     }
     /**
-     * <code>bool muted = 1;</code>
+     * <code>bool muted = 1[json_name = "muted"];</code>
      */
     private void clearMuted() {
       
@@ -2272,7 +2272,7 @@ public final class Control {
 
 
       /**
-       * <code>bool muted = 1;</code>
+       * <code>bool muted = 1[json_name = "muted"];</code>
        * @return The muted.
        */
       @java.lang.Override
@@ -2280,7 +2280,7 @@ public final class Control {
         return instance.getMuted();
       }
       /**
-       * <code>bool muted = 1;</code>
+       * <code>bool muted = 1[json_name = "muted"];</code>
        * @param value The muted to set.
        * @return This builder for chaining.
        */
@@ -2290,7 +2290,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>bool muted = 1;</code>
+       * <code>bool muted = 1[json_name = "muted"];</code>
        * @return This builder for chaining.
        */
       public Builder clearMuted() {
@@ -2378,7 +2378,7 @@ public final class Control {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>bool shuffle = 1;</code>
+     * <code>bool shuffle = 1[json_name = "shuffle"];</code>
      * @return The shuffle.
      */
     boolean getShuffle();
@@ -2396,7 +2396,7 @@ public final class Control {
     public static final int SHUFFLE_FIELD_NUMBER = 1;
     private boolean shuffle_;
     /**
-     * <code>bool shuffle = 1;</code>
+     * <code>bool shuffle = 1[json_name = "shuffle"];</code>
      * @return The shuffle.
      */
     @java.lang.Override
@@ -2404,7 +2404,7 @@ public final class Control {
       return shuffle_;
     }
     /**
-     * <code>bool shuffle = 1;</code>
+     * <code>bool shuffle = 1[json_name = "shuffle"];</code>
      * @param value The shuffle to set.
      */
     private void setShuffle(boolean value) {
@@ -2412,7 +2412,7 @@ public final class Control {
       shuffle_ = value;
     }
     /**
-     * <code>bool shuffle = 1;</code>
+     * <code>bool shuffle = 1[json_name = "shuffle"];</code>
      */
     private void clearShuffle() {
       
@@ -2515,7 +2515,7 @@ public final class Control {
 
 
       /**
-       * <code>bool shuffle = 1;</code>
+       * <code>bool shuffle = 1[json_name = "shuffle"];</code>
        * @return The shuffle.
        */
       @java.lang.Override
@@ -2523,7 +2523,7 @@ public final class Control {
         return instance.getShuffle();
       }
       /**
-       * <code>bool shuffle = 1;</code>
+       * <code>bool shuffle = 1[json_name = "shuffle"];</code>
        * @param value The shuffle to set.
        * @return This builder for chaining.
        */
@@ -2533,7 +2533,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>bool shuffle = 1;</code>
+       * <code>bool shuffle = 1[json_name = "shuffle"];</code>
        * @return This builder for chaining.
        */
       public Builder clearShuffle() {
@@ -2621,12 +2621,12 @@ public final class Control {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.RepeatMode repeat_mode = 1;</code>
+     * <code>.ymconnect.v1.RepeatMode repeat_mode = 1[json_name = "repeatMode"];</code>
      * @return The enum numeric value on the wire for repeatMode.
      */
     int getRepeatModeValue();
     /**
-     * <code>.ymconnect.v1.RepeatMode repeat_mode = 1;</code>
+     * <code>.ymconnect.v1.RepeatMode repeat_mode = 1[json_name = "repeatMode"];</code>
      * @return The repeatMode.
      */
     ymconnect.v1.Player.RepeatMode getRepeatMode();
@@ -2644,7 +2644,7 @@ public final class Control {
     public static final int REPEAT_MODE_FIELD_NUMBER = 1;
     private int repeatMode_;
     /**
-     * <code>.ymconnect.v1.RepeatMode repeat_mode = 1;</code>
+     * <code>.ymconnect.v1.RepeatMode repeat_mode = 1[json_name = "repeatMode"];</code>
      * @return The enum numeric value on the wire for repeatMode.
      */
     @java.lang.Override
@@ -2652,7 +2652,7 @@ public final class Control {
       return repeatMode_;
     }
     /**
-     * <code>.ymconnect.v1.RepeatMode repeat_mode = 1;</code>
+     * <code>.ymconnect.v1.RepeatMode repeat_mode = 1[json_name = "repeatMode"];</code>
      * @return The repeatMode.
      */
     @java.lang.Override
@@ -2661,14 +2661,14 @@ public final class Control {
       return result == null ? ymconnect.v1.Player.RepeatMode.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ymconnect.v1.RepeatMode repeat_mode = 1;</code>
+     * <code>.ymconnect.v1.RepeatMode repeat_mode = 1[json_name = "repeatMode"];</code>
      * @param value The enum numeric value on the wire for repeatMode to set.
      */
     private void setRepeatModeValue(int value) {
         repeatMode_ = value;
     }
     /**
-     * <code>.ymconnect.v1.RepeatMode repeat_mode = 1;</code>
+     * <code>.ymconnect.v1.RepeatMode repeat_mode = 1[json_name = "repeatMode"];</code>
      * @param value The repeatMode to set.
      */
     private void setRepeatMode(ymconnect.v1.Player.RepeatMode value) {
@@ -2676,7 +2676,7 @@ public final class Control {
       
     }
     /**
-     * <code>.ymconnect.v1.RepeatMode repeat_mode = 1;</code>
+     * <code>.ymconnect.v1.RepeatMode repeat_mode = 1[json_name = "repeatMode"];</code>
      */
     private void clearRepeatMode() {
       
@@ -2779,7 +2779,7 @@ public final class Control {
 
 
       /**
-       * <code>.ymconnect.v1.RepeatMode repeat_mode = 1;</code>
+       * <code>.ymconnect.v1.RepeatMode repeat_mode = 1[json_name = "repeatMode"];</code>
        * @return The enum numeric value on the wire for repeatMode.
        */
       @java.lang.Override
@@ -2787,7 +2787,7 @@ public final class Control {
         return instance.getRepeatModeValue();
       }
       /**
-       * <code>.ymconnect.v1.RepeatMode repeat_mode = 1;</code>
+       * <code>.ymconnect.v1.RepeatMode repeat_mode = 1[json_name = "repeatMode"];</code>
        * @param value The repeatMode to set.
        * @return This builder for chaining.
        */
@@ -2797,7 +2797,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.RepeatMode repeat_mode = 1;</code>
+       * <code>.ymconnect.v1.RepeatMode repeat_mode = 1[json_name = "repeatMode"];</code>
        * @return The repeatMode.
        */
       @java.lang.Override
@@ -2805,7 +2805,7 @@ public final class Control {
         return instance.getRepeatMode();
       }
       /**
-       * <code>.ymconnect.v1.RepeatMode repeat_mode = 1;</code>
+       * <code>.ymconnect.v1.RepeatMode repeat_mode = 1[json_name = "repeatMode"];</code>
        * @param value The enum numeric value on the wire for repeatMode to set.
        * @return This builder for chaining.
        */
@@ -2815,7 +2815,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.RepeatMode repeat_mode = 1;</code>
+       * <code>.ymconnect.v1.RepeatMode repeat_mode = 1[json_name = "repeatMode"];</code>
        * @return This builder for chaining.
        */
       public Builder clearRepeatMode() {
@@ -2903,7 +2903,7 @@ public final class Control {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>bool liked = 1;</code>
+     * <code>bool liked = 1[json_name = "liked"];</code>
      * @return The liked.
      */
     boolean getLiked();
@@ -2921,7 +2921,7 @@ public final class Control {
     public static final int LIKED_FIELD_NUMBER = 1;
     private boolean liked_;
     /**
-     * <code>bool liked = 1;</code>
+     * <code>bool liked = 1[json_name = "liked"];</code>
      * @return The liked.
      */
     @java.lang.Override
@@ -2929,7 +2929,7 @@ public final class Control {
       return liked_;
     }
     /**
-     * <code>bool liked = 1;</code>
+     * <code>bool liked = 1[json_name = "liked"];</code>
      * @param value The liked to set.
      */
     private void setLiked(boolean value) {
@@ -2937,7 +2937,7 @@ public final class Control {
       liked_ = value;
     }
     /**
-     * <code>bool liked = 1;</code>
+     * <code>bool liked = 1[json_name = "liked"];</code>
      */
     private void clearLiked() {
       
@@ -3040,7 +3040,7 @@ public final class Control {
 
 
       /**
-       * <code>bool liked = 1;</code>
+       * <code>bool liked = 1[json_name = "liked"];</code>
        * @return The liked.
        */
       @java.lang.Override
@@ -3048,7 +3048,7 @@ public final class Control {
         return instance.getLiked();
       }
       /**
-       * <code>bool liked = 1;</code>
+       * <code>bool liked = 1[json_name = "liked"];</code>
        * @param value The liked to set.
        * @return This builder for chaining.
        */
@@ -3058,7 +3058,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>bool liked = 1;</code>
+       * <code>bool liked = 1[json_name = "liked"];</code>
        * @return This builder for chaining.
        */
       public Builder clearLiked() {
@@ -3146,144 +3146,144 @@ public final class Control {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.PlayCommand play = 1;</code>
+     * <code>.ymconnect.v1.PlayCommand play = 1[json_name = "play"];</code>
      * @return Whether the play field is set.
      */
     boolean hasPlay();
     /**
-     * <code>.ymconnect.v1.PlayCommand play = 1;</code>
+     * <code>.ymconnect.v1.PlayCommand play = 1[json_name = "play"];</code>
      * @return The play.
      */
     ymconnect.v1.Control.PlayCommand getPlay();
 
     /**
-     * <code>.ymconnect.v1.PauseCommand pause = 2;</code>
+     * <code>.ymconnect.v1.PauseCommand pause = 2[json_name = "pause"];</code>
      * @return Whether the pause field is set.
      */
     boolean hasPause();
     /**
-     * <code>.ymconnect.v1.PauseCommand pause = 2;</code>
+     * <code>.ymconnect.v1.PauseCommand pause = 2[json_name = "pause"];</code>
      * @return The pause.
      */
     ymconnect.v1.Control.PauseCommand getPause();
 
     /**
-     * <code>.ymconnect.v1.StopCommand stop = 3;</code>
+     * <code>.ymconnect.v1.StopCommand stop = 3[json_name = "stop"];</code>
      * @return Whether the stop field is set.
      */
     boolean hasStop();
     /**
-     * <code>.ymconnect.v1.StopCommand stop = 3;</code>
+     * <code>.ymconnect.v1.StopCommand stop = 3[json_name = "stop"];</code>
      * @return The stop.
      */
     ymconnect.v1.Control.StopCommand getStop();
 
     /**
-     * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4;</code>
+     * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4[json_name = "togglePlayPause"];</code>
      * @return Whether the togglePlayPause field is set.
      */
     boolean hasTogglePlayPause();
     /**
-     * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4;</code>
+     * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4[json_name = "togglePlayPause"];</code>
      * @return The togglePlayPause.
      */
     ymconnect.v1.Control.TogglePlayPauseCommand getTogglePlayPause();
 
     /**
-     * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5;</code>
+     * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5[json_name = "seekAbsolute"];</code>
      * @return Whether the seekAbsolute field is set.
      */
     boolean hasSeekAbsolute();
     /**
-     * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5;</code>
+     * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5[json_name = "seekAbsolute"];</code>
      * @return The seekAbsolute.
      */
     ymconnect.v1.Control.SeekAbsoluteCommand getSeekAbsolute();
 
     /**
-     * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6;</code>
+     * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6[json_name = "seekRelative"];</code>
      * @return Whether the seekRelative field is set.
      */
     boolean hasSeekRelative();
     /**
-     * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6;</code>
+     * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6[json_name = "seekRelative"];</code>
      * @return The seekRelative.
      */
     ymconnect.v1.Control.SeekRelativeCommand getSeekRelative();
 
     /**
-     * <code>.ymconnect.v1.NextCommand next = 7;</code>
+     * <code>.ymconnect.v1.NextCommand next = 7[json_name = "next"];</code>
      * @return Whether the next field is set.
      */
     boolean hasNext();
     /**
-     * <code>.ymconnect.v1.NextCommand next = 7;</code>
+     * <code>.ymconnect.v1.NextCommand next = 7[json_name = "next"];</code>
      * @return The next.
      */
     ymconnect.v1.Control.NextCommand getNext();
 
     /**
-     * <code>.ymconnect.v1.PreviousCommand previous = 8;</code>
+     * <code>.ymconnect.v1.PreviousCommand previous = 8[json_name = "previous"];</code>
      * @return Whether the previous field is set.
      */
     boolean hasPrevious();
     /**
-     * <code>.ymconnect.v1.PreviousCommand previous = 8;</code>
+     * <code>.ymconnect.v1.PreviousCommand previous = 8[json_name = "previous"];</code>
      * @return The previous.
      */
     ymconnect.v1.Control.PreviousCommand getPrevious();
 
     /**
-     * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9;</code>
+     * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9[json_name = "setVolume"];</code>
      * @return Whether the setVolume field is set.
      */
     boolean hasSetVolume();
     /**
-     * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9;</code>
+     * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9[json_name = "setVolume"];</code>
      * @return The setVolume.
      */
     ymconnect.v1.Control.SetVolumeCommand getSetVolume();
 
     /**
-     * <code>.ymconnect.v1.SetMutedCommand set_muted = 10;</code>
+     * <code>.ymconnect.v1.SetMutedCommand set_muted = 10[json_name = "setMuted"];</code>
      * @return Whether the setMuted field is set.
      */
     boolean hasSetMuted();
     /**
-     * <code>.ymconnect.v1.SetMutedCommand set_muted = 10;</code>
+     * <code>.ymconnect.v1.SetMutedCommand set_muted = 10[json_name = "setMuted"];</code>
      * @return The setMuted.
      */
     ymconnect.v1.Control.SetMutedCommand getSetMuted();
 
     /**
-     * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11;</code>
+     * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11[json_name = "setShuffle"];</code>
      * @return Whether the setShuffle field is set.
      */
     boolean hasSetShuffle();
     /**
-     * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11;</code>
+     * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11[json_name = "setShuffle"];</code>
      * @return The setShuffle.
      */
     ymconnect.v1.Control.SetShuffleCommand getSetShuffle();
 
     /**
-     * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12;</code>
+     * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12[json_name = "setRepeat"];</code>
      * @return Whether the setRepeat field is set.
      */
     boolean hasSetRepeat();
     /**
-     * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12;</code>
+     * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12[json_name = "setRepeat"];</code>
      * @return The setRepeat.
      */
     ymconnect.v1.Control.SetRepeatCommand getSetRepeat();
 
     /**
-     * <code>.ymconnect.v1.SetLikeCommand set_like = 13;</code>
+     * <code>.ymconnect.v1.SetLikeCommand set_like = 13[json_name = "setLike"];</code>
      * @return Whether the setLike field is set.
      */
     boolean hasSetLike();
     /**
-     * <code>.ymconnect.v1.SetLikeCommand set_like = 13;</code>
+     * <code>.ymconnect.v1.SetLikeCommand set_like = 13[json_name = "setLike"];</code>
      * @return The setLike.
      */
     ymconnect.v1.Control.SetLikeCommand getSetLike();
@@ -3367,14 +3367,14 @@ public final class Control {
 
     public static final int PLAY_FIELD_NUMBER = 1;
     /**
-     * <code>.ymconnect.v1.PlayCommand play = 1;</code>
+     * <code>.ymconnect.v1.PlayCommand play = 1[json_name = "play"];</code>
      */
     @java.lang.Override
     public boolean hasPlay() {
       return actionCase_ == 1;
     }
     /**
-     * <code>.ymconnect.v1.PlayCommand play = 1;</code>
+     * <code>.ymconnect.v1.PlayCommand play = 1[json_name = "play"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.PlayCommand getPlay() {
@@ -3384,7 +3384,7 @@ public final class Control {
       return ymconnect.v1.Control.PlayCommand.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.PlayCommand play = 1;</code>
+     * <code>.ymconnect.v1.PlayCommand play = 1[json_name = "play"];</code>
      */
     private void setPlay(ymconnect.v1.Control.PlayCommand value) {
       value.getClass();
@@ -3392,7 +3392,7 @@ public final class Control {
       actionCase_ = 1;
     }
     /**
-     * <code>.ymconnect.v1.PlayCommand play = 1;</code>
+     * <code>.ymconnect.v1.PlayCommand play = 1[json_name = "play"];</code>
      */
     private void mergePlay(ymconnect.v1.Control.PlayCommand value) {
       value.getClass();
@@ -3406,7 +3406,7 @@ public final class Control {
       actionCase_ = 1;
     }
     /**
-     * <code>.ymconnect.v1.PlayCommand play = 1;</code>
+     * <code>.ymconnect.v1.PlayCommand play = 1[json_name = "play"];</code>
      */
     private void clearPlay() {
       if (actionCase_ == 1) {
@@ -3417,14 +3417,14 @@ public final class Control {
 
     public static final int PAUSE_FIELD_NUMBER = 2;
     /**
-     * <code>.ymconnect.v1.PauseCommand pause = 2;</code>
+     * <code>.ymconnect.v1.PauseCommand pause = 2[json_name = "pause"];</code>
      */
     @java.lang.Override
     public boolean hasPause() {
       return actionCase_ == 2;
     }
     /**
-     * <code>.ymconnect.v1.PauseCommand pause = 2;</code>
+     * <code>.ymconnect.v1.PauseCommand pause = 2[json_name = "pause"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.PauseCommand getPause() {
@@ -3434,7 +3434,7 @@ public final class Control {
       return ymconnect.v1.Control.PauseCommand.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.PauseCommand pause = 2;</code>
+     * <code>.ymconnect.v1.PauseCommand pause = 2[json_name = "pause"];</code>
      */
     private void setPause(ymconnect.v1.Control.PauseCommand value) {
       value.getClass();
@@ -3442,7 +3442,7 @@ public final class Control {
       actionCase_ = 2;
     }
     /**
-     * <code>.ymconnect.v1.PauseCommand pause = 2;</code>
+     * <code>.ymconnect.v1.PauseCommand pause = 2[json_name = "pause"];</code>
      */
     private void mergePause(ymconnect.v1.Control.PauseCommand value) {
       value.getClass();
@@ -3456,7 +3456,7 @@ public final class Control {
       actionCase_ = 2;
     }
     /**
-     * <code>.ymconnect.v1.PauseCommand pause = 2;</code>
+     * <code>.ymconnect.v1.PauseCommand pause = 2[json_name = "pause"];</code>
      */
     private void clearPause() {
       if (actionCase_ == 2) {
@@ -3467,14 +3467,14 @@ public final class Control {
 
     public static final int STOP_FIELD_NUMBER = 3;
     /**
-     * <code>.ymconnect.v1.StopCommand stop = 3;</code>
+     * <code>.ymconnect.v1.StopCommand stop = 3[json_name = "stop"];</code>
      */
     @java.lang.Override
     public boolean hasStop() {
       return actionCase_ == 3;
     }
     /**
-     * <code>.ymconnect.v1.StopCommand stop = 3;</code>
+     * <code>.ymconnect.v1.StopCommand stop = 3[json_name = "stop"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.StopCommand getStop() {
@@ -3484,7 +3484,7 @@ public final class Control {
       return ymconnect.v1.Control.StopCommand.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.StopCommand stop = 3;</code>
+     * <code>.ymconnect.v1.StopCommand stop = 3[json_name = "stop"];</code>
      */
     private void setStop(ymconnect.v1.Control.StopCommand value) {
       value.getClass();
@@ -3492,7 +3492,7 @@ public final class Control {
       actionCase_ = 3;
     }
     /**
-     * <code>.ymconnect.v1.StopCommand stop = 3;</code>
+     * <code>.ymconnect.v1.StopCommand stop = 3[json_name = "stop"];</code>
      */
     private void mergeStop(ymconnect.v1.Control.StopCommand value) {
       value.getClass();
@@ -3506,7 +3506,7 @@ public final class Control {
       actionCase_ = 3;
     }
     /**
-     * <code>.ymconnect.v1.StopCommand stop = 3;</code>
+     * <code>.ymconnect.v1.StopCommand stop = 3[json_name = "stop"];</code>
      */
     private void clearStop() {
       if (actionCase_ == 3) {
@@ -3517,14 +3517,14 @@ public final class Control {
 
     public static final int TOGGLE_PLAY_PAUSE_FIELD_NUMBER = 4;
     /**
-     * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4;</code>
+     * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4[json_name = "togglePlayPause"];</code>
      */
     @java.lang.Override
     public boolean hasTogglePlayPause() {
       return actionCase_ == 4;
     }
     /**
-     * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4;</code>
+     * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4[json_name = "togglePlayPause"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.TogglePlayPauseCommand getTogglePlayPause() {
@@ -3534,7 +3534,7 @@ public final class Control {
       return ymconnect.v1.Control.TogglePlayPauseCommand.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4;</code>
+     * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4[json_name = "togglePlayPause"];</code>
      */
     private void setTogglePlayPause(ymconnect.v1.Control.TogglePlayPauseCommand value) {
       value.getClass();
@@ -3542,7 +3542,7 @@ public final class Control {
       actionCase_ = 4;
     }
     /**
-     * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4;</code>
+     * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4[json_name = "togglePlayPause"];</code>
      */
     private void mergeTogglePlayPause(ymconnect.v1.Control.TogglePlayPauseCommand value) {
       value.getClass();
@@ -3556,7 +3556,7 @@ public final class Control {
       actionCase_ = 4;
     }
     /**
-     * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4;</code>
+     * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4[json_name = "togglePlayPause"];</code>
      */
     private void clearTogglePlayPause() {
       if (actionCase_ == 4) {
@@ -3567,14 +3567,14 @@ public final class Control {
 
     public static final int SEEK_ABSOLUTE_FIELD_NUMBER = 5;
     /**
-     * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5;</code>
+     * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5[json_name = "seekAbsolute"];</code>
      */
     @java.lang.Override
     public boolean hasSeekAbsolute() {
       return actionCase_ == 5;
     }
     /**
-     * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5;</code>
+     * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5[json_name = "seekAbsolute"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.SeekAbsoluteCommand getSeekAbsolute() {
@@ -3584,7 +3584,7 @@ public final class Control {
       return ymconnect.v1.Control.SeekAbsoluteCommand.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5;</code>
+     * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5[json_name = "seekAbsolute"];</code>
      */
     private void setSeekAbsolute(ymconnect.v1.Control.SeekAbsoluteCommand value) {
       value.getClass();
@@ -3592,7 +3592,7 @@ public final class Control {
       actionCase_ = 5;
     }
     /**
-     * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5;</code>
+     * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5[json_name = "seekAbsolute"];</code>
      */
     private void mergeSeekAbsolute(ymconnect.v1.Control.SeekAbsoluteCommand value) {
       value.getClass();
@@ -3606,7 +3606,7 @@ public final class Control {
       actionCase_ = 5;
     }
     /**
-     * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5;</code>
+     * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5[json_name = "seekAbsolute"];</code>
      */
     private void clearSeekAbsolute() {
       if (actionCase_ == 5) {
@@ -3617,14 +3617,14 @@ public final class Control {
 
     public static final int SEEK_RELATIVE_FIELD_NUMBER = 6;
     /**
-     * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6;</code>
+     * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6[json_name = "seekRelative"];</code>
      */
     @java.lang.Override
     public boolean hasSeekRelative() {
       return actionCase_ == 6;
     }
     /**
-     * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6;</code>
+     * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6[json_name = "seekRelative"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.SeekRelativeCommand getSeekRelative() {
@@ -3634,7 +3634,7 @@ public final class Control {
       return ymconnect.v1.Control.SeekRelativeCommand.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6;</code>
+     * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6[json_name = "seekRelative"];</code>
      */
     private void setSeekRelative(ymconnect.v1.Control.SeekRelativeCommand value) {
       value.getClass();
@@ -3642,7 +3642,7 @@ public final class Control {
       actionCase_ = 6;
     }
     /**
-     * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6;</code>
+     * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6[json_name = "seekRelative"];</code>
      */
     private void mergeSeekRelative(ymconnect.v1.Control.SeekRelativeCommand value) {
       value.getClass();
@@ -3656,7 +3656,7 @@ public final class Control {
       actionCase_ = 6;
     }
     /**
-     * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6;</code>
+     * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6[json_name = "seekRelative"];</code>
      */
     private void clearSeekRelative() {
       if (actionCase_ == 6) {
@@ -3667,14 +3667,14 @@ public final class Control {
 
     public static final int NEXT_FIELD_NUMBER = 7;
     /**
-     * <code>.ymconnect.v1.NextCommand next = 7;</code>
+     * <code>.ymconnect.v1.NextCommand next = 7[json_name = "next"];</code>
      */
     @java.lang.Override
     public boolean hasNext() {
       return actionCase_ == 7;
     }
     /**
-     * <code>.ymconnect.v1.NextCommand next = 7;</code>
+     * <code>.ymconnect.v1.NextCommand next = 7[json_name = "next"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.NextCommand getNext() {
@@ -3684,7 +3684,7 @@ public final class Control {
       return ymconnect.v1.Control.NextCommand.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.NextCommand next = 7;</code>
+     * <code>.ymconnect.v1.NextCommand next = 7[json_name = "next"];</code>
      */
     private void setNext(ymconnect.v1.Control.NextCommand value) {
       value.getClass();
@@ -3692,7 +3692,7 @@ public final class Control {
       actionCase_ = 7;
     }
     /**
-     * <code>.ymconnect.v1.NextCommand next = 7;</code>
+     * <code>.ymconnect.v1.NextCommand next = 7[json_name = "next"];</code>
      */
     private void mergeNext(ymconnect.v1.Control.NextCommand value) {
       value.getClass();
@@ -3706,7 +3706,7 @@ public final class Control {
       actionCase_ = 7;
     }
     /**
-     * <code>.ymconnect.v1.NextCommand next = 7;</code>
+     * <code>.ymconnect.v1.NextCommand next = 7[json_name = "next"];</code>
      */
     private void clearNext() {
       if (actionCase_ == 7) {
@@ -3717,14 +3717,14 @@ public final class Control {
 
     public static final int PREVIOUS_FIELD_NUMBER = 8;
     /**
-     * <code>.ymconnect.v1.PreviousCommand previous = 8;</code>
+     * <code>.ymconnect.v1.PreviousCommand previous = 8[json_name = "previous"];</code>
      */
     @java.lang.Override
     public boolean hasPrevious() {
       return actionCase_ == 8;
     }
     /**
-     * <code>.ymconnect.v1.PreviousCommand previous = 8;</code>
+     * <code>.ymconnect.v1.PreviousCommand previous = 8[json_name = "previous"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.PreviousCommand getPrevious() {
@@ -3734,7 +3734,7 @@ public final class Control {
       return ymconnect.v1.Control.PreviousCommand.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.PreviousCommand previous = 8;</code>
+     * <code>.ymconnect.v1.PreviousCommand previous = 8[json_name = "previous"];</code>
      */
     private void setPrevious(ymconnect.v1.Control.PreviousCommand value) {
       value.getClass();
@@ -3742,7 +3742,7 @@ public final class Control {
       actionCase_ = 8;
     }
     /**
-     * <code>.ymconnect.v1.PreviousCommand previous = 8;</code>
+     * <code>.ymconnect.v1.PreviousCommand previous = 8[json_name = "previous"];</code>
      */
     private void mergePrevious(ymconnect.v1.Control.PreviousCommand value) {
       value.getClass();
@@ -3756,7 +3756,7 @@ public final class Control {
       actionCase_ = 8;
     }
     /**
-     * <code>.ymconnect.v1.PreviousCommand previous = 8;</code>
+     * <code>.ymconnect.v1.PreviousCommand previous = 8[json_name = "previous"];</code>
      */
     private void clearPrevious() {
       if (actionCase_ == 8) {
@@ -3767,14 +3767,14 @@ public final class Control {
 
     public static final int SET_VOLUME_FIELD_NUMBER = 9;
     /**
-     * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9;</code>
+     * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9[json_name = "setVolume"];</code>
      */
     @java.lang.Override
     public boolean hasSetVolume() {
       return actionCase_ == 9;
     }
     /**
-     * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9;</code>
+     * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9[json_name = "setVolume"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.SetVolumeCommand getSetVolume() {
@@ -3784,7 +3784,7 @@ public final class Control {
       return ymconnect.v1.Control.SetVolumeCommand.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9;</code>
+     * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9[json_name = "setVolume"];</code>
      */
     private void setSetVolume(ymconnect.v1.Control.SetVolumeCommand value) {
       value.getClass();
@@ -3792,7 +3792,7 @@ public final class Control {
       actionCase_ = 9;
     }
     /**
-     * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9;</code>
+     * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9[json_name = "setVolume"];</code>
      */
     private void mergeSetVolume(ymconnect.v1.Control.SetVolumeCommand value) {
       value.getClass();
@@ -3806,7 +3806,7 @@ public final class Control {
       actionCase_ = 9;
     }
     /**
-     * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9;</code>
+     * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9[json_name = "setVolume"];</code>
      */
     private void clearSetVolume() {
       if (actionCase_ == 9) {
@@ -3817,14 +3817,14 @@ public final class Control {
 
     public static final int SET_MUTED_FIELD_NUMBER = 10;
     /**
-     * <code>.ymconnect.v1.SetMutedCommand set_muted = 10;</code>
+     * <code>.ymconnect.v1.SetMutedCommand set_muted = 10[json_name = "setMuted"];</code>
      */
     @java.lang.Override
     public boolean hasSetMuted() {
       return actionCase_ == 10;
     }
     /**
-     * <code>.ymconnect.v1.SetMutedCommand set_muted = 10;</code>
+     * <code>.ymconnect.v1.SetMutedCommand set_muted = 10[json_name = "setMuted"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.SetMutedCommand getSetMuted() {
@@ -3834,7 +3834,7 @@ public final class Control {
       return ymconnect.v1.Control.SetMutedCommand.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.SetMutedCommand set_muted = 10;</code>
+     * <code>.ymconnect.v1.SetMutedCommand set_muted = 10[json_name = "setMuted"];</code>
      */
     private void setSetMuted(ymconnect.v1.Control.SetMutedCommand value) {
       value.getClass();
@@ -3842,7 +3842,7 @@ public final class Control {
       actionCase_ = 10;
     }
     /**
-     * <code>.ymconnect.v1.SetMutedCommand set_muted = 10;</code>
+     * <code>.ymconnect.v1.SetMutedCommand set_muted = 10[json_name = "setMuted"];</code>
      */
     private void mergeSetMuted(ymconnect.v1.Control.SetMutedCommand value) {
       value.getClass();
@@ -3856,7 +3856,7 @@ public final class Control {
       actionCase_ = 10;
     }
     /**
-     * <code>.ymconnect.v1.SetMutedCommand set_muted = 10;</code>
+     * <code>.ymconnect.v1.SetMutedCommand set_muted = 10[json_name = "setMuted"];</code>
      */
     private void clearSetMuted() {
       if (actionCase_ == 10) {
@@ -3867,14 +3867,14 @@ public final class Control {
 
     public static final int SET_SHUFFLE_FIELD_NUMBER = 11;
     /**
-     * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11;</code>
+     * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11[json_name = "setShuffle"];</code>
      */
     @java.lang.Override
     public boolean hasSetShuffle() {
       return actionCase_ == 11;
     }
     /**
-     * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11;</code>
+     * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11[json_name = "setShuffle"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.SetShuffleCommand getSetShuffle() {
@@ -3884,7 +3884,7 @@ public final class Control {
       return ymconnect.v1.Control.SetShuffleCommand.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11;</code>
+     * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11[json_name = "setShuffle"];</code>
      */
     private void setSetShuffle(ymconnect.v1.Control.SetShuffleCommand value) {
       value.getClass();
@@ -3892,7 +3892,7 @@ public final class Control {
       actionCase_ = 11;
     }
     /**
-     * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11;</code>
+     * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11[json_name = "setShuffle"];</code>
      */
     private void mergeSetShuffle(ymconnect.v1.Control.SetShuffleCommand value) {
       value.getClass();
@@ -3906,7 +3906,7 @@ public final class Control {
       actionCase_ = 11;
     }
     /**
-     * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11;</code>
+     * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11[json_name = "setShuffle"];</code>
      */
     private void clearSetShuffle() {
       if (actionCase_ == 11) {
@@ -3917,14 +3917,14 @@ public final class Control {
 
     public static final int SET_REPEAT_FIELD_NUMBER = 12;
     /**
-     * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12;</code>
+     * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12[json_name = "setRepeat"];</code>
      */
     @java.lang.Override
     public boolean hasSetRepeat() {
       return actionCase_ == 12;
     }
     /**
-     * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12;</code>
+     * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12[json_name = "setRepeat"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.SetRepeatCommand getSetRepeat() {
@@ -3934,7 +3934,7 @@ public final class Control {
       return ymconnect.v1.Control.SetRepeatCommand.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12;</code>
+     * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12[json_name = "setRepeat"];</code>
      */
     private void setSetRepeat(ymconnect.v1.Control.SetRepeatCommand value) {
       value.getClass();
@@ -3942,7 +3942,7 @@ public final class Control {
       actionCase_ = 12;
     }
     /**
-     * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12;</code>
+     * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12[json_name = "setRepeat"];</code>
      */
     private void mergeSetRepeat(ymconnect.v1.Control.SetRepeatCommand value) {
       value.getClass();
@@ -3956,7 +3956,7 @@ public final class Control {
       actionCase_ = 12;
     }
     /**
-     * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12;</code>
+     * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12[json_name = "setRepeat"];</code>
      */
     private void clearSetRepeat() {
       if (actionCase_ == 12) {
@@ -3967,14 +3967,14 @@ public final class Control {
 
     public static final int SET_LIKE_FIELD_NUMBER = 13;
     /**
-     * <code>.ymconnect.v1.SetLikeCommand set_like = 13;</code>
+     * <code>.ymconnect.v1.SetLikeCommand set_like = 13[json_name = "setLike"];</code>
      */
     @java.lang.Override
     public boolean hasSetLike() {
       return actionCase_ == 13;
     }
     /**
-     * <code>.ymconnect.v1.SetLikeCommand set_like = 13;</code>
+     * <code>.ymconnect.v1.SetLikeCommand set_like = 13[json_name = "setLike"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.SetLikeCommand getSetLike() {
@@ -3984,7 +3984,7 @@ public final class Control {
       return ymconnect.v1.Control.SetLikeCommand.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.SetLikeCommand set_like = 13;</code>
+     * <code>.ymconnect.v1.SetLikeCommand set_like = 13[json_name = "setLike"];</code>
      */
     private void setSetLike(ymconnect.v1.Control.SetLikeCommand value) {
       value.getClass();
@@ -3992,7 +3992,7 @@ public final class Control {
       actionCase_ = 13;
     }
     /**
-     * <code>.ymconnect.v1.SetLikeCommand set_like = 13;</code>
+     * <code>.ymconnect.v1.SetLikeCommand set_like = 13[json_name = "setLike"];</code>
      */
     private void mergeSetLike(ymconnect.v1.Control.SetLikeCommand value) {
       value.getClass();
@@ -4006,7 +4006,7 @@ public final class Control {
       actionCase_ = 13;
     }
     /**
-     * <code>.ymconnect.v1.SetLikeCommand set_like = 13;</code>
+     * <code>.ymconnect.v1.SetLikeCommand set_like = 13[json_name = "setLike"];</code>
      */
     private void clearSetLike() {
       if (actionCase_ == 13) {
@@ -4123,21 +4123,21 @@ public final class Control {
 
 
       /**
-       * <code>.ymconnect.v1.PlayCommand play = 1;</code>
+       * <code>.ymconnect.v1.PlayCommand play = 1[json_name = "play"];</code>
        */
       @java.lang.Override
       public boolean hasPlay() {
         return instance.hasPlay();
       }
       /**
-       * <code>.ymconnect.v1.PlayCommand play = 1;</code>
+       * <code>.ymconnect.v1.PlayCommand play = 1[json_name = "play"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.PlayCommand getPlay() {
         return instance.getPlay();
       }
       /**
-       * <code>.ymconnect.v1.PlayCommand play = 1;</code>
+       * <code>.ymconnect.v1.PlayCommand play = 1[json_name = "play"];</code>
        */
       public Builder setPlay(ymconnect.v1.Control.PlayCommand value) {
         copyOnWrite();
@@ -4145,7 +4145,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayCommand play = 1;</code>
+       * <code>.ymconnect.v1.PlayCommand play = 1[json_name = "play"];</code>
        */
       public Builder setPlay(
           ymconnect.v1.Control.PlayCommand.Builder builderForValue) {
@@ -4154,7 +4154,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayCommand play = 1;</code>
+       * <code>.ymconnect.v1.PlayCommand play = 1[json_name = "play"];</code>
        */
       public Builder mergePlay(ymconnect.v1.Control.PlayCommand value) {
         copyOnWrite();
@@ -4162,7 +4162,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayCommand play = 1;</code>
+       * <code>.ymconnect.v1.PlayCommand play = 1[json_name = "play"];</code>
        */
       public Builder clearPlay() {
         copyOnWrite();
@@ -4171,21 +4171,21 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.PauseCommand pause = 2;</code>
+       * <code>.ymconnect.v1.PauseCommand pause = 2[json_name = "pause"];</code>
        */
       @java.lang.Override
       public boolean hasPause() {
         return instance.hasPause();
       }
       /**
-       * <code>.ymconnect.v1.PauseCommand pause = 2;</code>
+       * <code>.ymconnect.v1.PauseCommand pause = 2[json_name = "pause"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.PauseCommand getPause() {
         return instance.getPause();
       }
       /**
-       * <code>.ymconnect.v1.PauseCommand pause = 2;</code>
+       * <code>.ymconnect.v1.PauseCommand pause = 2[json_name = "pause"];</code>
        */
       public Builder setPause(ymconnect.v1.Control.PauseCommand value) {
         copyOnWrite();
@@ -4193,7 +4193,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PauseCommand pause = 2;</code>
+       * <code>.ymconnect.v1.PauseCommand pause = 2[json_name = "pause"];</code>
        */
       public Builder setPause(
           ymconnect.v1.Control.PauseCommand.Builder builderForValue) {
@@ -4202,7 +4202,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PauseCommand pause = 2;</code>
+       * <code>.ymconnect.v1.PauseCommand pause = 2[json_name = "pause"];</code>
        */
       public Builder mergePause(ymconnect.v1.Control.PauseCommand value) {
         copyOnWrite();
@@ -4210,7 +4210,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PauseCommand pause = 2;</code>
+       * <code>.ymconnect.v1.PauseCommand pause = 2[json_name = "pause"];</code>
        */
       public Builder clearPause() {
         copyOnWrite();
@@ -4219,21 +4219,21 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.StopCommand stop = 3;</code>
+       * <code>.ymconnect.v1.StopCommand stop = 3[json_name = "stop"];</code>
        */
       @java.lang.Override
       public boolean hasStop() {
         return instance.hasStop();
       }
       /**
-       * <code>.ymconnect.v1.StopCommand stop = 3;</code>
+       * <code>.ymconnect.v1.StopCommand stop = 3[json_name = "stop"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.StopCommand getStop() {
         return instance.getStop();
       }
       /**
-       * <code>.ymconnect.v1.StopCommand stop = 3;</code>
+       * <code>.ymconnect.v1.StopCommand stop = 3[json_name = "stop"];</code>
        */
       public Builder setStop(ymconnect.v1.Control.StopCommand value) {
         copyOnWrite();
@@ -4241,7 +4241,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.StopCommand stop = 3;</code>
+       * <code>.ymconnect.v1.StopCommand stop = 3[json_name = "stop"];</code>
        */
       public Builder setStop(
           ymconnect.v1.Control.StopCommand.Builder builderForValue) {
@@ -4250,7 +4250,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.StopCommand stop = 3;</code>
+       * <code>.ymconnect.v1.StopCommand stop = 3[json_name = "stop"];</code>
        */
       public Builder mergeStop(ymconnect.v1.Control.StopCommand value) {
         copyOnWrite();
@@ -4258,7 +4258,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.StopCommand stop = 3;</code>
+       * <code>.ymconnect.v1.StopCommand stop = 3[json_name = "stop"];</code>
        */
       public Builder clearStop() {
         copyOnWrite();
@@ -4267,21 +4267,21 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4;</code>
+       * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4[json_name = "togglePlayPause"];</code>
        */
       @java.lang.Override
       public boolean hasTogglePlayPause() {
         return instance.hasTogglePlayPause();
       }
       /**
-       * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4;</code>
+       * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4[json_name = "togglePlayPause"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.TogglePlayPauseCommand getTogglePlayPause() {
         return instance.getTogglePlayPause();
       }
       /**
-       * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4;</code>
+       * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4[json_name = "togglePlayPause"];</code>
        */
       public Builder setTogglePlayPause(ymconnect.v1.Control.TogglePlayPauseCommand value) {
         copyOnWrite();
@@ -4289,7 +4289,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4;</code>
+       * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4[json_name = "togglePlayPause"];</code>
        */
       public Builder setTogglePlayPause(
           ymconnect.v1.Control.TogglePlayPauseCommand.Builder builderForValue) {
@@ -4298,7 +4298,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4;</code>
+       * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4[json_name = "togglePlayPause"];</code>
        */
       public Builder mergeTogglePlayPause(ymconnect.v1.Control.TogglePlayPauseCommand value) {
         copyOnWrite();
@@ -4306,7 +4306,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4;</code>
+       * <code>.ymconnect.v1.TogglePlayPauseCommand toggle_play_pause = 4[json_name = "togglePlayPause"];</code>
        */
       public Builder clearTogglePlayPause() {
         copyOnWrite();
@@ -4315,21 +4315,21 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5;</code>
+       * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5[json_name = "seekAbsolute"];</code>
        */
       @java.lang.Override
       public boolean hasSeekAbsolute() {
         return instance.hasSeekAbsolute();
       }
       /**
-       * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5;</code>
+       * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5[json_name = "seekAbsolute"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.SeekAbsoluteCommand getSeekAbsolute() {
         return instance.getSeekAbsolute();
       }
       /**
-       * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5;</code>
+       * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5[json_name = "seekAbsolute"];</code>
        */
       public Builder setSeekAbsolute(ymconnect.v1.Control.SeekAbsoluteCommand value) {
         copyOnWrite();
@@ -4337,7 +4337,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5;</code>
+       * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5[json_name = "seekAbsolute"];</code>
        */
       public Builder setSeekAbsolute(
           ymconnect.v1.Control.SeekAbsoluteCommand.Builder builderForValue) {
@@ -4346,7 +4346,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5;</code>
+       * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5[json_name = "seekAbsolute"];</code>
        */
       public Builder mergeSeekAbsolute(ymconnect.v1.Control.SeekAbsoluteCommand value) {
         copyOnWrite();
@@ -4354,7 +4354,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5;</code>
+       * <code>.ymconnect.v1.SeekAbsoluteCommand seek_absolute = 5[json_name = "seekAbsolute"];</code>
        */
       public Builder clearSeekAbsolute() {
         copyOnWrite();
@@ -4363,21 +4363,21 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6;</code>
+       * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6[json_name = "seekRelative"];</code>
        */
       @java.lang.Override
       public boolean hasSeekRelative() {
         return instance.hasSeekRelative();
       }
       /**
-       * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6;</code>
+       * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6[json_name = "seekRelative"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.SeekRelativeCommand getSeekRelative() {
         return instance.getSeekRelative();
       }
       /**
-       * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6;</code>
+       * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6[json_name = "seekRelative"];</code>
        */
       public Builder setSeekRelative(ymconnect.v1.Control.SeekRelativeCommand value) {
         copyOnWrite();
@@ -4385,7 +4385,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6;</code>
+       * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6[json_name = "seekRelative"];</code>
        */
       public Builder setSeekRelative(
           ymconnect.v1.Control.SeekRelativeCommand.Builder builderForValue) {
@@ -4394,7 +4394,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6;</code>
+       * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6[json_name = "seekRelative"];</code>
        */
       public Builder mergeSeekRelative(ymconnect.v1.Control.SeekRelativeCommand value) {
         copyOnWrite();
@@ -4402,7 +4402,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6;</code>
+       * <code>.ymconnect.v1.SeekRelativeCommand seek_relative = 6[json_name = "seekRelative"];</code>
        */
       public Builder clearSeekRelative() {
         copyOnWrite();
@@ -4411,21 +4411,21 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.NextCommand next = 7;</code>
+       * <code>.ymconnect.v1.NextCommand next = 7[json_name = "next"];</code>
        */
       @java.lang.Override
       public boolean hasNext() {
         return instance.hasNext();
       }
       /**
-       * <code>.ymconnect.v1.NextCommand next = 7;</code>
+       * <code>.ymconnect.v1.NextCommand next = 7[json_name = "next"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.NextCommand getNext() {
         return instance.getNext();
       }
       /**
-       * <code>.ymconnect.v1.NextCommand next = 7;</code>
+       * <code>.ymconnect.v1.NextCommand next = 7[json_name = "next"];</code>
        */
       public Builder setNext(ymconnect.v1.Control.NextCommand value) {
         copyOnWrite();
@@ -4433,7 +4433,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.NextCommand next = 7;</code>
+       * <code>.ymconnect.v1.NextCommand next = 7[json_name = "next"];</code>
        */
       public Builder setNext(
           ymconnect.v1.Control.NextCommand.Builder builderForValue) {
@@ -4442,7 +4442,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.NextCommand next = 7;</code>
+       * <code>.ymconnect.v1.NextCommand next = 7[json_name = "next"];</code>
        */
       public Builder mergeNext(ymconnect.v1.Control.NextCommand value) {
         copyOnWrite();
@@ -4450,7 +4450,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.NextCommand next = 7;</code>
+       * <code>.ymconnect.v1.NextCommand next = 7[json_name = "next"];</code>
        */
       public Builder clearNext() {
         copyOnWrite();
@@ -4459,21 +4459,21 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.PreviousCommand previous = 8;</code>
+       * <code>.ymconnect.v1.PreviousCommand previous = 8[json_name = "previous"];</code>
        */
       @java.lang.Override
       public boolean hasPrevious() {
         return instance.hasPrevious();
       }
       /**
-       * <code>.ymconnect.v1.PreviousCommand previous = 8;</code>
+       * <code>.ymconnect.v1.PreviousCommand previous = 8[json_name = "previous"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.PreviousCommand getPrevious() {
         return instance.getPrevious();
       }
       /**
-       * <code>.ymconnect.v1.PreviousCommand previous = 8;</code>
+       * <code>.ymconnect.v1.PreviousCommand previous = 8[json_name = "previous"];</code>
        */
       public Builder setPrevious(ymconnect.v1.Control.PreviousCommand value) {
         copyOnWrite();
@@ -4481,7 +4481,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PreviousCommand previous = 8;</code>
+       * <code>.ymconnect.v1.PreviousCommand previous = 8[json_name = "previous"];</code>
        */
       public Builder setPrevious(
           ymconnect.v1.Control.PreviousCommand.Builder builderForValue) {
@@ -4490,7 +4490,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PreviousCommand previous = 8;</code>
+       * <code>.ymconnect.v1.PreviousCommand previous = 8[json_name = "previous"];</code>
        */
       public Builder mergePrevious(ymconnect.v1.Control.PreviousCommand value) {
         copyOnWrite();
@@ -4498,7 +4498,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PreviousCommand previous = 8;</code>
+       * <code>.ymconnect.v1.PreviousCommand previous = 8[json_name = "previous"];</code>
        */
       public Builder clearPrevious() {
         copyOnWrite();
@@ -4507,21 +4507,21 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9;</code>
+       * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9[json_name = "setVolume"];</code>
        */
       @java.lang.Override
       public boolean hasSetVolume() {
         return instance.hasSetVolume();
       }
       /**
-       * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9;</code>
+       * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9[json_name = "setVolume"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.SetVolumeCommand getSetVolume() {
         return instance.getSetVolume();
       }
       /**
-       * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9;</code>
+       * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9[json_name = "setVolume"];</code>
        */
       public Builder setSetVolume(ymconnect.v1.Control.SetVolumeCommand value) {
         copyOnWrite();
@@ -4529,7 +4529,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9;</code>
+       * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9[json_name = "setVolume"];</code>
        */
       public Builder setSetVolume(
           ymconnect.v1.Control.SetVolumeCommand.Builder builderForValue) {
@@ -4538,7 +4538,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9;</code>
+       * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9[json_name = "setVolume"];</code>
        */
       public Builder mergeSetVolume(ymconnect.v1.Control.SetVolumeCommand value) {
         copyOnWrite();
@@ -4546,7 +4546,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9;</code>
+       * <code>.ymconnect.v1.SetVolumeCommand set_volume = 9[json_name = "setVolume"];</code>
        */
       public Builder clearSetVolume() {
         copyOnWrite();
@@ -4555,21 +4555,21 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.SetMutedCommand set_muted = 10;</code>
+       * <code>.ymconnect.v1.SetMutedCommand set_muted = 10[json_name = "setMuted"];</code>
        */
       @java.lang.Override
       public boolean hasSetMuted() {
         return instance.hasSetMuted();
       }
       /**
-       * <code>.ymconnect.v1.SetMutedCommand set_muted = 10;</code>
+       * <code>.ymconnect.v1.SetMutedCommand set_muted = 10[json_name = "setMuted"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.SetMutedCommand getSetMuted() {
         return instance.getSetMuted();
       }
       /**
-       * <code>.ymconnect.v1.SetMutedCommand set_muted = 10;</code>
+       * <code>.ymconnect.v1.SetMutedCommand set_muted = 10[json_name = "setMuted"];</code>
        */
       public Builder setSetMuted(ymconnect.v1.Control.SetMutedCommand value) {
         copyOnWrite();
@@ -4577,7 +4577,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SetMutedCommand set_muted = 10;</code>
+       * <code>.ymconnect.v1.SetMutedCommand set_muted = 10[json_name = "setMuted"];</code>
        */
       public Builder setSetMuted(
           ymconnect.v1.Control.SetMutedCommand.Builder builderForValue) {
@@ -4586,7 +4586,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SetMutedCommand set_muted = 10;</code>
+       * <code>.ymconnect.v1.SetMutedCommand set_muted = 10[json_name = "setMuted"];</code>
        */
       public Builder mergeSetMuted(ymconnect.v1.Control.SetMutedCommand value) {
         copyOnWrite();
@@ -4594,7 +4594,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SetMutedCommand set_muted = 10;</code>
+       * <code>.ymconnect.v1.SetMutedCommand set_muted = 10[json_name = "setMuted"];</code>
        */
       public Builder clearSetMuted() {
         copyOnWrite();
@@ -4603,21 +4603,21 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11;</code>
+       * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11[json_name = "setShuffle"];</code>
        */
       @java.lang.Override
       public boolean hasSetShuffle() {
         return instance.hasSetShuffle();
       }
       /**
-       * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11;</code>
+       * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11[json_name = "setShuffle"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.SetShuffleCommand getSetShuffle() {
         return instance.getSetShuffle();
       }
       /**
-       * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11;</code>
+       * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11[json_name = "setShuffle"];</code>
        */
       public Builder setSetShuffle(ymconnect.v1.Control.SetShuffleCommand value) {
         copyOnWrite();
@@ -4625,7 +4625,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11;</code>
+       * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11[json_name = "setShuffle"];</code>
        */
       public Builder setSetShuffle(
           ymconnect.v1.Control.SetShuffleCommand.Builder builderForValue) {
@@ -4634,7 +4634,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11;</code>
+       * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11[json_name = "setShuffle"];</code>
        */
       public Builder mergeSetShuffle(ymconnect.v1.Control.SetShuffleCommand value) {
         copyOnWrite();
@@ -4642,7 +4642,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11;</code>
+       * <code>.ymconnect.v1.SetShuffleCommand set_shuffle = 11[json_name = "setShuffle"];</code>
        */
       public Builder clearSetShuffle() {
         copyOnWrite();
@@ -4651,21 +4651,21 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12;</code>
+       * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12[json_name = "setRepeat"];</code>
        */
       @java.lang.Override
       public boolean hasSetRepeat() {
         return instance.hasSetRepeat();
       }
       /**
-       * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12;</code>
+       * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12[json_name = "setRepeat"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.SetRepeatCommand getSetRepeat() {
         return instance.getSetRepeat();
       }
       /**
-       * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12;</code>
+       * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12[json_name = "setRepeat"];</code>
        */
       public Builder setSetRepeat(ymconnect.v1.Control.SetRepeatCommand value) {
         copyOnWrite();
@@ -4673,7 +4673,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12;</code>
+       * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12[json_name = "setRepeat"];</code>
        */
       public Builder setSetRepeat(
           ymconnect.v1.Control.SetRepeatCommand.Builder builderForValue) {
@@ -4682,7 +4682,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12;</code>
+       * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12[json_name = "setRepeat"];</code>
        */
       public Builder mergeSetRepeat(ymconnect.v1.Control.SetRepeatCommand value) {
         copyOnWrite();
@@ -4690,7 +4690,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12;</code>
+       * <code>.ymconnect.v1.SetRepeatCommand set_repeat = 12[json_name = "setRepeat"];</code>
        */
       public Builder clearSetRepeat() {
         copyOnWrite();
@@ -4699,21 +4699,21 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.SetLikeCommand set_like = 13;</code>
+       * <code>.ymconnect.v1.SetLikeCommand set_like = 13[json_name = "setLike"];</code>
        */
       @java.lang.Override
       public boolean hasSetLike() {
         return instance.hasSetLike();
       }
       /**
-       * <code>.ymconnect.v1.SetLikeCommand set_like = 13;</code>
+       * <code>.ymconnect.v1.SetLikeCommand set_like = 13[json_name = "setLike"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.SetLikeCommand getSetLike() {
         return instance.getSetLike();
       }
       /**
-       * <code>.ymconnect.v1.SetLikeCommand set_like = 13;</code>
+       * <code>.ymconnect.v1.SetLikeCommand set_like = 13[json_name = "setLike"];</code>
        */
       public Builder setSetLike(ymconnect.v1.Control.SetLikeCommand value) {
         copyOnWrite();
@@ -4721,7 +4721,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SetLikeCommand set_like = 13;</code>
+       * <code>.ymconnect.v1.SetLikeCommand set_like = 13[json_name = "setLike"];</code>
        */
       public Builder setSetLike(
           ymconnect.v1.Control.SetLikeCommand.Builder builderForValue) {
@@ -4730,7 +4730,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SetLikeCommand set_like = 13;</code>
+       * <code>.ymconnect.v1.SetLikeCommand set_like = 13[json_name = "setLike"];</code>
        */
       public Builder mergeSetLike(ymconnect.v1.Control.SetLikeCommand value) {
         copyOnWrite();
@@ -4738,7 +4738,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SetLikeCommand set_like = 13;</code>
+       * <code>.ymconnect.v1.SetLikeCommand set_like = 13[json_name = "setLike"];</code>
        */
       public Builder clearSetLike() {
         copyOnWrite();
@@ -4841,48 +4841,48 @@ public final class Control {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string command_id = 1;</code>
+     * <code>string command_id = 1[json_name = "commandId"];</code>
      * @return The commandId.
      */
     java.lang.String getCommandId();
     /**
-     * <code>string command_id = 1;</code>
+     * <code>string command_id = 1[json_name = "commandId"];</code>
      * @return The bytes for commandId.
      */
     com.google.protobuf.ByteString
         getCommandIdBytes();
 
     /**
-     * <code>string target_player_id = 2;</code>
+     * <code>string target_player_id = 2[json_name = "targetPlayerId"];</code>
      * @return The targetPlayerId.
      */
     java.lang.String getTargetPlayerId();
     /**
-     * <code>string target_player_id = 2;</code>
+     * <code>string target_player_id = 2[json_name = "targetPlayerId"];</code>
      * @return The bytes for targetPlayerId.
      */
     com.google.protobuf.ByteString
         getTargetPlayerIdBytes();
 
     /**
-     * <code>uint64 expected_revision = 3;</code>
+     * <code>uint64 expected_revision = 3[json_name = "expectedRevision"];</code>
      * @return The expectedRevision.
      */
     long getExpectedRevision();
 
     /**
-     * <code>.ymconnect.v1.PlaybackCommand command = 4;</code>
+     * <code>.ymconnect.v1.PlaybackCommand command = 4[json_name = "command"];</code>
      * @return Whether the command field is set.
      */
     boolean hasCommand();
     /**
-     * <code>.ymconnect.v1.PlaybackCommand command = 4;</code>
+     * <code>.ymconnect.v1.PlaybackCommand command = 4[json_name = "command"];</code>
      * @return The command.
      */
     ymconnect.v1.Control.PlaybackCommand getCommand();
 
     /**
-     * <code>uint64 deadline_unix_ms = 5;</code>
+     * <code>uint64 deadline_unix_ms = 5[json_name = "deadlineUnixMs"];</code>
      * @return The deadlineUnixMs.
      */
     long getDeadlineUnixMs();
@@ -4902,7 +4902,7 @@ public final class Control {
     public static final int COMMAND_ID_FIELD_NUMBER = 1;
     private java.lang.String commandId_;
     /**
-     * <code>string command_id = 1;</code>
+     * <code>string command_id = 1[json_name = "commandId"];</code>
      * @return The commandId.
      */
     @java.lang.Override
@@ -4910,7 +4910,7 @@ public final class Control {
       return commandId_;
     }
     /**
-     * <code>string command_id = 1;</code>
+     * <code>string command_id = 1[json_name = "commandId"];</code>
      * @return The bytes for commandId.
      */
     @java.lang.Override
@@ -4919,7 +4919,7 @@ public final class Control {
       return com.google.protobuf.ByteString.copyFromUtf8(commandId_);
     }
     /**
-     * <code>string command_id = 1;</code>
+     * <code>string command_id = 1[json_name = "commandId"];</code>
      * @param value The commandId to set.
      */
     private void setCommandId(
@@ -4929,14 +4929,14 @@ public final class Control {
       commandId_ = value;
     }
     /**
-     * <code>string command_id = 1;</code>
+     * <code>string command_id = 1[json_name = "commandId"];</code>
      */
     private void clearCommandId() {
       
       commandId_ = getDefaultInstance().getCommandId();
     }
     /**
-     * <code>string command_id = 1;</code>
+     * <code>string command_id = 1[json_name = "commandId"];</code>
      * @param value The bytes for commandId to set.
      */
     private void setCommandIdBytes(
@@ -4949,7 +4949,7 @@ public final class Control {
     public static final int TARGET_PLAYER_ID_FIELD_NUMBER = 2;
     private java.lang.String targetPlayerId_;
     /**
-     * <code>string target_player_id = 2;</code>
+     * <code>string target_player_id = 2[json_name = "targetPlayerId"];</code>
      * @return The targetPlayerId.
      */
     @java.lang.Override
@@ -4957,7 +4957,7 @@ public final class Control {
       return targetPlayerId_;
     }
     /**
-     * <code>string target_player_id = 2;</code>
+     * <code>string target_player_id = 2[json_name = "targetPlayerId"];</code>
      * @return The bytes for targetPlayerId.
      */
     @java.lang.Override
@@ -4966,7 +4966,7 @@ public final class Control {
       return com.google.protobuf.ByteString.copyFromUtf8(targetPlayerId_);
     }
     /**
-     * <code>string target_player_id = 2;</code>
+     * <code>string target_player_id = 2[json_name = "targetPlayerId"];</code>
      * @param value The targetPlayerId to set.
      */
     private void setTargetPlayerId(
@@ -4976,14 +4976,14 @@ public final class Control {
       targetPlayerId_ = value;
     }
     /**
-     * <code>string target_player_id = 2;</code>
+     * <code>string target_player_id = 2[json_name = "targetPlayerId"];</code>
      */
     private void clearTargetPlayerId() {
       
       targetPlayerId_ = getDefaultInstance().getTargetPlayerId();
     }
     /**
-     * <code>string target_player_id = 2;</code>
+     * <code>string target_player_id = 2[json_name = "targetPlayerId"];</code>
      * @param value The bytes for targetPlayerId to set.
      */
     private void setTargetPlayerIdBytes(
@@ -4996,7 +4996,7 @@ public final class Control {
     public static final int EXPECTED_REVISION_FIELD_NUMBER = 3;
     private long expectedRevision_;
     /**
-     * <code>uint64 expected_revision = 3;</code>
+     * <code>uint64 expected_revision = 3[json_name = "expectedRevision"];</code>
      * @return The expectedRevision.
      */
     @java.lang.Override
@@ -5004,7 +5004,7 @@ public final class Control {
       return expectedRevision_;
     }
     /**
-     * <code>uint64 expected_revision = 3;</code>
+     * <code>uint64 expected_revision = 3[json_name = "expectedRevision"];</code>
      * @param value The expectedRevision to set.
      */
     private void setExpectedRevision(long value) {
@@ -5012,7 +5012,7 @@ public final class Control {
       expectedRevision_ = value;
     }
     /**
-     * <code>uint64 expected_revision = 3;</code>
+     * <code>uint64 expected_revision = 3[json_name = "expectedRevision"];</code>
      */
     private void clearExpectedRevision() {
       
@@ -5022,21 +5022,21 @@ public final class Control {
     public static final int COMMAND_FIELD_NUMBER = 4;
     private ymconnect.v1.Control.PlaybackCommand command_;
     /**
-     * <code>.ymconnect.v1.PlaybackCommand command = 4;</code>
+     * <code>.ymconnect.v1.PlaybackCommand command = 4[json_name = "command"];</code>
      */
     @java.lang.Override
     public boolean hasCommand() {
       return command_ != null;
     }
     /**
-     * <code>.ymconnect.v1.PlaybackCommand command = 4;</code>
+     * <code>.ymconnect.v1.PlaybackCommand command = 4[json_name = "command"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.PlaybackCommand getCommand() {
       return command_ == null ? ymconnect.v1.Control.PlaybackCommand.getDefaultInstance() : command_;
     }
     /**
-     * <code>.ymconnect.v1.PlaybackCommand command = 4;</code>
+     * <code>.ymconnect.v1.PlaybackCommand command = 4[json_name = "command"];</code>
      */
     private void setCommand(ymconnect.v1.Control.PlaybackCommand value) {
       value.getClass();
@@ -5044,7 +5044,7 @@ public final class Control {
       
       }
     /**
-     * <code>.ymconnect.v1.PlaybackCommand command = 4;</code>
+     * <code>.ymconnect.v1.PlaybackCommand command = 4[json_name = "command"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeCommand(ymconnect.v1.Control.PlaybackCommand value) {
@@ -5059,7 +5059,7 @@ public final class Control {
       
     }
     /**
-     * <code>.ymconnect.v1.PlaybackCommand command = 4;</code>
+     * <code>.ymconnect.v1.PlaybackCommand command = 4[json_name = "command"];</code>
      */
     private void clearCommand() {  command_ = null;
       
@@ -5068,7 +5068,7 @@ public final class Control {
     public static final int DEADLINE_UNIX_MS_FIELD_NUMBER = 5;
     private long deadlineUnixMs_;
     /**
-     * <code>uint64 deadline_unix_ms = 5;</code>
+     * <code>uint64 deadline_unix_ms = 5[json_name = "deadlineUnixMs"];</code>
      * @return The deadlineUnixMs.
      */
     @java.lang.Override
@@ -5076,7 +5076,7 @@ public final class Control {
       return deadlineUnixMs_;
     }
     /**
-     * <code>uint64 deadline_unix_ms = 5;</code>
+     * <code>uint64 deadline_unix_ms = 5[json_name = "deadlineUnixMs"];</code>
      * @param value The deadlineUnixMs to set.
      */
     private void setDeadlineUnixMs(long value) {
@@ -5084,7 +5084,7 @@ public final class Control {
       deadlineUnixMs_ = value;
     }
     /**
-     * <code>uint64 deadline_unix_ms = 5;</code>
+     * <code>uint64 deadline_unix_ms = 5[json_name = "deadlineUnixMs"];</code>
      */
     private void clearDeadlineUnixMs() {
       
@@ -5187,7 +5187,7 @@ public final class Control {
 
 
       /**
-       * <code>string command_id = 1;</code>
+       * <code>string command_id = 1[json_name = "commandId"];</code>
        * @return The commandId.
        */
       @java.lang.Override
@@ -5195,7 +5195,7 @@ public final class Control {
         return instance.getCommandId();
       }
       /**
-       * <code>string command_id = 1;</code>
+       * <code>string command_id = 1[json_name = "commandId"];</code>
        * @return The bytes for commandId.
        */
       @java.lang.Override
@@ -5204,7 +5204,7 @@ public final class Control {
         return instance.getCommandIdBytes();
       }
       /**
-       * <code>string command_id = 1;</code>
+       * <code>string command_id = 1[json_name = "commandId"];</code>
        * @param value The commandId to set.
        * @return This builder for chaining.
        */
@@ -5215,7 +5215,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>string command_id = 1;</code>
+       * <code>string command_id = 1[json_name = "commandId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearCommandId() {
@@ -5224,7 +5224,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>string command_id = 1;</code>
+       * <code>string command_id = 1[json_name = "commandId"];</code>
        * @param value The bytes for commandId to set.
        * @return This builder for chaining.
        */
@@ -5236,7 +5236,7 @@ public final class Control {
       }
 
       /**
-       * <code>string target_player_id = 2;</code>
+       * <code>string target_player_id = 2[json_name = "targetPlayerId"];</code>
        * @return The targetPlayerId.
        */
       @java.lang.Override
@@ -5244,7 +5244,7 @@ public final class Control {
         return instance.getTargetPlayerId();
       }
       /**
-       * <code>string target_player_id = 2;</code>
+       * <code>string target_player_id = 2[json_name = "targetPlayerId"];</code>
        * @return The bytes for targetPlayerId.
        */
       @java.lang.Override
@@ -5253,7 +5253,7 @@ public final class Control {
         return instance.getTargetPlayerIdBytes();
       }
       /**
-       * <code>string target_player_id = 2;</code>
+       * <code>string target_player_id = 2[json_name = "targetPlayerId"];</code>
        * @param value The targetPlayerId to set.
        * @return This builder for chaining.
        */
@@ -5264,7 +5264,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>string target_player_id = 2;</code>
+       * <code>string target_player_id = 2[json_name = "targetPlayerId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearTargetPlayerId() {
@@ -5273,7 +5273,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>string target_player_id = 2;</code>
+       * <code>string target_player_id = 2[json_name = "targetPlayerId"];</code>
        * @param value The bytes for targetPlayerId to set.
        * @return This builder for chaining.
        */
@@ -5285,7 +5285,7 @@ public final class Control {
       }
 
       /**
-       * <code>uint64 expected_revision = 3;</code>
+       * <code>uint64 expected_revision = 3[json_name = "expectedRevision"];</code>
        * @return The expectedRevision.
        */
       @java.lang.Override
@@ -5293,7 +5293,7 @@ public final class Control {
         return instance.getExpectedRevision();
       }
       /**
-       * <code>uint64 expected_revision = 3;</code>
+       * <code>uint64 expected_revision = 3[json_name = "expectedRevision"];</code>
        * @param value The expectedRevision to set.
        * @return This builder for chaining.
        */
@@ -5303,7 +5303,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>uint64 expected_revision = 3;</code>
+       * <code>uint64 expected_revision = 3[json_name = "expectedRevision"];</code>
        * @return This builder for chaining.
        */
       public Builder clearExpectedRevision() {
@@ -5313,21 +5313,21 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.PlaybackCommand command = 4;</code>
+       * <code>.ymconnect.v1.PlaybackCommand command = 4[json_name = "command"];</code>
        */
       @java.lang.Override
       public boolean hasCommand() {
         return instance.hasCommand();
       }
       /**
-       * <code>.ymconnect.v1.PlaybackCommand command = 4;</code>
+       * <code>.ymconnect.v1.PlaybackCommand command = 4[json_name = "command"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.PlaybackCommand getCommand() {
         return instance.getCommand();
       }
       /**
-       * <code>.ymconnect.v1.PlaybackCommand command = 4;</code>
+       * <code>.ymconnect.v1.PlaybackCommand command = 4[json_name = "command"];</code>
        */
       public Builder setCommand(ymconnect.v1.Control.PlaybackCommand value) {
         copyOnWrite();
@@ -5335,7 +5335,7 @@ public final class Control {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.PlaybackCommand command = 4;</code>
+       * <code>.ymconnect.v1.PlaybackCommand command = 4[json_name = "command"];</code>
        */
       public Builder setCommand(
           ymconnect.v1.Control.PlaybackCommand.Builder builderForValue) {
@@ -5344,7 +5344,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlaybackCommand command = 4;</code>
+       * <code>.ymconnect.v1.PlaybackCommand command = 4[json_name = "command"];</code>
        */
       public Builder mergeCommand(ymconnect.v1.Control.PlaybackCommand value) {
         copyOnWrite();
@@ -5352,7 +5352,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlaybackCommand command = 4;</code>
+       * <code>.ymconnect.v1.PlaybackCommand command = 4[json_name = "command"];</code>
        */
       public Builder clearCommand() {  copyOnWrite();
         instance.clearCommand();
@@ -5360,7 +5360,7 @@ public final class Control {
       }
 
       /**
-       * <code>uint64 deadline_unix_ms = 5;</code>
+       * <code>uint64 deadline_unix_ms = 5[json_name = "deadlineUnixMs"];</code>
        * @return The deadlineUnixMs.
        */
       @java.lang.Override
@@ -5368,7 +5368,7 @@ public final class Control {
         return instance.getDeadlineUnixMs();
       }
       /**
-       * <code>uint64 deadline_unix_ms = 5;</code>
+       * <code>uint64 deadline_unix_ms = 5[json_name = "deadlineUnixMs"];</code>
        * @param value The deadlineUnixMs to set.
        * @return This builder for chaining.
        */
@@ -5378,7 +5378,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>uint64 deadline_unix_ms = 5;</code>
+       * <code>uint64 deadline_unix_ms = 5[json_name = "deadlineUnixMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearDeadlineUnixMs() {
@@ -5471,52 +5471,52 @@ public final class Control {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string command_id = 1;</code>
+     * <code>string command_id = 1[json_name = "commandId"];</code>
      * @return The commandId.
      */
     java.lang.String getCommandId();
     /**
-     * <code>string command_id = 1;</code>
+     * <code>string command_id = 1[json_name = "commandId"];</code>
      * @return The bytes for commandId.
      */
     com.google.protobuf.ByteString
         getCommandIdBytes();
 
     /**
-     * <code>.ymconnect.v1.CommandStatus status = 2;</code>
+     * <code>.ymconnect.v1.CommandStatus status = 2[json_name = "status"];</code>
      * @return The enum numeric value on the wire for status.
      */
     int getStatusValue();
     /**
-     * <code>.ymconnect.v1.CommandStatus status = 2;</code>
+     * <code>.ymconnect.v1.CommandStatus status = 2[json_name = "status"];</code>
      * @return The status.
      */
     ymconnect.v1.Control.CommandStatus getStatus();
 
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3[json_name = "snapshot"];</code>
      * @return Whether the snapshot field is set.
      */
     boolean hasSnapshot();
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3[json_name = "snapshot"];</code>
      * @return The snapshot.
      */
     ymconnect.v1.Player.PlayerSnapshot getSnapshot();
 
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 4;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 4[json_name = "error"];</code>
      * @return Whether the error field is set.
      */
     boolean hasError();
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 4;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 4[json_name = "error"];</code>
      * @return The error.
      */
     ymconnect.v1.Errors.ProtocolError getError();
 
     /**
-     * <code>uint64 completed_at_unix_ms = 5;</code>
+     * <code>uint64 completed_at_unix_ms = 5[json_name = "completedAtUnixMs"];</code>
      * @return The completedAtUnixMs.
      */
     long getCompletedAtUnixMs();
@@ -5535,7 +5535,7 @@ public final class Control {
     public static final int COMMAND_ID_FIELD_NUMBER = 1;
     private java.lang.String commandId_;
     /**
-     * <code>string command_id = 1;</code>
+     * <code>string command_id = 1[json_name = "commandId"];</code>
      * @return The commandId.
      */
     @java.lang.Override
@@ -5543,7 +5543,7 @@ public final class Control {
       return commandId_;
     }
     /**
-     * <code>string command_id = 1;</code>
+     * <code>string command_id = 1[json_name = "commandId"];</code>
      * @return The bytes for commandId.
      */
     @java.lang.Override
@@ -5552,7 +5552,7 @@ public final class Control {
       return com.google.protobuf.ByteString.copyFromUtf8(commandId_);
     }
     /**
-     * <code>string command_id = 1;</code>
+     * <code>string command_id = 1[json_name = "commandId"];</code>
      * @param value The commandId to set.
      */
     private void setCommandId(
@@ -5562,14 +5562,14 @@ public final class Control {
       commandId_ = value;
     }
     /**
-     * <code>string command_id = 1;</code>
+     * <code>string command_id = 1[json_name = "commandId"];</code>
      */
     private void clearCommandId() {
       
       commandId_ = getDefaultInstance().getCommandId();
     }
     /**
-     * <code>string command_id = 1;</code>
+     * <code>string command_id = 1[json_name = "commandId"];</code>
      * @param value The bytes for commandId to set.
      */
     private void setCommandIdBytes(
@@ -5582,7 +5582,7 @@ public final class Control {
     public static final int STATUS_FIELD_NUMBER = 2;
     private int status_;
     /**
-     * <code>.ymconnect.v1.CommandStatus status = 2;</code>
+     * <code>.ymconnect.v1.CommandStatus status = 2[json_name = "status"];</code>
      * @return The enum numeric value on the wire for status.
      */
     @java.lang.Override
@@ -5590,7 +5590,7 @@ public final class Control {
       return status_;
     }
     /**
-     * <code>.ymconnect.v1.CommandStatus status = 2;</code>
+     * <code>.ymconnect.v1.CommandStatus status = 2[json_name = "status"];</code>
      * @return The status.
      */
     @java.lang.Override
@@ -5599,14 +5599,14 @@ public final class Control {
       return result == null ? ymconnect.v1.Control.CommandStatus.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ymconnect.v1.CommandStatus status = 2;</code>
+     * <code>.ymconnect.v1.CommandStatus status = 2[json_name = "status"];</code>
      * @param value The enum numeric value on the wire for status to set.
      */
     private void setStatusValue(int value) {
         status_ = value;
     }
     /**
-     * <code>.ymconnect.v1.CommandStatus status = 2;</code>
+     * <code>.ymconnect.v1.CommandStatus status = 2[json_name = "status"];</code>
      * @param value The status to set.
      */
     private void setStatus(ymconnect.v1.Control.CommandStatus value) {
@@ -5614,7 +5614,7 @@ public final class Control {
       
     }
     /**
-     * <code>.ymconnect.v1.CommandStatus status = 2;</code>
+     * <code>.ymconnect.v1.CommandStatus status = 2[json_name = "status"];</code>
      */
     private void clearStatus() {
       
@@ -5624,21 +5624,21 @@ public final class Control {
     public static final int SNAPSHOT_FIELD_NUMBER = 3;
     private ymconnect.v1.Player.PlayerSnapshot snapshot_;
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3[json_name = "snapshot"];</code>
      */
     @java.lang.Override
     public boolean hasSnapshot() {
       return snapshot_ != null;
     }
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3[json_name = "snapshot"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Player.PlayerSnapshot getSnapshot() {
       return snapshot_ == null ? ymconnect.v1.Player.PlayerSnapshot.getDefaultInstance() : snapshot_;
     }
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3[json_name = "snapshot"];</code>
      */
     private void setSnapshot(ymconnect.v1.Player.PlayerSnapshot value) {
       value.getClass();
@@ -5646,7 +5646,7 @@ public final class Control {
       
       }
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3[json_name = "snapshot"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeSnapshot(ymconnect.v1.Player.PlayerSnapshot value) {
@@ -5661,7 +5661,7 @@ public final class Control {
       
     }
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3[json_name = "snapshot"];</code>
      */
     private void clearSnapshot() {  snapshot_ = null;
       
@@ -5670,21 +5670,21 @@ public final class Control {
     public static final int ERROR_FIELD_NUMBER = 4;
     private ymconnect.v1.Errors.ProtocolError error_;
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 4;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 4[json_name = "error"];</code>
      */
     @java.lang.Override
     public boolean hasError() {
       return error_ != null;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 4;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 4[json_name = "error"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Errors.ProtocolError getError() {
       return error_ == null ? ymconnect.v1.Errors.ProtocolError.getDefaultInstance() : error_;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 4;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 4[json_name = "error"];</code>
      */
     private void setError(ymconnect.v1.Errors.ProtocolError value) {
       value.getClass();
@@ -5692,7 +5692,7 @@ public final class Control {
       
       }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 4;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 4[json_name = "error"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeError(ymconnect.v1.Errors.ProtocolError value) {
@@ -5707,7 +5707,7 @@ public final class Control {
       
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 4;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 4[json_name = "error"];</code>
      */
     private void clearError() {  error_ = null;
       
@@ -5716,7 +5716,7 @@ public final class Control {
     public static final int COMPLETED_AT_UNIX_MS_FIELD_NUMBER = 5;
     private long completedAtUnixMs_;
     /**
-     * <code>uint64 completed_at_unix_ms = 5;</code>
+     * <code>uint64 completed_at_unix_ms = 5[json_name = "completedAtUnixMs"];</code>
      * @return The completedAtUnixMs.
      */
     @java.lang.Override
@@ -5724,7 +5724,7 @@ public final class Control {
       return completedAtUnixMs_;
     }
     /**
-     * <code>uint64 completed_at_unix_ms = 5;</code>
+     * <code>uint64 completed_at_unix_ms = 5[json_name = "completedAtUnixMs"];</code>
      * @param value The completedAtUnixMs to set.
      */
     private void setCompletedAtUnixMs(long value) {
@@ -5732,7 +5732,7 @@ public final class Control {
       completedAtUnixMs_ = value;
     }
     /**
-     * <code>uint64 completed_at_unix_ms = 5;</code>
+     * <code>uint64 completed_at_unix_ms = 5[json_name = "completedAtUnixMs"];</code>
      */
     private void clearCompletedAtUnixMs() {
       
@@ -5835,7 +5835,7 @@ public final class Control {
 
 
       /**
-       * <code>string command_id = 1;</code>
+       * <code>string command_id = 1[json_name = "commandId"];</code>
        * @return The commandId.
        */
       @java.lang.Override
@@ -5843,7 +5843,7 @@ public final class Control {
         return instance.getCommandId();
       }
       /**
-       * <code>string command_id = 1;</code>
+       * <code>string command_id = 1[json_name = "commandId"];</code>
        * @return The bytes for commandId.
        */
       @java.lang.Override
@@ -5852,7 +5852,7 @@ public final class Control {
         return instance.getCommandIdBytes();
       }
       /**
-       * <code>string command_id = 1;</code>
+       * <code>string command_id = 1[json_name = "commandId"];</code>
        * @param value The commandId to set.
        * @return This builder for chaining.
        */
@@ -5863,7 +5863,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>string command_id = 1;</code>
+       * <code>string command_id = 1[json_name = "commandId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearCommandId() {
@@ -5872,7 +5872,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>string command_id = 1;</code>
+       * <code>string command_id = 1[json_name = "commandId"];</code>
        * @param value The bytes for commandId to set.
        * @return This builder for chaining.
        */
@@ -5884,7 +5884,7 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.CommandStatus status = 2;</code>
+       * <code>.ymconnect.v1.CommandStatus status = 2[json_name = "status"];</code>
        * @return The enum numeric value on the wire for status.
        */
       @java.lang.Override
@@ -5892,7 +5892,7 @@ public final class Control {
         return instance.getStatusValue();
       }
       /**
-       * <code>.ymconnect.v1.CommandStatus status = 2;</code>
+       * <code>.ymconnect.v1.CommandStatus status = 2[json_name = "status"];</code>
        * @param value The status to set.
        * @return This builder for chaining.
        */
@@ -5902,7 +5902,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CommandStatus status = 2;</code>
+       * <code>.ymconnect.v1.CommandStatus status = 2[json_name = "status"];</code>
        * @return The status.
        */
       @java.lang.Override
@@ -5910,7 +5910,7 @@ public final class Control {
         return instance.getStatus();
       }
       /**
-       * <code>.ymconnect.v1.CommandStatus status = 2;</code>
+       * <code>.ymconnect.v1.CommandStatus status = 2[json_name = "status"];</code>
        * @param value The enum numeric value on the wire for status to set.
        * @return This builder for chaining.
        */
@@ -5920,7 +5920,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CommandStatus status = 2;</code>
+       * <code>.ymconnect.v1.CommandStatus status = 2[json_name = "status"];</code>
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
@@ -5930,21 +5930,21 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3[json_name = "snapshot"];</code>
        */
       @java.lang.Override
       public boolean hasSnapshot() {
         return instance.hasSnapshot();
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3[json_name = "snapshot"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Player.PlayerSnapshot getSnapshot() {
         return instance.getSnapshot();
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3[json_name = "snapshot"];</code>
        */
       public Builder setSnapshot(ymconnect.v1.Player.PlayerSnapshot value) {
         copyOnWrite();
@@ -5952,7 +5952,7 @@ public final class Control {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3[json_name = "snapshot"];</code>
        */
       public Builder setSnapshot(
           ymconnect.v1.Player.PlayerSnapshot.Builder builderForValue) {
@@ -5961,7 +5961,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3[json_name = "snapshot"];</code>
        */
       public Builder mergeSnapshot(ymconnect.v1.Player.PlayerSnapshot value) {
         copyOnWrite();
@@ -5969,7 +5969,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 3[json_name = "snapshot"];</code>
        */
       public Builder clearSnapshot() {  copyOnWrite();
         instance.clearSnapshot();
@@ -5977,21 +5977,21 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 4;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 4[json_name = "error"];</code>
        */
       @java.lang.Override
       public boolean hasError() {
         return instance.hasError();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 4;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 4[json_name = "error"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Errors.ProtocolError getError() {
         return instance.getError();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 4;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 4[json_name = "error"];</code>
        */
       public Builder setError(ymconnect.v1.Errors.ProtocolError value) {
         copyOnWrite();
@@ -5999,7 +5999,7 @@ public final class Control {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 4;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 4[json_name = "error"];</code>
        */
       public Builder setError(
           ymconnect.v1.Errors.ProtocolError.Builder builderForValue) {
@@ -6008,7 +6008,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 4;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 4[json_name = "error"];</code>
        */
       public Builder mergeError(ymconnect.v1.Errors.ProtocolError value) {
         copyOnWrite();
@@ -6016,7 +6016,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 4;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 4[json_name = "error"];</code>
        */
       public Builder clearError() {  copyOnWrite();
         instance.clearError();
@@ -6024,7 +6024,7 @@ public final class Control {
       }
 
       /**
-       * <code>uint64 completed_at_unix_ms = 5;</code>
+       * <code>uint64 completed_at_unix_ms = 5[json_name = "completedAtUnixMs"];</code>
        * @return The completedAtUnixMs.
        */
       @java.lang.Override
@@ -6032,7 +6032,7 @@ public final class Control {
         return instance.getCompletedAtUnixMs();
       }
       /**
-       * <code>uint64 completed_at_unix_ms = 5;</code>
+       * <code>uint64 completed_at_unix_ms = 5[json_name = "completedAtUnixMs"];</code>
        * @param value The completedAtUnixMs to set.
        * @return This builder for chaining.
        */
@@ -6042,7 +6042,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>uint64 completed_at_unix_ms = 5;</code>
+       * <code>uint64 completed_at_unix_ms = 5[json_name = "completedAtUnixMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearCompletedAtUnixMs() {
@@ -6315,26 +6315,26 @@ public final class Control {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
      */
     java.util.List<ymconnect.v1.Player.PlayerSnapshot> 
         getPlayersList();
     /**
-     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
      */
     ymconnect.v1.Player.PlayerSnapshot getPlayers(int index);
     /**
-     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
      */
     int getPlayersCount();
 
     /**
-     * <code>string active_player_id = 2;</code>
+     * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
      * @return The activePlayerId.
      */
     java.lang.String getActivePlayerId();
     /**
-     * <code>string active_player_id = 2;</code>
+     * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
      * @return The bytes for activePlayerId.
      */
     com.google.protobuf.ByteString
@@ -6355,35 +6355,35 @@ public final class Control {
     public static final int PLAYERS_FIELD_NUMBER = 1;
     private com.google.protobuf.Internal.ProtobufList<ymconnect.v1.Player.PlayerSnapshot> players_;
     /**
-     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
      */
     @java.lang.Override
     public java.util.List<ymconnect.v1.Player.PlayerSnapshot> getPlayersList() {
       return players_;
     }
     /**
-     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
      */
     public java.util.List<? extends ymconnect.v1.Player.PlayerSnapshotOrBuilder> 
         getPlayersOrBuilderList() {
       return players_;
     }
     /**
-     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
      */
     @java.lang.Override
     public int getPlayersCount() {
       return players_.size();
     }
     /**
-     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Player.PlayerSnapshot getPlayers(int index) {
       return players_.get(index);
     }
     /**
-     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
      */
     public ymconnect.v1.Player.PlayerSnapshotOrBuilder getPlayersOrBuilder(
         int index) {
@@ -6398,7 +6398,7 @@ public final class Control {
     }
 
     /**
-     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
      */
     private void setPlayers(
         int index, ymconnect.v1.Player.PlayerSnapshot value) {
@@ -6407,7 +6407,7 @@ public final class Control {
       players_.set(index, value);
     }
     /**
-     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
      */
     private void addPlayers(ymconnect.v1.Player.PlayerSnapshot value) {
       value.getClass();
@@ -6415,7 +6415,7 @@ public final class Control {
       players_.add(value);
     }
     /**
-     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
      */
     private void addPlayers(
         int index, ymconnect.v1.Player.PlayerSnapshot value) {
@@ -6424,7 +6424,7 @@ public final class Control {
       players_.add(index, value);
     }
     /**
-     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
      */
     private void addAllPlayers(
         java.lang.Iterable<? extends ymconnect.v1.Player.PlayerSnapshot> values) {
@@ -6433,13 +6433,13 @@ public final class Control {
           values, players_);
     }
     /**
-     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
      */
     private void clearPlayers() {
       players_ = emptyProtobufList();
     }
     /**
-     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+     * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
      */
     private void removePlayers(int index) {
       ensurePlayersIsMutable();
@@ -6449,7 +6449,7 @@ public final class Control {
     public static final int ACTIVE_PLAYER_ID_FIELD_NUMBER = 2;
     private java.lang.String activePlayerId_;
     /**
-     * <code>string active_player_id = 2;</code>
+     * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
      * @return The activePlayerId.
      */
     @java.lang.Override
@@ -6457,7 +6457,7 @@ public final class Control {
       return activePlayerId_;
     }
     /**
-     * <code>string active_player_id = 2;</code>
+     * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
      * @return The bytes for activePlayerId.
      */
     @java.lang.Override
@@ -6466,7 +6466,7 @@ public final class Control {
       return com.google.protobuf.ByteString.copyFromUtf8(activePlayerId_);
     }
     /**
-     * <code>string active_player_id = 2;</code>
+     * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
      * @param value The activePlayerId to set.
      */
     private void setActivePlayerId(
@@ -6476,14 +6476,14 @@ public final class Control {
       activePlayerId_ = value;
     }
     /**
-     * <code>string active_player_id = 2;</code>
+     * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
      */
     private void clearActivePlayerId() {
       
       activePlayerId_ = getDefaultInstance().getActivePlayerId();
     }
     /**
-     * <code>string active_player_id = 2;</code>
+     * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
      * @param value The bytes for activePlayerId to set.
      */
     private void setActivePlayerIdBytes(
@@ -6589,7 +6589,7 @@ public final class Control {
 
 
       /**
-       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
        */
       @java.lang.Override
       public java.util.List<ymconnect.v1.Player.PlayerSnapshot> getPlayersList() {
@@ -6597,20 +6597,20 @@ public final class Control {
             instance.getPlayersList());
       }
       /**
-       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
        */
       @java.lang.Override
       public int getPlayersCount() {
         return instance.getPlayersCount();
       }/**
-       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Player.PlayerSnapshot getPlayers(int index) {
         return instance.getPlayers(index);
       }
       /**
-       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
        */
       public Builder setPlayers(
           int index, ymconnect.v1.Player.PlayerSnapshot value) {
@@ -6619,7 +6619,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
        */
       public Builder setPlayers(
           int index, ymconnect.v1.Player.PlayerSnapshot.Builder builderForValue) {
@@ -6629,7 +6629,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
        */
       public Builder addPlayers(ymconnect.v1.Player.PlayerSnapshot value) {
         copyOnWrite();
@@ -6637,7 +6637,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
        */
       public Builder addPlayers(
           int index, ymconnect.v1.Player.PlayerSnapshot value) {
@@ -6646,7 +6646,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
        */
       public Builder addPlayers(
           ymconnect.v1.Player.PlayerSnapshot.Builder builderForValue) {
@@ -6655,7 +6655,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
        */
       public Builder addPlayers(
           int index, ymconnect.v1.Player.PlayerSnapshot.Builder builderForValue) {
@@ -6665,7 +6665,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
        */
       public Builder addAllPlayers(
           java.lang.Iterable<? extends ymconnect.v1.Player.PlayerSnapshot> values) {
@@ -6674,7 +6674,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
        */
       public Builder clearPlayers() {
         copyOnWrite();
@@ -6682,7 +6682,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1;</code>
+       * <code>repeated .ymconnect.v1.PlayerSnapshot players = 1[json_name = "players"];</code>
        */
       public Builder removePlayers(int index) {
         copyOnWrite();
@@ -6691,7 +6691,7 @@ public final class Control {
       }
 
       /**
-       * <code>string active_player_id = 2;</code>
+       * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
        * @return The activePlayerId.
        */
       @java.lang.Override
@@ -6699,7 +6699,7 @@ public final class Control {
         return instance.getActivePlayerId();
       }
       /**
-       * <code>string active_player_id = 2;</code>
+       * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
        * @return The bytes for activePlayerId.
        */
       @java.lang.Override
@@ -6708,7 +6708,7 @@ public final class Control {
         return instance.getActivePlayerIdBytes();
       }
       /**
-       * <code>string active_player_id = 2;</code>
+       * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
        * @param value The activePlayerId to set.
        * @return This builder for chaining.
        */
@@ -6719,7 +6719,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>string active_player_id = 2;</code>
+       * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearActivePlayerId() {
@@ -6728,7 +6728,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>string active_player_id = 2;</code>
+       * <code>string active_player_id = 2[json_name = "activePlayerId"];</code>
        * @param value The bytes for activePlayerId to set.
        * @return This builder for chaining.
        */
@@ -6821,7 +6821,7 @@ public final class Control {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>bool include_initial_state = 1;</code>
+     * <code>bool include_initial_state = 1[json_name = "includeInitialState"];</code>
      * @return The includeInitialState.
      */
     boolean getIncludeInitialState();
@@ -6839,7 +6839,7 @@ public final class Control {
     public static final int INCLUDE_INITIAL_STATE_FIELD_NUMBER = 1;
     private boolean includeInitialState_;
     /**
-     * <code>bool include_initial_state = 1;</code>
+     * <code>bool include_initial_state = 1[json_name = "includeInitialState"];</code>
      * @return The includeInitialState.
      */
     @java.lang.Override
@@ -6847,7 +6847,7 @@ public final class Control {
       return includeInitialState_;
     }
     /**
-     * <code>bool include_initial_state = 1;</code>
+     * <code>bool include_initial_state = 1[json_name = "includeInitialState"];</code>
      * @param value The includeInitialState to set.
      */
     private void setIncludeInitialState(boolean value) {
@@ -6855,7 +6855,7 @@ public final class Control {
       includeInitialState_ = value;
     }
     /**
-     * <code>bool include_initial_state = 1;</code>
+     * <code>bool include_initial_state = 1[json_name = "includeInitialState"];</code>
      */
     private void clearIncludeInitialState() {
       
@@ -6958,7 +6958,7 @@ public final class Control {
 
 
       /**
-       * <code>bool include_initial_state = 1;</code>
+       * <code>bool include_initial_state = 1[json_name = "includeInitialState"];</code>
        * @return The includeInitialState.
        */
       @java.lang.Override
@@ -6966,7 +6966,7 @@ public final class Control {
         return instance.getIncludeInitialState();
       }
       /**
-       * <code>bool include_initial_state = 1;</code>
+       * <code>bool include_initial_state = 1[json_name = "includeInitialState"];</code>
        * @param value The includeInitialState to set.
        * @return This builder for chaining.
        */
@@ -6976,7 +6976,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>bool include_initial_state = 1;</code>
+       * <code>bool include_initial_state = 1[json_name = "includeInitialState"];</code>
        * @return This builder for chaining.
        */
       public Builder clearIncludeInitialState() {
@@ -7064,12 +7064,12 @@ public final class Control {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string subscription_id = 1;</code>
+     * <code>string subscription_id = 1[json_name = "subscriptionId"];</code>
      * @return The subscriptionId.
      */
     java.lang.String getSubscriptionId();
     /**
-     * <code>string subscription_id = 1;</code>
+     * <code>string subscription_id = 1[json_name = "subscriptionId"];</code>
      * @return The bytes for subscriptionId.
      */
     com.google.protobuf.ByteString
@@ -7089,7 +7089,7 @@ public final class Control {
     public static final int SUBSCRIPTION_ID_FIELD_NUMBER = 1;
     private java.lang.String subscriptionId_;
     /**
-     * <code>string subscription_id = 1;</code>
+     * <code>string subscription_id = 1[json_name = "subscriptionId"];</code>
      * @return The subscriptionId.
      */
     @java.lang.Override
@@ -7097,7 +7097,7 @@ public final class Control {
       return subscriptionId_;
     }
     /**
-     * <code>string subscription_id = 1;</code>
+     * <code>string subscription_id = 1[json_name = "subscriptionId"];</code>
      * @return The bytes for subscriptionId.
      */
     @java.lang.Override
@@ -7106,7 +7106,7 @@ public final class Control {
       return com.google.protobuf.ByteString.copyFromUtf8(subscriptionId_);
     }
     /**
-     * <code>string subscription_id = 1;</code>
+     * <code>string subscription_id = 1[json_name = "subscriptionId"];</code>
      * @param value The subscriptionId to set.
      */
     private void setSubscriptionId(
@@ -7116,14 +7116,14 @@ public final class Control {
       subscriptionId_ = value;
     }
     /**
-     * <code>string subscription_id = 1;</code>
+     * <code>string subscription_id = 1[json_name = "subscriptionId"];</code>
      */
     private void clearSubscriptionId() {
       
       subscriptionId_ = getDefaultInstance().getSubscriptionId();
     }
     /**
-     * <code>string subscription_id = 1;</code>
+     * <code>string subscription_id = 1[json_name = "subscriptionId"];</code>
      * @param value The bytes for subscriptionId to set.
      */
     private void setSubscriptionIdBytes(
@@ -7229,7 +7229,7 @@ public final class Control {
 
 
       /**
-       * <code>string subscription_id = 1;</code>
+       * <code>string subscription_id = 1[json_name = "subscriptionId"];</code>
        * @return The subscriptionId.
        */
       @java.lang.Override
@@ -7237,7 +7237,7 @@ public final class Control {
         return instance.getSubscriptionId();
       }
       /**
-       * <code>string subscription_id = 1;</code>
+       * <code>string subscription_id = 1[json_name = "subscriptionId"];</code>
        * @return The bytes for subscriptionId.
        */
       @java.lang.Override
@@ -7246,7 +7246,7 @@ public final class Control {
         return instance.getSubscriptionIdBytes();
       }
       /**
-       * <code>string subscription_id = 1;</code>
+       * <code>string subscription_id = 1[json_name = "subscriptionId"];</code>
        * @param value The subscriptionId to set.
        * @return This builder for chaining.
        */
@@ -7257,7 +7257,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>string subscription_id = 1;</code>
+       * <code>string subscription_id = 1[json_name = "subscriptionId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearSubscriptionId() {
@@ -7266,7 +7266,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>string subscription_id = 1;</code>
+       * <code>string subscription_id = 1[json_name = "subscriptionId"];</code>
        * @param value The bytes for subscriptionId to set.
        * @return This builder for chaining.
        */
@@ -7356,12 +7356,12 @@ public final class Control {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @return The playerId.
      */
     java.lang.String getPlayerId();
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @return The bytes for playerId.
      */
     com.google.protobuf.ByteString
@@ -7381,7 +7381,7 @@ public final class Control {
     public static final int PLAYER_ID_FIELD_NUMBER = 1;
     private java.lang.String playerId_;
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @return The playerId.
      */
     @java.lang.Override
@@ -7389,7 +7389,7 @@ public final class Control {
       return playerId_;
     }
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @return The bytes for playerId.
      */
     @java.lang.Override
@@ -7398,7 +7398,7 @@ public final class Control {
       return com.google.protobuf.ByteString.copyFromUtf8(playerId_);
     }
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @param value The playerId to set.
      */
     private void setPlayerId(
@@ -7408,14 +7408,14 @@ public final class Control {
       playerId_ = value;
     }
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      */
     private void clearPlayerId() {
       
       playerId_ = getDefaultInstance().getPlayerId();
     }
     /**
-     * <code>string player_id = 1;</code>
+     * <code>string player_id = 1[json_name = "playerId"];</code>
      * @param value The bytes for playerId to set.
      */
     private void setPlayerIdBytes(
@@ -7521,7 +7521,7 @@ public final class Control {
 
 
       /**
-       * <code>string player_id = 1;</code>
+       * <code>string player_id = 1[json_name = "playerId"];</code>
        * @return The playerId.
        */
       @java.lang.Override
@@ -7529,7 +7529,7 @@ public final class Control {
         return instance.getPlayerId();
       }
       /**
-       * <code>string player_id = 1;</code>
+       * <code>string player_id = 1[json_name = "playerId"];</code>
        * @return The bytes for playerId.
        */
       @java.lang.Override
@@ -7538,7 +7538,7 @@ public final class Control {
         return instance.getPlayerIdBytes();
       }
       /**
-       * <code>string player_id = 1;</code>
+       * <code>string player_id = 1[json_name = "playerId"];</code>
        * @param value The playerId to set.
        * @return This builder for chaining.
        */
@@ -7549,7 +7549,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>string player_id = 1;</code>
+       * <code>string player_id = 1[json_name = "playerId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearPlayerId() {
@@ -7558,7 +7558,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>string player_id = 1;</code>
+       * <code>string player_id = 1[json_name = "playerId"];</code>
        * @param value The bytes for playerId to set.
        * @return This builder for chaining.
        */
@@ -7648,24 +7648,24 @@ public final class Control {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string active_player_id = 1;</code>
+     * <code>string active_player_id = 1[json_name = "activePlayerId"];</code>
      * @return The activePlayerId.
      */
     java.lang.String getActivePlayerId();
     /**
-     * <code>string active_player_id = 1;</code>
+     * <code>string active_player_id = 1[json_name = "activePlayerId"];</code>
      * @return The bytes for activePlayerId.
      */
     com.google.protobuf.ByteString
         getActivePlayerIdBytes();
 
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 2;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 2[json_name = "error"];</code>
      * @return Whether the error field is set.
      */
     boolean hasError();
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 2;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 2[json_name = "error"];</code>
      * @return The error.
      */
     ymconnect.v1.Errors.ProtocolError getError();
@@ -7684,7 +7684,7 @@ public final class Control {
     public static final int ACTIVE_PLAYER_ID_FIELD_NUMBER = 1;
     private java.lang.String activePlayerId_;
     /**
-     * <code>string active_player_id = 1;</code>
+     * <code>string active_player_id = 1[json_name = "activePlayerId"];</code>
      * @return The activePlayerId.
      */
     @java.lang.Override
@@ -7692,7 +7692,7 @@ public final class Control {
       return activePlayerId_;
     }
     /**
-     * <code>string active_player_id = 1;</code>
+     * <code>string active_player_id = 1[json_name = "activePlayerId"];</code>
      * @return The bytes for activePlayerId.
      */
     @java.lang.Override
@@ -7701,7 +7701,7 @@ public final class Control {
       return com.google.protobuf.ByteString.copyFromUtf8(activePlayerId_);
     }
     /**
-     * <code>string active_player_id = 1;</code>
+     * <code>string active_player_id = 1[json_name = "activePlayerId"];</code>
      * @param value The activePlayerId to set.
      */
     private void setActivePlayerId(
@@ -7711,14 +7711,14 @@ public final class Control {
       activePlayerId_ = value;
     }
     /**
-     * <code>string active_player_id = 1;</code>
+     * <code>string active_player_id = 1[json_name = "activePlayerId"];</code>
      */
     private void clearActivePlayerId() {
       
       activePlayerId_ = getDefaultInstance().getActivePlayerId();
     }
     /**
-     * <code>string active_player_id = 1;</code>
+     * <code>string active_player_id = 1[json_name = "activePlayerId"];</code>
      * @param value The bytes for activePlayerId to set.
      */
     private void setActivePlayerIdBytes(
@@ -7731,21 +7731,21 @@ public final class Control {
     public static final int ERROR_FIELD_NUMBER = 2;
     private ymconnect.v1.Errors.ProtocolError error_;
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 2;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 2[json_name = "error"];</code>
      */
     @java.lang.Override
     public boolean hasError() {
       return error_ != null;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 2;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 2[json_name = "error"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Errors.ProtocolError getError() {
       return error_ == null ? ymconnect.v1.Errors.ProtocolError.getDefaultInstance() : error_;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 2;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 2[json_name = "error"];</code>
      */
     private void setError(ymconnect.v1.Errors.ProtocolError value) {
       value.getClass();
@@ -7753,7 +7753,7 @@ public final class Control {
       
       }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 2;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 2[json_name = "error"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeError(ymconnect.v1.Errors.ProtocolError value) {
@@ -7768,7 +7768,7 @@ public final class Control {
       
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 2;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 2[json_name = "error"];</code>
      */
     private void clearError() {  error_ = null;
       
@@ -7870,7 +7870,7 @@ public final class Control {
 
 
       /**
-       * <code>string active_player_id = 1;</code>
+       * <code>string active_player_id = 1[json_name = "activePlayerId"];</code>
        * @return The activePlayerId.
        */
       @java.lang.Override
@@ -7878,7 +7878,7 @@ public final class Control {
         return instance.getActivePlayerId();
       }
       /**
-       * <code>string active_player_id = 1;</code>
+       * <code>string active_player_id = 1[json_name = "activePlayerId"];</code>
        * @return The bytes for activePlayerId.
        */
       @java.lang.Override
@@ -7887,7 +7887,7 @@ public final class Control {
         return instance.getActivePlayerIdBytes();
       }
       /**
-       * <code>string active_player_id = 1;</code>
+       * <code>string active_player_id = 1[json_name = "activePlayerId"];</code>
        * @param value The activePlayerId to set.
        * @return This builder for chaining.
        */
@@ -7898,7 +7898,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>string active_player_id = 1;</code>
+       * <code>string active_player_id = 1[json_name = "activePlayerId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearActivePlayerId() {
@@ -7907,7 +7907,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>string active_player_id = 1;</code>
+       * <code>string active_player_id = 1[json_name = "activePlayerId"];</code>
        * @param value The bytes for activePlayerId to set.
        * @return This builder for chaining.
        */
@@ -7919,21 +7919,21 @@ public final class Control {
       }
 
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 2;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 2[json_name = "error"];</code>
        */
       @java.lang.Override
       public boolean hasError() {
         return instance.hasError();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 2;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 2[json_name = "error"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Errors.ProtocolError getError() {
         return instance.getError();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 2;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 2[json_name = "error"];</code>
        */
       public Builder setError(ymconnect.v1.Errors.ProtocolError value) {
         copyOnWrite();
@@ -7941,7 +7941,7 @@ public final class Control {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 2;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 2[json_name = "error"];</code>
        */
       public Builder setError(
           ymconnect.v1.Errors.ProtocolError.Builder builderForValue) {
@@ -7950,7 +7950,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 2;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 2[json_name = "error"];</code>
        */
       public Builder mergeError(ymconnect.v1.Errors.ProtocolError value) {
         copyOnWrite();
@@ -7958,7 +7958,7 @@ public final class Control {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 2;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 2[json_name = "error"];</code>
        */
       public Builder clearError() {  copyOnWrite();
         instance.clearError();

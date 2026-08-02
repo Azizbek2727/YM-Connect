@@ -506,57 +506,57 @@ public final class Errors {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.ErrorDomain domain = 1;</code>
+     * <code>.ymconnect.v1.ErrorDomain domain = 1[json_name = "domain"];</code>
      * @return The enum numeric value on the wire for domain.
      */
     int getDomainValue();
     /**
-     * <code>.ymconnect.v1.ErrorDomain domain = 1;</code>
+     * <code>.ymconnect.v1.ErrorDomain domain = 1[json_name = "domain"];</code>
      * @return The domain.
      */
     ymconnect.v1.Errors.ErrorDomain getDomain();
 
     /**
-     * <code>.ymconnect.v1.ErrorCode code = 2;</code>
+     * <code>.ymconnect.v1.ErrorCode code = 2[json_name = "code"];</code>
      * @return The enum numeric value on the wire for code.
      */
     int getCodeValue();
     /**
-     * <code>.ymconnect.v1.ErrorCode code = 2;</code>
+     * <code>.ymconnect.v1.ErrorCode code = 2[json_name = "code"];</code>
      * @return The code.
      */
     ymconnect.v1.Errors.ErrorCode getCode();
 
     /**
-     * <code>string message = 3;</code>
+     * <code>string message = 3[json_name = "message"];</code>
      * @return The message.
      */
     java.lang.String getMessage();
     /**
-     * <code>string message = 3;</code>
+     * <code>string message = 3[json_name = "message"];</code>
      * @return The bytes for message.
      */
     com.google.protobuf.ByteString
         getMessageBytes();
 
     /**
-     * <code>bool retryable = 4;</code>
+     * <code>bool retryable = 4[json_name = "retryable"];</code>
      * @return The retryable.
      */
     boolean getRetryable();
 
     /**
-     * <code>uint64 retry_after_ms = 5;</code>
+     * <code>uint64 retry_after_ms = 5[json_name = "retryAfterMs"];</code>
      * @return The retryAfterMs.
      */
     long getRetryAfterMs();
 
     /**
-     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
      */
     int getMetadataCount();
     /**
-     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
      */
     boolean containsMetadata(
         java.lang.String key);
@@ -567,19 +567,19 @@ public final class Errors {
     java.util.Map<java.lang.String, java.lang.String>
     getMetadata();
     /**
-     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getMetadataMap();
     /**
-     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
      */
 
     java.lang.String getMetadataOrDefault(
         java.lang.String key,
         java.lang.String defaultValue);
     /**
-     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
      */
 
     java.lang.String getMetadataOrThrow(
@@ -599,7 +599,7 @@ public final class Errors {
     public static final int DOMAIN_FIELD_NUMBER = 1;
     private int domain_;
     /**
-     * <code>.ymconnect.v1.ErrorDomain domain = 1;</code>
+     * <code>.ymconnect.v1.ErrorDomain domain = 1[json_name = "domain"];</code>
      * @return The enum numeric value on the wire for domain.
      */
     @java.lang.Override
@@ -607,7 +607,7 @@ public final class Errors {
       return domain_;
     }
     /**
-     * <code>.ymconnect.v1.ErrorDomain domain = 1;</code>
+     * <code>.ymconnect.v1.ErrorDomain domain = 1[json_name = "domain"];</code>
      * @return The domain.
      */
     @java.lang.Override
@@ -616,14 +616,14 @@ public final class Errors {
       return result == null ? ymconnect.v1.Errors.ErrorDomain.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ymconnect.v1.ErrorDomain domain = 1;</code>
+     * <code>.ymconnect.v1.ErrorDomain domain = 1[json_name = "domain"];</code>
      * @param value The enum numeric value on the wire for domain to set.
      */
     private void setDomainValue(int value) {
         domain_ = value;
     }
     /**
-     * <code>.ymconnect.v1.ErrorDomain domain = 1;</code>
+     * <code>.ymconnect.v1.ErrorDomain domain = 1[json_name = "domain"];</code>
      * @param value The domain to set.
      */
     private void setDomain(ymconnect.v1.Errors.ErrorDomain value) {
@@ -631,7 +631,7 @@ public final class Errors {
       
     }
     /**
-     * <code>.ymconnect.v1.ErrorDomain domain = 1;</code>
+     * <code>.ymconnect.v1.ErrorDomain domain = 1[json_name = "domain"];</code>
      */
     private void clearDomain() {
       
@@ -641,7 +641,7 @@ public final class Errors {
     public static final int CODE_FIELD_NUMBER = 2;
     private int code_;
     /**
-     * <code>.ymconnect.v1.ErrorCode code = 2;</code>
+     * <code>.ymconnect.v1.ErrorCode code = 2[json_name = "code"];</code>
      * @return The enum numeric value on the wire for code.
      */
     @java.lang.Override
@@ -649,7 +649,7 @@ public final class Errors {
       return code_;
     }
     /**
-     * <code>.ymconnect.v1.ErrorCode code = 2;</code>
+     * <code>.ymconnect.v1.ErrorCode code = 2[json_name = "code"];</code>
      * @return The code.
      */
     @java.lang.Override
@@ -658,14 +658,14 @@ public final class Errors {
       return result == null ? ymconnect.v1.Errors.ErrorCode.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ymconnect.v1.ErrorCode code = 2;</code>
+     * <code>.ymconnect.v1.ErrorCode code = 2[json_name = "code"];</code>
      * @param value The enum numeric value on the wire for code to set.
      */
     private void setCodeValue(int value) {
         code_ = value;
     }
     /**
-     * <code>.ymconnect.v1.ErrorCode code = 2;</code>
+     * <code>.ymconnect.v1.ErrorCode code = 2[json_name = "code"];</code>
      * @param value The code to set.
      */
     private void setCode(ymconnect.v1.Errors.ErrorCode value) {
@@ -673,7 +673,7 @@ public final class Errors {
       
     }
     /**
-     * <code>.ymconnect.v1.ErrorCode code = 2;</code>
+     * <code>.ymconnect.v1.ErrorCode code = 2[json_name = "code"];</code>
      */
     private void clearCode() {
       
@@ -683,7 +683,7 @@ public final class Errors {
     public static final int MESSAGE_FIELD_NUMBER = 3;
     private java.lang.String message_;
     /**
-     * <code>string message = 3;</code>
+     * <code>string message = 3[json_name = "message"];</code>
      * @return The message.
      */
     @java.lang.Override
@@ -691,7 +691,7 @@ public final class Errors {
       return message_;
     }
     /**
-     * <code>string message = 3;</code>
+     * <code>string message = 3[json_name = "message"];</code>
      * @return The bytes for message.
      */
     @java.lang.Override
@@ -700,7 +700,7 @@ public final class Errors {
       return com.google.protobuf.ByteString.copyFromUtf8(message_);
     }
     /**
-     * <code>string message = 3;</code>
+     * <code>string message = 3[json_name = "message"];</code>
      * @param value The message to set.
      */
     private void setMessage(
@@ -710,14 +710,14 @@ public final class Errors {
       message_ = value;
     }
     /**
-     * <code>string message = 3;</code>
+     * <code>string message = 3[json_name = "message"];</code>
      */
     private void clearMessage() {
       
       message_ = getDefaultInstance().getMessage();
     }
     /**
-     * <code>string message = 3;</code>
+     * <code>string message = 3[json_name = "message"];</code>
      * @param value The bytes for message to set.
      */
     private void setMessageBytes(
@@ -730,7 +730,7 @@ public final class Errors {
     public static final int RETRYABLE_FIELD_NUMBER = 4;
     private boolean retryable_;
     /**
-     * <code>bool retryable = 4;</code>
+     * <code>bool retryable = 4[json_name = "retryable"];</code>
      * @return The retryable.
      */
     @java.lang.Override
@@ -738,7 +738,7 @@ public final class Errors {
       return retryable_;
     }
     /**
-     * <code>bool retryable = 4;</code>
+     * <code>bool retryable = 4[json_name = "retryable"];</code>
      * @param value The retryable to set.
      */
     private void setRetryable(boolean value) {
@@ -746,7 +746,7 @@ public final class Errors {
       retryable_ = value;
     }
     /**
-     * <code>bool retryable = 4;</code>
+     * <code>bool retryable = 4[json_name = "retryable"];</code>
      */
     private void clearRetryable() {
       
@@ -756,7 +756,7 @@ public final class Errors {
     public static final int RETRY_AFTER_MS_FIELD_NUMBER = 5;
     private long retryAfterMs_;
     /**
-     * <code>uint64 retry_after_ms = 5;</code>
+     * <code>uint64 retry_after_ms = 5[json_name = "retryAfterMs"];</code>
      * @return The retryAfterMs.
      */
     @java.lang.Override
@@ -764,7 +764,7 @@ public final class Errors {
       return retryAfterMs_;
     }
     /**
-     * <code>uint64 retry_after_ms = 5;</code>
+     * <code>uint64 retry_after_ms = 5[json_name = "retryAfterMs"];</code>
      * @param value The retryAfterMs to set.
      */
     private void setRetryAfterMs(long value) {
@@ -772,7 +772,7 @@ public final class Errors {
       retryAfterMs_ = value;
     }
     /**
-     * <code>uint64 retry_after_ms = 5;</code>
+     * <code>uint64 retry_after_ms = 5[json_name = "retryAfterMs"];</code>
      */
     private void clearRetryAfterMs() {
       
@@ -810,7 +810,7 @@ public final class Errors {
       return internalGetMetadata().size();
     }
     /**
-     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
      */
     @java.lang.Override
 
@@ -828,7 +828,7 @@ public final class Errors {
       return getMetadataMap();
     }
     /**
-     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
      */
     @java.lang.Override
 
@@ -837,7 +837,7 @@ public final class Errors {
           internalGetMetadata());
     }
     /**
-     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
      */
     @java.lang.Override
 
@@ -850,7 +850,7 @@ public final class Errors {
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
      */
     @java.lang.Override
 
@@ -865,7 +865,7 @@ public final class Errors {
       return map.get(key);
     }
     /**
-     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
      */
     private java.util.Map<java.lang.String, java.lang.String>
     getMutableMetadataMap() {
@@ -968,7 +968,7 @@ public final class Errors {
 
 
       /**
-       * <code>.ymconnect.v1.ErrorDomain domain = 1;</code>
+       * <code>.ymconnect.v1.ErrorDomain domain = 1[json_name = "domain"];</code>
        * @return The enum numeric value on the wire for domain.
        */
       @java.lang.Override
@@ -976,7 +976,7 @@ public final class Errors {
         return instance.getDomainValue();
       }
       /**
-       * <code>.ymconnect.v1.ErrorDomain domain = 1;</code>
+       * <code>.ymconnect.v1.ErrorDomain domain = 1[json_name = "domain"];</code>
        * @param value The domain to set.
        * @return This builder for chaining.
        */
@@ -986,7 +986,7 @@ public final class Errors {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ErrorDomain domain = 1;</code>
+       * <code>.ymconnect.v1.ErrorDomain domain = 1[json_name = "domain"];</code>
        * @return The domain.
        */
       @java.lang.Override
@@ -994,7 +994,7 @@ public final class Errors {
         return instance.getDomain();
       }
       /**
-       * <code>.ymconnect.v1.ErrorDomain domain = 1;</code>
+       * <code>.ymconnect.v1.ErrorDomain domain = 1[json_name = "domain"];</code>
        * @param value The enum numeric value on the wire for domain to set.
        * @return This builder for chaining.
        */
@@ -1004,7 +1004,7 @@ public final class Errors {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ErrorDomain domain = 1;</code>
+       * <code>.ymconnect.v1.ErrorDomain domain = 1[json_name = "domain"];</code>
        * @return This builder for chaining.
        */
       public Builder clearDomain() {
@@ -1014,7 +1014,7 @@ public final class Errors {
       }
 
       /**
-       * <code>.ymconnect.v1.ErrorCode code = 2;</code>
+       * <code>.ymconnect.v1.ErrorCode code = 2[json_name = "code"];</code>
        * @return The enum numeric value on the wire for code.
        */
       @java.lang.Override
@@ -1022,7 +1022,7 @@ public final class Errors {
         return instance.getCodeValue();
       }
       /**
-       * <code>.ymconnect.v1.ErrorCode code = 2;</code>
+       * <code>.ymconnect.v1.ErrorCode code = 2[json_name = "code"];</code>
        * @param value The code to set.
        * @return This builder for chaining.
        */
@@ -1032,7 +1032,7 @@ public final class Errors {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ErrorCode code = 2;</code>
+       * <code>.ymconnect.v1.ErrorCode code = 2[json_name = "code"];</code>
        * @return The code.
        */
       @java.lang.Override
@@ -1040,7 +1040,7 @@ public final class Errors {
         return instance.getCode();
       }
       /**
-       * <code>.ymconnect.v1.ErrorCode code = 2;</code>
+       * <code>.ymconnect.v1.ErrorCode code = 2[json_name = "code"];</code>
        * @param value The enum numeric value on the wire for code to set.
        * @return This builder for chaining.
        */
@@ -1050,7 +1050,7 @@ public final class Errors {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ErrorCode code = 2;</code>
+       * <code>.ymconnect.v1.ErrorCode code = 2[json_name = "code"];</code>
        * @return This builder for chaining.
        */
       public Builder clearCode() {
@@ -1060,7 +1060,7 @@ public final class Errors {
       }
 
       /**
-       * <code>string message = 3;</code>
+       * <code>string message = 3[json_name = "message"];</code>
        * @return The message.
        */
       @java.lang.Override
@@ -1068,7 +1068,7 @@ public final class Errors {
         return instance.getMessage();
       }
       /**
-       * <code>string message = 3;</code>
+       * <code>string message = 3[json_name = "message"];</code>
        * @return The bytes for message.
        */
       @java.lang.Override
@@ -1077,7 +1077,7 @@ public final class Errors {
         return instance.getMessageBytes();
       }
       /**
-       * <code>string message = 3;</code>
+       * <code>string message = 3[json_name = "message"];</code>
        * @param value The message to set.
        * @return This builder for chaining.
        */
@@ -1088,7 +1088,7 @@ public final class Errors {
         return this;
       }
       /**
-       * <code>string message = 3;</code>
+       * <code>string message = 3[json_name = "message"];</code>
        * @return This builder for chaining.
        */
       public Builder clearMessage() {
@@ -1097,7 +1097,7 @@ public final class Errors {
         return this;
       }
       /**
-       * <code>string message = 3;</code>
+       * <code>string message = 3[json_name = "message"];</code>
        * @param value The bytes for message to set.
        * @return This builder for chaining.
        */
@@ -1109,7 +1109,7 @@ public final class Errors {
       }
 
       /**
-       * <code>bool retryable = 4;</code>
+       * <code>bool retryable = 4[json_name = "retryable"];</code>
        * @return The retryable.
        */
       @java.lang.Override
@@ -1117,7 +1117,7 @@ public final class Errors {
         return instance.getRetryable();
       }
       /**
-       * <code>bool retryable = 4;</code>
+       * <code>bool retryable = 4[json_name = "retryable"];</code>
        * @param value The retryable to set.
        * @return This builder for chaining.
        */
@@ -1127,7 +1127,7 @@ public final class Errors {
         return this;
       }
       /**
-       * <code>bool retryable = 4;</code>
+       * <code>bool retryable = 4[json_name = "retryable"];</code>
        * @return This builder for chaining.
        */
       public Builder clearRetryable() {
@@ -1137,7 +1137,7 @@ public final class Errors {
       }
 
       /**
-       * <code>uint64 retry_after_ms = 5;</code>
+       * <code>uint64 retry_after_ms = 5[json_name = "retryAfterMs"];</code>
        * @return The retryAfterMs.
        */
       @java.lang.Override
@@ -1145,7 +1145,7 @@ public final class Errors {
         return instance.getRetryAfterMs();
       }
       /**
-       * <code>uint64 retry_after_ms = 5;</code>
+       * <code>uint64 retry_after_ms = 5[json_name = "retryAfterMs"];</code>
        * @param value The retryAfterMs to set.
        * @return This builder for chaining.
        */
@@ -1155,7 +1155,7 @@ public final class Errors {
         return this;
       }
       /**
-       * <code>uint64 retry_after_ms = 5;</code>
+       * <code>uint64 retry_after_ms = 5[json_name = "retryAfterMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearRetryAfterMs() {
@@ -1170,7 +1170,7 @@ public final class Errors {
         return instance.getMetadataMap().size();
       }
       /**
-       * <code>map&lt;string, string&gt; metadata = 6;</code>
+       * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
        */
       @java.lang.Override
 
@@ -1186,7 +1186,7 @@ public final class Errors {
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; metadata = 6;</code>
+       * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
        */
 
       public Builder removeMetadata(
@@ -1205,7 +1205,7 @@ public final class Errors {
         return getMetadataMap();
       }
       /**
-       * <code>map&lt;string, string&gt; metadata = 6;</code>
+       * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
        */
       @java.lang.Override
       public java.util.Map<java.lang.String, java.lang.String> getMetadataMap() {
@@ -1213,7 +1213,7 @@ public final class Errors {
             instance.getMetadataMap());
       }
       /**
-       * <code>map&lt;string, string&gt; metadata = 6;</code>
+       * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
        */
       @java.lang.Override
 
@@ -1226,7 +1226,7 @@ public final class Errors {
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, string&gt; metadata = 6;</code>
+       * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
        */
       @java.lang.Override
 
@@ -1241,7 +1241,7 @@ public final class Errors {
         return map.get(key);
       }
       /**
-       * <code>map&lt;string, string&gt; metadata = 6;</code>
+       * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
        */
       public Builder putMetadata(
           java.lang.String key,
@@ -1253,7 +1253,7 @@ public final class Errors {
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; metadata = 6;</code>
+       * <code>map&lt;string, string&gt; metadata = 6[json_name = "metadata"];</code>
        */
       public Builder putAllMetadata(
           java.util.Map<java.lang.String, java.lang.String> values) {

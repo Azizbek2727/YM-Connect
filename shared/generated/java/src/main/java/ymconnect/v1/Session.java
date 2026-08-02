@@ -307,58 +307,58 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
      * @return Whether the bridge field is set.
      */
     boolean hasBridge();
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
      * @return The bridge.
      */
     ymconnect.v1.Common.BridgeDescriptor getBridge();
 
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      * @return Whether the protocolRange field is set.
      */
     boolean hasProtocolRange();
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      * @return The protocolRange.
      */
     ymconnect.v1.Common.VersionRange getProtocolRange();
 
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      * @return Whether the capabilities field is set.
      */
     boolean hasCapabilities();
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      * @return The capabilities.
      */
     ymconnect.v1.Capabilities.CapabilitySet getCapabilities();
 
     /**
-     * <code>uint32 secure_port = 4;</code>
+     * <code>uint32 secure_port = 4[json_name = "securePort"];</code>
      * @return The securePort.
      */
     int getSecurePort();
 
     /**
-     * <code>uint64 expires_at_unix_ms = 5;</code>
+     * <code>uint64 expires_at_unix_ms = 5[json_name = "expiresAtUnixMs"];</code>
      * @return The expiresAtUnixMs.
      */
     long getExpiresAtUnixMs();
 
     /**
-     * <code>bytes advertisement_nonce = 6;</code>
+     * <code>bytes advertisement_nonce = 6[json_name = "advertisementNonce"];</code>
      * @return The advertisementNonce.
      */
     com.google.protobuf.ByteString getAdvertisementNonce();
 
     /**
-     * <code>bytes signature = 7;</code>
+     * <code>bytes signature = 7[json_name = "signature"];</code>
      * @return The signature.
      */
     com.google.protobuf.ByteString getSignature();
@@ -378,21 +378,21 @@ public final class Session {
     public static final int BRIDGE_FIELD_NUMBER = 1;
     private ymconnect.v1.Common.BridgeDescriptor bridge_;
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
      */
     @java.lang.Override
     public boolean hasBridge() {
       return bridge_ != null;
     }
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.BridgeDescriptor getBridge() {
       return bridge_ == null ? ymconnect.v1.Common.BridgeDescriptor.getDefaultInstance() : bridge_;
     }
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
      */
     private void setBridge(ymconnect.v1.Common.BridgeDescriptor value) {
       value.getClass();
@@ -400,7 +400,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeBridge(ymconnect.v1.Common.BridgeDescriptor value) {
@@ -415,7 +415,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
      */
     private void clearBridge() {  bridge_ = null;
       
@@ -424,21 +424,21 @@ public final class Session {
     public static final int PROTOCOL_RANGE_FIELD_NUMBER = 2;
     private ymconnect.v1.Common.VersionRange protocolRange_;
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      */
     @java.lang.Override
     public boolean hasProtocolRange() {
       return protocolRange_ != null;
     }
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.VersionRange getProtocolRange() {
       return protocolRange_ == null ? ymconnect.v1.Common.VersionRange.getDefaultInstance() : protocolRange_;
     }
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      */
     private void setProtocolRange(ymconnect.v1.Common.VersionRange value) {
       value.getClass();
@@ -446,7 +446,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeProtocolRange(ymconnect.v1.Common.VersionRange value) {
@@ -461,7 +461,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      */
     private void clearProtocolRange() {  protocolRange_ = null;
       
@@ -470,21 +470,21 @@ public final class Session {
     public static final int CAPABILITIES_FIELD_NUMBER = 3;
     private ymconnect.v1.Capabilities.CapabilitySet capabilities_;
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      */
     @java.lang.Override
     public boolean hasCapabilities() {
       return capabilities_ != null;
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Capabilities.CapabilitySet getCapabilities() {
       return capabilities_ == null ? ymconnect.v1.Capabilities.CapabilitySet.getDefaultInstance() : capabilities_;
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      */
     private void setCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
       value.getClass();
@@ -492,7 +492,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
@@ -507,7 +507,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      */
     private void clearCapabilities() {  capabilities_ = null;
       
@@ -516,7 +516,7 @@ public final class Session {
     public static final int SECURE_PORT_FIELD_NUMBER = 4;
     private int securePort_;
     /**
-     * <code>uint32 secure_port = 4;</code>
+     * <code>uint32 secure_port = 4[json_name = "securePort"];</code>
      * @return The securePort.
      */
     @java.lang.Override
@@ -524,7 +524,7 @@ public final class Session {
       return securePort_;
     }
     /**
-     * <code>uint32 secure_port = 4;</code>
+     * <code>uint32 secure_port = 4[json_name = "securePort"];</code>
      * @param value The securePort to set.
      */
     private void setSecurePort(int value) {
@@ -532,7 +532,7 @@ public final class Session {
       securePort_ = value;
     }
     /**
-     * <code>uint32 secure_port = 4;</code>
+     * <code>uint32 secure_port = 4[json_name = "securePort"];</code>
      */
     private void clearSecurePort() {
       
@@ -542,7 +542,7 @@ public final class Session {
     public static final int EXPIRES_AT_UNIX_MS_FIELD_NUMBER = 5;
     private long expiresAtUnixMs_;
     /**
-     * <code>uint64 expires_at_unix_ms = 5;</code>
+     * <code>uint64 expires_at_unix_ms = 5[json_name = "expiresAtUnixMs"];</code>
      * @return The expiresAtUnixMs.
      */
     @java.lang.Override
@@ -550,7 +550,7 @@ public final class Session {
       return expiresAtUnixMs_;
     }
     /**
-     * <code>uint64 expires_at_unix_ms = 5;</code>
+     * <code>uint64 expires_at_unix_ms = 5[json_name = "expiresAtUnixMs"];</code>
      * @param value The expiresAtUnixMs to set.
      */
     private void setExpiresAtUnixMs(long value) {
@@ -558,7 +558,7 @@ public final class Session {
       expiresAtUnixMs_ = value;
     }
     /**
-     * <code>uint64 expires_at_unix_ms = 5;</code>
+     * <code>uint64 expires_at_unix_ms = 5[json_name = "expiresAtUnixMs"];</code>
      */
     private void clearExpiresAtUnixMs() {
       
@@ -568,7 +568,7 @@ public final class Session {
     public static final int ADVERTISEMENT_NONCE_FIELD_NUMBER = 6;
     private com.google.protobuf.ByteString advertisementNonce_;
     /**
-     * <code>bytes advertisement_nonce = 6;</code>
+     * <code>bytes advertisement_nonce = 6[json_name = "advertisementNonce"];</code>
      * @return The advertisementNonce.
      */
     @java.lang.Override
@@ -576,7 +576,7 @@ public final class Session {
       return advertisementNonce_;
     }
     /**
-     * <code>bytes advertisement_nonce = 6;</code>
+     * <code>bytes advertisement_nonce = 6[json_name = "advertisementNonce"];</code>
      * @param value The advertisementNonce to set.
      */
     private void setAdvertisementNonce(com.google.protobuf.ByteString value) {
@@ -585,7 +585,7 @@ public final class Session {
       advertisementNonce_ = value;
     }
     /**
-     * <code>bytes advertisement_nonce = 6;</code>
+     * <code>bytes advertisement_nonce = 6[json_name = "advertisementNonce"];</code>
      */
     private void clearAdvertisementNonce() {
       
@@ -595,7 +595,7 @@ public final class Session {
     public static final int SIGNATURE_FIELD_NUMBER = 7;
     private com.google.protobuf.ByteString signature_;
     /**
-     * <code>bytes signature = 7;</code>
+     * <code>bytes signature = 7[json_name = "signature"];</code>
      * @return The signature.
      */
     @java.lang.Override
@@ -603,7 +603,7 @@ public final class Session {
       return signature_;
     }
     /**
-     * <code>bytes signature = 7;</code>
+     * <code>bytes signature = 7[json_name = "signature"];</code>
      * @param value The signature to set.
      */
     private void setSignature(com.google.protobuf.ByteString value) {
@@ -612,7 +612,7 @@ public final class Session {
       signature_ = value;
     }
     /**
-     * <code>bytes signature = 7;</code>
+     * <code>bytes signature = 7[json_name = "signature"];</code>
      */
     private void clearSignature() {
       
@@ -715,21 +715,21 @@ public final class Session {
 
 
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
        */
       @java.lang.Override
       public boolean hasBridge() {
         return instance.hasBridge();
       }
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.BridgeDescriptor getBridge() {
         return instance.getBridge();
       }
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
        */
       public Builder setBridge(ymconnect.v1.Common.BridgeDescriptor value) {
         copyOnWrite();
@@ -737,7 +737,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
        */
       public Builder setBridge(
           ymconnect.v1.Common.BridgeDescriptor.Builder builderForValue) {
@@ -746,7 +746,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
        */
       public Builder mergeBridge(ymconnect.v1.Common.BridgeDescriptor value) {
         copyOnWrite();
@@ -754,7 +754,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
        */
       public Builder clearBridge() {  copyOnWrite();
         instance.clearBridge();
@@ -762,21 +762,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       @java.lang.Override
       public boolean hasProtocolRange() {
         return instance.hasProtocolRange();
       }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.VersionRange getProtocolRange() {
         return instance.getProtocolRange();
       }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       public Builder setProtocolRange(ymconnect.v1.Common.VersionRange value) {
         copyOnWrite();
@@ -784,7 +784,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       public Builder setProtocolRange(
           ymconnect.v1.Common.VersionRange.Builder builderForValue) {
@@ -793,7 +793,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       public Builder mergeProtocolRange(ymconnect.v1.Common.VersionRange value) {
         copyOnWrite();
@@ -801,7 +801,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       public Builder clearProtocolRange() {  copyOnWrite();
         instance.clearProtocolRange();
@@ -809,21 +809,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       @java.lang.Override
       public boolean hasCapabilities() {
         return instance.hasCapabilities();
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Capabilities.CapabilitySet getCapabilities() {
         return instance.getCapabilities();
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       public Builder setCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
         copyOnWrite();
@@ -831,7 +831,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       public Builder setCapabilities(
           ymconnect.v1.Capabilities.CapabilitySet.Builder builderForValue) {
@@ -840,7 +840,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       public Builder mergeCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
         copyOnWrite();
@@ -848,7 +848,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       public Builder clearCapabilities() {  copyOnWrite();
         instance.clearCapabilities();
@@ -856,7 +856,7 @@ public final class Session {
       }
 
       /**
-       * <code>uint32 secure_port = 4;</code>
+       * <code>uint32 secure_port = 4[json_name = "securePort"];</code>
        * @return The securePort.
        */
       @java.lang.Override
@@ -864,7 +864,7 @@ public final class Session {
         return instance.getSecurePort();
       }
       /**
-       * <code>uint32 secure_port = 4;</code>
+       * <code>uint32 secure_port = 4[json_name = "securePort"];</code>
        * @param value The securePort to set.
        * @return This builder for chaining.
        */
@@ -874,7 +874,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>uint32 secure_port = 4;</code>
+       * <code>uint32 secure_port = 4[json_name = "securePort"];</code>
        * @return This builder for chaining.
        */
       public Builder clearSecurePort() {
@@ -884,7 +884,7 @@ public final class Session {
       }
 
       /**
-       * <code>uint64 expires_at_unix_ms = 5;</code>
+       * <code>uint64 expires_at_unix_ms = 5[json_name = "expiresAtUnixMs"];</code>
        * @return The expiresAtUnixMs.
        */
       @java.lang.Override
@@ -892,7 +892,7 @@ public final class Session {
         return instance.getExpiresAtUnixMs();
       }
       /**
-       * <code>uint64 expires_at_unix_ms = 5;</code>
+       * <code>uint64 expires_at_unix_ms = 5[json_name = "expiresAtUnixMs"];</code>
        * @param value The expiresAtUnixMs to set.
        * @return This builder for chaining.
        */
@@ -902,7 +902,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>uint64 expires_at_unix_ms = 5;</code>
+       * <code>uint64 expires_at_unix_ms = 5[json_name = "expiresAtUnixMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearExpiresAtUnixMs() {
@@ -912,7 +912,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes advertisement_nonce = 6;</code>
+       * <code>bytes advertisement_nonce = 6[json_name = "advertisementNonce"];</code>
        * @return The advertisementNonce.
        */
       @java.lang.Override
@@ -920,7 +920,7 @@ public final class Session {
         return instance.getAdvertisementNonce();
       }
       /**
-       * <code>bytes advertisement_nonce = 6;</code>
+       * <code>bytes advertisement_nonce = 6[json_name = "advertisementNonce"];</code>
        * @param value The advertisementNonce to set.
        * @return This builder for chaining.
        */
@@ -930,7 +930,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes advertisement_nonce = 6;</code>
+       * <code>bytes advertisement_nonce = 6[json_name = "advertisementNonce"];</code>
        * @return This builder for chaining.
        */
       public Builder clearAdvertisementNonce() {
@@ -940,7 +940,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes signature = 7;</code>
+       * <code>bytes signature = 7[json_name = "signature"];</code>
        * @return The signature.
        */
       @java.lang.Override
@@ -948,7 +948,7 @@ public final class Session {
         return instance.getSignature();
       }
       /**
-       * <code>bytes signature = 7;</code>
+       * <code>bytes signature = 7[json_name = "signature"];</code>
        * @param value The signature to set.
        * @return This builder for chaining.
        */
@@ -958,7 +958,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes signature = 7;</code>
+       * <code>bytes signature = 7[json_name = "signature"];</code>
        * @return This builder for chaining.
        */
       public Builder clearSignature() {
@@ -1053,81 +1053,81 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The pairingId.
      */
     java.lang.String getPairingId();
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The bytes for pairingId.
      */
     com.google.protobuf.ByteString
         getPairingIdBytes();
 
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 2;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 2[json_name = "bridge"];</code>
      * @return Whether the bridge field is set.
      */
     boolean hasBridge();
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 2;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 2[json_name = "bridge"];</code>
      * @return The bridge.
      */
     ymconnect.v1.Common.BridgeDescriptor getBridge();
 
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 3;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 3[json_name = "protocolRange"];</code>
      * @return Whether the protocolRange field is set.
      */
     boolean hasProtocolRange();
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 3;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 3[json_name = "protocolRange"];</code>
      * @return The protocolRange.
      */
     ymconnect.v1.Common.VersionRange getProtocolRange();
 
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 4;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 4[json_name = "capabilities"];</code>
      * @return Whether the capabilities field is set.
      */
     boolean hasCapabilities();
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 4;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 4[json_name = "capabilities"];</code>
      * @return The capabilities.
      */
     ymconnect.v1.Capabilities.CapabilitySet getCapabilities();
 
     /**
-     * <code>.ymconnect.v1.PairingMethod method = 5;</code>
+     * <code>.ymconnect.v1.PairingMethod method = 5[json_name = "method"];</code>
      * @return The enum numeric value on the wire for method.
      */
     int getMethodValue();
     /**
-     * <code>.ymconnect.v1.PairingMethod method = 5;</code>
+     * <code>.ymconnect.v1.PairingMethod method = 5[json_name = "method"];</code>
      * @return The method.
      */
     ymconnect.v1.Session.PairingMethod getMethod();
 
     /**
-     * <code>uint64 expires_at_unix_ms = 6;</code>
+     * <code>uint64 expires_at_unix_ms = 6[json_name = "expiresAtUnixMs"];</code>
      * @return The expiresAtUnixMs.
      */
     long getExpiresAtUnixMs();
 
     /**
-     * <code>bytes bridge_ephemeral_public_key = 7;</code>
+     * <code>bytes bridge_ephemeral_public_key = 7[json_name = "bridgeEphemeralPublicKey"];</code>
      * @return The bridgeEphemeralPublicKey.
      */
     com.google.protobuf.ByteString getBridgeEphemeralPublicKey();
 
     /**
-     * <code>bytes offer_nonce = 8;</code>
+     * <code>bytes offer_nonce = 8[json_name = "offerNonce"];</code>
      * @return The offerNonce.
      */
     com.google.protobuf.ByteString getOfferNonce();
 
     /**
-     * <code>bytes signature = 9;</code>
+     * <code>bytes signature = 9[json_name = "signature"];</code>
      * @return The signature.
      */
     com.google.protobuf.ByteString getSignature();
@@ -1149,7 +1149,7 @@ public final class Session {
     public static final int PAIRING_ID_FIELD_NUMBER = 1;
     private java.lang.String pairingId_;
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The pairingId.
      */
     @java.lang.Override
@@ -1157,7 +1157,7 @@ public final class Session {
       return pairingId_;
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The bytes for pairingId.
      */
     @java.lang.Override
@@ -1166,7 +1166,7 @@ public final class Session {
       return com.google.protobuf.ByteString.copyFromUtf8(pairingId_);
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @param value The pairingId to set.
      */
     private void setPairingId(
@@ -1176,14 +1176,14 @@ public final class Session {
       pairingId_ = value;
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      */
     private void clearPairingId() {
       
       pairingId_ = getDefaultInstance().getPairingId();
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @param value The bytes for pairingId to set.
      */
     private void setPairingIdBytes(
@@ -1196,21 +1196,21 @@ public final class Session {
     public static final int BRIDGE_FIELD_NUMBER = 2;
     private ymconnect.v1.Common.BridgeDescriptor bridge_;
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 2;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 2[json_name = "bridge"];</code>
      */
     @java.lang.Override
     public boolean hasBridge() {
       return bridge_ != null;
     }
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 2;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 2[json_name = "bridge"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.BridgeDescriptor getBridge() {
       return bridge_ == null ? ymconnect.v1.Common.BridgeDescriptor.getDefaultInstance() : bridge_;
     }
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 2;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 2[json_name = "bridge"];</code>
      */
     private void setBridge(ymconnect.v1.Common.BridgeDescriptor value) {
       value.getClass();
@@ -1218,7 +1218,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 2;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 2[json_name = "bridge"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeBridge(ymconnect.v1.Common.BridgeDescriptor value) {
@@ -1233,7 +1233,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 2;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 2[json_name = "bridge"];</code>
      */
     private void clearBridge() {  bridge_ = null;
       
@@ -1242,21 +1242,21 @@ public final class Session {
     public static final int PROTOCOL_RANGE_FIELD_NUMBER = 3;
     private ymconnect.v1.Common.VersionRange protocolRange_;
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 3;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 3[json_name = "protocolRange"];</code>
      */
     @java.lang.Override
     public boolean hasProtocolRange() {
       return protocolRange_ != null;
     }
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 3;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 3[json_name = "protocolRange"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.VersionRange getProtocolRange() {
       return protocolRange_ == null ? ymconnect.v1.Common.VersionRange.getDefaultInstance() : protocolRange_;
     }
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 3;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 3[json_name = "protocolRange"];</code>
      */
     private void setProtocolRange(ymconnect.v1.Common.VersionRange value) {
       value.getClass();
@@ -1264,7 +1264,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 3;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 3[json_name = "protocolRange"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeProtocolRange(ymconnect.v1.Common.VersionRange value) {
@@ -1279,7 +1279,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 3;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 3[json_name = "protocolRange"];</code>
      */
     private void clearProtocolRange() {  protocolRange_ = null;
       
@@ -1288,21 +1288,21 @@ public final class Session {
     public static final int CAPABILITIES_FIELD_NUMBER = 4;
     private ymconnect.v1.Capabilities.CapabilitySet capabilities_;
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 4;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 4[json_name = "capabilities"];</code>
      */
     @java.lang.Override
     public boolean hasCapabilities() {
       return capabilities_ != null;
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 4;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 4[json_name = "capabilities"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Capabilities.CapabilitySet getCapabilities() {
       return capabilities_ == null ? ymconnect.v1.Capabilities.CapabilitySet.getDefaultInstance() : capabilities_;
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 4;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 4[json_name = "capabilities"];</code>
      */
     private void setCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
       value.getClass();
@@ -1310,7 +1310,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 4;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 4[json_name = "capabilities"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
@@ -1325,7 +1325,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 4;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 4[json_name = "capabilities"];</code>
      */
     private void clearCapabilities() {  capabilities_ = null;
       
@@ -1334,7 +1334,7 @@ public final class Session {
     public static final int METHOD_FIELD_NUMBER = 5;
     private int method_;
     /**
-     * <code>.ymconnect.v1.PairingMethod method = 5;</code>
+     * <code>.ymconnect.v1.PairingMethod method = 5[json_name = "method"];</code>
      * @return The enum numeric value on the wire for method.
      */
     @java.lang.Override
@@ -1342,7 +1342,7 @@ public final class Session {
       return method_;
     }
     /**
-     * <code>.ymconnect.v1.PairingMethod method = 5;</code>
+     * <code>.ymconnect.v1.PairingMethod method = 5[json_name = "method"];</code>
      * @return The method.
      */
     @java.lang.Override
@@ -1351,14 +1351,14 @@ public final class Session {
       return result == null ? ymconnect.v1.Session.PairingMethod.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ymconnect.v1.PairingMethod method = 5;</code>
+     * <code>.ymconnect.v1.PairingMethod method = 5[json_name = "method"];</code>
      * @param value The enum numeric value on the wire for method to set.
      */
     private void setMethodValue(int value) {
         method_ = value;
     }
     /**
-     * <code>.ymconnect.v1.PairingMethod method = 5;</code>
+     * <code>.ymconnect.v1.PairingMethod method = 5[json_name = "method"];</code>
      * @param value The method to set.
      */
     private void setMethod(ymconnect.v1.Session.PairingMethod value) {
@@ -1366,7 +1366,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.PairingMethod method = 5;</code>
+     * <code>.ymconnect.v1.PairingMethod method = 5[json_name = "method"];</code>
      */
     private void clearMethod() {
       
@@ -1376,7 +1376,7 @@ public final class Session {
     public static final int EXPIRES_AT_UNIX_MS_FIELD_NUMBER = 6;
     private long expiresAtUnixMs_;
     /**
-     * <code>uint64 expires_at_unix_ms = 6;</code>
+     * <code>uint64 expires_at_unix_ms = 6[json_name = "expiresAtUnixMs"];</code>
      * @return The expiresAtUnixMs.
      */
     @java.lang.Override
@@ -1384,7 +1384,7 @@ public final class Session {
       return expiresAtUnixMs_;
     }
     /**
-     * <code>uint64 expires_at_unix_ms = 6;</code>
+     * <code>uint64 expires_at_unix_ms = 6[json_name = "expiresAtUnixMs"];</code>
      * @param value The expiresAtUnixMs to set.
      */
     private void setExpiresAtUnixMs(long value) {
@@ -1392,7 +1392,7 @@ public final class Session {
       expiresAtUnixMs_ = value;
     }
     /**
-     * <code>uint64 expires_at_unix_ms = 6;</code>
+     * <code>uint64 expires_at_unix_ms = 6[json_name = "expiresAtUnixMs"];</code>
      */
     private void clearExpiresAtUnixMs() {
       
@@ -1402,7 +1402,7 @@ public final class Session {
     public static final int BRIDGE_EPHEMERAL_PUBLIC_KEY_FIELD_NUMBER = 7;
     private com.google.protobuf.ByteString bridgeEphemeralPublicKey_;
     /**
-     * <code>bytes bridge_ephemeral_public_key = 7;</code>
+     * <code>bytes bridge_ephemeral_public_key = 7[json_name = "bridgeEphemeralPublicKey"];</code>
      * @return The bridgeEphemeralPublicKey.
      */
     @java.lang.Override
@@ -1410,7 +1410,7 @@ public final class Session {
       return bridgeEphemeralPublicKey_;
     }
     /**
-     * <code>bytes bridge_ephemeral_public_key = 7;</code>
+     * <code>bytes bridge_ephemeral_public_key = 7[json_name = "bridgeEphemeralPublicKey"];</code>
      * @param value The bridgeEphemeralPublicKey to set.
      */
     private void setBridgeEphemeralPublicKey(com.google.protobuf.ByteString value) {
@@ -1419,7 +1419,7 @@ public final class Session {
       bridgeEphemeralPublicKey_ = value;
     }
     /**
-     * <code>bytes bridge_ephemeral_public_key = 7;</code>
+     * <code>bytes bridge_ephemeral_public_key = 7[json_name = "bridgeEphemeralPublicKey"];</code>
      */
     private void clearBridgeEphemeralPublicKey() {
       
@@ -1429,7 +1429,7 @@ public final class Session {
     public static final int OFFER_NONCE_FIELD_NUMBER = 8;
     private com.google.protobuf.ByteString offerNonce_;
     /**
-     * <code>bytes offer_nonce = 8;</code>
+     * <code>bytes offer_nonce = 8[json_name = "offerNonce"];</code>
      * @return The offerNonce.
      */
     @java.lang.Override
@@ -1437,7 +1437,7 @@ public final class Session {
       return offerNonce_;
     }
     /**
-     * <code>bytes offer_nonce = 8;</code>
+     * <code>bytes offer_nonce = 8[json_name = "offerNonce"];</code>
      * @param value The offerNonce to set.
      */
     private void setOfferNonce(com.google.protobuf.ByteString value) {
@@ -1446,7 +1446,7 @@ public final class Session {
       offerNonce_ = value;
     }
     /**
-     * <code>bytes offer_nonce = 8;</code>
+     * <code>bytes offer_nonce = 8[json_name = "offerNonce"];</code>
      */
     private void clearOfferNonce() {
       
@@ -1456,7 +1456,7 @@ public final class Session {
     public static final int SIGNATURE_FIELD_NUMBER = 9;
     private com.google.protobuf.ByteString signature_;
     /**
-     * <code>bytes signature = 9;</code>
+     * <code>bytes signature = 9[json_name = "signature"];</code>
      * @return The signature.
      */
     @java.lang.Override
@@ -1464,7 +1464,7 @@ public final class Session {
       return signature_;
     }
     /**
-     * <code>bytes signature = 9;</code>
+     * <code>bytes signature = 9[json_name = "signature"];</code>
      * @param value The signature to set.
      */
     private void setSignature(com.google.protobuf.ByteString value) {
@@ -1473,7 +1473,7 @@ public final class Session {
       signature_ = value;
     }
     /**
-     * <code>bytes signature = 9;</code>
+     * <code>bytes signature = 9[json_name = "signature"];</code>
      */
     private void clearSignature() {
       
@@ -1576,7 +1576,7 @@ public final class Session {
 
 
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @return The pairingId.
        */
       @java.lang.Override
@@ -1584,7 +1584,7 @@ public final class Session {
         return instance.getPairingId();
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @return The bytes for pairingId.
        */
       @java.lang.Override
@@ -1593,7 +1593,7 @@ public final class Session {
         return instance.getPairingIdBytes();
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @param value The pairingId to set.
        * @return This builder for chaining.
        */
@@ -1604,7 +1604,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearPairingId() {
@@ -1613,7 +1613,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @param value The bytes for pairingId to set.
        * @return This builder for chaining.
        */
@@ -1625,21 +1625,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 2;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 2[json_name = "bridge"];</code>
        */
       @java.lang.Override
       public boolean hasBridge() {
         return instance.hasBridge();
       }
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 2;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 2[json_name = "bridge"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.BridgeDescriptor getBridge() {
         return instance.getBridge();
       }
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 2;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 2[json_name = "bridge"];</code>
        */
       public Builder setBridge(ymconnect.v1.Common.BridgeDescriptor value) {
         copyOnWrite();
@@ -1647,7 +1647,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 2;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 2[json_name = "bridge"];</code>
        */
       public Builder setBridge(
           ymconnect.v1.Common.BridgeDescriptor.Builder builderForValue) {
@@ -1656,7 +1656,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 2;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 2[json_name = "bridge"];</code>
        */
       public Builder mergeBridge(ymconnect.v1.Common.BridgeDescriptor value) {
         copyOnWrite();
@@ -1664,7 +1664,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 2;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 2[json_name = "bridge"];</code>
        */
       public Builder clearBridge() {  copyOnWrite();
         instance.clearBridge();
@@ -1672,21 +1672,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 3;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 3[json_name = "protocolRange"];</code>
        */
       @java.lang.Override
       public boolean hasProtocolRange() {
         return instance.hasProtocolRange();
       }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 3;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 3[json_name = "protocolRange"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.VersionRange getProtocolRange() {
         return instance.getProtocolRange();
       }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 3;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 3[json_name = "protocolRange"];</code>
        */
       public Builder setProtocolRange(ymconnect.v1.Common.VersionRange value) {
         copyOnWrite();
@@ -1694,7 +1694,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 3;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 3[json_name = "protocolRange"];</code>
        */
       public Builder setProtocolRange(
           ymconnect.v1.Common.VersionRange.Builder builderForValue) {
@@ -1703,7 +1703,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 3;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 3[json_name = "protocolRange"];</code>
        */
       public Builder mergeProtocolRange(ymconnect.v1.Common.VersionRange value) {
         copyOnWrite();
@@ -1711,7 +1711,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 3;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 3[json_name = "protocolRange"];</code>
        */
       public Builder clearProtocolRange() {  copyOnWrite();
         instance.clearProtocolRange();
@@ -1719,21 +1719,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 4;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 4[json_name = "capabilities"];</code>
        */
       @java.lang.Override
       public boolean hasCapabilities() {
         return instance.hasCapabilities();
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 4;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 4[json_name = "capabilities"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Capabilities.CapabilitySet getCapabilities() {
         return instance.getCapabilities();
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 4;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 4[json_name = "capabilities"];</code>
        */
       public Builder setCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
         copyOnWrite();
@@ -1741,7 +1741,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 4;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 4[json_name = "capabilities"];</code>
        */
       public Builder setCapabilities(
           ymconnect.v1.Capabilities.CapabilitySet.Builder builderForValue) {
@@ -1750,7 +1750,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 4;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 4[json_name = "capabilities"];</code>
        */
       public Builder mergeCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
         copyOnWrite();
@@ -1758,7 +1758,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 4;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 4[json_name = "capabilities"];</code>
        */
       public Builder clearCapabilities() {  copyOnWrite();
         instance.clearCapabilities();
@@ -1766,7 +1766,7 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.PairingMethod method = 5;</code>
+       * <code>.ymconnect.v1.PairingMethod method = 5[json_name = "method"];</code>
        * @return The enum numeric value on the wire for method.
        */
       @java.lang.Override
@@ -1774,7 +1774,7 @@ public final class Session {
         return instance.getMethodValue();
       }
       /**
-       * <code>.ymconnect.v1.PairingMethod method = 5;</code>
+       * <code>.ymconnect.v1.PairingMethod method = 5[json_name = "method"];</code>
        * @param value The method to set.
        * @return This builder for chaining.
        */
@@ -1784,7 +1784,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingMethod method = 5;</code>
+       * <code>.ymconnect.v1.PairingMethod method = 5[json_name = "method"];</code>
        * @return The method.
        */
       @java.lang.Override
@@ -1792,7 +1792,7 @@ public final class Session {
         return instance.getMethod();
       }
       /**
-       * <code>.ymconnect.v1.PairingMethod method = 5;</code>
+       * <code>.ymconnect.v1.PairingMethod method = 5[json_name = "method"];</code>
        * @param value The enum numeric value on the wire for method to set.
        * @return This builder for chaining.
        */
@@ -1802,7 +1802,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingMethod method = 5;</code>
+       * <code>.ymconnect.v1.PairingMethod method = 5[json_name = "method"];</code>
        * @return This builder for chaining.
        */
       public Builder clearMethod() {
@@ -1812,7 +1812,7 @@ public final class Session {
       }
 
       /**
-       * <code>uint64 expires_at_unix_ms = 6;</code>
+       * <code>uint64 expires_at_unix_ms = 6[json_name = "expiresAtUnixMs"];</code>
        * @return The expiresAtUnixMs.
        */
       @java.lang.Override
@@ -1820,7 +1820,7 @@ public final class Session {
         return instance.getExpiresAtUnixMs();
       }
       /**
-       * <code>uint64 expires_at_unix_ms = 6;</code>
+       * <code>uint64 expires_at_unix_ms = 6[json_name = "expiresAtUnixMs"];</code>
        * @param value The expiresAtUnixMs to set.
        * @return This builder for chaining.
        */
@@ -1830,7 +1830,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>uint64 expires_at_unix_ms = 6;</code>
+       * <code>uint64 expires_at_unix_ms = 6[json_name = "expiresAtUnixMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearExpiresAtUnixMs() {
@@ -1840,7 +1840,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes bridge_ephemeral_public_key = 7;</code>
+       * <code>bytes bridge_ephemeral_public_key = 7[json_name = "bridgeEphemeralPublicKey"];</code>
        * @return The bridgeEphemeralPublicKey.
        */
       @java.lang.Override
@@ -1848,7 +1848,7 @@ public final class Session {
         return instance.getBridgeEphemeralPublicKey();
       }
       /**
-       * <code>bytes bridge_ephemeral_public_key = 7;</code>
+       * <code>bytes bridge_ephemeral_public_key = 7[json_name = "bridgeEphemeralPublicKey"];</code>
        * @param value The bridgeEphemeralPublicKey to set.
        * @return This builder for chaining.
        */
@@ -1858,7 +1858,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes bridge_ephemeral_public_key = 7;</code>
+       * <code>bytes bridge_ephemeral_public_key = 7[json_name = "bridgeEphemeralPublicKey"];</code>
        * @return This builder for chaining.
        */
       public Builder clearBridgeEphemeralPublicKey() {
@@ -1868,7 +1868,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes offer_nonce = 8;</code>
+       * <code>bytes offer_nonce = 8[json_name = "offerNonce"];</code>
        * @return The offerNonce.
        */
       @java.lang.Override
@@ -1876,7 +1876,7 @@ public final class Session {
         return instance.getOfferNonce();
       }
       /**
-       * <code>bytes offer_nonce = 8;</code>
+       * <code>bytes offer_nonce = 8[json_name = "offerNonce"];</code>
        * @param value The offerNonce to set.
        * @return This builder for chaining.
        */
@@ -1886,7 +1886,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes offer_nonce = 8;</code>
+       * <code>bytes offer_nonce = 8[json_name = "offerNonce"];</code>
        * @return This builder for chaining.
        */
       public Builder clearOfferNonce() {
@@ -1896,7 +1896,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes signature = 9;</code>
+       * <code>bytes signature = 9[json_name = "signature"];</code>
        * @return The signature.
        */
       @java.lang.Override
@@ -1904,7 +1904,7 @@ public final class Session {
         return instance.getSignature();
       }
       /**
-       * <code>bytes signature = 9;</code>
+       * <code>bytes signature = 9[json_name = "signature"];</code>
        * @param value The signature to set.
        * @return This builder for chaining.
        */
@@ -1914,7 +1914,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes signature = 9;</code>
+       * <code>bytes signature = 9[json_name = "signature"];</code>
        * @return This builder for chaining.
        */
       public Builder clearSignature() {
@@ -2011,42 +2011,42 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The pairingId.
      */
     java.lang.String getPairingId();
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The bytes for pairingId.
      */
     com.google.protobuf.ByteString
         getPairingIdBytes();
 
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
      * @return Whether the client field is set.
      */
     boolean hasClient();
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
      * @return The client.
      */
     ymconnect.v1.Common.DeviceDescriptor getClient();
 
     /**
-     * <code>bytes client_ephemeral_public_key = 3;</code>
+     * <code>bytes client_ephemeral_public_key = 3[json_name = "clientEphemeralPublicKey"];</code>
      * @return The clientEphemeralPublicKey.
      */
     com.google.protobuf.ByteString getClientEphemeralPublicKey();
 
     /**
-     * <code>bytes client_nonce = 4;</code>
+     * <code>bytes client_nonce = 4[json_name = "clientNonce"];</code>
      * @return The clientNonce.
      */
     com.google.protobuf.ByteString getClientNonce();
 
     /**
-     * <code>bytes offer_digest = 5;</code>
+     * <code>bytes offer_digest = 5[json_name = "offerDigest"];</code>
      * @return The offerDigest.
      */
     com.google.protobuf.ByteString getOfferDigest();
@@ -2068,7 +2068,7 @@ public final class Session {
     public static final int PAIRING_ID_FIELD_NUMBER = 1;
     private java.lang.String pairingId_;
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The pairingId.
      */
     @java.lang.Override
@@ -2076,7 +2076,7 @@ public final class Session {
       return pairingId_;
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The bytes for pairingId.
      */
     @java.lang.Override
@@ -2085,7 +2085,7 @@ public final class Session {
       return com.google.protobuf.ByteString.copyFromUtf8(pairingId_);
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @param value The pairingId to set.
      */
     private void setPairingId(
@@ -2095,14 +2095,14 @@ public final class Session {
       pairingId_ = value;
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      */
     private void clearPairingId() {
       
       pairingId_ = getDefaultInstance().getPairingId();
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @param value The bytes for pairingId to set.
      */
     private void setPairingIdBytes(
@@ -2115,21 +2115,21 @@ public final class Session {
     public static final int CLIENT_FIELD_NUMBER = 2;
     private ymconnect.v1.Common.DeviceDescriptor client_;
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
      */
     @java.lang.Override
     public boolean hasClient() {
       return client_ != null;
     }
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.DeviceDescriptor getClient() {
       return client_ == null ? ymconnect.v1.Common.DeviceDescriptor.getDefaultInstance() : client_;
     }
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
      */
     private void setClient(ymconnect.v1.Common.DeviceDescriptor value) {
       value.getClass();
@@ -2137,7 +2137,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeClient(ymconnect.v1.Common.DeviceDescriptor value) {
@@ -2152,7 +2152,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
      */
     private void clearClient() {  client_ = null;
       
@@ -2161,7 +2161,7 @@ public final class Session {
     public static final int CLIENT_EPHEMERAL_PUBLIC_KEY_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString clientEphemeralPublicKey_;
     /**
-     * <code>bytes client_ephemeral_public_key = 3;</code>
+     * <code>bytes client_ephemeral_public_key = 3[json_name = "clientEphemeralPublicKey"];</code>
      * @return The clientEphemeralPublicKey.
      */
     @java.lang.Override
@@ -2169,7 +2169,7 @@ public final class Session {
       return clientEphemeralPublicKey_;
     }
     /**
-     * <code>bytes client_ephemeral_public_key = 3;</code>
+     * <code>bytes client_ephemeral_public_key = 3[json_name = "clientEphemeralPublicKey"];</code>
      * @param value The clientEphemeralPublicKey to set.
      */
     private void setClientEphemeralPublicKey(com.google.protobuf.ByteString value) {
@@ -2178,7 +2178,7 @@ public final class Session {
       clientEphemeralPublicKey_ = value;
     }
     /**
-     * <code>bytes client_ephemeral_public_key = 3;</code>
+     * <code>bytes client_ephemeral_public_key = 3[json_name = "clientEphemeralPublicKey"];</code>
      */
     private void clearClientEphemeralPublicKey() {
       
@@ -2188,7 +2188,7 @@ public final class Session {
     public static final int CLIENT_NONCE_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString clientNonce_;
     /**
-     * <code>bytes client_nonce = 4;</code>
+     * <code>bytes client_nonce = 4[json_name = "clientNonce"];</code>
      * @return The clientNonce.
      */
     @java.lang.Override
@@ -2196,7 +2196,7 @@ public final class Session {
       return clientNonce_;
     }
     /**
-     * <code>bytes client_nonce = 4;</code>
+     * <code>bytes client_nonce = 4[json_name = "clientNonce"];</code>
      * @param value The clientNonce to set.
      */
     private void setClientNonce(com.google.protobuf.ByteString value) {
@@ -2205,7 +2205,7 @@ public final class Session {
       clientNonce_ = value;
     }
     /**
-     * <code>bytes client_nonce = 4;</code>
+     * <code>bytes client_nonce = 4[json_name = "clientNonce"];</code>
      */
     private void clearClientNonce() {
       
@@ -2215,7 +2215,7 @@ public final class Session {
     public static final int OFFER_DIGEST_FIELD_NUMBER = 5;
     private com.google.protobuf.ByteString offerDigest_;
     /**
-     * <code>bytes offer_digest = 5;</code>
+     * <code>bytes offer_digest = 5[json_name = "offerDigest"];</code>
      * @return The offerDigest.
      */
     @java.lang.Override
@@ -2223,7 +2223,7 @@ public final class Session {
       return offerDigest_;
     }
     /**
-     * <code>bytes offer_digest = 5;</code>
+     * <code>bytes offer_digest = 5[json_name = "offerDigest"];</code>
      * @param value The offerDigest to set.
      */
     private void setOfferDigest(com.google.protobuf.ByteString value) {
@@ -2232,7 +2232,7 @@ public final class Session {
       offerDigest_ = value;
     }
     /**
-     * <code>bytes offer_digest = 5;</code>
+     * <code>bytes offer_digest = 5[json_name = "offerDigest"];</code>
      */
     private void clearOfferDigest() {
       
@@ -2335,7 +2335,7 @@ public final class Session {
 
 
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @return The pairingId.
        */
       @java.lang.Override
@@ -2343,7 +2343,7 @@ public final class Session {
         return instance.getPairingId();
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @return The bytes for pairingId.
        */
       @java.lang.Override
@@ -2352,7 +2352,7 @@ public final class Session {
         return instance.getPairingIdBytes();
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @param value The pairingId to set.
        * @return This builder for chaining.
        */
@@ -2363,7 +2363,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearPairingId() {
@@ -2372,7 +2372,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @param value The bytes for pairingId to set.
        * @return This builder for chaining.
        */
@@ -2384,21 +2384,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
        */
       @java.lang.Override
       public boolean hasClient() {
         return instance.hasClient();
       }
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.DeviceDescriptor getClient() {
         return instance.getClient();
       }
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
        */
       public Builder setClient(ymconnect.v1.Common.DeviceDescriptor value) {
         copyOnWrite();
@@ -2406,7 +2406,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
        */
       public Builder setClient(
           ymconnect.v1.Common.DeviceDescriptor.Builder builderForValue) {
@@ -2415,7 +2415,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
        */
       public Builder mergeClient(ymconnect.v1.Common.DeviceDescriptor value) {
         copyOnWrite();
@@ -2423,7 +2423,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
        */
       public Builder clearClient() {  copyOnWrite();
         instance.clearClient();
@@ -2431,7 +2431,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes client_ephemeral_public_key = 3;</code>
+       * <code>bytes client_ephemeral_public_key = 3[json_name = "clientEphemeralPublicKey"];</code>
        * @return The clientEphemeralPublicKey.
        */
       @java.lang.Override
@@ -2439,7 +2439,7 @@ public final class Session {
         return instance.getClientEphemeralPublicKey();
       }
       /**
-       * <code>bytes client_ephemeral_public_key = 3;</code>
+       * <code>bytes client_ephemeral_public_key = 3[json_name = "clientEphemeralPublicKey"];</code>
        * @param value The clientEphemeralPublicKey to set.
        * @return This builder for chaining.
        */
@@ -2449,7 +2449,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes client_ephemeral_public_key = 3;</code>
+       * <code>bytes client_ephemeral_public_key = 3[json_name = "clientEphemeralPublicKey"];</code>
        * @return This builder for chaining.
        */
       public Builder clearClientEphemeralPublicKey() {
@@ -2459,7 +2459,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes client_nonce = 4;</code>
+       * <code>bytes client_nonce = 4[json_name = "clientNonce"];</code>
        * @return The clientNonce.
        */
       @java.lang.Override
@@ -2467,7 +2467,7 @@ public final class Session {
         return instance.getClientNonce();
       }
       /**
-       * <code>bytes client_nonce = 4;</code>
+       * <code>bytes client_nonce = 4[json_name = "clientNonce"];</code>
        * @param value The clientNonce to set.
        * @return This builder for chaining.
        */
@@ -2477,7 +2477,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes client_nonce = 4;</code>
+       * <code>bytes client_nonce = 4[json_name = "clientNonce"];</code>
        * @return This builder for chaining.
        */
       public Builder clearClientNonce() {
@@ -2487,7 +2487,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes offer_digest = 5;</code>
+       * <code>bytes offer_digest = 5[json_name = "offerDigest"];</code>
        * @return The offerDigest.
        */
       @java.lang.Override
@@ -2495,7 +2495,7 @@ public final class Session {
         return instance.getOfferDigest();
       }
       /**
-       * <code>bytes offer_digest = 5;</code>
+       * <code>bytes offer_digest = 5[json_name = "offerDigest"];</code>
        * @param value The offerDigest to set.
        * @return This builder for chaining.
        */
@@ -2505,7 +2505,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes offer_digest = 5;</code>
+       * <code>bytes offer_digest = 5[json_name = "offerDigest"];</code>
        * @return This builder for chaining.
        */
       public Builder clearOfferDigest() {
@@ -2598,25 +2598,25 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The pairingId.
      */
     java.lang.String getPairingId();
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The bytes for pairingId.
      */
     com.google.protobuf.ByteString
         getPairingIdBytes();
 
     /**
-     * <code>bytes challenge = 2;</code>
+     * <code>bytes challenge = 2[json_name = "challenge"];</code>
      * @return The challenge.
      */
     com.google.protobuf.ByteString getChallenge();
 
     /**
-     * <code>uint64 expires_at_unix_ms = 3;</code>
+     * <code>uint64 expires_at_unix_ms = 3[json_name = "expiresAtUnixMs"];</code>
      * @return The expiresAtUnixMs.
      */
     long getExpiresAtUnixMs();
@@ -2636,7 +2636,7 @@ public final class Session {
     public static final int PAIRING_ID_FIELD_NUMBER = 1;
     private java.lang.String pairingId_;
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The pairingId.
      */
     @java.lang.Override
@@ -2644,7 +2644,7 @@ public final class Session {
       return pairingId_;
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The bytes for pairingId.
      */
     @java.lang.Override
@@ -2653,7 +2653,7 @@ public final class Session {
       return com.google.protobuf.ByteString.copyFromUtf8(pairingId_);
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @param value The pairingId to set.
      */
     private void setPairingId(
@@ -2663,14 +2663,14 @@ public final class Session {
       pairingId_ = value;
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      */
     private void clearPairingId() {
       
       pairingId_ = getDefaultInstance().getPairingId();
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @param value The bytes for pairingId to set.
      */
     private void setPairingIdBytes(
@@ -2683,7 +2683,7 @@ public final class Session {
     public static final int CHALLENGE_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString challenge_;
     /**
-     * <code>bytes challenge = 2;</code>
+     * <code>bytes challenge = 2[json_name = "challenge"];</code>
      * @return The challenge.
      */
     @java.lang.Override
@@ -2691,7 +2691,7 @@ public final class Session {
       return challenge_;
     }
     /**
-     * <code>bytes challenge = 2;</code>
+     * <code>bytes challenge = 2[json_name = "challenge"];</code>
      * @param value The challenge to set.
      */
     private void setChallenge(com.google.protobuf.ByteString value) {
@@ -2700,7 +2700,7 @@ public final class Session {
       challenge_ = value;
     }
     /**
-     * <code>bytes challenge = 2;</code>
+     * <code>bytes challenge = 2[json_name = "challenge"];</code>
      */
     private void clearChallenge() {
       
@@ -2710,7 +2710,7 @@ public final class Session {
     public static final int EXPIRES_AT_UNIX_MS_FIELD_NUMBER = 3;
     private long expiresAtUnixMs_;
     /**
-     * <code>uint64 expires_at_unix_ms = 3;</code>
+     * <code>uint64 expires_at_unix_ms = 3[json_name = "expiresAtUnixMs"];</code>
      * @return The expiresAtUnixMs.
      */
     @java.lang.Override
@@ -2718,7 +2718,7 @@ public final class Session {
       return expiresAtUnixMs_;
     }
     /**
-     * <code>uint64 expires_at_unix_ms = 3;</code>
+     * <code>uint64 expires_at_unix_ms = 3[json_name = "expiresAtUnixMs"];</code>
      * @param value The expiresAtUnixMs to set.
      */
     private void setExpiresAtUnixMs(long value) {
@@ -2726,7 +2726,7 @@ public final class Session {
       expiresAtUnixMs_ = value;
     }
     /**
-     * <code>uint64 expires_at_unix_ms = 3;</code>
+     * <code>uint64 expires_at_unix_ms = 3[json_name = "expiresAtUnixMs"];</code>
      */
     private void clearExpiresAtUnixMs() {
       
@@ -2829,7 +2829,7 @@ public final class Session {
 
 
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @return The pairingId.
        */
       @java.lang.Override
@@ -2837,7 +2837,7 @@ public final class Session {
         return instance.getPairingId();
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @return The bytes for pairingId.
        */
       @java.lang.Override
@@ -2846,7 +2846,7 @@ public final class Session {
         return instance.getPairingIdBytes();
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @param value The pairingId to set.
        * @return This builder for chaining.
        */
@@ -2857,7 +2857,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearPairingId() {
@@ -2866,7 +2866,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @param value The bytes for pairingId to set.
        * @return This builder for chaining.
        */
@@ -2878,7 +2878,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes challenge = 2;</code>
+       * <code>bytes challenge = 2[json_name = "challenge"];</code>
        * @return The challenge.
        */
       @java.lang.Override
@@ -2886,7 +2886,7 @@ public final class Session {
         return instance.getChallenge();
       }
       /**
-       * <code>bytes challenge = 2;</code>
+       * <code>bytes challenge = 2[json_name = "challenge"];</code>
        * @param value The challenge to set.
        * @return This builder for chaining.
        */
@@ -2896,7 +2896,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes challenge = 2;</code>
+       * <code>bytes challenge = 2[json_name = "challenge"];</code>
        * @return This builder for chaining.
        */
       public Builder clearChallenge() {
@@ -2906,7 +2906,7 @@ public final class Session {
       }
 
       /**
-       * <code>uint64 expires_at_unix_ms = 3;</code>
+       * <code>uint64 expires_at_unix_ms = 3[json_name = "expiresAtUnixMs"];</code>
        * @return The expiresAtUnixMs.
        */
       @java.lang.Override
@@ -2914,7 +2914,7 @@ public final class Session {
         return instance.getExpiresAtUnixMs();
       }
       /**
-       * <code>uint64 expires_at_unix_ms = 3;</code>
+       * <code>uint64 expires_at_unix_ms = 3[json_name = "expiresAtUnixMs"];</code>
        * @param value The expiresAtUnixMs to set.
        * @return This builder for chaining.
        */
@@ -2924,7 +2924,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>uint64 expires_at_unix_ms = 3;</code>
+       * <code>uint64 expires_at_unix_ms = 3[json_name = "expiresAtUnixMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearExpiresAtUnixMs() {
@@ -3015,30 +3015,30 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The pairingId.
      */
     java.lang.String getPairingId();
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The bytes for pairingId.
      */
     com.google.protobuf.ByteString
         getPairingIdBytes();
 
     /**
-     * <code>bytes challenge_signature = 2;</code>
+     * <code>bytes challenge_signature = 2[json_name = "challengeSignature"];</code>
      * @return The challengeSignature.
      */
     com.google.protobuf.ByteString getChallengeSignature();
 
     /**
-     * <code>string verification_code = 3;</code>
+     * <code>string verification_code = 3[json_name = "verificationCode"];</code>
      * @return The verificationCode.
      */
     java.lang.String getVerificationCode();
     /**
-     * <code>string verification_code = 3;</code>
+     * <code>string verification_code = 3[json_name = "verificationCode"];</code>
      * @return The bytes for verificationCode.
      */
     com.google.protobuf.ByteString
@@ -3060,7 +3060,7 @@ public final class Session {
     public static final int PAIRING_ID_FIELD_NUMBER = 1;
     private java.lang.String pairingId_;
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The pairingId.
      */
     @java.lang.Override
@@ -3068,7 +3068,7 @@ public final class Session {
       return pairingId_;
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The bytes for pairingId.
      */
     @java.lang.Override
@@ -3077,7 +3077,7 @@ public final class Session {
       return com.google.protobuf.ByteString.copyFromUtf8(pairingId_);
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @param value The pairingId to set.
      */
     private void setPairingId(
@@ -3087,14 +3087,14 @@ public final class Session {
       pairingId_ = value;
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      */
     private void clearPairingId() {
       
       pairingId_ = getDefaultInstance().getPairingId();
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @param value The bytes for pairingId to set.
      */
     private void setPairingIdBytes(
@@ -3107,7 +3107,7 @@ public final class Session {
     public static final int CHALLENGE_SIGNATURE_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString challengeSignature_;
     /**
-     * <code>bytes challenge_signature = 2;</code>
+     * <code>bytes challenge_signature = 2[json_name = "challengeSignature"];</code>
      * @return The challengeSignature.
      */
     @java.lang.Override
@@ -3115,7 +3115,7 @@ public final class Session {
       return challengeSignature_;
     }
     /**
-     * <code>bytes challenge_signature = 2;</code>
+     * <code>bytes challenge_signature = 2[json_name = "challengeSignature"];</code>
      * @param value The challengeSignature to set.
      */
     private void setChallengeSignature(com.google.protobuf.ByteString value) {
@@ -3124,7 +3124,7 @@ public final class Session {
       challengeSignature_ = value;
     }
     /**
-     * <code>bytes challenge_signature = 2;</code>
+     * <code>bytes challenge_signature = 2[json_name = "challengeSignature"];</code>
      */
     private void clearChallengeSignature() {
       
@@ -3134,7 +3134,7 @@ public final class Session {
     public static final int VERIFICATION_CODE_FIELD_NUMBER = 3;
     private java.lang.String verificationCode_;
     /**
-     * <code>string verification_code = 3;</code>
+     * <code>string verification_code = 3[json_name = "verificationCode"];</code>
      * @return The verificationCode.
      */
     @java.lang.Override
@@ -3142,7 +3142,7 @@ public final class Session {
       return verificationCode_;
     }
     /**
-     * <code>string verification_code = 3;</code>
+     * <code>string verification_code = 3[json_name = "verificationCode"];</code>
      * @return The bytes for verificationCode.
      */
     @java.lang.Override
@@ -3151,7 +3151,7 @@ public final class Session {
       return com.google.protobuf.ByteString.copyFromUtf8(verificationCode_);
     }
     /**
-     * <code>string verification_code = 3;</code>
+     * <code>string verification_code = 3[json_name = "verificationCode"];</code>
      * @param value The verificationCode to set.
      */
     private void setVerificationCode(
@@ -3161,14 +3161,14 @@ public final class Session {
       verificationCode_ = value;
     }
     /**
-     * <code>string verification_code = 3;</code>
+     * <code>string verification_code = 3[json_name = "verificationCode"];</code>
      */
     private void clearVerificationCode() {
       
       verificationCode_ = getDefaultInstance().getVerificationCode();
     }
     /**
-     * <code>string verification_code = 3;</code>
+     * <code>string verification_code = 3[json_name = "verificationCode"];</code>
      * @param value The bytes for verificationCode to set.
      */
     private void setVerificationCodeBytes(
@@ -3274,7 +3274,7 @@ public final class Session {
 
 
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @return The pairingId.
        */
       @java.lang.Override
@@ -3282,7 +3282,7 @@ public final class Session {
         return instance.getPairingId();
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @return The bytes for pairingId.
        */
       @java.lang.Override
@@ -3291,7 +3291,7 @@ public final class Session {
         return instance.getPairingIdBytes();
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @param value The pairingId to set.
        * @return This builder for chaining.
        */
@@ -3302,7 +3302,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearPairingId() {
@@ -3311,7 +3311,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @param value The bytes for pairingId to set.
        * @return This builder for chaining.
        */
@@ -3323,7 +3323,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes challenge_signature = 2;</code>
+       * <code>bytes challenge_signature = 2[json_name = "challengeSignature"];</code>
        * @return The challengeSignature.
        */
       @java.lang.Override
@@ -3331,7 +3331,7 @@ public final class Session {
         return instance.getChallengeSignature();
       }
       /**
-       * <code>bytes challenge_signature = 2;</code>
+       * <code>bytes challenge_signature = 2[json_name = "challengeSignature"];</code>
        * @param value The challengeSignature to set.
        * @return This builder for chaining.
        */
@@ -3341,7 +3341,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes challenge_signature = 2;</code>
+       * <code>bytes challenge_signature = 2[json_name = "challengeSignature"];</code>
        * @return This builder for chaining.
        */
       public Builder clearChallengeSignature() {
@@ -3351,7 +3351,7 @@ public final class Session {
       }
 
       /**
-       * <code>string verification_code = 3;</code>
+       * <code>string verification_code = 3[json_name = "verificationCode"];</code>
        * @return The verificationCode.
        */
       @java.lang.Override
@@ -3359,7 +3359,7 @@ public final class Session {
         return instance.getVerificationCode();
       }
       /**
-       * <code>string verification_code = 3;</code>
+       * <code>string verification_code = 3[json_name = "verificationCode"];</code>
        * @return The bytes for verificationCode.
        */
       @java.lang.Override
@@ -3368,7 +3368,7 @@ public final class Session {
         return instance.getVerificationCodeBytes();
       }
       /**
-       * <code>string verification_code = 3;</code>
+       * <code>string verification_code = 3[json_name = "verificationCode"];</code>
        * @param value The verificationCode to set.
        * @return This builder for chaining.
        */
@@ -3379,7 +3379,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string verification_code = 3;</code>
+       * <code>string verification_code = 3[json_name = "verificationCode"];</code>
        * @return This builder for chaining.
        */
       public Builder clearVerificationCode() {
@@ -3388,7 +3388,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string verification_code = 3;</code>
+       * <code>string verification_code = 3[json_name = "verificationCode"];</code>
        * @param value The bytes for verificationCode to set.
        * @return This builder for chaining.
        */
@@ -3481,59 +3481,59 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The pairingId.
      */
     java.lang.String getPairingId();
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The bytes for pairingId.
      */
     com.google.protobuf.ByteString
         getPairingIdBytes();
 
     /**
-     * <code>bool accepted = 2;</code>
+     * <code>bool accepted = 2[json_name = "accepted"];</code>
      * @return The accepted.
      */
     boolean getAccepted();
 
     /**
-     * <code>string trust_id = 3;</code>
+     * <code>string trust_id = 3[json_name = "trustId"];</code>
      * @return The trustId.
      */
     java.lang.String getTrustId();
     /**
-     * <code>string trust_id = 3;</code>
+     * <code>string trust_id = 3[json_name = "trustId"];</code>
      * @return The bytes for trustId.
      */
     com.google.protobuf.ByteString
         getTrustIdBytes();
 
     /**
-     * <code>bytes bridge_identity_signature = 4;</code>
+     * <code>bytes bridge_identity_signature = 4[json_name = "bridgeIdentitySignature"];</code>
      * @return The bridgeIdentitySignature.
      */
     com.google.protobuf.ByteString getBridgeIdentitySignature();
 
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 5;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 5[json_name = "selection"];</code>
      * @return Whether the selection field is set.
      */
     boolean hasSelection();
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 5;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 5[json_name = "selection"];</code>
      * @return The selection.
      */
     ymconnect.v1.Capabilities.ProtocolSelection getSelection();
 
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 6;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 6[json_name = "error"];</code>
      * @return Whether the error field is set.
      */
     boolean hasError();
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 6;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 6[json_name = "error"];</code>
      * @return The error.
      */
     ymconnect.v1.Errors.ProtocolError getError();
@@ -3554,7 +3554,7 @@ public final class Session {
     public static final int PAIRING_ID_FIELD_NUMBER = 1;
     private java.lang.String pairingId_;
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The pairingId.
      */
     @java.lang.Override
@@ -3562,7 +3562,7 @@ public final class Session {
       return pairingId_;
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @return The bytes for pairingId.
      */
     @java.lang.Override
@@ -3571,7 +3571,7 @@ public final class Session {
       return com.google.protobuf.ByteString.copyFromUtf8(pairingId_);
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @param value The pairingId to set.
      */
     private void setPairingId(
@@ -3581,14 +3581,14 @@ public final class Session {
       pairingId_ = value;
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      */
     private void clearPairingId() {
       
       pairingId_ = getDefaultInstance().getPairingId();
     }
     /**
-     * <code>string pairing_id = 1;</code>
+     * <code>string pairing_id = 1[json_name = "pairingId"];</code>
      * @param value The bytes for pairingId to set.
      */
     private void setPairingIdBytes(
@@ -3601,7 +3601,7 @@ public final class Session {
     public static final int ACCEPTED_FIELD_NUMBER = 2;
     private boolean accepted_;
     /**
-     * <code>bool accepted = 2;</code>
+     * <code>bool accepted = 2[json_name = "accepted"];</code>
      * @return The accepted.
      */
     @java.lang.Override
@@ -3609,7 +3609,7 @@ public final class Session {
       return accepted_;
     }
     /**
-     * <code>bool accepted = 2;</code>
+     * <code>bool accepted = 2[json_name = "accepted"];</code>
      * @param value The accepted to set.
      */
     private void setAccepted(boolean value) {
@@ -3617,7 +3617,7 @@ public final class Session {
       accepted_ = value;
     }
     /**
-     * <code>bool accepted = 2;</code>
+     * <code>bool accepted = 2[json_name = "accepted"];</code>
      */
     private void clearAccepted() {
       
@@ -3627,7 +3627,7 @@ public final class Session {
     public static final int TRUST_ID_FIELD_NUMBER = 3;
     private java.lang.String trustId_;
     /**
-     * <code>string trust_id = 3;</code>
+     * <code>string trust_id = 3[json_name = "trustId"];</code>
      * @return The trustId.
      */
     @java.lang.Override
@@ -3635,7 +3635,7 @@ public final class Session {
       return trustId_;
     }
     /**
-     * <code>string trust_id = 3;</code>
+     * <code>string trust_id = 3[json_name = "trustId"];</code>
      * @return The bytes for trustId.
      */
     @java.lang.Override
@@ -3644,7 +3644,7 @@ public final class Session {
       return com.google.protobuf.ByteString.copyFromUtf8(trustId_);
     }
     /**
-     * <code>string trust_id = 3;</code>
+     * <code>string trust_id = 3[json_name = "trustId"];</code>
      * @param value The trustId to set.
      */
     private void setTrustId(
@@ -3654,14 +3654,14 @@ public final class Session {
       trustId_ = value;
     }
     /**
-     * <code>string trust_id = 3;</code>
+     * <code>string trust_id = 3[json_name = "trustId"];</code>
      */
     private void clearTrustId() {
       
       trustId_ = getDefaultInstance().getTrustId();
     }
     /**
-     * <code>string trust_id = 3;</code>
+     * <code>string trust_id = 3[json_name = "trustId"];</code>
      * @param value The bytes for trustId to set.
      */
     private void setTrustIdBytes(
@@ -3674,7 +3674,7 @@ public final class Session {
     public static final int BRIDGE_IDENTITY_SIGNATURE_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString bridgeIdentitySignature_;
     /**
-     * <code>bytes bridge_identity_signature = 4;</code>
+     * <code>bytes bridge_identity_signature = 4[json_name = "bridgeIdentitySignature"];</code>
      * @return The bridgeIdentitySignature.
      */
     @java.lang.Override
@@ -3682,7 +3682,7 @@ public final class Session {
       return bridgeIdentitySignature_;
     }
     /**
-     * <code>bytes bridge_identity_signature = 4;</code>
+     * <code>bytes bridge_identity_signature = 4[json_name = "bridgeIdentitySignature"];</code>
      * @param value The bridgeIdentitySignature to set.
      */
     private void setBridgeIdentitySignature(com.google.protobuf.ByteString value) {
@@ -3691,7 +3691,7 @@ public final class Session {
       bridgeIdentitySignature_ = value;
     }
     /**
-     * <code>bytes bridge_identity_signature = 4;</code>
+     * <code>bytes bridge_identity_signature = 4[json_name = "bridgeIdentitySignature"];</code>
      */
     private void clearBridgeIdentitySignature() {
       
@@ -3701,21 +3701,21 @@ public final class Session {
     public static final int SELECTION_FIELD_NUMBER = 5;
     private ymconnect.v1.Capabilities.ProtocolSelection selection_;
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 5;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 5[json_name = "selection"];</code>
      */
     @java.lang.Override
     public boolean hasSelection() {
       return selection_ != null;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 5;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 5[json_name = "selection"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Capabilities.ProtocolSelection getSelection() {
       return selection_ == null ? ymconnect.v1.Capabilities.ProtocolSelection.getDefaultInstance() : selection_;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 5;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 5[json_name = "selection"];</code>
      */
     private void setSelection(ymconnect.v1.Capabilities.ProtocolSelection value) {
       value.getClass();
@@ -3723,7 +3723,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 5;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 5[json_name = "selection"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeSelection(ymconnect.v1.Capabilities.ProtocolSelection value) {
@@ -3738,7 +3738,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 5;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 5[json_name = "selection"];</code>
      */
     private void clearSelection() {  selection_ = null;
       
@@ -3747,21 +3747,21 @@ public final class Session {
     public static final int ERROR_FIELD_NUMBER = 6;
     private ymconnect.v1.Errors.ProtocolError error_;
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 6;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 6[json_name = "error"];</code>
      */
     @java.lang.Override
     public boolean hasError() {
       return error_ != null;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 6;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 6[json_name = "error"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Errors.ProtocolError getError() {
       return error_ == null ? ymconnect.v1.Errors.ProtocolError.getDefaultInstance() : error_;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 6;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 6[json_name = "error"];</code>
      */
     private void setError(ymconnect.v1.Errors.ProtocolError value) {
       value.getClass();
@@ -3769,7 +3769,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 6;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 6[json_name = "error"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeError(ymconnect.v1.Errors.ProtocolError value) {
@@ -3784,7 +3784,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 6;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 6[json_name = "error"];</code>
      */
     private void clearError() {  error_ = null;
       
@@ -3886,7 +3886,7 @@ public final class Session {
 
 
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @return The pairingId.
        */
       @java.lang.Override
@@ -3894,7 +3894,7 @@ public final class Session {
         return instance.getPairingId();
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @return The bytes for pairingId.
        */
       @java.lang.Override
@@ -3903,7 +3903,7 @@ public final class Session {
         return instance.getPairingIdBytes();
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @param value The pairingId to set.
        * @return This builder for chaining.
        */
@@ -3914,7 +3914,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearPairingId() {
@@ -3923,7 +3923,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string pairing_id = 1;</code>
+       * <code>string pairing_id = 1[json_name = "pairingId"];</code>
        * @param value The bytes for pairingId to set.
        * @return This builder for chaining.
        */
@@ -3935,7 +3935,7 @@ public final class Session {
       }
 
       /**
-       * <code>bool accepted = 2;</code>
+       * <code>bool accepted = 2[json_name = "accepted"];</code>
        * @return The accepted.
        */
       @java.lang.Override
@@ -3943,7 +3943,7 @@ public final class Session {
         return instance.getAccepted();
       }
       /**
-       * <code>bool accepted = 2;</code>
+       * <code>bool accepted = 2[json_name = "accepted"];</code>
        * @param value The accepted to set.
        * @return This builder for chaining.
        */
@@ -3953,7 +3953,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bool accepted = 2;</code>
+       * <code>bool accepted = 2[json_name = "accepted"];</code>
        * @return This builder for chaining.
        */
       public Builder clearAccepted() {
@@ -3963,7 +3963,7 @@ public final class Session {
       }
 
       /**
-       * <code>string trust_id = 3;</code>
+       * <code>string trust_id = 3[json_name = "trustId"];</code>
        * @return The trustId.
        */
       @java.lang.Override
@@ -3971,7 +3971,7 @@ public final class Session {
         return instance.getTrustId();
       }
       /**
-       * <code>string trust_id = 3;</code>
+       * <code>string trust_id = 3[json_name = "trustId"];</code>
        * @return The bytes for trustId.
        */
       @java.lang.Override
@@ -3980,7 +3980,7 @@ public final class Session {
         return instance.getTrustIdBytes();
       }
       /**
-       * <code>string trust_id = 3;</code>
+       * <code>string trust_id = 3[json_name = "trustId"];</code>
        * @param value The trustId to set.
        * @return This builder for chaining.
        */
@@ -3991,7 +3991,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string trust_id = 3;</code>
+       * <code>string trust_id = 3[json_name = "trustId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearTrustId() {
@@ -4000,7 +4000,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string trust_id = 3;</code>
+       * <code>string trust_id = 3[json_name = "trustId"];</code>
        * @param value The bytes for trustId to set.
        * @return This builder for chaining.
        */
@@ -4012,7 +4012,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes bridge_identity_signature = 4;</code>
+       * <code>bytes bridge_identity_signature = 4[json_name = "bridgeIdentitySignature"];</code>
        * @return The bridgeIdentitySignature.
        */
       @java.lang.Override
@@ -4020,7 +4020,7 @@ public final class Session {
         return instance.getBridgeIdentitySignature();
       }
       /**
-       * <code>bytes bridge_identity_signature = 4;</code>
+       * <code>bytes bridge_identity_signature = 4[json_name = "bridgeIdentitySignature"];</code>
        * @param value The bridgeIdentitySignature to set.
        * @return This builder for chaining.
        */
@@ -4030,7 +4030,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes bridge_identity_signature = 4;</code>
+       * <code>bytes bridge_identity_signature = 4[json_name = "bridgeIdentitySignature"];</code>
        * @return This builder for chaining.
        */
       public Builder clearBridgeIdentitySignature() {
@@ -4040,21 +4040,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 5;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 5[json_name = "selection"];</code>
        */
       @java.lang.Override
       public boolean hasSelection() {
         return instance.hasSelection();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 5;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 5[json_name = "selection"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Capabilities.ProtocolSelection getSelection() {
         return instance.getSelection();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 5;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 5[json_name = "selection"];</code>
        */
       public Builder setSelection(ymconnect.v1.Capabilities.ProtocolSelection value) {
         copyOnWrite();
@@ -4062,7 +4062,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 5;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 5[json_name = "selection"];</code>
        */
       public Builder setSelection(
           ymconnect.v1.Capabilities.ProtocolSelection.Builder builderForValue) {
@@ -4071,7 +4071,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 5;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 5[json_name = "selection"];</code>
        */
       public Builder mergeSelection(ymconnect.v1.Capabilities.ProtocolSelection value) {
         copyOnWrite();
@@ -4079,7 +4079,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 5;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 5[json_name = "selection"];</code>
        */
       public Builder clearSelection() {  copyOnWrite();
         instance.clearSelection();
@@ -4087,21 +4087,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 6;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 6[json_name = "error"];</code>
        */
       @java.lang.Override
       public boolean hasError() {
         return instance.hasError();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 6;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 6[json_name = "error"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Errors.ProtocolError getError() {
         return instance.getError();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 6;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 6[json_name = "error"];</code>
        */
       public Builder setError(ymconnect.v1.Errors.ProtocolError value) {
         copyOnWrite();
@@ -4109,7 +4109,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 6;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 6[json_name = "error"];</code>
        */
       public Builder setError(
           ymconnect.v1.Errors.ProtocolError.Builder builderForValue) {
@@ -4118,7 +4118,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 6;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 6[json_name = "error"];</code>
        */
       public Builder mergeError(ymconnect.v1.Errors.ProtocolError value) {
         copyOnWrite();
@@ -4126,7 +4126,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 6;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 6[json_name = "error"];</code>
        */
       public Builder clearError() {  copyOnWrite();
         instance.clearError();
@@ -4218,47 +4218,47 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @return The trustId.
      */
     java.lang.String getTrustId();
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @return The bytes for trustId.
      */
     com.google.protobuf.ByteString
         getTrustIdBytes();
 
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
      * @return Whether the client field is set.
      */
     boolean hasClient();
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
      * @return The client.
      */
     ymconnect.v1.Common.DeviceDescriptor getClient();
 
     /**
-     * <code>.ymconnect.v1.TrustState state = 3;</code>
+     * <code>.ymconnect.v1.TrustState state = 3[json_name = "state"];</code>
      * @return The enum numeric value on the wire for state.
      */
     int getStateValue();
     /**
-     * <code>.ymconnect.v1.TrustState state = 3;</code>
+     * <code>.ymconnect.v1.TrustState state = 3[json_name = "state"];</code>
      * @return The state.
      */
     ymconnect.v1.Session.TrustState getState();
 
     /**
-     * <code>uint64 created_at_unix_ms = 4;</code>
+     * <code>uint64 created_at_unix_ms = 4[json_name = "createdAtUnixMs"];</code>
      * @return The createdAtUnixMs.
      */
     long getCreatedAtUnixMs();
 
     /**
-     * <code>uint64 last_seen_at_unix_ms = 5;</code>
+     * <code>uint64 last_seen_at_unix_ms = 5[json_name = "lastSeenAtUnixMs"];</code>
      * @return The lastSeenAtUnixMs.
      */
     long getLastSeenAtUnixMs();
@@ -4277,7 +4277,7 @@ public final class Session {
     public static final int TRUST_ID_FIELD_NUMBER = 1;
     private java.lang.String trustId_;
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @return The trustId.
      */
     @java.lang.Override
@@ -4285,7 +4285,7 @@ public final class Session {
       return trustId_;
     }
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @return The bytes for trustId.
      */
     @java.lang.Override
@@ -4294,7 +4294,7 @@ public final class Session {
       return com.google.protobuf.ByteString.copyFromUtf8(trustId_);
     }
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @param value The trustId to set.
      */
     private void setTrustId(
@@ -4304,14 +4304,14 @@ public final class Session {
       trustId_ = value;
     }
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      */
     private void clearTrustId() {
       
       trustId_ = getDefaultInstance().getTrustId();
     }
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @param value The bytes for trustId to set.
      */
     private void setTrustIdBytes(
@@ -4324,21 +4324,21 @@ public final class Session {
     public static final int CLIENT_FIELD_NUMBER = 2;
     private ymconnect.v1.Common.DeviceDescriptor client_;
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
      */
     @java.lang.Override
     public boolean hasClient() {
       return client_ != null;
     }
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.DeviceDescriptor getClient() {
       return client_ == null ? ymconnect.v1.Common.DeviceDescriptor.getDefaultInstance() : client_;
     }
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
      */
     private void setClient(ymconnect.v1.Common.DeviceDescriptor value) {
       value.getClass();
@@ -4346,7 +4346,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeClient(ymconnect.v1.Common.DeviceDescriptor value) {
@@ -4361,7 +4361,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
      */
     private void clearClient() {  client_ = null;
       
@@ -4370,7 +4370,7 @@ public final class Session {
     public static final int STATE_FIELD_NUMBER = 3;
     private int state_;
     /**
-     * <code>.ymconnect.v1.TrustState state = 3;</code>
+     * <code>.ymconnect.v1.TrustState state = 3[json_name = "state"];</code>
      * @return The enum numeric value on the wire for state.
      */
     @java.lang.Override
@@ -4378,7 +4378,7 @@ public final class Session {
       return state_;
     }
     /**
-     * <code>.ymconnect.v1.TrustState state = 3;</code>
+     * <code>.ymconnect.v1.TrustState state = 3[json_name = "state"];</code>
      * @return The state.
      */
     @java.lang.Override
@@ -4387,14 +4387,14 @@ public final class Session {
       return result == null ? ymconnect.v1.Session.TrustState.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ymconnect.v1.TrustState state = 3;</code>
+     * <code>.ymconnect.v1.TrustState state = 3[json_name = "state"];</code>
      * @param value The enum numeric value on the wire for state to set.
      */
     private void setStateValue(int value) {
         state_ = value;
     }
     /**
-     * <code>.ymconnect.v1.TrustState state = 3;</code>
+     * <code>.ymconnect.v1.TrustState state = 3[json_name = "state"];</code>
      * @param value The state to set.
      */
     private void setState(ymconnect.v1.Session.TrustState value) {
@@ -4402,7 +4402,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.TrustState state = 3;</code>
+     * <code>.ymconnect.v1.TrustState state = 3[json_name = "state"];</code>
      */
     private void clearState() {
       
@@ -4412,7 +4412,7 @@ public final class Session {
     public static final int CREATED_AT_UNIX_MS_FIELD_NUMBER = 4;
     private long createdAtUnixMs_;
     /**
-     * <code>uint64 created_at_unix_ms = 4;</code>
+     * <code>uint64 created_at_unix_ms = 4[json_name = "createdAtUnixMs"];</code>
      * @return The createdAtUnixMs.
      */
     @java.lang.Override
@@ -4420,7 +4420,7 @@ public final class Session {
       return createdAtUnixMs_;
     }
     /**
-     * <code>uint64 created_at_unix_ms = 4;</code>
+     * <code>uint64 created_at_unix_ms = 4[json_name = "createdAtUnixMs"];</code>
      * @param value The createdAtUnixMs to set.
      */
     private void setCreatedAtUnixMs(long value) {
@@ -4428,7 +4428,7 @@ public final class Session {
       createdAtUnixMs_ = value;
     }
     /**
-     * <code>uint64 created_at_unix_ms = 4;</code>
+     * <code>uint64 created_at_unix_ms = 4[json_name = "createdAtUnixMs"];</code>
      */
     private void clearCreatedAtUnixMs() {
       
@@ -4438,7 +4438,7 @@ public final class Session {
     public static final int LAST_SEEN_AT_UNIX_MS_FIELD_NUMBER = 5;
     private long lastSeenAtUnixMs_;
     /**
-     * <code>uint64 last_seen_at_unix_ms = 5;</code>
+     * <code>uint64 last_seen_at_unix_ms = 5[json_name = "lastSeenAtUnixMs"];</code>
      * @return The lastSeenAtUnixMs.
      */
     @java.lang.Override
@@ -4446,7 +4446,7 @@ public final class Session {
       return lastSeenAtUnixMs_;
     }
     /**
-     * <code>uint64 last_seen_at_unix_ms = 5;</code>
+     * <code>uint64 last_seen_at_unix_ms = 5[json_name = "lastSeenAtUnixMs"];</code>
      * @param value The lastSeenAtUnixMs to set.
      */
     private void setLastSeenAtUnixMs(long value) {
@@ -4454,7 +4454,7 @@ public final class Session {
       lastSeenAtUnixMs_ = value;
     }
     /**
-     * <code>uint64 last_seen_at_unix_ms = 5;</code>
+     * <code>uint64 last_seen_at_unix_ms = 5[json_name = "lastSeenAtUnixMs"];</code>
      */
     private void clearLastSeenAtUnixMs() {
       
@@ -4557,7 +4557,7 @@ public final class Session {
 
 
       /**
-       * <code>string trust_id = 1;</code>
+       * <code>string trust_id = 1[json_name = "trustId"];</code>
        * @return The trustId.
        */
       @java.lang.Override
@@ -4565,7 +4565,7 @@ public final class Session {
         return instance.getTrustId();
       }
       /**
-       * <code>string trust_id = 1;</code>
+       * <code>string trust_id = 1[json_name = "trustId"];</code>
        * @return The bytes for trustId.
        */
       @java.lang.Override
@@ -4574,7 +4574,7 @@ public final class Session {
         return instance.getTrustIdBytes();
       }
       /**
-       * <code>string trust_id = 1;</code>
+       * <code>string trust_id = 1[json_name = "trustId"];</code>
        * @param value The trustId to set.
        * @return This builder for chaining.
        */
@@ -4585,7 +4585,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string trust_id = 1;</code>
+       * <code>string trust_id = 1[json_name = "trustId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearTrustId() {
@@ -4594,7 +4594,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string trust_id = 1;</code>
+       * <code>string trust_id = 1[json_name = "trustId"];</code>
        * @param value The bytes for trustId to set.
        * @return This builder for chaining.
        */
@@ -4606,21 +4606,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
        */
       @java.lang.Override
       public boolean hasClient() {
         return instance.hasClient();
       }
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.DeviceDescriptor getClient() {
         return instance.getClient();
       }
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
        */
       public Builder setClient(ymconnect.v1.Common.DeviceDescriptor value) {
         copyOnWrite();
@@ -4628,7 +4628,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
        */
       public Builder setClient(
           ymconnect.v1.Common.DeviceDescriptor.Builder builderForValue) {
@@ -4637,7 +4637,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
        */
       public Builder mergeClient(ymconnect.v1.Common.DeviceDescriptor value) {
         copyOnWrite();
@@ -4645,7 +4645,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 2;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 2[json_name = "client"];</code>
        */
       public Builder clearClient() {  copyOnWrite();
         instance.clearClient();
@@ -4653,7 +4653,7 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.TrustState state = 3;</code>
+       * <code>.ymconnect.v1.TrustState state = 3[json_name = "state"];</code>
        * @return The enum numeric value on the wire for state.
        */
       @java.lang.Override
@@ -4661,7 +4661,7 @@ public final class Session {
         return instance.getStateValue();
       }
       /**
-       * <code>.ymconnect.v1.TrustState state = 3;</code>
+       * <code>.ymconnect.v1.TrustState state = 3[json_name = "state"];</code>
        * @param value The state to set.
        * @return This builder for chaining.
        */
@@ -4671,7 +4671,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.TrustState state = 3;</code>
+       * <code>.ymconnect.v1.TrustState state = 3[json_name = "state"];</code>
        * @return The state.
        */
       @java.lang.Override
@@ -4679,7 +4679,7 @@ public final class Session {
         return instance.getState();
       }
       /**
-       * <code>.ymconnect.v1.TrustState state = 3;</code>
+       * <code>.ymconnect.v1.TrustState state = 3[json_name = "state"];</code>
        * @param value The enum numeric value on the wire for state to set.
        * @return This builder for chaining.
        */
@@ -4689,7 +4689,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.TrustState state = 3;</code>
+       * <code>.ymconnect.v1.TrustState state = 3[json_name = "state"];</code>
        * @return This builder for chaining.
        */
       public Builder clearState() {
@@ -4699,7 +4699,7 @@ public final class Session {
       }
 
       /**
-       * <code>uint64 created_at_unix_ms = 4;</code>
+       * <code>uint64 created_at_unix_ms = 4[json_name = "createdAtUnixMs"];</code>
        * @return The createdAtUnixMs.
        */
       @java.lang.Override
@@ -4707,7 +4707,7 @@ public final class Session {
         return instance.getCreatedAtUnixMs();
       }
       /**
-       * <code>uint64 created_at_unix_ms = 4;</code>
+       * <code>uint64 created_at_unix_ms = 4[json_name = "createdAtUnixMs"];</code>
        * @param value The createdAtUnixMs to set.
        * @return This builder for chaining.
        */
@@ -4717,7 +4717,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>uint64 created_at_unix_ms = 4;</code>
+       * <code>uint64 created_at_unix_ms = 4[json_name = "createdAtUnixMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearCreatedAtUnixMs() {
@@ -4727,7 +4727,7 @@ public final class Session {
       }
 
       /**
-       * <code>uint64 last_seen_at_unix_ms = 5;</code>
+       * <code>uint64 last_seen_at_unix_ms = 5[json_name = "lastSeenAtUnixMs"];</code>
        * @return The lastSeenAtUnixMs.
        */
       @java.lang.Override
@@ -4735,7 +4735,7 @@ public final class Session {
         return instance.getLastSeenAtUnixMs();
       }
       /**
-       * <code>uint64 last_seen_at_unix_ms = 5;</code>
+       * <code>uint64 last_seen_at_unix_ms = 5[json_name = "lastSeenAtUnixMs"];</code>
        * @param value The lastSeenAtUnixMs to set.
        * @return This builder for chaining.
        */
@@ -4745,7 +4745,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>uint64 last_seen_at_unix_ms = 5;</code>
+       * <code>uint64 last_seen_at_unix_ms = 5[json_name = "lastSeenAtUnixMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearLastSeenAtUnixMs() {
@@ -5018,16 +5018,16 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+     * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
      */
     java.util.List<ymconnect.v1.Session.TrustedClient> 
         getClientsList();
     /**
-     * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+     * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
      */
     ymconnect.v1.Session.TrustedClient getClients(int index);
     /**
-     * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+     * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
      */
     int getClientsCount();
   }
@@ -5045,35 +5045,35 @@ public final class Session {
     public static final int CLIENTS_FIELD_NUMBER = 1;
     private com.google.protobuf.Internal.ProtobufList<ymconnect.v1.Session.TrustedClient> clients_;
     /**
-     * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+     * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
      */
     @java.lang.Override
     public java.util.List<ymconnect.v1.Session.TrustedClient> getClientsList() {
       return clients_;
     }
     /**
-     * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+     * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
      */
     public java.util.List<? extends ymconnect.v1.Session.TrustedClientOrBuilder> 
         getClientsOrBuilderList() {
       return clients_;
     }
     /**
-     * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+     * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
      */
     @java.lang.Override
     public int getClientsCount() {
       return clients_.size();
     }
     /**
-     * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+     * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Session.TrustedClient getClients(int index) {
       return clients_.get(index);
     }
     /**
-     * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+     * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
      */
     public ymconnect.v1.Session.TrustedClientOrBuilder getClientsOrBuilder(
         int index) {
@@ -5088,7 +5088,7 @@ public final class Session {
     }
 
     /**
-     * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+     * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
      */
     private void setClients(
         int index, ymconnect.v1.Session.TrustedClient value) {
@@ -5097,7 +5097,7 @@ public final class Session {
       clients_.set(index, value);
     }
     /**
-     * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+     * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
      */
     private void addClients(ymconnect.v1.Session.TrustedClient value) {
       value.getClass();
@@ -5105,7 +5105,7 @@ public final class Session {
       clients_.add(value);
     }
     /**
-     * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+     * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
      */
     private void addClients(
         int index, ymconnect.v1.Session.TrustedClient value) {
@@ -5114,7 +5114,7 @@ public final class Session {
       clients_.add(index, value);
     }
     /**
-     * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+     * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
      */
     private void addAllClients(
         java.lang.Iterable<? extends ymconnect.v1.Session.TrustedClient> values) {
@@ -5123,13 +5123,13 @@ public final class Session {
           values, clients_);
     }
     /**
-     * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+     * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
      */
     private void clearClients() {
       clients_ = emptyProtobufList();
     }
     /**
-     * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+     * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
      */
     private void removeClients(int index) {
       ensureClientsIsMutable();
@@ -5232,7 +5232,7 @@ public final class Session {
 
 
       /**
-       * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+       * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
        */
       @java.lang.Override
       public java.util.List<ymconnect.v1.Session.TrustedClient> getClientsList() {
@@ -5240,20 +5240,20 @@ public final class Session {
             instance.getClientsList());
       }
       /**
-       * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+       * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
        */
       @java.lang.Override
       public int getClientsCount() {
         return instance.getClientsCount();
       }/**
-       * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+       * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Session.TrustedClient getClients(int index) {
         return instance.getClients(index);
       }
       /**
-       * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+       * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
        */
       public Builder setClients(
           int index, ymconnect.v1.Session.TrustedClient value) {
@@ -5262,7 +5262,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+       * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
        */
       public Builder setClients(
           int index, ymconnect.v1.Session.TrustedClient.Builder builderForValue) {
@@ -5272,7 +5272,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+       * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
        */
       public Builder addClients(ymconnect.v1.Session.TrustedClient value) {
         copyOnWrite();
@@ -5280,7 +5280,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+       * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
        */
       public Builder addClients(
           int index, ymconnect.v1.Session.TrustedClient value) {
@@ -5289,7 +5289,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+       * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
        */
       public Builder addClients(
           ymconnect.v1.Session.TrustedClient.Builder builderForValue) {
@@ -5298,7 +5298,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+       * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
        */
       public Builder addClients(
           int index, ymconnect.v1.Session.TrustedClient.Builder builderForValue) {
@@ -5308,7 +5308,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+       * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
        */
       public Builder addAllClients(
           java.lang.Iterable<? extends ymconnect.v1.Session.TrustedClient> values) {
@@ -5317,7 +5317,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+       * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
        */
       public Builder clearClients() {
         copyOnWrite();
@@ -5325,7 +5325,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>repeated .ymconnect.v1.TrustedClient clients = 1;</code>
+       * <code>repeated .ymconnect.v1.TrustedClient clients = 1[json_name = "clients"];</code>
        */
       public Builder removeClients(int index) {
         copyOnWrite();
@@ -5413,12 +5413,12 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @return The trustId.
      */
     java.lang.String getTrustId();
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @return The bytes for trustId.
      */
     com.google.protobuf.ByteString
@@ -5438,7 +5438,7 @@ public final class Session {
     public static final int TRUST_ID_FIELD_NUMBER = 1;
     private java.lang.String trustId_;
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @return The trustId.
      */
     @java.lang.Override
@@ -5446,7 +5446,7 @@ public final class Session {
       return trustId_;
     }
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @return The bytes for trustId.
      */
     @java.lang.Override
@@ -5455,7 +5455,7 @@ public final class Session {
       return com.google.protobuf.ByteString.copyFromUtf8(trustId_);
     }
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @param value The trustId to set.
      */
     private void setTrustId(
@@ -5465,14 +5465,14 @@ public final class Session {
       trustId_ = value;
     }
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      */
     private void clearTrustId() {
       
       trustId_ = getDefaultInstance().getTrustId();
     }
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @param value The bytes for trustId to set.
      */
     private void setTrustIdBytes(
@@ -5578,7 +5578,7 @@ public final class Session {
 
 
       /**
-       * <code>string trust_id = 1;</code>
+       * <code>string trust_id = 1[json_name = "trustId"];</code>
        * @return The trustId.
        */
       @java.lang.Override
@@ -5586,7 +5586,7 @@ public final class Session {
         return instance.getTrustId();
       }
       /**
-       * <code>string trust_id = 1;</code>
+       * <code>string trust_id = 1[json_name = "trustId"];</code>
        * @return The bytes for trustId.
        */
       @java.lang.Override
@@ -5595,7 +5595,7 @@ public final class Session {
         return instance.getTrustIdBytes();
       }
       /**
-       * <code>string trust_id = 1;</code>
+       * <code>string trust_id = 1[json_name = "trustId"];</code>
        * @param value The trustId to set.
        * @return This builder for chaining.
        */
@@ -5606,7 +5606,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string trust_id = 1;</code>
+       * <code>string trust_id = 1[json_name = "trustId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearTrustId() {
@@ -5615,7 +5615,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string trust_id = 1;</code>
+       * <code>string trust_id = 1[json_name = "trustId"];</code>
        * @param value The bytes for trustId to set.
        * @return This builder for chaining.
        */
@@ -5705,30 +5705,30 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @return The trustId.
      */
     java.lang.String getTrustId();
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @return The bytes for trustId.
      */
     com.google.protobuf.ByteString
         getTrustIdBytes();
 
     /**
-     * <code>bool revoked = 2;</code>
+     * <code>bool revoked = 2[json_name = "revoked"];</code>
      * @return The revoked.
      */
     boolean getRevoked();
 
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 3;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 3[json_name = "error"];</code>
      * @return Whether the error field is set.
      */
     boolean hasError();
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 3;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 3[json_name = "error"];</code>
      * @return The error.
      */
     ymconnect.v1.Errors.ProtocolError getError();
@@ -5747,7 +5747,7 @@ public final class Session {
     public static final int TRUST_ID_FIELD_NUMBER = 1;
     private java.lang.String trustId_;
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @return The trustId.
      */
     @java.lang.Override
@@ -5755,7 +5755,7 @@ public final class Session {
       return trustId_;
     }
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @return The bytes for trustId.
      */
     @java.lang.Override
@@ -5764,7 +5764,7 @@ public final class Session {
       return com.google.protobuf.ByteString.copyFromUtf8(trustId_);
     }
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @param value The trustId to set.
      */
     private void setTrustId(
@@ -5774,14 +5774,14 @@ public final class Session {
       trustId_ = value;
     }
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      */
     private void clearTrustId() {
       
       trustId_ = getDefaultInstance().getTrustId();
     }
     /**
-     * <code>string trust_id = 1;</code>
+     * <code>string trust_id = 1[json_name = "trustId"];</code>
      * @param value The bytes for trustId to set.
      */
     private void setTrustIdBytes(
@@ -5794,7 +5794,7 @@ public final class Session {
     public static final int REVOKED_FIELD_NUMBER = 2;
     private boolean revoked_;
     /**
-     * <code>bool revoked = 2;</code>
+     * <code>bool revoked = 2[json_name = "revoked"];</code>
      * @return The revoked.
      */
     @java.lang.Override
@@ -5802,7 +5802,7 @@ public final class Session {
       return revoked_;
     }
     /**
-     * <code>bool revoked = 2;</code>
+     * <code>bool revoked = 2[json_name = "revoked"];</code>
      * @param value The revoked to set.
      */
     private void setRevoked(boolean value) {
@@ -5810,7 +5810,7 @@ public final class Session {
       revoked_ = value;
     }
     /**
-     * <code>bool revoked = 2;</code>
+     * <code>bool revoked = 2[json_name = "revoked"];</code>
      */
     private void clearRevoked() {
       
@@ -5820,21 +5820,21 @@ public final class Session {
     public static final int ERROR_FIELD_NUMBER = 3;
     private ymconnect.v1.Errors.ProtocolError error_;
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 3;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 3[json_name = "error"];</code>
      */
     @java.lang.Override
     public boolean hasError() {
       return error_ != null;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 3;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 3[json_name = "error"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Errors.ProtocolError getError() {
       return error_ == null ? ymconnect.v1.Errors.ProtocolError.getDefaultInstance() : error_;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 3;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 3[json_name = "error"];</code>
      */
     private void setError(ymconnect.v1.Errors.ProtocolError value) {
       value.getClass();
@@ -5842,7 +5842,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 3;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 3[json_name = "error"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeError(ymconnect.v1.Errors.ProtocolError value) {
@@ -5857,7 +5857,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 3;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 3[json_name = "error"];</code>
      */
     private void clearError() {  error_ = null;
       
@@ -5959,7 +5959,7 @@ public final class Session {
 
 
       /**
-       * <code>string trust_id = 1;</code>
+       * <code>string trust_id = 1[json_name = "trustId"];</code>
        * @return The trustId.
        */
       @java.lang.Override
@@ -5967,7 +5967,7 @@ public final class Session {
         return instance.getTrustId();
       }
       /**
-       * <code>string trust_id = 1;</code>
+       * <code>string trust_id = 1[json_name = "trustId"];</code>
        * @return The bytes for trustId.
        */
       @java.lang.Override
@@ -5976,7 +5976,7 @@ public final class Session {
         return instance.getTrustIdBytes();
       }
       /**
-       * <code>string trust_id = 1;</code>
+       * <code>string trust_id = 1[json_name = "trustId"];</code>
        * @param value The trustId to set.
        * @return This builder for chaining.
        */
@@ -5987,7 +5987,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string trust_id = 1;</code>
+       * <code>string trust_id = 1[json_name = "trustId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearTrustId() {
@@ -5996,7 +5996,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string trust_id = 1;</code>
+       * <code>string trust_id = 1[json_name = "trustId"];</code>
        * @param value The bytes for trustId to set.
        * @return This builder for chaining.
        */
@@ -6008,7 +6008,7 @@ public final class Session {
       }
 
       /**
-       * <code>bool revoked = 2;</code>
+       * <code>bool revoked = 2[json_name = "revoked"];</code>
        * @return The revoked.
        */
       @java.lang.Override
@@ -6016,7 +6016,7 @@ public final class Session {
         return instance.getRevoked();
       }
       /**
-       * <code>bool revoked = 2;</code>
+       * <code>bool revoked = 2[json_name = "revoked"];</code>
        * @param value The revoked to set.
        * @return This builder for chaining.
        */
@@ -6026,7 +6026,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bool revoked = 2;</code>
+       * <code>bool revoked = 2[json_name = "revoked"];</code>
        * @return This builder for chaining.
        */
       public Builder clearRevoked() {
@@ -6036,21 +6036,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 3;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 3[json_name = "error"];</code>
        */
       @java.lang.Override
       public boolean hasError() {
         return instance.hasError();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 3;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 3[json_name = "error"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Errors.ProtocolError getError() {
         return instance.getError();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 3;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 3[json_name = "error"];</code>
        */
       public Builder setError(ymconnect.v1.Errors.ProtocolError value) {
         copyOnWrite();
@@ -6058,7 +6058,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 3;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 3[json_name = "error"];</code>
        */
       public Builder setError(
           ymconnect.v1.Errors.ProtocolError.Builder builderForValue) {
@@ -6067,7 +6067,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 3;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 3[json_name = "error"];</code>
        */
       public Builder mergeError(ymconnect.v1.Errors.ProtocolError value) {
         copyOnWrite();
@@ -6075,7 +6075,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 3;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 3[json_name = "error"];</code>
        */
       public Builder clearError() {  copyOnWrite();
         instance.clearError();
@@ -6164,68 +6164,68 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 1;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 1[json_name = "client"];</code>
      * @return Whether the client field is set.
      */
     boolean hasClient();
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 1;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 1[json_name = "client"];</code>
      * @return The client.
      */
     ymconnect.v1.Common.DeviceDescriptor getClient();
 
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      * @return Whether the protocolRange field is set.
      */
     boolean hasProtocolRange();
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      * @return The protocolRange.
      */
     ymconnect.v1.Common.VersionRange getProtocolRange();
 
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      * @return Whether the capabilities field is set.
      */
     boolean hasCapabilities();
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      * @return The capabilities.
      */
     ymconnect.v1.Capabilities.CapabilitySet getCapabilities();
 
     /**
-     * <code>.ymconnect.v1.SecuritySuite security_suite = 4;</code>
+     * <code>.ymconnect.v1.SecuritySuite security_suite = 4[json_name = "securitySuite"];</code>
      * @return The enum numeric value on the wire for securitySuite.
      */
     int getSecuritySuiteValue();
     /**
-     * <code>.ymconnect.v1.SecuritySuite security_suite = 4;</code>
+     * <code>.ymconnect.v1.SecuritySuite security_suite = 4[json_name = "securitySuite"];</code>
      * @return The securitySuite.
      */
     ymconnect.v1.Session.SecuritySuite getSecuritySuite();
 
     /**
-     * <code>bytes client_ephemeral_public_key = 5;</code>
+     * <code>bytes client_ephemeral_public_key = 5[json_name = "clientEphemeralPublicKey"];</code>
      * @return The clientEphemeralPublicKey.
      */
     com.google.protobuf.ByteString getClientEphemeralPublicKey();
 
     /**
-     * <code>bytes client_nonce = 6;</code>
+     * <code>bytes client_nonce = 6[json_name = "clientNonce"];</code>
      * @return The clientNonce.
      */
     com.google.protobuf.ByteString getClientNonce();
 
     /**
-     * <code>string resume_token = 7;</code>
+     * <code>string resume_token = 7[json_name = "resumeToken"];</code>
      * @return The resumeToken.
      */
     java.lang.String getResumeToken();
     /**
-     * <code>string resume_token = 7;</code>
+     * <code>string resume_token = 7[json_name = "resumeToken"];</code>
      * @return The bytes for resumeToken.
      */
     com.google.protobuf.ByteString
@@ -6247,21 +6247,21 @@ public final class Session {
     public static final int CLIENT_FIELD_NUMBER = 1;
     private ymconnect.v1.Common.DeviceDescriptor client_;
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 1;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 1[json_name = "client"];</code>
      */
     @java.lang.Override
     public boolean hasClient() {
       return client_ != null;
     }
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 1;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 1[json_name = "client"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.DeviceDescriptor getClient() {
       return client_ == null ? ymconnect.v1.Common.DeviceDescriptor.getDefaultInstance() : client_;
     }
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 1;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 1[json_name = "client"];</code>
      */
     private void setClient(ymconnect.v1.Common.DeviceDescriptor value) {
       value.getClass();
@@ -6269,7 +6269,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 1;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 1[json_name = "client"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeClient(ymconnect.v1.Common.DeviceDescriptor value) {
@@ -6284,7 +6284,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.DeviceDescriptor client = 1;</code>
+     * <code>.ymconnect.v1.DeviceDescriptor client = 1[json_name = "client"];</code>
      */
     private void clearClient() {  client_ = null;
       
@@ -6293,21 +6293,21 @@ public final class Session {
     public static final int PROTOCOL_RANGE_FIELD_NUMBER = 2;
     private ymconnect.v1.Common.VersionRange protocolRange_;
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      */
     @java.lang.Override
     public boolean hasProtocolRange() {
       return protocolRange_ != null;
     }
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.VersionRange getProtocolRange() {
       return protocolRange_ == null ? ymconnect.v1.Common.VersionRange.getDefaultInstance() : protocolRange_;
     }
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      */
     private void setProtocolRange(ymconnect.v1.Common.VersionRange value) {
       value.getClass();
@@ -6315,7 +6315,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeProtocolRange(ymconnect.v1.Common.VersionRange value) {
@@ -6330,7 +6330,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      */
     private void clearProtocolRange() {  protocolRange_ = null;
       
@@ -6339,21 +6339,21 @@ public final class Session {
     public static final int CAPABILITIES_FIELD_NUMBER = 3;
     private ymconnect.v1.Capabilities.CapabilitySet capabilities_;
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      */
     @java.lang.Override
     public boolean hasCapabilities() {
       return capabilities_ != null;
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Capabilities.CapabilitySet getCapabilities() {
       return capabilities_ == null ? ymconnect.v1.Capabilities.CapabilitySet.getDefaultInstance() : capabilities_;
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      */
     private void setCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
       value.getClass();
@@ -6361,7 +6361,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
@@ -6376,7 +6376,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      */
     private void clearCapabilities() {  capabilities_ = null;
       
@@ -6385,7 +6385,7 @@ public final class Session {
     public static final int SECURITY_SUITE_FIELD_NUMBER = 4;
     private int securitySuite_;
     /**
-     * <code>.ymconnect.v1.SecuritySuite security_suite = 4;</code>
+     * <code>.ymconnect.v1.SecuritySuite security_suite = 4[json_name = "securitySuite"];</code>
      * @return The enum numeric value on the wire for securitySuite.
      */
     @java.lang.Override
@@ -6393,7 +6393,7 @@ public final class Session {
       return securitySuite_;
     }
     /**
-     * <code>.ymconnect.v1.SecuritySuite security_suite = 4;</code>
+     * <code>.ymconnect.v1.SecuritySuite security_suite = 4[json_name = "securitySuite"];</code>
      * @return The securitySuite.
      */
     @java.lang.Override
@@ -6402,14 +6402,14 @@ public final class Session {
       return result == null ? ymconnect.v1.Session.SecuritySuite.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ymconnect.v1.SecuritySuite security_suite = 4;</code>
+     * <code>.ymconnect.v1.SecuritySuite security_suite = 4[json_name = "securitySuite"];</code>
      * @param value The enum numeric value on the wire for securitySuite to set.
      */
     private void setSecuritySuiteValue(int value) {
         securitySuite_ = value;
     }
     /**
-     * <code>.ymconnect.v1.SecuritySuite security_suite = 4;</code>
+     * <code>.ymconnect.v1.SecuritySuite security_suite = 4[json_name = "securitySuite"];</code>
      * @param value The securitySuite to set.
      */
     private void setSecuritySuite(ymconnect.v1.Session.SecuritySuite value) {
@@ -6417,7 +6417,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.SecuritySuite security_suite = 4;</code>
+     * <code>.ymconnect.v1.SecuritySuite security_suite = 4[json_name = "securitySuite"];</code>
      */
     private void clearSecuritySuite() {
       
@@ -6427,7 +6427,7 @@ public final class Session {
     public static final int CLIENT_EPHEMERAL_PUBLIC_KEY_FIELD_NUMBER = 5;
     private com.google.protobuf.ByteString clientEphemeralPublicKey_;
     /**
-     * <code>bytes client_ephemeral_public_key = 5;</code>
+     * <code>bytes client_ephemeral_public_key = 5[json_name = "clientEphemeralPublicKey"];</code>
      * @return The clientEphemeralPublicKey.
      */
     @java.lang.Override
@@ -6435,7 +6435,7 @@ public final class Session {
       return clientEphemeralPublicKey_;
     }
     /**
-     * <code>bytes client_ephemeral_public_key = 5;</code>
+     * <code>bytes client_ephemeral_public_key = 5[json_name = "clientEphemeralPublicKey"];</code>
      * @param value The clientEphemeralPublicKey to set.
      */
     private void setClientEphemeralPublicKey(com.google.protobuf.ByteString value) {
@@ -6444,7 +6444,7 @@ public final class Session {
       clientEphemeralPublicKey_ = value;
     }
     /**
-     * <code>bytes client_ephemeral_public_key = 5;</code>
+     * <code>bytes client_ephemeral_public_key = 5[json_name = "clientEphemeralPublicKey"];</code>
      */
     private void clearClientEphemeralPublicKey() {
       
@@ -6454,7 +6454,7 @@ public final class Session {
     public static final int CLIENT_NONCE_FIELD_NUMBER = 6;
     private com.google.protobuf.ByteString clientNonce_;
     /**
-     * <code>bytes client_nonce = 6;</code>
+     * <code>bytes client_nonce = 6[json_name = "clientNonce"];</code>
      * @return The clientNonce.
      */
     @java.lang.Override
@@ -6462,7 +6462,7 @@ public final class Session {
       return clientNonce_;
     }
     /**
-     * <code>bytes client_nonce = 6;</code>
+     * <code>bytes client_nonce = 6[json_name = "clientNonce"];</code>
      * @param value The clientNonce to set.
      */
     private void setClientNonce(com.google.protobuf.ByteString value) {
@@ -6471,7 +6471,7 @@ public final class Session {
       clientNonce_ = value;
     }
     /**
-     * <code>bytes client_nonce = 6;</code>
+     * <code>bytes client_nonce = 6[json_name = "clientNonce"];</code>
      */
     private void clearClientNonce() {
       
@@ -6481,7 +6481,7 @@ public final class Session {
     public static final int RESUME_TOKEN_FIELD_NUMBER = 7;
     private java.lang.String resumeToken_;
     /**
-     * <code>string resume_token = 7;</code>
+     * <code>string resume_token = 7[json_name = "resumeToken"];</code>
      * @return The resumeToken.
      */
     @java.lang.Override
@@ -6489,7 +6489,7 @@ public final class Session {
       return resumeToken_;
     }
     /**
-     * <code>string resume_token = 7;</code>
+     * <code>string resume_token = 7[json_name = "resumeToken"];</code>
      * @return The bytes for resumeToken.
      */
     @java.lang.Override
@@ -6498,7 +6498,7 @@ public final class Session {
       return com.google.protobuf.ByteString.copyFromUtf8(resumeToken_);
     }
     /**
-     * <code>string resume_token = 7;</code>
+     * <code>string resume_token = 7[json_name = "resumeToken"];</code>
      * @param value The resumeToken to set.
      */
     private void setResumeToken(
@@ -6508,14 +6508,14 @@ public final class Session {
       resumeToken_ = value;
     }
     /**
-     * <code>string resume_token = 7;</code>
+     * <code>string resume_token = 7[json_name = "resumeToken"];</code>
      */
     private void clearResumeToken() {
       
       resumeToken_ = getDefaultInstance().getResumeToken();
     }
     /**
-     * <code>string resume_token = 7;</code>
+     * <code>string resume_token = 7[json_name = "resumeToken"];</code>
      * @param value The bytes for resumeToken to set.
      */
     private void setResumeTokenBytes(
@@ -6621,21 +6621,21 @@ public final class Session {
 
 
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 1;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 1[json_name = "client"];</code>
        */
       @java.lang.Override
       public boolean hasClient() {
         return instance.hasClient();
       }
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 1;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 1[json_name = "client"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.DeviceDescriptor getClient() {
         return instance.getClient();
       }
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 1;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 1[json_name = "client"];</code>
        */
       public Builder setClient(ymconnect.v1.Common.DeviceDescriptor value) {
         copyOnWrite();
@@ -6643,7 +6643,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 1;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 1[json_name = "client"];</code>
        */
       public Builder setClient(
           ymconnect.v1.Common.DeviceDescriptor.Builder builderForValue) {
@@ -6652,7 +6652,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 1;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 1[json_name = "client"];</code>
        */
       public Builder mergeClient(ymconnect.v1.Common.DeviceDescriptor value) {
         copyOnWrite();
@@ -6660,7 +6660,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.DeviceDescriptor client = 1;</code>
+       * <code>.ymconnect.v1.DeviceDescriptor client = 1[json_name = "client"];</code>
        */
       public Builder clearClient() {  copyOnWrite();
         instance.clearClient();
@@ -6668,21 +6668,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       @java.lang.Override
       public boolean hasProtocolRange() {
         return instance.hasProtocolRange();
       }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.VersionRange getProtocolRange() {
         return instance.getProtocolRange();
       }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       public Builder setProtocolRange(ymconnect.v1.Common.VersionRange value) {
         copyOnWrite();
@@ -6690,7 +6690,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       public Builder setProtocolRange(
           ymconnect.v1.Common.VersionRange.Builder builderForValue) {
@@ -6699,7 +6699,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       public Builder mergeProtocolRange(ymconnect.v1.Common.VersionRange value) {
         copyOnWrite();
@@ -6707,7 +6707,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       public Builder clearProtocolRange() {  copyOnWrite();
         instance.clearProtocolRange();
@@ -6715,21 +6715,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       @java.lang.Override
       public boolean hasCapabilities() {
         return instance.hasCapabilities();
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Capabilities.CapabilitySet getCapabilities() {
         return instance.getCapabilities();
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       public Builder setCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
         copyOnWrite();
@@ -6737,7 +6737,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       public Builder setCapabilities(
           ymconnect.v1.Capabilities.CapabilitySet.Builder builderForValue) {
@@ -6746,7 +6746,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       public Builder mergeCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
         copyOnWrite();
@@ -6754,7 +6754,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       public Builder clearCapabilities() {  copyOnWrite();
         instance.clearCapabilities();
@@ -6762,7 +6762,7 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.SecuritySuite security_suite = 4;</code>
+       * <code>.ymconnect.v1.SecuritySuite security_suite = 4[json_name = "securitySuite"];</code>
        * @return The enum numeric value on the wire for securitySuite.
        */
       @java.lang.Override
@@ -6770,7 +6770,7 @@ public final class Session {
         return instance.getSecuritySuiteValue();
       }
       /**
-       * <code>.ymconnect.v1.SecuritySuite security_suite = 4;</code>
+       * <code>.ymconnect.v1.SecuritySuite security_suite = 4[json_name = "securitySuite"];</code>
        * @param value The securitySuite to set.
        * @return This builder for chaining.
        */
@@ -6780,7 +6780,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SecuritySuite security_suite = 4;</code>
+       * <code>.ymconnect.v1.SecuritySuite security_suite = 4[json_name = "securitySuite"];</code>
        * @return The securitySuite.
        */
       @java.lang.Override
@@ -6788,7 +6788,7 @@ public final class Session {
         return instance.getSecuritySuite();
       }
       /**
-       * <code>.ymconnect.v1.SecuritySuite security_suite = 4;</code>
+       * <code>.ymconnect.v1.SecuritySuite security_suite = 4[json_name = "securitySuite"];</code>
        * @param value The enum numeric value on the wire for securitySuite to set.
        * @return This builder for chaining.
        */
@@ -6798,7 +6798,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SecuritySuite security_suite = 4;</code>
+       * <code>.ymconnect.v1.SecuritySuite security_suite = 4[json_name = "securitySuite"];</code>
        * @return This builder for chaining.
        */
       public Builder clearSecuritySuite() {
@@ -6808,7 +6808,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes client_ephemeral_public_key = 5;</code>
+       * <code>bytes client_ephemeral_public_key = 5[json_name = "clientEphemeralPublicKey"];</code>
        * @return The clientEphemeralPublicKey.
        */
       @java.lang.Override
@@ -6816,7 +6816,7 @@ public final class Session {
         return instance.getClientEphemeralPublicKey();
       }
       /**
-       * <code>bytes client_ephemeral_public_key = 5;</code>
+       * <code>bytes client_ephemeral_public_key = 5[json_name = "clientEphemeralPublicKey"];</code>
        * @param value The clientEphemeralPublicKey to set.
        * @return This builder for chaining.
        */
@@ -6826,7 +6826,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes client_ephemeral_public_key = 5;</code>
+       * <code>bytes client_ephemeral_public_key = 5[json_name = "clientEphemeralPublicKey"];</code>
        * @return This builder for chaining.
        */
       public Builder clearClientEphemeralPublicKey() {
@@ -6836,7 +6836,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes client_nonce = 6;</code>
+       * <code>bytes client_nonce = 6[json_name = "clientNonce"];</code>
        * @return The clientNonce.
        */
       @java.lang.Override
@@ -6844,7 +6844,7 @@ public final class Session {
         return instance.getClientNonce();
       }
       /**
-       * <code>bytes client_nonce = 6;</code>
+       * <code>bytes client_nonce = 6[json_name = "clientNonce"];</code>
        * @param value The clientNonce to set.
        * @return This builder for chaining.
        */
@@ -6854,7 +6854,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes client_nonce = 6;</code>
+       * <code>bytes client_nonce = 6[json_name = "clientNonce"];</code>
        * @return This builder for chaining.
        */
       public Builder clearClientNonce() {
@@ -6864,7 +6864,7 @@ public final class Session {
       }
 
       /**
-       * <code>string resume_token = 7;</code>
+       * <code>string resume_token = 7[json_name = "resumeToken"];</code>
        * @return The resumeToken.
        */
       @java.lang.Override
@@ -6872,7 +6872,7 @@ public final class Session {
         return instance.getResumeToken();
       }
       /**
-       * <code>string resume_token = 7;</code>
+       * <code>string resume_token = 7[json_name = "resumeToken"];</code>
        * @return The bytes for resumeToken.
        */
       @java.lang.Override
@@ -6881,7 +6881,7 @@ public final class Session {
         return instance.getResumeTokenBytes();
       }
       /**
-       * <code>string resume_token = 7;</code>
+       * <code>string resume_token = 7[json_name = "resumeToken"];</code>
        * @param value The resumeToken to set.
        * @return This builder for chaining.
        */
@@ -6892,7 +6892,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string resume_token = 7;</code>
+       * <code>string resume_token = 7[json_name = "resumeToken"];</code>
        * @return This builder for chaining.
        */
       public Builder clearResumeToken() {
@@ -6901,7 +6901,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string resume_token = 7;</code>
+       * <code>string resume_token = 7[json_name = "resumeToken"];</code>
        * @param value The bytes for resumeToken to set.
        * @return This builder for chaining.
        */
@@ -6998,52 +6998,52 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
      * @return Whether the bridge field is set.
      */
     boolean hasBridge();
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
      * @return The bridge.
      */
     ymconnect.v1.Common.BridgeDescriptor getBridge();
 
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 2;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 2[json_name = "selection"];</code>
      * @return Whether the selection field is set.
      */
     boolean hasSelection();
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 2;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 2[json_name = "selection"];</code>
      * @return The selection.
      */
     ymconnect.v1.Capabilities.ProtocolSelection getSelection();
 
     /**
-     * <code>.ymconnect.v1.SecuritySuite security_suite = 3;</code>
+     * <code>.ymconnect.v1.SecuritySuite security_suite = 3[json_name = "securitySuite"];</code>
      * @return The enum numeric value on the wire for securitySuite.
      */
     int getSecuritySuiteValue();
     /**
-     * <code>.ymconnect.v1.SecuritySuite security_suite = 3;</code>
+     * <code>.ymconnect.v1.SecuritySuite security_suite = 3[json_name = "securitySuite"];</code>
      * @return The securitySuite.
      */
     ymconnect.v1.Session.SecuritySuite getSecuritySuite();
 
     /**
-     * <code>bytes server_ephemeral_public_key = 4;</code>
+     * <code>bytes server_ephemeral_public_key = 4[json_name = "serverEphemeralPublicKey"];</code>
      * @return The serverEphemeralPublicKey.
      */
     com.google.protobuf.ByteString getServerEphemeralPublicKey();
 
     /**
-     * <code>bytes server_nonce = 5;</code>
+     * <code>bytes server_nonce = 5[json_name = "serverNonce"];</code>
      * @return The serverNonce.
      */
     com.google.protobuf.ByteString getServerNonce();
 
     /**
-     * <code>bytes transcript_signature = 6;</code>
+     * <code>bytes transcript_signature = 6[json_name = "transcriptSignature"];</code>
      * @return The transcriptSignature.
      */
     com.google.protobuf.ByteString getTranscriptSignature();
@@ -7064,21 +7064,21 @@ public final class Session {
     public static final int BRIDGE_FIELD_NUMBER = 1;
     private ymconnect.v1.Common.BridgeDescriptor bridge_;
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
      */
     @java.lang.Override
     public boolean hasBridge() {
       return bridge_ != null;
     }
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.BridgeDescriptor getBridge() {
       return bridge_ == null ? ymconnect.v1.Common.BridgeDescriptor.getDefaultInstance() : bridge_;
     }
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
      */
     private void setBridge(ymconnect.v1.Common.BridgeDescriptor value) {
       value.getClass();
@@ -7086,7 +7086,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeBridge(ymconnect.v1.Common.BridgeDescriptor value) {
@@ -7101,7 +7101,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+     * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
      */
     private void clearBridge() {  bridge_ = null;
       
@@ -7110,21 +7110,21 @@ public final class Session {
     public static final int SELECTION_FIELD_NUMBER = 2;
     private ymconnect.v1.Capabilities.ProtocolSelection selection_;
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 2;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 2[json_name = "selection"];</code>
      */
     @java.lang.Override
     public boolean hasSelection() {
       return selection_ != null;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 2;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 2[json_name = "selection"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Capabilities.ProtocolSelection getSelection() {
       return selection_ == null ? ymconnect.v1.Capabilities.ProtocolSelection.getDefaultInstance() : selection_;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 2;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 2[json_name = "selection"];</code>
      */
     private void setSelection(ymconnect.v1.Capabilities.ProtocolSelection value) {
       value.getClass();
@@ -7132,7 +7132,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 2;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 2[json_name = "selection"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeSelection(ymconnect.v1.Capabilities.ProtocolSelection value) {
@@ -7147,7 +7147,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 2;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 2[json_name = "selection"];</code>
      */
     private void clearSelection() {  selection_ = null;
       
@@ -7156,7 +7156,7 @@ public final class Session {
     public static final int SECURITY_SUITE_FIELD_NUMBER = 3;
     private int securitySuite_;
     /**
-     * <code>.ymconnect.v1.SecuritySuite security_suite = 3;</code>
+     * <code>.ymconnect.v1.SecuritySuite security_suite = 3[json_name = "securitySuite"];</code>
      * @return The enum numeric value on the wire for securitySuite.
      */
     @java.lang.Override
@@ -7164,7 +7164,7 @@ public final class Session {
       return securitySuite_;
     }
     /**
-     * <code>.ymconnect.v1.SecuritySuite security_suite = 3;</code>
+     * <code>.ymconnect.v1.SecuritySuite security_suite = 3[json_name = "securitySuite"];</code>
      * @return The securitySuite.
      */
     @java.lang.Override
@@ -7173,14 +7173,14 @@ public final class Session {
       return result == null ? ymconnect.v1.Session.SecuritySuite.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ymconnect.v1.SecuritySuite security_suite = 3;</code>
+     * <code>.ymconnect.v1.SecuritySuite security_suite = 3[json_name = "securitySuite"];</code>
      * @param value The enum numeric value on the wire for securitySuite to set.
      */
     private void setSecuritySuiteValue(int value) {
         securitySuite_ = value;
     }
     /**
-     * <code>.ymconnect.v1.SecuritySuite security_suite = 3;</code>
+     * <code>.ymconnect.v1.SecuritySuite security_suite = 3[json_name = "securitySuite"];</code>
      * @param value The securitySuite to set.
      */
     private void setSecuritySuite(ymconnect.v1.Session.SecuritySuite value) {
@@ -7188,7 +7188,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.SecuritySuite security_suite = 3;</code>
+     * <code>.ymconnect.v1.SecuritySuite security_suite = 3[json_name = "securitySuite"];</code>
      */
     private void clearSecuritySuite() {
       
@@ -7198,7 +7198,7 @@ public final class Session {
     public static final int SERVER_EPHEMERAL_PUBLIC_KEY_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString serverEphemeralPublicKey_;
     /**
-     * <code>bytes server_ephemeral_public_key = 4;</code>
+     * <code>bytes server_ephemeral_public_key = 4[json_name = "serverEphemeralPublicKey"];</code>
      * @return The serverEphemeralPublicKey.
      */
     @java.lang.Override
@@ -7206,7 +7206,7 @@ public final class Session {
       return serverEphemeralPublicKey_;
     }
     /**
-     * <code>bytes server_ephemeral_public_key = 4;</code>
+     * <code>bytes server_ephemeral_public_key = 4[json_name = "serverEphemeralPublicKey"];</code>
      * @param value The serverEphemeralPublicKey to set.
      */
     private void setServerEphemeralPublicKey(com.google.protobuf.ByteString value) {
@@ -7215,7 +7215,7 @@ public final class Session {
       serverEphemeralPublicKey_ = value;
     }
     /**
-     * <code>bytes server_ephemeral_public_key = 4;</code>
+     * <code>bytes server_ephemeral_public_key = 4[json_name = "serverEphemeralPublicKey"];</code>
      */
     private void clearServerEphemeralPublicKey() {
       
@@ -7225,7 +7225,7 @@ public final class Session {
     public static final int SERVER_NONCE_FIELD_NUMBER = 5;
     private com.google.protobuf.ByteString serverNonce_;
     /**
-     * <code>bytes server_nonce = 5;</code>
+     * <code>bytes server_nonce = 5[json_name = "serverNonce"];</code>
      * @return The serverNonce.
      */
     @java.lang.Override
@@ -7233,7 +7233,7 @@ public final class Session {
       return serverNonce_;
     }
     /**
-     * <code>bytes server_nonce = 5;</code>
+     * <code>bytes server_nonce = 5[json_name = "serverNonce"];</code>
      * @param value The serverNonce to set.
      */
     private void setServerNonce(com.google.protobuf.ByteString value) {
@@ -7242,7 +7242,7 @@ public final class Session {
       serverNonce_ = value;
     }
     /**
-     * <code>bytes server_nonce = 5;</code>
+     * <code>bytes server_nonce = 5[json_name = "serverNonce"];</code>
      */
     private void clearServerNonce() {
       
@@ -7252,7 +7252,7 @@ public final class Session {
     public static final int TRANSCRIPT_SIGNATURE_FIELD_NUMBER = 6;
     private com.google.protobuf.ByteString transcriptSignature_;
     /**
-     * <code>bytes transcript_signature = 6;</code>
+     * <code>bytes transcript_signature = 6[json_name = "transcriptSignature"];</code>
      * @return The transcriptSignature.
      */
     @java.lang.Override
@@ -7260,7 +7260,7 @@ public final class Session {
       return transcriptSignature_;
     }
     /**
-     * <code>bytes transcript_signature = 6;</code>
+     * <code>bytes transcript_signature = 6[json_name = "transcriptSignature"];</code>
      * @param value The transcriptSignature to set.
      */
     private void setTranscriptSignature(com.google.protobuf.ByteString value) {
@@ -7269,7 +7269,7 @@ public final class Session {
       transcriptSignature_ = value;
     }
     /**
-     * <code>bytes transcript_signature = 6;</code>
+     * <code>bytes transcript_signature = 6[json_name = "transcriptSignature"];</code>
      */
     private void clearTranscriptSignature() {
       
@@ -7372,21 +7372,21 @@ public final class Session {
 
 
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
        */
       @java.lang.Override
       public boolean hasBridge() {
         return instance.hasBridge();
       }
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.BridgeDescriptor getBridge() {
         return instance.getBridge();
       }
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
        */
       public Builder setBridge(ymconnect.v1.Common.BridgeDescriptor value) {
         copyOnWrite();
@@ -7394,7 +7394,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
        */
       public Builder setBridge(
           ymconnect.v1.Common.BridgeDescriptor.Builder builderForValue) {
@@ -7403,7 +7403,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
        */
       public Builder mergeBridge(ymconnect.v1.Common.BridgeDescriptor value) {
         copyOnWrite();
@@ -7411,7 +7411,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1;</code>
+       * <code>.ymconnect.v1.BridgeDescriptor bridge = 1[json_name = "bridge"];</code>
        */
       public Builder clearBridge() {  copyOnWrite();
         instance.clearBridge();
@@ -7419,21 +7419,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 2;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 2[json_name = "selection"];</code>
        */
       @java.lang.Override
       public boolean hasSelection() {
         return instance.hasSelection();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 2;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 2[json_name = "selection"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Capabilities.ProtocolSelection getSelection() {
         return instance.getSelection();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 2;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 2[json_name = "selection"];</code>
        */
       public Builder setSelection(ymconnect.v1.Capabilities.ProtocolSelection value) {
         copyOnWrite();
@@ -7441,7 +7441,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 2;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 2[json_name = "selection"];</code>
        */
       public Builder setSelection(
           ymconnect.v1.Capabilities.ProtocolSelection.Builder builderForValue) {
@@ -7450,7 +7450,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 2;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 2[json_name = "selection"];</code>
        */
       public Builder mergeSelection(ymconnect.v1.Capabilities.ProtocolSelection value) {
         copyOnWrite();
@@ -7458,7 +7458,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 2;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 2[json_name = "selection"];</code>
        */
       public Builder clearSelection() {  copyOnWrite();
         instance.clearSelection();
@@ -7466,7 +7466,7 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.SecuritySuite security_suite = 3;</code>
+       * <code>.ymconnect.v1.SecuritySuite security_suite = 3[json_name = "securitySuite"];</code>
        * @return The enum numeric value on the wire for securitySuite.
        */
       @java.lang.Override
@@ -7474,7 +7474,7 @@ public final class Session {
         return instance.getSecuritySuiteValue();
       }
       /**
-       * <code>.ymconnect.v1.SecuritySuite security_suite = 3;</code>
+       * <code>.ymconnect.v1.SecuritySuite security_suite = 3[json_name = "securitySuite"];</code>
        * @param value The securitySuite to set.
        * @return This builder for chaining.
        */
@@ -7484,7 +7484,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SecuritySuite security_suite = 3;</code>
+       * <code>.ymconnect.v1.SecuritySuite security_suite = 3[json_name = "securitySuite"];</code>
        * @return The securitySuite.
        */
       @java.lang.Override
@@ -7492,7 +7492,7 @@ public final class Session {
         return instance.getSecuritySuite();
       }
       /**
-       * <code>.ymconnect.v1.SecuritySuite security_suite = 3;</code>
+       * <code>.ymconnect.v1.SecuritySuite security_suite = 3[json_name = "securitySuite"];</code>
        * @param value The enum numeric value on the wire for securitySuite to set.
        * @return This builder for chaining.
        */
@@ -7502,7 +7502,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SecuritySuite security_suite = 3;</code>
+       * <code>.ymconnect.v1.SecuritySuite security_suite = 3[json_name = "securitySuite"];</code>
        * @return This builder for chaining.
        */
       public Builder clearSecuritySuite() {
@@ -7512,7 +7512,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes server_ephemeral_public_key = 4;</code>
+       * <code>bytes server_ephemeral_public_key = 4[json_name = "serverEphemeralPublicKey"];</code>
        * @return The serverEphemeralPublicKey.
        */
       @java.lang.Override
@@ -7520,7 +7520,7 @@ public final class Session {
         return instance.getServerEphemeralPublicKey();
       }
       /**
-       * <code>bytes server_ephemeral_public_key = 4;</code>
+       * <code>bytes server_ephemeral_public_key = 4[json_name = "serverEphemeralPublicKey"];</code>
        * @param value The serverEphemeralPublicKey to set.
        * @return This builder for chaining.
        */
@@ -7530,7 +7530,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes server_ephemeral_public_key = 4;</code>
+       * <code>bytes server_ephemeral_public_key = 4[json_name = "serverEphemeralPublicKey"];</code>
        * @return This builder for chaining.
        */
       public Builder clearServerEphemeralPublicKey() {
@@ -7540,7 +7540,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes server_nonce = 5;</code>
+       * <code>bytes server_nonce = 5[json_name = "serverNonce"];</code>
        * @return The serverNonce.
        */
       @java.lang.Override
@@ -7548,7 +7548,7 @@ public final class Session {
         return instance.getServerNonce();
       }
       /**
-       * <code>bytes server_nonce = 5;</code>
+       * <code>bytes server_nonce = 5[json_name = "serverNonce"];</code>
        * @param value The serverNonce to set.
        * @return This builder for chaining.
        */
@@ -7558,7 +7558,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes server_nonce = 5;</code>
+       * <code>bytes server_nonce = 5[json_name = "serverNonce"];</code>
        * @return This builder for chaining.
        */
       public Builder clearServerNonce() {
@@ -7568,7 +7568,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes transcript_signature = 6;</code>
+       * <code>bytes transcript_signature = 6[json_name = "transcriptSignature"];</code>
        * @return The transcriptSignature.
        */
       @java.lang.Override
@@ -7576,7 +7576,7 @@ public final class Session {
         return instance.getTranscriptSignature();
       }
       /**
-       * <code>bytes transcript_signature = 6;</code>
+       * <code>bytes transcript_signature = 6[json_name = "transcriptSignature"];</code>
        * @param value The transcriptSignature to set.
        * @return This builder for chaining.
        */
@@ -7586,7 +7586,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes transcript_signature = 6;</code>
+       * <code>bytes transcript_signature = 6[json_name = "transcriptSignature"];</code>
        * @return This builder for chaining.
        */
       public Builder clearTranscriptSignature() {
@@ -7680,13 +7680,13 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>bytes transcript_signature = 1;</code>
+     * <code>bytes transcript_signature = 1[json_name = "transcriptSignature"];</code>
      * @return The transcriptSignature.
      */
     com.google.protobuf.ByteString getTranscriptSignature();
 
     /**
-     * <code>bytes client_proof = 2;</code>
+     * <code>bytes client_proof = 2[json_name = "clientProof"];</code>
      * @return The clientProof.
      */
     com.google.protobuf.ByteString getClientProof();
@@ -7706,7 +7706,7 @@ public final class Session {
     public static final int TRANSCRIPT_SIGNATURE_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString transcriptSignature_;
     /**
-     * <code>bytes transcript_signature = 1;</code>
+     * <code>bytes transcript_signature = 1[json_name = "transcriptSignature"];</code>
      * @return The transcriptSignature.
      */
     @java.lang.Override
@@ -7714,7 +7714,7 @@ public final class Session {
       return transcriptSignature_;
     }
     /**
-     * <code>bytes transcript_signature = 1;</code>
+     * <code>bytes transcript_signature = 1[json_name = "transcriptSignature"];</code>
      * @param value The transcriptSignature to set.
      */
     private void setTranscriptSignature(com.google.protobuf.ByteString value) {
@@ -7723,7 +7723,7 @@ public final class Session {
       transcriptSignature_ = value;
     }
     /**
-     * <code>bytes transcript_signature = 1;</code>
+     * <code>bytes transcript_signature = 1[json_name = "transcriptSignature"];</code>
      */
     private void clearTranscriptSignature() {
       
@@ -7733,7 +7733,7 @@ public final class Session {
     public static final int CLIENT_PROOF_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString clientProof_;
     /**
-     * <code>bytes client_proof = 2;</code>
+     * <code>bytes client_proof = 2[json_name = "clientProof"];</code>
      * @return The clientProof.
      */
     @java.lang.Override
@@ -7741,7 +7741,7 @@ public final class Session {
       return clientProof_;
     }
     /**
-     * <code>bytes client_proof = 2;</code>
+     * <code>bytes client_proof = 2[json_name = "clientProof"];</code>
      * @param value The clientProof to set.
      */
     private void setClientProof(com.google.protobuf.ByteString value) {
@@ -7750,7 +7750,7 @@ public final class Session {
       clientProof_ = value;
     }
     /**
-     * <code>bytes client_proof = 2;</code>
+     * <code>bytes client_proof = 2[json_name = "clientProof"];</code>
      */
     private void clearClientProof() {
       
@@ -7853,7 +7853,7 @@ public final class Session {
 
 
       /**
-       * <code>bytes transcript_signature = 1;</code>
+       * <code>bytes transcript_signature = 1[json_name = "transcriptSignature"];</code>
        * @return The transcriptSignature.
        */
       @java.lang.Override
@@ -7861,7 +7861,7 @@ public final class Session {
         return instance.getTranscriptSignature();
       }
       /**
-       * <code>bytes transcript_signature = 1;</code>
+       * <code>bytes transcript_signature = 1[json_name = "transcriptSignature"];</code>
        * @param value The transcriptSignature to set.
        * @return This builder for chaining.
        */
@@ -7871,7 +7871,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes transcript_signature = 1;</code>
+       * <code>bytes transcript_signature = 1[json_name = "transcriptSignature"];</code>
        * @return This builder for chaining.
        */
       public Builder clearTranscriptSignature() {
@@ -7881,7 +7881,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes client_proof = 2;</code>
+       * <code>bytes client_proof = 2[json_name = "clientProof"];</code>
        * @return The clientProof.
        */
       @java.lang.Override
@@ -7889,7 +7889,7 @@ public final class Session {
         return instance.getClientProof();
       }
       /**
-       * <code>bytes client_proof = 2;</code>
+       * <code>bytes client_proof = 2[json_name = "clientProof"];</code>
        * @param value The clientProof to set.
        * @return This builder for chaining.
        */
@@ -7899,7 +7899,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes client_proof = 2;</code>
+       * <code>bytes client_proof = 2[json_name = "clientProof"];</code>
        * @return This builder for chaining.
        */
       public Builder clearClientProof() {
@@ -7988,43 +7988,43 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string session_id = 1;</code>
+     * <code>string session_id = 1[json_name = "sessionId"];</code>
      * @return The sessionId.
      */
     java.lang.String getSessionId();
     /**
-     * <code>string session_id = 1;</code>
+     * <code>string session_id = 1[json_name = "sessionId"];</code>
      * @return The bytes for sessionId.
      */
     com.google.protobuf.ByteString
         getSessionIdBytes();
 
     /**
-     * <code>uint64 expires_at_unix_ms = 2;</code>
+     * <code>uint64 expires_at_unix_ms = 2[json_name = "expiresAtUnixMs"];</code>
      * @return The expiresAtUnixMs.
      */
     long getExpiresAtUnixMs();
 
     /**
-     * <code>string resume_token = 3;</code>
+     * <code>string resume_token = 3[json_name = "resumeToken"];</code>
      * @return The resumeToken.
      */
     java.lang.String getResumeToken();
     /**
-     * <code>string resume_token = 3;</code>
+     * <code>string resume_token = 3[json_name = "resumeToken"];</code>
      * @return The bytes for resumeToken.
      */
     com.google.protobuf.ByteString
         getResumeTokenBytes();
 
     /**
-     * <code>uint64 initial_send_sequence = 4;</code>
+     * <code>uint64 initial_send_sequence = 4[json_name = "initialSendSequence"];</code>
      * @return The initialSendSequence.
      */
     long getInitialSendSequence();
 
     /**
-     * <code>uint64 initial_receive_sequence = 5;</code>
+     * <code>uint64 initial_receive_sequence = 5[json_name = "initialReceiveSequence"];</code>
      * @return The initialReceiveSequence.
      */
     long getInitialReceiveSequence();
@@ -8044,7 +8044,7 @@ public final class Session {
     public static final int SESSION_ID_FIELD_NUMBER = 1;
     private java.lang.String sessionId_;
     /**
-     * <code>string session_id = 1;</code>
+     * <code>string session_id = 1[json_name = "sessionId"];</code>
      * @return The sessionId.
      */
     @java.lang.Override
@@ -8052,7 +8052,7 @@ public final class Session {
       return sessionId_;
     }
     /**
-     * <code>string session_id = 1;</code>
+     * <code>string session_id = 1[json_name = "sessionId"];</code>
      * @return The bytes for sessionId.
      */
     @java.lang.Override
@@ -8061,7 +8061,7 @@ public final class Session {
       return com.google.protobuf.ByteString.copyFromUtf8(sessionId_);
     }
     /**
-     * <code>string session_id = 1;</code>
+     * <code>string session_id = 1[json_name = "sessionId"];</code>
      * @param value The sessionId to set.
      */
     private void setSessionId(
@@ -8071,14 +8071,14 @@ public final class Session {
       sessionId_ = value;
     }
     /**
-     * <code>string session_id = 1;</code>
+     * <code>string session_id = 1[json_name = "sessionId"];</code>
      */
     private void clearSessionId() {
       
       sessionId_ = getDefaultInstance().getSessionId();
     }
     /**
-     * <code>string session_id = 1;</code>
+     * <code>string session_id = 1[json_name = "sessionId"];</code>
      * @param value The bytes for sessionId to set.
      */
     private void setSessionIdBytes(
@@ -8091,7 +8091,7 @@ public final class Session {
     public static final int EXPIRES_AT_UNIX_MS_FIELD_NUMBER = 2;
     private long expiresAtUnixMs_;
     /**
-     * <code>uint64 expires_at_unix_ms = 2;</code>
+     * <code>uint64 expires_at_unix_ms = 2[json_name = "expiresAtUnixMs"];</code>
      * @return The expiresAtUnixMs.
      */
     @java.lang.Override
@@ -8099,7 +8099,7 @@ public final class Session {
       return expiresAtUnixMs_;
     }
     /**
-     * <code>uint64 expires_at_unix_ms = 2;</code>
+     * <code>uint64 expires_at_unix_ms = 2[json_name = "expiresAtUnixMs"];</code>
      * @param value The expiresAtUnixMs to set.
      */
     private void setExpiresAtUnixMs(long value) {
@@ -8107,7 +8107,7 @@ public final class Session {
       expiresAtUnixMs_ = value;
     }
     /**
-     * <code>uint64 expires_at_unix_ms = 2;</code>
+     * <code>uint64 expires_at_unix_ms = 2[json_name = "expiresAtUnixMs"];</code>
      */
     private void clearExpiresAtUnixMs() {
       
@@ -8117,7 +8117,7 @@ public final class Session {
     public static final int RESUME_TOKEN_FIELD_NUMBER = 3;
     private java.lang.String resumeToken_;
     /**
-     * <code>string resume_token = 3;</code>
+     * <code>string resume_token = 3[json_name = "resumeToken"];</code>
      * @return The resumeToken.
      */
     @java.lang.Override
@@ -8125,7 +8125,7 @@ public final class Session {
       return resumeToken_;
     }
     /**
-     * <code>string resume_token = 3;</code>
+     * <code>string resume_token = 3[json_name = "resumeToken"];</code>
      * @return The bytes for resumeToken.
      */
     @java.lang.Override
@@ -8134,7 +8134,7 @@ public final class Session {
       return com.google.protobuf.ByteString.copyFromUtf8(resumeToken_);
     }
     /**
-     * <code>string resume_token = 3;</code>
+     * <code>string resume_token = 3[json_name = "resumeToken"];</code>
      * @param value The resumeToken to set.
      */
     private void setResumeToken(
@@ -8144,14 +8144,14 @@ public final class Session {
       resumeToken_ = value;
     }
     /**
-     * <code>string resume_token = 3;</code>
+     * <code>string resume_token = 3[json_name = "resumeToken"];</code>
      */
     private void clearResumeToken() {
       
       resumeToken_ = getDefaultInstance().getResumeToken();
     }
     /**
-     * <code>string resume_token = 3;</code>
+     * <code>string resume_token = 3[json_name = "resumeToken"];</code>
      * @param value The bytes for resumeToken to set.
      */
     private void setResumeTokenBytes(
@@ -8164,7 +8164,7 @@ public final class Session {
     public static final int INITIAL_SEND_SEQUENCE_FIELD_NUMBER = 4;
     private long initialSendSequence_;
     /**
-     * <code>uint64 initial_send_sequence = 4;</code>
+     * <code>uint64 initial_send_sequence = 4[json_name = "initialSendSequence"];</code>
      * @return The initialSendSequence.
      */
     @java.lang.Override
@@ -8172,7 +8172,7 @@ public final class Session {
       return initialSendSequence_;
     }
     /**
-     * <code>uint64 initial_send_sequence = 4;</code>
+     * <code>uint64 initial_send_sequence = 4[json_name = "initialSendSequence"];</code>
      * @param value The initialSendSequence to set.
      */
     private void setInitialSendSequence(long value) {
@@ -8180,7 +8180,7 @@ public final class Session {
       initialSendSequence_ = value;
     }
     /**
-     * <code>uint64 initial_send_sequence = 4;</code>
+     * <code>uint64 initial_send_sequence = 4[json_name = "initialSendSequence"];</code>
      */
     private void clearInitialSendSequence() {
       
@@ -8190,7 +8190,7 @@ public final class Session {
     public static final int INITIAL_RECEIVE_SEQUENCE_FIELD_NUMBER = 5;
     private long initialReceiveSequence_;
     /**
-     * <code>uint64 initial_receive_sequence = 5;</code>
+     * <code>uint64 initial_receive_sequence = 5[json_name = "initialReceiveSequence"];</code>
      * @return The initialReceiveSequence.
      */
     @java.lang.Override
@@ -8198,7 +8198,7 @@ public final class Session {
       return initialReceiveSequence_;
     }
     /**
-     * <code>uint64 initial_receive_sequence = 5;</code>
+     * <code>uint64 initial_receive_sequence = 5[json_name = "initialReceiveSequence"];</code>
      * @param value The initialReceiveSequence to set.
      */
     private void setInitialReceiveSequence(long value) {
@@ -8206,7 +8206,7 @@ public final class Session {
       initialReceiveSequence_ = value;
     }
     /**
-     * <code>uint64 initial_receive_sequence = 5;</code>
+     * <code>uint64 initial_receive_sequence = 5[json_name = "initialReceiveSequence"];</code>
      */
     private void clearInitialReceiveSequence() {
       
@@ -8309,7 +8309,7 @@ public final class Session {
 
 
       /**
-       * <code>string session_id = 1;</code>
+       * <code>string session_id = 1[json_name = "sessionId"];</code>
        * @return The sessionId.
        */
       @java.lang.Override
@@ -8317,7 +8317,7 @@ public final class Session {
         return instance.getSessionId();
       }
       /**
-       * <code>string session_id = 1;</code>
+       * <code>string session_id = 1[json_name = "sessionId"];</code>
        * @return The bytes for sessionId.
        */
       @java.lang.Override
@@ -8326,7 +8326,7 @@ public final class Session {
         return instance.getSessionIdBytes();
       }
       /**
-       * <code>string session_id = 1;</code>
+       * <code>string session_id = 1[json_name = "sessionId"];</code>
        * @param value The sessionId to set.
        * @return This builder for chaining.
        */
@@ -8337,7 +8337,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string session_id = 1;</code>
+       * <code>string session_id = 1[json_name = "sessionId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearSessionId() {
@@ -8346,7 +8346,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string session_id = 1;</code>
+       * <code>string session_id = 1[json_name = "sessionId"];</code>
        * @param value The bytes for sessionId to set.
        * @return This builder for chaining.
        */
@@ -8358,7 +8358,7 @@ public final class Session {
       }
 
       /**
-       * <code>uint64 expires_at_unix_ms = 2;</code>
+       * <code>uint64 expires_at_unix_ms = 2[json_name = "expiresAtUnixMs"];</code>
        * @return The expiresAtUnixMs.
        */
       @java.lang.Override
@@ -8366,7 +8366,7 @@ public final class Session {
         return instance.getExpiresAtUnixMs();
       }
       /**
-       * <code>uint64 expires_at_unix_ms = 2;</code>
+       * <code>uint64 expires_at_unix_ms = 2[json_name = "expiresAtUnixMs"];</code>
        * @param value The expiresAtUnixMs to set.
        * @return This builder for chaining.
        */
@@ -8376,7 +8376,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>uint64 expires_at_unix_ms = 2;</code>
+       * <code>uint64 expires_at_unix_ms = 2[json_name = "expiresAtUnixMs"];</code>
        * @return This builder for chaining.
        */
       public Builder clearExpiresAtUnixMs() {
@@ -8386,7 +8386,7 @@ public final class Session {
       }
 
       /**
-       * <code>string resume_token = 3;</code>
+       * <code>string resume_token = 3[json_name = "resumeToken"];</code>
        * @return The resumeToken.
        */
       @java.lang.Override
@@ -8394,7 +8394,7 @@ public final class Session {
         return instance.getResumeToken();
       }
       /**
-       * <code>string resume_token = 3;</code>
+       * <code>string resume_token = 3[json_name = "resumeToken"];</code>
        * @return The bytes for resumeToken.
        */
       @java.lang.Override
@@ -8403,7 +8403,7 @@ public final class Session {
         return instance.getResumeTokenBytes();
       }
       /**
-       * <code>string resume_token = 3;</code>
+       * <code>string resume_token = 3[json_name = "resumeToken"];</code>
        * @param value The resumeToken to set.
        * @return This builder for chaining.
        */
@@ -8414,7 +8414,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string resume_token = 3;</code>
+       * <code>string resume_token = 3[json_name = "resumeToken"];</code>
        * @return This builder for chaining.
        */
       public Builder clearResumeToken() {
@@ -8423,7 +8423,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string resume_token = 3;</code>
+       * <code>string resume_token = 3[json_name = "resumeToken"];</code>
        * @param value The bytes for resumeToken to set.
        * @return This builder for chaining.
        */
@@ -8435,7 +8435,7 @@ public final class Session {
       }
 
       /**
-       * <code>uint64 initial_send_sequence = 4;</code>
+       * <code>uint64 initial_send_sequence = 4[json_name = "initialSendSequence"];</code>
        * @return The initialSendSequence.
        */
       @java.lang.Override
@@ -8443,7 +8443,7 @@ public final class Session {
         return instance.getInitialSendSequence();
       }
       /**
-       * <code>uint64 initial_send_sequence = 4;</code>
+       * <code>uint64 initial_send_sequence = 4[json_name = "initialSendSequence"];</code>
        * @param value The initialSendSequence to set.
        * @return This builder for chaining.
        */
@@ -8453,7 +8453,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>uint64 initial_send_sequence = 4;</code>
+       * <code>uint64 initial_send_sequence = 4[json_name = "initialSendSequence"];</code>
        * @return This builder for chaining.
        */
       public Builder clearInitialSendSequence() {
@@ -8463,7 +8463,7 @@ public final class Session {
       }
 
       /**
-       * <code>uint64 initial_receive_sequence = 5;</code>
+       * <code>uint64 initial_receive_sequence = 5[json_name = "initialReceiveSequence"];</code>
        * @return The initialReceiveSequence.
        */
       @java.lang.Override
@@ -8471,7 +8471,7 @@ public final class Session {
         return instance.getInitialReceiveSequence();
       }
       /**
-       * <code>uint64 initial_receive_sequence = 5;</code>
+       * <code>uint64 initial_receive_sequence = 5[json_name = "initialReceiveSequence"];</code>
        * @param value The initialReceiveSequence to set.
        * @return This builder for chaining.
        */
@@ -8481,7 +8481,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>uint64 initial_receive_sequence = 5;</code>
+       * <code>uint64 initial_receive_sequence = 5[json_name = "initialReceiveSequence"];</code>
        * @return This builder for chaining.
        */
       public Builder clearInitialReceiveSequence() {
@@ -8574,37 +8574,37 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string session_id = 1;</code>
+     * <code>string session_id = 1[json_name = "sessionId"];</code>
      * @return The sessionId.
      */
     java.lang.String getSessionId();
     /**
-     * <code>string session_id = 1;</code>
+     * <code>string session_id = 1[json_name = "sessionId"];</code>
      * @return The bytes for sessionId.
      */
     com.google.protobuf.ByteString
         getSessionIdBytes();
 
     /**
-     * <code>uint64 sequence = 2;</code>
+     * <code>uint64 sequence = 2[json_name = "sequence"];</code>
      * @return The sequence.
      */
     long getSequence();
 
     /**
-     * <code>bytes nonce = 3;</code>
+     * <code>bytes nonce = 3[json_name = "nonce"];</code>
      * @return The nonce.
      */
     com.google.protobuf.ByteString getNonce();
 
     /**
-     * <code>bytes ciphertext = 4;</code>
+     * <code>bytes ciphertext = 4[json_name = "ciphertext"];</code>
      * @return The ciphertext.
      */
     com.google.protobuf.ByteString getCiphertext();
 
     /**
-     * <code>bytes associated_data = 5;</code>
+     * <code>bytes associated_data = 5[json_name = "associatedData"];</code>
      * @return The associatedData.
      */
     com.google.protobuf.ByteString getAssociatedData();
@@ -8626,7 +8626,7 @@ public final class Session {
     public static final int SESSION_ID_FIELD_NUMBER = 1;
     private java.lang.String sessionId_;
     /**
-     * <code>string session_id = 1;</code>
+     * <code>string session_id = 1[json_name = "sessionId"];</code>
      * @return The sessionId.
      */
     @java.lang.Override
@@ -8634,7 +8634,7 @@ public final class Session {
       return sessionId_;
     }
     /**
-     * <code>string session_id = 1;</code>
+     * <code>string session_id = 1[json_name = "sessionId"];</code>
      * @return The bytes for sessionId.
      */
     @java.lang.Override
@@ -8643,7 +8643,7 @@ public final class Session {
       return com.google.protobuf.ByteString.copyFromUtf8(sessionId_);
     }
     /**
-     * <code>string session_id = 1;</code>
+     * <code>string session_id = 1[json_name = "sessionId"];</code>
      * @param value The sessionId to set.
      */
     private void setSessionId(
@@ -8653,14 +8653,14 @@ public final class Session {
       sessionId_ = value;
     }
     /**
-     * <code>string session_id = 1;</code>
+     * <code>string session_id = 1[json_name = "sessionId"];</code>
      */
     private void clearSessionId() {
       
       sessionId_ = getDefaultInstance().getSessionId();
     }
     /**
-     * <code>string session_id = 1;</code>
+     * <code>string session_id = 1[json_name = "sessionId"];</code>
      * @param value The bytes for sessionId to set.
      */
     private void setSessionIdBytes(
@@ -8673,7 +8673,7 @@ public final class Session {
     public static final int SEQUENCE_FIELD_NUMBER = 2;
     private long sequence_;
     /**
-     * <code>uint64 sequence = 2;</code>
+     * <code>uint64 sequence = 2[json_name = "sequence"];</code>
      * @return The sequence.
      */
     @java.lang.Override
@@ -8681,7 +8681,7 @@ public final class Session {
       return sequence_;
     }
     /**
-     * <code>uint64 sequence = 2;</code>
+     * <code>uint64 sequence = 2[json_name = "sequence"];</code>
      * @param value The sequence to set.
      */
     private void setSequence(long value) {
@@ -8689,7 +8689,7 @@ public final class Session {
       sequence_ = value;
     }
     /**
-     * <code>uint64 sequence = 2;</code>
+     * <code>uint64 sequence = 2[json_name = "sequence"];</code>
      */
     private void clearSequence() {
       
@@ -8699,7 +8699,7 @@ public final class Session {
     public static final int NONCE_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString nonce_;
     /**
-     * <code>bytes nonce = 3;</code>
+     * <code>bytes nonce = 3[json_name = "nonce"];</code>
      * @return The nonce.
      */
     @java.lang.Override
@@ -8707,7 +8707,7 @@ public final class Session {
       return nonce_;
     }
     /**
-     * <code>bytes nonce = 3;</code>
+     * <code>bytes nonce = 3[json_name = "nonce"];</code>
      * @param value The nonce to set.
      */
     private void setNonce(com.google.protobuf.ByteString value) {
@@ -8716,7 +8716,7 @@ public final class Session {
       nonce_ = value;
     }
     /**
-     * <code>bytes nonce = 3;</code>
+     * <code>bytes nonce = 3[json_name = "nonce"];</code>
      */
     private void clearNonce() {
       
@@ -8726,7 +8726,7 @@ public final class Session {
     public static final int CIPHERTEXT_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString ciphertext_;
     /**
-     * <code>bytes ciphertext = 4;</code>
+     * <code>bytes ciphertext = 4[json_name = "ciphertext"];</code>
      * @return The ciphertext.
      */
     @java.lang.Override
@@ -8734,7 +8734,7 @@ public final class Session {
       return ciphertext_;
     }
     /**
-     * <code>bytes ciphertext = 4;</code>
+     * <code>bytes ciphertext = 4[json_name = "ciphertext"];</code>
      * @param value The ciphertext to set.
      */
     private void setCiphertext(com.google.protobuf.ByteString value) {
@@ -8743,7 +8743,7 @@ public final class Session {
       ciphertext_ = value;
     }
     /**
-     * <code>bytes ciphertext = 4;</code>
+     * <code>bytes ciphertext = 4[json_name = "ciphertext"];</code>
      */
     private void clearCiphertext() {
       
@@ -8753,7 +8753,7 @@ public final class Session {
     public static final int ASSOCIATED_DATA_FIELD_NUMBER = 5;
     private com.google.protobuf.ByteString associatedData_;
     /**
-     * <code>bytes associated_data = 5;</code>
+     * <code>bytes associated_data = 5[json_name = "associatedData"];</code>
      * @return The associatedData.
      */
     @java.lang.Override
@@ -8761,7 +8761,7 @@ public final class Session {
       return associatedData_;
     }
     /**
-     * <code>bytes associated_data = 5;</code>
+     * <code>bytes associated_data = 5[json_name = "associatedData"];</code>
      * @param value The associatedData to set.
      */
     private void setAssociatedData(com.google.protobuf.ByteString value) {
@@ -8770,7 +8770,7 @@ public final class Session {
       associatedData_ = value;
     }
     /**
-     * <code>bytes associated_data = 5;</code>
+     * <code>bytes associated_data = 5[json_name = "associatedData"];</code>
      */
     private void clearAssociatedData() {
       
@@ -8873,7 +8873,7 @@ public final class Session {
 
 
       /**
-       * <code>string session_id = 1;</code>
+       * <code>string session_id = 1[json_name = "sessionId"];</code>
        * @return The sessionId.
        */
       @java.lang.Override
@@ -8881,7 +8881,7 @@ public final class Session {
         return instance.getSessionId();
       }
       /**
-       * <code>string session_id = 1;</code>
+       * <code>string session_id = 1[json_name = "sessionId"];</code>
        * @return The bytes for sessionId.
        */
       @java.lang.Override
@@ -8890,7 +8890,7 @@ public final class Session {
         return instance.getSessionIdBytes();
       }
       /**
-       * <code>string session_id = 1;</code>
+       * <code>string session_id = 1[json_name = "sessionId"];</code>
        * @param value The sessionId to set.
        * @return This builder for chaining.
        */
@@ -8901,7 +8901,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string session_id = 1;</code>
+       * <code>string session_id = 1[json_name = "sessionId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearSessionId() {
@@ -8910,7 +8910,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>string session_id = 1;</code>
+       * <code>string session_id = 1[json_name = "sessionId"];</code>
        * @param value The bytes for sessionId to set.
        * @return This builder for chaining.
        */
@@ -8922,7 +8922,7 @@ public final class Session {
       }
 
       /**
-       * <code>uint64 sequence = 2;</code>
+       * <code>uint64 sequence = 2[json_name = "sequence"];</code>
        * @return The sequence.
        */
       @java.lang.Override
@@ -8930,7 +8930,7 @@ public final class Session {
         return instance.getSequence();
       }
       /**
-       * <code>uint64 sequence = 2;</code>
+       * <code>uint64 sequence = 2[json_name = "sequence"];</code>
        * @param value The sequence to set.
        * @return This builder for chaining.
        */
@@ -8940,7 +8940,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>uint64 sequence = 2;</code>
+       * <code>uint64 sequence = 2[json_name = "sequence"];</code>
        * @return This builder for chaining.
        */
       public Builder clearSequence() {
@@ -8950,7 +8950,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes nonce = 3;</code>
+       * <code>bytes nonce = 3[json_name = "nonce"];</code>
        * @return The nonce.
        */
       @java.lang.Override
@@ -8958,7 +8958,7 @@ public final class Session {
         return instance.getNonce();
       }
       /**
-       * <code>bytes nonce = 3;</code>
+       * <code>bytes nonce = 3[json_name = "nonce"];</code>
        * @param value The nonce to set.
        * @return This builder for chaining.
        */
@@ -8968,7 +8968,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes nonce = 3;</code>
+       * <code>bytes nonce = 3[json_name = "nonce"];</code>
        * @return This builder for chaining.
        */
       public Builder clearNonce() {
@@ -8978,7 +8978,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes ciphertext = 4;</code>
+       * <code>bytes ciphertext = 4[json_name = "ciphertext"];</code>
        * @return The ciphertext.
        */
       @java.lang.Override
@@ -8986,7 +8986,7 @@ public final class Session {
         return instance.getCiphertext();
       }
       /**
-       * <code>bytes ciphertext = 4;</code>
+       * <code>bytes ciphertext = 4[json_name = "ciphertext"];</code>
        * @param value The ciphertext to set.
        * @return This builder for chaining.
        */
@@ -8996,7 +8996,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes ciphertext = 4;</code>
+       * <code>bytes ciphertext = 4[json_name = "ciphertext"];</code>
        * @return This builder for chaining.
        */
       public Builder clearCiphertext() {
@@ -9006,7 +9006,7 @@ public final class Session {
       }
 
       /**
-       * <code>bytes associated_data = 5;</code>
+       * <code>bytes associated_data = 5[json_name = "associatedData"];</code>
        * @return The associatedData.
        */
       @java.lang.Override
@@ -9014,7 +9014,7 @@ public final class Session {
         return instance.getAssociatedData();
       }
       /**
-       * <code>bytes associated_data = 5;</code>
+       * <code>bytes associated_data = 5[json_name = "associatedData"];</code>
        * @param value The associatedData to set.
        * @return This builder for chaining.
        */
@@ -9024,7 +9024,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>bytes associated_data = 5;</code>
+       * <code>bytes associated_data = 5[json_name = "associatedData"];</code>
        * @return This builder for chaining.
        */
       public Builder clearAssociatedData() {
@@ -9117,7 +9117,7 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>uint64 nonce = 1;</code>
+     * <code>uint64 nonce = 1[json_name = "nonce"];</code>
      * @return The nonce.
      */
     long getNonce();
@@ -9135,7 +9135,7 @@ public final class Session {
     public static final int NONCE_FIELD_NUMBER = 1;
     private long nonce_;
     /**
-     * <code>uint64 nonce = 1;</code>
+     * <code>uint64 nonce = 1[json_name = "nonce"];</code>
      * @return The nonce.
      */
     @java.lang.Override
@@ -9143,7 +9143,7 @@ public final class Session {
       return nonce_;
     }
     /**
-     * <code>uint64 nonce = 1;</code>
+     * <code>uint64 nonce = 1[json_name = "nonce"];</code>
      * @param value The nonce to set.
      */
     private void setNonce(long value) {
@@ -9151,7 +9151,7 @@ public final class Session {
       nonce_ = value;
     }
     /**
-     * <code>uint64 nonce = 1;</code>
+     * <code>uint64 nonce = 1[json_name = "nonce"];</code>
      */
     private void clearNonce() {
       
@@ -9254,7 +9254,7 @@ public final class Session {
 
 
       /**
-       * <code>uint64 nonce = 1;</code>
+       * <code>uint64 nonce = 1[json_name = "nonce"];</code>
        * @return The nonce.
        */
       @java.lang.Override
@@ -9262,7 +9262,7 @@ public final class Session {
         return instance.getNonce();
       }
       /**
-       * <code>uint64 nonce = 1;</code>
+       * <code>uint64 nonce = 1[json_name = "nonce"];</code>
        * @param value The nonce to set.
        * @return This builder for chaining.
        */
@@ -9272,7 +9272,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>uint64 nonce = 1;</code>
+       * <code>uint64 nonce = 1[json_name = "nonce"];</code>
        * @return This builder for chaining.
        */
       public Builder clearNonce() {
@@ -9360,7 +9360,7 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>uint64 nonce = 1;</code>
+     * <code>uint64 nonce = 1[json_name = "nonce"];</code>
      * @return The nonce.
      */
     long getNonce();
@@ -9378,7 +9378,7 @@ public final class Session {
     public static final int NONCE_FIELD_NUMBER = 1;
     private long nonce_;
     /**
-     * <code>uint64 nonce = 1;</code>
+     * <code>uint64 nonce = 1[json_name = "nonce"];</code>
      * @return The nonce.
      */
     @java.lang.Override
@@ -9386,7 +9386,7 @@ public final class Session {
       return nonce_;
     }
     /**
-     * <code>uint64 nonce = 1;</code>
+     * <code>uint64 nonce = 1[json_name = "nonce"];</code>
      * @param value The nonce to set.
      */
     private void setNonce(long value) {
@@ -9394,7 +9394,7 @@ public final class Session {
       nonce_ = value;
     }
     /**
-     * <code>uint64 nonce = 1;</code>
+     * <code>uint64 nonce = 1[json_name = "nonce"];</code>
      */
     private void clearNonce() {
       
@@ -9497,7 +9497,7 @@ public final class Session {
 
 
       /**
-       * <code>uint64 nonce = 1;</code>
+       * <code>uint64 nonce = 1[json_name = "nonce"];</code>
        * @return The nonce.
        */
       @java.lang.Override
@@ -9505,7 +9505,7 @@ public final class Session {
         return instance.getNonce();
       }
       /**
-       * <code>uint64 nonce = 1;</code>
+       * <code>uint64 nonce = 1[json_name = "nonce"];</code>
        * @param value The nonce to set.
        * @return This builder for chaining.
        */
@@ -9515,7 +9515,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>uint64 nonce = 1;</code>
+       * <code>uint64 nonce = 1[json_name = "nonce"];</code>
        * @return This builder for chaining.
        */
       public Builder clearNonce() {
@@ -9603,287 +9603,287 @@ public final class Session {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+     * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
      * @return Whether the header field is set.
      */
     boolean hasHeader();
     /**
-     * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+     * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
      * @return The header.
      */
     ymconnect.v1.Common.MessageHeader getHeader();
 
     /**
-     * <code>.ymconnect.v1.ClientHello client_hello = 10;</code>
+     * <code>.ymconnect.v1.ClientHello client_hello = 10[json_name = "clientHello"];</code>
      * @return Whether the clientHello field is set.
      */
     boolean hasClientHello();
     /**
-     * <code>.ymconnect.v1.ClientHello client_hello = 10;</code>
+     * <code>.ymconnect.v1.ClientHello client_hello = 10[json_name = "clientHello"];</code>
      * @return The clientHello.
      */
     ymconnect.v1.Session.ClientHello getClientHello();
 
     /**
-     * <code>.ymconnect.v1.ServerHello server_hello = 11;</code>
+     * <code>.ymconnect.v1.ServerHello server_hello = 11[json_name = "serverHello"];</code>
      * @return Whether the serverHello field is set.
      */
     boolean hasServerHello();
     /**
-     * <code>.ymconnect.v1.ServerHello server_hello = 11;</code>
+     * <code>.ymconnect.v1.ServerHello server_hello = 11[json_name = "serverHello"];</code>
      * @return The serverHello.
      */
     ymconnect.v1.Session.ServerHello getServerHello();
 
     /**
-     * <code>.ymconnect.v1.ClientFinish client_finish = 12;</code>
+     * <code>.ymconnect.v1.ClientFinish client_finish = 12[json_name = "clientFinish"];</code>
      * @return Whether the clientFinish field is set.
      */
     boolean hasClientFinish();
     /**
-     * <code>.ymconnect.v1.ClientFinish client_finish = 12;</code>
+     * <code>.ymconnect.v1.ClientFinish client_finish = 12[json_name = "clientFinish"];</code>
      * @return The clientFinish.
      */
     ymconnect.v1.Session.ClientFinish getClientFinish();
 
     /**
-     * <code>.ymconnect.v1.SessionEstablished session_established = 13;</code>
+     * <code>.ymconnect.v1.SessionEstablished session_established = 13[json_name = "sessionEstablished"];</code>
      * @return Whether the sessionEstablished field is set.
      */
     boolean hasSessionEstablished();
     /**
-     * <code>.ymconnect.v1.SessionEstablished session_established = 13;</code>
+     * <code>.ymconnect.v1.SessionEstablished session_established = 13[json_name = "sessionEstablished"];</code>
      * @return The sessionEstablished.
      */
     ymconnect.v1.Session.SessionEstablished getSessionEstablished();
 
     /**
-     * <code>.ymconnect.v1.PairingOffer pairing_offer = 14;</code>
+     * <code>.ymconnect.v1.PairingOffer pairing_offer = 14[json_name = "pairingOffer"];</code>
      * @return Whether the pairingOffer field is set.
      */
     boolean hasPairingOffer();
     /**
-     * <code>.ymconnect.v1.PairingOffer pairing_offer = 14;</code>
+     * <code>.ymconnect.v1.PairingOffer pairing_offer = 14[json_name = "pairingOffer"];</code>
      * @return The pairingOffer.
      */
     ymconnect.v1.Session.PairingOffer getPairingOffer();
 
     /**
-     * <code>.ymconnect.v1.PairingRequest pairing_request = 15;</code>
+     * <code>.ymconnect.v1.PairingRequest pairing_request = 15[json_name = "pairingRequest"];</code>
      * @return Whether the pairingRequest field is set.
      */
     boolean hasPairingRequest();
     /**
-     * <code>.ymconnect.v1.PairingRequest pairing_request = 15;</code>
+     * <code>.ymconnect.v1.PairingRequest pairing_request = 15[json_name = "pairingRequest"];</code>
      * @return The pairingRequest.
      */
     ymconnect.v1.Session.PairingRequest getPairingRequest();
 
     /**
-     * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16;</code>
+     * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16[json_name = "pairingChallenge"];</code>
      * @return Whether the pairingChallenge field is set.
      */
     boolean hasPairingChallenge();
     /**
-     * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16;</code>
+     * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16[json_name = "pairingChallenge"];</code>
      * @return The pairingChallenge.
      */
     ymconnect.v1.Session.PairingChallenge getPairingChallenge();
 
     /**
-     * <code>.ymconnect.v1.PairingProof pairing_proof = 17;</code>
+     * <code>.ymconnect.v1.PairingProof pairing_proof = 17[json_name = "pairingProof"];</code>
      * @return Whether the pairingProof field is set.
      */
     boolean hasPairingProof();
     /**
-     * <code>.ymconnect.v1.PairingProof pairing_proof = 17;</code>
+     * <code>.ymconnect.v1.PairingProof pairing_proof = 17[json_name = "pairingProof"];</code>
      * @return The pairingProof.
      */
     ymconnect.v1.Session.PairingProof getPairingProof();
 
     /**
-     * <code>.ymconnect.v1.PairingResult pairing_result = 18;</code>
+     * <code>.ymconnect.v1.PairingResult pairing_result = 18[json_name = "pairingResult"];</code>
      * @return Whether the pairingResult field is set.
      */
     boolean hasPairingResult();
     /**
-     * <code>.ymconnect.v1.PairingResult pairing_result = 18;</code>
+     * <code>.ymconnect.v1.PairingResult pairing_result = 18[json_name = "pairingResult"];</code>
      * @return The pairingResult.
      */
     ymconnect.v1.Session.PairingResult getPairingResult();
 
     /**
-     * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19;</code>
+     * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19[json_name = "listPlayersRequest"];</code>
      * @return Whether the listPlayersRequest field is set.
      */
     boolean hasListPlayersRequest();
     /**
-     * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19;</code>
+     * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19[json_name = "listPlayersRequest"];</code>
      * @return The listPlayersRequest.
      */
     ymconnect.v1.Control.ListPlayersRequest getListPlayersRequest();
 
     /**
-     * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20;</code>
+     * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20[json_name = "listPlayersResponse"];</code>
      * @return Whether the listPlayersResponse field is set.
      */
     boolean hasListPlayersResponse();
     /**
-     * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20;</code>
+     * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20[json_name = "listPlayersResponse"];</code>
      * @return The listPlayersResponse.
      */
     ymconnect.v1.Control.ListPlayersResponse getListPlayersResponse();
 
     /**
-     * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21;</code>
+     * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21[json_name = "subscribePlayersRequest"];</code>
      * @return Whether the subscribePlayersRequest field is set.
      */
     boolean hasSubscribePlayersRequest();
     /**
-     * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21;</code>
+     * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21[json_name = "subscribePlayersRequest"];</code>
      * @return The subscribePlayersRequest.
      */
     ymconnect.v1.Control.SubscribePlayersRequest getSubscribePlayersRequest();
 
     /**
-     * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22;</code>
+     * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22[json_name = "subscribePlayersResponse"];</code>
      * @return Whether the subscribePlayersResponse field is set.
      */
     boolean hasSubscribePlayersResponse();
     /**
-     * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22;</code>
+     * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22[json_name = "subscribePlayersResponse"];</code>
      * @return The subscribePlayersResponse.
      */
     ymconnect.v1.Control.SubscribePlayersResponse getSubscribePlayersResponse();
 
     /**
-     * <code>.ymconnect.v1.PlayerEvent player_event = 23;</code>
+     * <code>.ymconnect.v1.PlayerEvent player_event = 23[json_name = "playerEvent"];</code>
      * @return Whether the playerEvent field is set.
      */
     boolean hasPlayerEvent();
     /**
-     * <code>.ymconnect.v1.PlayerEvent player_event = 23;</code>
+     * <code>.ymconnect.v1.PlayerEvent player_event = 23[json_name = "playerEvent"];</code>
      * @return The playerEvent.
      */
     ymconnect.v1.Player.PlayerEvent getPlayerEvent();
 
     /**
-     * <code>.ymconnect.v1.CommandRequest command_request = 24;</code>
+     * <code>.ymconnect.v1.CommandRequest command_request = 24[json_name = "commandRequest"];</code>
      * @return Whether the commandRequest field is set.
      */
     boolean hasCommandRequest();
     /**
-     * <code>.ymconnect.v1.CommandRequest command_request = 24;</code>
+     * <code>.ymconnect.v1.CommandRequest command_request = 24[json_name = "commandRequest"];</code>
      * @return The commandRequest.
      */
     ymconnect.v1.Control.CommandRequest getCommandRequest();
 
     /**
-     * <code>.ymconnect.v1.CommandResult command_result = 25;</code>
+     * <code>.ymconnect.v1.CommandResult command_result = 25[json_name = "commandResult"];</code>
      * @return Whether the commandResult field is set.
      */
     boolean hasCommandResult();
     /**
-     * <code>.ymconnect.v1.CommandResult command_result = 25;</code>
+     * <code>.ymconnect.v1.CommandResult command_result = 25[json_name = "commandResult"];</code>
      * @return The commandResult.
      */
     ymconnect.v1.Control.CommandResult getCommandResult();
 
     /**
-     * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26;</code>
+     * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26[json_name = "selectPlayerRequest"];</code>
      * @return Whether the selectPlayerRequest field is set.
      */
     boolean hasSelectPlayerRequest();
     /**
-     * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26;</code>
+     * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26[json_name = "selectPlayerRequest"];</code>
      * @return The selectPlayerRequest.
      */
     ymconnect.v1.Control.SelectPlayerRequest getSelectPlayerRequest();
 
     /**
-     * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27;</code>
+     * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27[json_name = "selectPlayerResult"];</code>
      * @return Whether the selectPlayerResult field is set.
      */
     boolean hasSelectPlayerResult();
     /**
-     * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27;</code>
+     * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27[json_name = "selectPlayerResult"];</code>
      * @return The selectPlayerResult.
      */
     ymconnect.v1.Control.SelectPlayerResult getSelectPlayerResult();
 
     /**
-     * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28;</code>
+     * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28[json_name = "listTrustedClientsRequest"];</code>
      * @return Whether the listTrustedClientsRequest field is set.
      */
     boolean hasListTrustedClientsRequest();
     /**
-     * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28;</code>
+     * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28[json_name = "listTrustedClientsRequest"];</code>
      * @return The listTrustedClientsRequest.
      */
     ymconnect.v1.Session.ListTrustedClientsRequest getListTrustedClientsRequest();
 
     /**
-     * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29;</code>
+     * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29[json_name = "listTrustedClientsResponse"];</code>
      * @return Whether the listTrustedClientsResponse field is set.
      */
     boolean hasListTrustedClientsResponse();
     /**
-     * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29;</code>
+     * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29[json_name = "listTrustedClientsResponse"];</code>
      * @return The listTrustedClientsResponse.
      */
     ymconnect.v1.Session.ListTrustedClientsResponse getListTrustedClientsResponse();
 
     /**
-     * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30;</code>
+     * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30[json_name = "revokeClientRequest"];</code>
      * @return Whether the revokeClientRequest field is set.
      */
     boolean hasRevokeClientRequest();
     /**
-     * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30;</code>
+     * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30[json_name = "revokeClientRequest"];</code>
      * @return The revokeClientRequest.
      */
     ymconnect.v1.Session.RevokeClientRequest getRevokeClientRequest();
 
     /**
-     * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31;</code>
+     * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31[json_name = "revokeClientResult"];</code>
      * @return Whether the revokeClientResult field is set.
      */
     boolean hasRevokeClientResult();
     /**
-     * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31;</code>
+     * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31[json_name = "revokeClientResult"];</code>
      * @return The revokeClientResult.
      */
     ymconnect.v1.Session.RevokeClientResult getRevokeClientResult();
 
     /**
-     * <code>.ymconnect.v1.ClientPing ping = 32;</code>
+     * <code>.ymconnect.v1.ClientPing ping = 32[json_name = "ping"];</code>
      * @return Whether the ping field is set.
      */
     boolean hasPing();
     /**
-     * <code>.ymconnect.v1.ClientPing ping = 32;</code>
+     * <code>.ymconnect.v1.ClientPing ping = 32[json_name = "ping"];</code>
      * @return The ping.
      */
     ymconnect.v1.Session.ClientPing getPing();
 
     /**
-     * <code>.ymconnect.v1.ClientPong pong = 33;</code>
+     * <code>.ymconnect.v1.ClientPong pong = 33[json_name = "pong"];</code>
      * @return Whether the pong field is set.
      */
     boolean hasPong();
     /**
-     * <code>.ymconnect.v1.ClientPong pong = 33;</code>
+     * <code>.ymconnect.v1.ClientPong pong = 33[json_name = "pong"];</code>
      * @return The pong.
      */
     ymconnect.v1.Session.ClientPong getPong();
 
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 34;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 34[json_name = "error"];</code>
      * @return Whether the error field is set.
      */
     boolean hasError();
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 34;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 34[json_name = "error"];</code>
      * @return The error.
      */
     ymconnect.v1.Errors.ProtocolError getError();
@@ -9992,21 +9992,21 @@ public final class Session {
     public static final int HEADER_FIELD_NUMBER = 1;
     private ymconnect.v1.Common.MessageHeader header_;
     /**
-     * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+     * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
      */
     @java.lang.Override
     public boolean hasHeader() {
       return header_ != null;
     }
     /**
-     * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+     * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.MessageHeader getHeader() {
       return header_ == null ? ymconnect.v1.Common.MessageHeader.getDefaultInstance() : header_;
     }
     /**
-     * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+     * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
      */
     private void setHeader(ymconnect.v1.Common.MessageHeader value) {
       value.getClass();
@@ -10014,7 +10014,7 @@ public final class Session {
       
       }
     /**
-     * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+     * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeHeader(ymconnect.v1.Common.MessageHeader value) {
@@ -10029,7 +10029,7 @@ public final class Session {
       
     }
     /**
-     * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+     * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
      */
     private void clearHeader() {  header_ = null;
       
@@ -10037,14 +10037,14 @@ public final class Session {
 
     public static final int CLIENT_HELLO_FIELD_NUMBER = 10;
     /**
-     * <code>.ymconnect.v1.ClientHello client_hello = 10;</code>
+     * <code>.ymconnect.v1.ClientHello client_hello = 10[json_name = "clientHello"];</code>
      */
     @java.lang.Override
     public boolean hasClientHello() {
       return payloadCase_ == 10;
     }
     /**
-     * <code>.ymconnect.v1.ClientHello client_hello = 10;</code>
+     * <code>.ymconnect.v1.ClientHello client_hello = 10[json_name = "clientHello"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Session.ClientHello getClientHello() {
@@ -10054,7 +10054,7 @@ public final class Session {
       return ymconnect.v1.Session.ClientHello.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ClientHello client_hello = 10;</code>
+     * <code>.ymconnect.v1.ClientHello client_hello = 10[json_name = "clientHello"];</code>
      */
     private void setClientHello(ymconnect.v1.Session.ClientHello value) {
       value.getClass();
@@ -10062,7 +10062,7 @@ public final class Session {
       payloadCase_ = 10;
     }
     /**
-     * <code>.ymconnect.v1.ClientHello client_hello = 10;</code>
+     * <code>.ymconnect.v1.ClientHello client_hello = 10[json_name = "clientHello"];</code>
      */
     private void mergeClientHello(ymconnect.v1.Session.ClientHello value) {
       value.getClass();
@@ -10076,7 +10076,7 @@ public final class Session {
       payloadCase_ = 10;
     }
     /**
-     * <code>.ymconnect.v1.ClientHello client_hello = 10;</code>
+     * <code>.ymconnect.v1.ClientHello client_hello = 10[json_name = "clientHello"];</code>
      */
     private void clearClientHello() {
       if (payloadCase_ == 10) {
@@ -10087,14 +10087,14 @@ public final class Session {
 
     public static final int SERVER_HELLO_FIELD_NUMBER = 11;
     /**
-     * <code>.ymconnect.v1.ServerHello server_hello = 11;</code>
+     * <code>.ymconnect.v1.ServerHello server_hello = 11[json_name = "serverHello"];</code>
      */
     @java.lang.Override
     public boolean hasServerHello() {
       return payloadCase_ == 11;
     }
     /**
-     * <code>.ymconnect.v1.ServerHello server_hello = 11;</code>
+     * <code>.ymconnect.v1.ServerHello server_hello = 11[json_name = "serverHello"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Session.ServerHello getServerHello() {
@@ -10104,7 +10104,7 @@ public final class Session {
       return ymconnect.v1.Session.ServerHello.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ServerHello server_hello = 11;</code>
+     * <code>.ymconnect.v1.ServerHello server_hello = 11[json_name = "serverHello"];</code>
      */
     private void setServerHello(ymconnect.v1.Session.ServerHello value) {
       value.getClass();
@@ -10112,7 +10112,7 @@ public final class Session {
       payloadCase_ = 11;
     }
     /**
-     * <code>.ymconnect.v1.ServerHello server_hello = 11;</code>
+     * <code>.ymconnect.v1.ServerHello server_hello = 11[json_name = "serverHello"];</code>
      */
     private void mergeServerHello(ymconnect.v1.Session.ServerHello value) {
       value.getClass();
@@ -10126,7 +10126,7 @@ public final class Session {
       payloadCase_ = 11;
     }
     /**
-     * <code>.ymconnect.v1.ServerHello server_hello = 11;</code>
+     * <code>.ymconnect.v1.ServerHello server_hello = 11[json_name = "serverHello"];</code>
      */
     private void clearServerHello() {
       if (payloadCase_ == 11) {
@@ -10137,14 +10137,14 @@ public final class Session {
 
     public static final int CLIENT_FINISH_FIELD_NUMBER = 12;
     /**
-     * <code>.ymconnect.v1.ClientFinish client_finish = 12;</code>
+     * <code>.ymconnect.v1.ClientFinish client_finish = 12[json_name = "clientFinish"];</code>
      */
     @java.lang.Override
     public boolean hasClientFinish() {
       return payloadCase_ == 12;
     }
     /**
-     * <code>.ymconnect.v1.ClientFinish client_finish = 12;</code>
+     * <code>.ymconnect.v1.ClientFinish client_finish = 12[json_name = "clientFinish"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Session.ClientFinish getClientFinish() {
@@ -10154,7 +10154,7 @@ public final class Session {
       return ymconnect.v1.Session.ClientFinish.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ClientFinish client_finish = 12;</code>
+     * <code>.ymconnect.v1.ClientFinish client_finish = 12[json_name = "clientFinish"];</code>
      */
     private void setClientFinish(ymconnect.v1.Session.ClientFinish value) {
       value.getClass();
@@ -10162,7 +10162,7 @@ public final class Session {
       payloadCase_ = 12;
     }
     /**
-     * <code>.ymconnect.v1.ClientFinish client_finish = 12;</code>
+     * <code>.ymconnect.v1.ClientFinish client_finish = 12[json_name = "clientFinish"];</code>
      */
     private void mergeClientFinish(ymconnect.v1.Session.ClientFinish value) {
       value.getClass();
@@ -10176,7 +10176,7 @@ public final class Session {
       payloadCase_ = 12;
     }
     /**
-     * <code>.ymconnect.v1.ClientFinish client_finish = 12;</code>
+     * <code>.ymconnect.v1.ClientFinish client_finish = 12[json_name = "clientFinish"];</code>
      */
     private void clearClientFinish() {
       if (payloadCase_ == 12) {
@@ -10187,14 +10187,14 @@ public final class Session {
 
     public static final int SESSION_ESTABLISHED_FIELD_NUMBER = 13;
     /**
-     * <code>.ymconnect.v1.SessionEstablished session_established = 13;</code>
+     * <code>.ymconnect.v1.SessionEstablished session_established = 13[json_name = "sessionEstablished"];</code>
      */
     @java.lang.Override
     public boolean hasSessionEstablished() {
       return payloadCase_ == 13;
     }
     /**
-     * <code>.ymconnect.v1.SessionEstablished session_established = 13;</code>
+     * <code>.ymconnect.v1.SessionEstablished session_established = 13[json_name = "sessionEstablished"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Session.SessionEstablished getSessionEstablished() {
@@ -10204,7 +10204,7 @@ public final class Session {
       return ymconnect.v1.Session.SessionEstablished.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.SessionEstablished session_established = 13;</code>
+     * <code>.ymconnect.v1.SessionEstablished session_established = 13[json_name = "sessionEstablished"];</code>
      */
     private void setSessionEstablished(ymconnect.v1.Session.SessionEstablished value) {
       value.getClass();
@@ -10212,7 +10212,7 @@ public final class Session {
       payloadCase_ = 13;
     }
     /**
-     * <code>.ymconnect.v1.SessionEstablished session_established = 13;</code>
+     * <code>.ymconnect.v1.SessionEstablished session_established = 13[json_name = "sessionEstablished"];</code>
      */
     private void mergeSessionEstablished(ymconnect.v1.Session.SessionEstablished value) {
       value.getClass();
@@ -10226,7 +10226,7 @@ public final class Session {
       payloadCase_ = 13;
     }
     /**
-     * <code>.ymconnect.v1.SessionEstablished session_established = 13;</code>
+     * <code>.ymconnect.v1.SessionEstablished session_established = 13[json_name = "sessionEstablished"];</code>
      */
     private void clearSessionEstablished() {
       if (payloadCase_ == 13) {
@@ -10237,14 +10237,14 @@ public final class Session {
 
     public static final int PAIRING_OFFER_FIELD_NUMBER = 14;
     /**
-     * <code>.ymconnect.v1.PairingOffer pairing_offer = 14;</code>
+     * <code>.ymconnect.v1.PairingOffer pairing_offer = 14[json_name = "pairingOffer"];</code>
      */
     @java.lang.Override
     public boolean hasPairingOffer() {
       return payloadCase_ == 14;
     }
     /**
-     * <code>.ymconnect.v1.PairingOffer pairing_offer = 14;</code>
+     * <code>.ymconnect.v1.PairingOffer pairing_offer = 14[json_name = "pairingOffer"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Session.PairingOffer getPairingOffer() {
@@ -10254,7 +10254,7 @@ public final class Session {
       return ymconnect.v1.Session.PairingOffer.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.PairingOffer pairing_offer = 14;</code>
+     * <code>.ymconnect.v1.PairingOffer pairing_offer = 14[json_name = "pairingOffer"];</code>
      */
     private void setPairingOffer(ymconnect.v1.Session.PairingOffer value) {
       value.getClass();
@@ -10262,7 +10262,7 @@ public final class Session {
       payloadCase_ = 14;
     }
     /**
-     * <code>.ymconnect.v1.PairingOffer pairing_offer = 14;</code>
+     * <code>.ymconnect.v1.PairingOffer pairing_offer = 14[json_name = "pairingOffer"];</code>
      */
     private void mergePairingOffer(ymconnect.v1.Session.PairingOffer value) {
       value.getClass();
@@ -10276,7 +10276,7 @@ public final class Session {
       payloadCase_ = 14;
     }
     /**
-     * <code>.ymconnect.v1.PairingOffer pairing_offer = 14;</code>
+     * <code>.ymconnect.v1.PairingOffer pairing_offer = 14[json_name = "pairingOffer"];</code>
      */
     private void clearPairingOffer() {
       if (payloadCase_ == 14) {
@@ -10287,14 +10287,14 @@ public final class Session {
 
     public static final int PAIRING_REQUEST_FIELD_NUMBER = 15;
     /**
-     * <code>.ymconnect.v1.PairingRequest pairing_request = 15;</code>
+     * <code>.ymconnect.v1.PairingRequest pairing_request = 15[json_name = "pairingRequest"];</code>
      */
     @java.lang.Override
     public boolean hasPairingRequest() {
       return payloadCase_ == 15;
     }
     /**
-     * <code>.ymconnect.v1.PairingRequest pairing_request = 15;</code>
+     * <code>.ymconnect.v1.PairingRequest pairing_request = 15[json_name = "pairingRequest"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Session.PairingRequest getPairingRequest() {
@@ -10304,7 +10304,7 @@ public final class Session {
       return ymconnect.v1.Session.PairingRequest.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.PairingRequest pairing_request = 15;</code>
+     * <code>.ymconnect.v1.PairingRequest pairing_request = 15[json_name = "pairingRequest"];</code>
      */
     private void setPairingRequest(ymconnect.v1.Session.PairingRequest value) {
       value.getClass();
@@ -10312,7 +10312,7 @@ public final class Session {
       payloadCase_ = 15;
     }
     /**
-     * <code>.ymconnect.v1.PairingRequest pairing_request = 15;</code>
+     * <code>.ymconnect.v1.PairingRequest pairing_request = 15[json_name = "pairingRequest"];</code>
      */
     private void mergePairingRequest(ymconnect.v1.Session.PairingRequest value) {
       value.getClass();
@@ -10326,7 +10326,7 @@ public final class Session {
       payloadCase_ = 15;
     }
     /**
-     * <code>.ymconnect.v1.PairingRequest pairing_request = 15;</code>
+     * <code>.ymconnect.v1.PairingRequest pairing_request = 15[json_name = "pairingRequest"];</code>
      */
     private void clearPairingRequest() {
       if (payloadCase_ == 15) {
@@ -10337,14 +10337,14 @@ public final class Session {
 
     public static final int PAIRING_CHALLENGE_FIELD_NUMBER = 16;
     /**
-     * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16;</code>
+     * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16[json_name = "pairingChallenge"];</code>
      */
     @java.lang.Override
     public boolean hasPairingChallenge() {
       return payloadCase_ == 16;
     }
     /**
-     * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16;</code>
+     * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16[json_name = "pairingChallenge"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Session.PairingChallenge getPairingChallenge() {
@@ -10354,7 +10354,7 @@ public final class Session {
       return ymconnect.v1.Session.PairingChallenge.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16;</code>
+     * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16[json_name = "pairingChallenge"];</code>
      */
     private void setPairingChallenge(ymconnect.v1.Session.PairingChallenge value) {
       value.getClass();
@@ -10362,7 +10362,7 @@ public final class Session {
       payloadCase_ = 16;
     }
     /**
-     * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16;</code>
+     * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16[json_name = "pairingChallenge"];</code>
      */
     private void mergePairingChallenge(ymconnect.v1.Session.PairingChallenge value) {
       value.getClass();
@@ -10376,7 +10376,7 @@ public final class Session {
       payloadCase_ = 16;
     }
     /**
-     * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16;</code>
+     * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16[json_name = "pairingChallenge"];</code>
      */
     private void clearPairingChallenge() {
       if (payloadCase_ == 16) {
@@ -10387,14 +10387,14 @@ public final class Session {
 
     public static final int PAIRING_PROOF_FIELD_NUMBER = 17;
     /**
-     * <code>.ymconnect.v1.PairingProof pairing_proof = 17;</code>
+     * <code>.ymconnect.v1.PairingProof pairing_proof = 17[json_name = "pairingProof"];</code>
      */
     @java.lang.Override
     public boolean hasPairingProof() {
       return payloadCase_ == 17;
     }
     /**
-     * <code>.ymconnect.v1.PairingProof pairing_proof = 17;</code>
+     * <code>.ymconnect.v1.PairingProof pairing_proof = 17[json_name = "pairingProof"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Session.PairingProof getPairingProof() {
@@ -10404,7 +10404,7 @@ public final class Session {
       return ymconnect.v1.Session.PairingProof.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.PairingProof pairing_proof = 17;</code>
+     * <code>.ymconnect.v1.PairingProof pairing_proof = 17[json_name = "pairingProof"];</code>
      */
     private void setPairingProof(ymconnect.v1.Session.PairingProof value) {
       value.getClass();
@@ -10412,7 +10412,7 @@ public final class Session {
       payloadCase_ = 17;
     }
     /**
-     * <code>.ymconnect.v1.PairingProof pairing_proof = 17;</code>
+     * <code>.ymconnect.v1.PairingProof pairing_proof = 17[json_name = "pairingProof"];</code>
      */
     private void mergePairingProof(ymconnect.v1.Session.PairingProof value) {
       value.getClass();
@@ -10426,7 +10426,7 @@ public final class Session {
       payloadCase_ = 17;
     }
     /**
-     * <code>.ymconnect.v1.PairingProof pairing_proof = 17;</code>
+     * <code>.ymconnect.v1.PairingProof pairing_proof = 17[json_name = "pairingProof"];</code>
      */
     private void clearPairingProof() {
       if (payloadCase_ == 17) {
@@ -10437,14 +10437,14 @@ public final class Session {
 
     public static final int PAIRING_RESULT_FIELD_NUMBER = 18;
     /**
-     * <code>.ymconnect.v1.PairingResult pairing_result = 18;</code>
+     * <code>.ymconnect.v1.PairingResult pairing_result = 18[json_name = "pairingResult"];</code>
      */
     @java.lang.Override
     public boolean hasPairingResult() {
       return payloadCase_ == 18;
     }
     /**
-     * <code>.ymconnect.v1.PairingResult pairing_result = 18;</code>
+     * <code>.ymconnect.v1.PairingResult pairing_result = 18[json_name = "pairingResult"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Session.PairingResult getPairingResult() {
@@ -10454,7 +10454,7 @@ public final class Session {
       return ymconnect.v1.Session.PairingResult.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.PairingResult pairing_result = 18;</code>
+     * <code>.ymconnect.v1.PairingResult pairing_result = 18[json_name = "pairingResult"];</code>
      */
     private void setPairingResult(ymconnect.v1.Session.PairingResult value) {
       value.getClass();
@@ -10462,7 +10462,7 @@ public final class Session {
       payloadCase_ = 18;
     }
     /**
-     * <code>.ymconnect.v1.PairingResult pairing_result = 18;</code>
+     * <code>.ymconnect.v1.PairingResult pairing_result = 18[json_name = "pairingResult"];</code>
      */
     private void mergePairingResult(ymconnect.v1.Session.PairingResult value) {
       value.getClass();
@@ -10476,7 +10476,7 @@ public final class Session {
       payloadCase_ = 18;
     }
     /**
-     * <code>.ymconnect.v1.PairingResult pairing_result = 18;</code>
+     * <code>.ymconnect.v1.PairingResult pairing_result = 18[json_name = "pairingResult"];</code>
      */
     private void clearPairingResult() {
       if (payloadCase_ == 18) {
@@ -10487,14 +10487,14 @@ public final class Session {
 
     public static final int LIST_PLAYERS_REQUEST_FIELD_NUMBER = 19;
     /**
-     * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19;</code>
+     * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19[json_name = "listPlayersRequest"];</code>
      */
     @java.lang.Override
     public boolean hasListPlayersRequest() {
       return payloadCase_ == 19;
     }
     /**
-     * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19;</code>
+     * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19[json_name = "listPlayersRequest"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.ListPlayersRequest getListPlayersRequest() {
@@ -10504,7 +10504,7 @@ public final class Session {
       return ymconnect.v1.Control.ListPlayersRequest.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19;</code>
+     * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19[json_name = "listPlayersRequest"];</code>
      */
     private void setListPlayersRequest(ymconnect.v1.Control.ListPlayersRequest value) {
       value.getClass();
@@ -10512,7 +10512,7 @@ public final class Session {
       payloadCase_ = 19;
     }
     /**
-     * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19;</code>
+     * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19[json_name = "listPlayersRequest"];</code>
      */
     private void mergeListPlayersRequest(ymconnect.v1.Control.ListPlayersRequest value) {
       value.getClass();
@@ -10526,7 +10526,7 @@ public final class Session {
       payloadCase_ = 19;
     }
     /**
-     * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19;</code>
+     * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19[json_name = "listPlayersRequest"];</code>
      */
     private void clearListPlayersRequest() {
       if (payloadCase_ == 19) {
@@ -10537,14 +10537,14 @@ public final class Session {
 
     public static final int LIST_PLAYERS_RESPONSE_FIELD_NUMBER = 20;
     /**
-     * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20;</code>
+     * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20[json_name = "listPlayersResponse"];</code>
      */
     @java.lang.Override
     public boolean hasListPlayersResponse() {
       return payloadCase_ == 20;
     }
     /**
-     * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20;</code>
+     * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20[json_name = "listPlayersResponse"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.ListPlayersResponse getListPlayersResponse() {
@@ -10554,7 +10554,7 @@ public final class Session {
       return ymconnect.v1.Control.ListPlayersResponse.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20;</code>
+     * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20[json_name = "listPlayersResponse"];</code>
      */
     private void setListPlayersResponse(ymconnect.v1.Control.ListPlayersResponse value) {
       value.getClass();
@@ -10562,7 +10562,7 @@ public final class Session {
       payloadCase_ = 20;
     }
     /**
-     * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20;</code>
+     * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20[json_name = "listPlayersResponse"];</code>
      */
     private void mergeListPlayersResponse(ymconnect.v1.Control.ListPlayersResponse value) {
       value.getClass();
@@ -10576,7 +10576,7 @@ public final class Session {
       payloadCase_ = 20;
     }
     /**
-     * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20;</code>
+     * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20[json_name = "listPlayersResponse"];</code>
      */
     private void clearListPlayersResponse() {
       if (payloadCase_ == 20) {
@@ -10587,14 +10587,14 @@ public final class Session {
 
     public static final int SUBSCRIBE_PLAYERS_REQUEST_FIELD_NUMBER = 21;
     /**
-     * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21;</code>
+     * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21[json_name = "subscribePlayersRequest"];</code>
      */
     @java.lang.Override
     public boolean hasSubscribePlayersRequest() {
       return payloadCase_ == 21;
     }
     /**
-     * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21;</code>
+     * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21[json_name = "subscribePlayersRequest"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.SubscribePlayersRequest getSubscribePlayersRequest() {
@@ -10604,7 +10604,7 @@ public final class Session {
       return ymconnect.v1.Control.SubscribePlayersRequest.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21;</code>
+     * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21[json_name = "subscribePlayersRequest"];</code>
      */
     private void setSubscribePlayersRequest(ymconnect.v1.Control.SubscribePlayersRequest value) {
       value.getClass();
@@ -10612,7 +10612,7 @@ public final class Session {
       payloadCase_ = 21;
     }
     /**
-     * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21;</code>
+     * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21[json_name = "subscribePlayersRequest"];</code>
      */
     private void mergeSubscribePlayersRequest(ymconnect.v1.Control.SubscribePlayersRequest value) {
       value.getClass();
@@ -10626,7 +10626,7 @@ public final class Session {
       payloadCase_ = 21;
     }
     /**
-     * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21;</code>
+     * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21[json_name = "subscribePlayersRequest"];</code>
      */
     private void clearSubscribePlayersRequest() {
       if (payloadCase_ == 21) {
@@ -10637,14 +10637,14 @@ public final class Session {
 
     public static final int SUBSCRIBE_PLAYERS_RESPONSE_FIELD_NUMBER = 22;
     /**
-     * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22;</code>
+     * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22[json_name = "subscribePlayersResponse"];</code>
      */
     @java.lang.Override
     public boolean hasSubscribePlayersResponse() {
       return payloadCase_ == 22;
     }
     /**
-     * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22;</code>
+     * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22[json_name = "subscribePlayersResponse"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.SubscribePlayersResponse getSubscribePlayersResponse() {
@@ -10654,7 +10654,7 @@ public final class Session {
       return ymconnect.v1.Control.SubscribePlayersResponse.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22;</code>
+     * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22[json_name = "subscribePlayersResponse"];</code>
      */
     private void setSubscribePlayersResponse(ymconnect.v1.Control.SubscribePlayersResponse value) {
       value.getClass();
@@ -10662,7 +10662,7 @@ public final class Session {
       payloadCase_ = 22;
     }
     /**
-     * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22;</code>
+     * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22[json_name = "subscribePlayersResponse"];</code>
      */
     private void mergeSubscribePlayersResponse(ymconnect.v1.Control.SubscribePlayersResponse value) {
       value.getClass();
@@ -10676,7 +10676,7 @@ public final class Session {
       payloadCase_ = 22;
     }
     /**
-     * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22;</code>
+     * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22[json_name = "subscribePlayersResponse"];</code>
      */
     private void clearSubscribePlayersResponse() {
       if (payloadCase_ == 22) {
@@ -10687,14 +10687,14 @@ public final class Session {
 
     public static final int PLAYER_EVENT_FIELD_NUMBER = 23;
     /**
-     * <code>.ymconnect.v1.PlayerEvent player_event = 23;</code>
+     * <code>.ymconnect.v1.PlayerEvent player_event = 23[json_name = "playerEvent"];</code>
      */
     @java.lang.Override
     public boolean hasPlayerEvent() {
       return payloadCase_ == 23;
     }
     /**
-     * <code>.ymconnect.v1.PlayerEvent player_event = 23;</code>
+     * <code>.ymconnect.v1.PlayerEvent player_event = 23[json_name = "playerEvent"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Player.PlayerEvent getPlayerEvent() {
@@ -10704,7 +10704,7 @@ public final class Session {
       return ymconnect.v1.Player.PlayerEvent.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.PlayerEvent player_event = 23;</code>
+     * <code>.ymconnect.v1.PlayerEvent player_event = 23[json_name = "playerEvent"];</code>
      */
     private void setPlayerEvent(ymconnect.v1.Player.PlayerEvent value) {
       value.getClass();
@@ -10712,7 +10712,7 @@ public final class Session {
       payloadCase_ = 23;
     }
     /**
-     * <code>.ymconnect.v1.PlayerEvent player_event = 23;</code>
+     * <code>.ymconnect.v1.PlayerEvent player_event = 23[json_name = "playerEvent"];</code>
      */
     private void mergePlayerEvent(ymconnect.v1.Player.PlayerEvent value) {
       value.getClass();
@@ -10726,7 +10726,7 @@ public final class Session {
       payloadCase_ = 23;
     }
     /**
-     * <code>.ymconnect.v1.PlayerEvent player_event = 23;</code>
+     * <code>.ymconnect.v1.PlayerEvent player_event = 23[json_name = "playerEvent"];</code>
      */
     private void clearPlayerEvent() {
       if (payloadCase_ == 23) {
@@ -10737,14 +10737,14 @@ public final class Session {
 
     public static final int COMMAND_REQUEST_FIELD_NUMBER = 24;
     /**
-     * <code>.ymconnect.v1.CommandRequest command_request = 24;</code>
+     * <code>.ymconnect.v1.CommandRequest command_request = 24[json_name = "commandRequest"];</code>
      */
     @java.lang.Override
     public boolean hasCommandRequest() {
       return payloadCase_ == 24;
     }
     /**
-     * <code>.ymconnect.v1.CommandRequest command_request = 24;</code>
+     * <code>.ymconnect.v1.CommandRequest command_request = 24[json_name = "commandRequest"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.CommandRequest getCommandRequest() {
@@ -10754,7 +10754,7 @@ public final class Session {
       return ymconnect.v1.Control.CommandRequest.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.CommandRequest command_request = 24;</code>
+     * <code>.ymconnect.v1.CommandRequest command_request = 24[json_name = "commandRequest"];</code>
      */
     private void setCommandRequest(ymconnect.v1.Control.CommandRequest value) {
       value.getClass();
@@ -10762,7 +10762,7 @@ public final class Session {
       payloadCase_ = 24;
     }
     /**
-     * <code>.ymconnect.v1.CommandRequest command_request = 24;</code>
+     * <code>.ymconnect.v1.CommandRequest command_request = 24[json_name = "commandRequest"];</code>
      */
     private void mergeCommandRequest(ymconnect.v1.Control.CommandRequest value) {
       value.getClass();
@@ -10776,7 +10776,7 @@ public final class Session {
       payloadCase_ = 24;
     }
     /**
-     * <code>.ymconnect.v1.CommandRequest command_request = 24;</code>
+     * <code>.ymconnect.v1.CommandRequest command_request = 24[json_name = "commandRequest"];</code>
      */
     private void clearCommandRequest() {
       if (payloadCase_ == 24) {
@@ -10787,14 +10787,14 @@ public final class Session {
 
     public static final int COMMAND_RESULT_FIELD_NUMBER = 25;
     /**
-     * <code>.ymconnect.v1.CommandResult command_result = 25;</code>
+     * <code>.ymconnect.v1.CommandResult command_result = 25[json_name = "commandResult"];</code>
      */
     @java.lang.Override
     public boolean hasCommandResult() {
       return payloadCase_ == 25;
     }
     /**
-     * <code>.ymconnect.v1.CommandResult command_result = 25;</code>
+     * <code>.ymconnect.v1.CommandResult command_result = 25[json_name = "commandResult"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.CommandResult getCommandResult() {
@@ -10804,7 +10804,7 @@ public final class Session {
       return ymconnect.v1.Control.CommandResult.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.CommandResult command_result = 25;</code>
+     * <code>.ymconnect.v1.CommandResult command_result = 25[json_name = "commandResult"];</code>
      */
     private void setCommandResult(ymconnect.v1.Control.CommandResult value) {
       value.getClass();
@@ -10812,7 +10812,7 @@ public final class Session {
       payloadCase_ = 25;
     }
     /**
-     * <code>.ymconnect.v1.CommandResult command_result = 25;</code>
+     * <code>.ymconnect.v1.CommandResult command_result = 25[json_name = "commandResult"];</code>
      */
     private void mergeCommandResult(ymconnect.v1.Control.CommandResult value) {
       value.getClass();
@@ -10826,7 +10826,7 @@ public final class Session {
       payloadCase_ = 25;
     }
     /**
-     * <code>.ymconnect.v1.CommandResult command_result = 25;</code>
+     * <code>.ymconnect.v1.CommandResult command_result = 25[json_name = "commandResult"];</code>
      */
     private void clearCommandResult() {
       if (payloadCase_ == 25) {
@@ -10837,14 +10837,14 @@ public final class Session {
 
     public static final int SELECT_PLAYER_REQUEST_FIELD_NUMBER = 26;
     /**
-     * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26;</code>
+     * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26[json_name = "selectPlayerRequest"];</code>
      */
     @java.lang.Override
     public boolean hasSelectPlayerRequest() {
       return payloadCase_ == 26;
     }
     /**
-     * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26;</code>
+     * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26[json_name = "selectPlayerRequest"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.SelectPlayerRequest getSelectPlayerRequest() {
@@ -10854,7 +10854,7 @@ public final class Session {
       return ymconnect.v1.Control.SelectPlayerRequest.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26;</code>
+     * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26[json_name = "selectPlayerRequest"];</code>
      */
     private void setSelectPlayerRequest(ymconnect.v1.Control.SelectPlayerRequest value) {
       value.getClass();
@@ -10862,7 +10862,7 @@ public final class Session {
       payloadCase_ = 26;
     }
     /**
-     * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26;</code>
+     * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26[json_name = "selectPlayerRequest"];</code>
      */
     private void mergeSelectPlayerRequest(ymconnect.v1.Control.SelectPlayerRequest value) {
       value.getClass();
@@ -10876,7 +10876,7 @@ public final class Session {
       payloadCase_ = 26;
     }
     /**
-     * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26;</code>
+     * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26[json_name = "selectPlayerRequest"];</code>
      */
     private void clearSelectPlayerRequest() {
       if (payloadCase_ == 26) {
@@ -10887,14 +10887,14 @@ public final class Session {
 
     public static final int SELECT_PLAYER_RESULT_FIELD_NUMBER = 27;
     /**
-     * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27;</code>
+     * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27[json_name = "selectPlayerResult"];</code>
      */
     @java.lang.Override
     public boolean hasSelectPlayerResult() {
       return payloadCase_ == 27;
     }
     /**
-     * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27;</code>
+     * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27[json_name = "selectPlayerResult"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.SelectPlayerResult getSelectPlayerResult() {
@@ -10904,7 +10904,7 @@ public final class Session {
       return ymconnect.v1.Control.SelectPlayerResult.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27;</code>
+     * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27[json_name = "selectPlayerResult"];</code>
      */
     private void setSelectPlayerResult(ymconnect.v1.Control.SelectPlayerResult value) {
       value.getClass();
@@ -10912,7 +10912,7 @@ public final class Session {
       payloadCase_ = 27;
     }
     /**
-     * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27;</code>
+     * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27[json_name = "selectPlayerResult"];</code>
      */
     private void mergeSelectPlayerResult(ymconnect.v1.Control.SelectPlayerResult value) {
       value.getClass();
@@ -10926,7 +10926,7 @@ public final class Session {
       payloadCase_ = 27;
     }
     /**
-     * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27;</code>
+     * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27[json_name = "selectPlayerResult"];</code>
      */
     private void clearSelectPlayerResult() {
       if (payloadCase_ == 27) {
@@ -10937,14 +10937,14 @@ public final class Session {
 
     public static final int LIST_TRUSTED_CLIENTS_REQUEST_FIELD_NUMBER = 28;
     /**
-     * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28;</code>
+     * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28[json_name = "listTrustedClientsRequest"];</code>
      */
     @java.lang.Override
     public boolean hasListTrustedClientsRequest() {
       return payloadCase_ == 28;
     }
     /**
-     * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28;</code>
+     * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28[json_name = "listTrustedClientsRequest"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Session.ListTrustedClientsRequest getListTrustedClientsRequest() {
@@ -10954,7 +10954,7 @@ public final class Session {
       return ymconnect.v1.Session.ListTrustedClientsRequest.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28;</code>
+     * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28[json_name = "listTrustedClientsRequest"];</code>
      */
     private void setListTrustedClientsRequest(ymconnect.v1.Session.ListTrustedClientsRequest value) {
       value.getClass();
@@ -10962,7 +10962,7 @@ public final class Session {
       payloadCase_ = 28;
     }
     /**
-     * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28;</code>
+     * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28[json_name = "listTrustedClientsRequest"];</code>
      */
     private void mergeListTrustedClientsRequest(ymconnect.v1.Session.ListTrustedClientsRequest value) {
       value.getClass();
@@ -10976,7 +10976,7 @@ public final class Session {
       payloadCase_ = 28;
     }
     /**
-     * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28;</code>
+     * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28[json_name = "listTrustedClientsRequest"];</code>
      */
     private void clearListTrustedClientsRequest() {
       if (payloadCase_ == 28) {
@@ -10987,14 +10987,14 @@ public final class Session {
 
     public static final int LIST_TRUSTED_CLIENTS_RESPONSE_FIELD_NUMBER = 29;
     /**
-     * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29;</code>
+     * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29[json_name = "listTrustedClientsResponse"];</code>
      */
     @java.lang.Override
     public boolean hasListTrustedClientsResponse() {
       return payloadCase_ == 29;
     }
     /**
-     * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29;</code>
+     * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29[json_name = "listTrustedClientsResponse"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Session.ListTrustedClientsResponse getListTrustedClientsResponse() {
@@ -11004,7 +11004,7 @@ public final class Session {
       return ymconnect.v1.Session.ListTrustedClientsResponse.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29;</code>
+     * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29[json_name = "listTrustedClientsResponse"];</code>
      */
     private void setListTrustedClientsResponse(ymconnect.v1.Session.ListTrustedClientsResponse value) {
       value.getClass();
@@ -11012,7 +11012,7 @@ public final class Session {
       payloadCase_ = 29;
     }
     /**
-     * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29;</code>
+     * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29[json_name = "listTrustedClientsResponse"];</code>
      */
     private void mergeListTrustedClientsResponse(ymconnect.v1.Session.ListTrustedClientsResponse value) {
       value.getClass();
@@ -11026,7 +11026,7 @@ public final class Session {
       payloadCase_ = 29;
     }
     /**
-     * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29;</code>
+     * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29[json_name = "listTrustedClientsResponse"];</code>
      */
     private void clearListTrustedClientsResponse() {
       if (payloadCase_ == 29) {
@@ -11037,14 +11037,14 @@ public final class Session {
 
     public static final int REVOKE_CLIENT_REQUEST_FIELD_NUMBER = 30;
     /**
-     * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30;</code>
+     * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30[json_name = "revokeClientRequest"];</code>
      */
     @java.lang.Override
     public boolean hasRevokeClientRequest() {
       return payloadCase_ == 30;
     }
     /**
-     * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30;</code>
+     * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30[json_name = "revokeClientRequest"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Session.RevokeClientRequest getRevokeClientRequest() {
@@ -11054,7 +11054,7 @@ public final class Session {
       return ymconnect.v1.Session.RevokeClientRequest.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30;</code>
+     * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30[json_name = "revokeClientRequest"];</code>
      */
     private void setRevokeClientRequest(ymconnect.v1.Session.RevokeClientRequest value) {
       value.getClass();
@@ -11062,7 +11062,7 @@ public final class Session {
       payloadCase_ = 30;
     }
     /**
-     * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30;</code>
+     * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30[json_name = "revokeClientRequest"];</code>
      */
     private void mergeRevokeClientRequest(ymconnect.v1.Session.RevokeClientRequest value) {
       value.getClass();
@@ -11076,7 +11076,7 @@ public final class Session {
       payloadCase_ = 30;
     }
     /**
-     * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30;</code>
+     * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30[json_name = "revokeClientRequest"];</code>
      */
     private void clearRevokeClientRequest() {
       if (payloadCase_ == 30) {
@@ -11087,14 +11087,14 @@ public final class Session {
 
     public static final int REVOKE_CLIENT_RESULT_FIELD_NUMBER = 31;
     /**
-     * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31;</code>
+     * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31[json_name = "revokeClientResult"];</code>
      */
     @java.lang.Override
     public boolean hasRevokeClientResult() {
       return payloadCase_ == 31;
     }
     /**
-     * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31;</code>
+     * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31[json_name = "revokeClientResult"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Session.RevokeClientResult getRevokeClientResult() {
@@ -11104,7 +11104,7 @@ public final class Session {
       return ymconnect.v1.Session.RevokeClientResult.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31;</code>
+     * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31[json_name = "revokeClientResult"];</code>
      */
     private void setRevokeClientResult(ymconnect.v1.Session.RevokeClientResult value) {
       value.getClass();
@@ -11112,7 +11112,7 @@ public final class Session {
       payloadCase_ = 31;
     }
     /**
-     * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31;</code>
+     * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31[json_name = "revokeClientResult"];</code>
      */
     private void mergeRevokeClientResult(ymconnect.v1.Session.RevokeClientResult value) {
       value.getClass();
@@ -11126,7 +11126,7 @@ public final class Session {
       payloadCase_ = 31;
     }
     /**
-     * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31;</code>
+     * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31[json_name = "revokeClientResult"];</code>
      */
     private void clearRevokeClientResult() {
       if (payloadCase_ == 31) {
@@ -11137,14 +11137,14 @@ public final class Session {
 
     public static final int PING_FIELD_NUMBER = 32;
     /**
-     * <code>.ymconnect.v1.ClientPing ping = 32;</code>
+     * <code>.ymconnect.v1.ClientPing ping = 32[json_name = "ping"];</code>
      */
     @java.lang.Override
     public boolean hasPing() {
       return payloadCase_ == 32;
     }
     /**
-     * <code>.ymconnect.v1.ClientPing ping = 32;</code>
+     * <code>.ymconnect.v1.ClientPing ping = 32[json_name = "ping"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Session.ClientPing getPing() {
@@ -11154,7 +11154,7 @@ public final class Session {
       return ymconnect.v1.Session.ClientPing.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ClientPing ping = 32;</code>
+     * <code>.ymconnect.v1.ClientPing ping = 32[json_name = "ping"];</code>
      */
     private void setPing(ymconnect.v1.Session.ClientPing value) {
       value.getClass();
@@ -11162,7 +11162,7 @@ public final class Session {
       payloadCase_ = 32;
     }
     /**
-     * <code>.ymconnect.v1.ClientPing ping = 32;</code>
+     * <code>.ymconnect.v1.ClientPing ping = 32[json_name = "ping"];</code>
      */
     private void mergePing(ymconnect.v1.Session.ClientPing value) {
       value.getClass();
@@ -11176,7 +11176,7 @@ public final class Session {
       payloadCase_ = 32;
     }
     /**
-     * <code>.ymconnect.v1.ClientPing ping = 32;</code>
+     * <code>.ymconnect.v1.ClientPing ping = 32[json_name = "ping"];</code>
      */
     private void clearPing() {
       if (payloadCase_ == 32) {
@@ -11187,14 +11187,14 @@ public final class Session {
 
     public static final int PONG_FIELD_NUMBER = 33;
     /**
-     * <code>.ymconnect.v1.ClientPong pong = 33;</code>
+     * <code>.ymconnect.v1.ClientPong pong = 33[json_name = "pong"];</code>
      */
     @java.lang.Override
     public boolean hasPong() {
       return payloadCase_ == 33;
     }
     /**
-     * <code>.ymconnect.v1.ClientPong pong = 33;</code>
+     * <code>.ymconnect.v1.ClientPong pong = 33[json_name = "pong"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Session.ClientPong getPong() {
@@ -11204,7 +11204,7 @@ public final class Session {
       return ymconnect.v1.Session.ClientPong.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ClientPong pong = 33;</code>
+     * <code>.ymconnect.v1.ClientPong pong = 33[json_name = "pong"];</code>
      */
     private void setPong(ymconnect.v1.Session.ClientPong value) {
       value.getClass();
@@ -11212,7 +11212,7 @@ public final class Session {
       payloadCase_ = 33;
     }
     /**
-     * <code>.ymconnect.v1.ClientPong pong = 33;</code>
+     * <code>.ymconnect.v1.ClientPong pong = 33[json_name = "pong"];</code>
      */
     private void mergePong(ymconnect.v1.Session.ClientPong value) {
       value.getClass();
@@ -11226,7 +11226,7 @@ public final class Session {
       payloadCase_ = 33;
     }
     /**
-     * <code>.ymconnect.v1.ClientPong pong = 33;</code>
+     * <code>.ymconnect.v1.ClientPong pong = 33[json_name = "pong"];</code>
      */
     private void clearPong() {
       if (payloadCase_ == 33) {
@@ -11237,14 +11237,14 @@ public final class Session {
 
     public static final int ERROR_FIELD_NUMBER = 34;
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 34;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 34[json_name = "error"];</code>
      */
     @java.lang.Override
     public boolean hasError() {
       return payloadCase_ == 34;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 34;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 34[json_name = "error"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Errors.ProtocolError getError() {
@@ -11254,7 +11254,7 @@ public final class Session {
       return ymconnect.v1.Errors.ProtocolError.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 34;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 34[json_name = "error"];</code>
      */
     private void setError(ymconnect.v1.Errors.ProtocolError value) {
       value.getClass();
@@ -11262,7 +11262,7 @@ public final class Session {
       payloadCase_ = 34;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 34;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 34[json_name = "error"];</code>
      */
     private void mergeError(ymconnect.v1.Errors.ProtocolError value) {
       value.getClass();
@@ -11276,7 +11276,7 @@ public final class Session {
       payloadCase_ = 34;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 34;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 34[json_name = "error"];</code>
      */
     private void clearError() {
       if (payloadCase_ == 34) {
@@ -11393,21 +11393,21 @@ public final class Session {
 
 
       /**
-       * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+       * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
        */
       @java.lang.Override
       public boolean hasHeader() {
         return instance.hasHeader();
       }
       /**
-       * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+       * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.MessageHeader getHeader() {
         return instance.getHeader();
       }
       /**
-       * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+       * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
        */
       public Builder setHeader(ymconnect.v1.Common.MessageHeader value) {
         copyOnWrite();
@@ -11415,7 +11415,7 @@ public final class Session {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+       * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
        */
       public Builder setHeader(
           ymconnect.v1.Common.MessageHeader.Builder builderForValue) {
@@ -11424,7 +11424,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+       * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
        */
       public Builder mergeHeader(ymconnect.v1.Common.MessageHeader value) {
         copyOnWrite();
@@ -11432,7 +11432,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+       * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
        */
       public Builder clearHeader() {  copyOnWrite();
         instance.clearHeader();
@@ -11440,21 +11440,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.ClientHello client_hello = 10;</code>
+       * <code>.ymconnect.v1.ClientHello client_hello = 10[json_name = "clientHello"];</code>
        */
       @java.lang.Override
       public boolean hasClientHello() {
         return instance.hasClientHello();
       }
       /**
-       * <code>.ymconnect.v1.ClientHello client_hello = 10;</code>
+       * <code>.ymconnect.v1.ClientHello client_hello = 10[json_name = "clientHello"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Session.ClientHello getClientHello() {
         return instance.getClientHello();
       }
       /**
-       * <code>.ymconnect.v1.ClientHello client_hello = 10;</code>
+       * <code>.ymconnect.v1.ClientHello client_hello = 10[json_name = "clientHello"];</code>
        */
       public Builder setClientHello(ymconnect.v1.Session.ClientHello value) {
         copyOnWrite();
@@ -11462,7 +11462,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ClientHello client_hello = 10;</code>
+       * <code>.ymconnect.v1.ClientHello client_hello = 10[json_name = "clientHello"];</code>
        */
       public Builder setClientHello(
           ymconnect.v1.Session.ClientHello.Builder builderForValue) {
@@ -11471,7 +11471,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ClientHello client_hello = 10;</code>
+       * <code>.ymconnect.v1.ClientHello client_hello = 10[json_name = "clientHello"];</code>
        */
       public Builder mergeClientHello(ymconnect.v1.Session.ClientHello value) {
         copyOnWrite();
@@ -11479,7 +11479,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ClientHello client_hello = 10;</code>
+       * <code>.ymconnect.v1.ClientHello client_hello = 10[json_name = "clientHello"];</code>
        */
       public Builder clearClientHello() {
         copyOnWrite();
@@ -11488,21 +11488,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.ServerHello server_hello = 11;</code>
+       * <code>.ymconnect.v1.ServerHello server_hello = 11[json_name = "serverHello"];</code>
        */
       @java.lang.Override
       public boolean hasServerHello() {
         return instance.hasServerHello();
       }
       /**
-       * <code>.ymconnect.v1.ServerHello server_hello = 11;</code>
+       * <code>.ymconnect.v1.ServerHello server_hello = 11[json_name = "serverHello"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Session.ServerHello getServerHello() {
         return instance.getServerHello();
       }
       /**
-       * <code>.ymconnect.v1.ServerHello server_hello = 11;</code>
+       * <code>.ymconnect.v1.ServerHello server_hello = 11[json_name = "serverHello"];</code>
        */
       public Builder setServerHello(ymconnect.v1.Session.ServerHello value) {
         copyOnWrite();
@@ -11510,7 +11510,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ServerHello server_hello = 11;</code>
+       * <code>.ymconnect.v1.ServerHello server_hello = 11[json_name = "serverHello"];</code>
        */
       public Builder setServerHello(
           ymconnect.v1.Session.ServerHello.Builder builderForValue) {
@@ -11519,7 +11519,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ServerHello server_hello = 11;</code>
+       * <code>.ymconnect.v1.ServerHello server_hello = 11[json_name = "serverHello"];</code>
        */
       public Builder mergeServerHello(ymconnect.v1.Session.ServerHello value) {
         copyOnWrite();
@@ -11527,7 +11527,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ServerHello server_hello = 11;</code>
+       * <code>.ymconnect.v1.ServerHello server_hello = 11[json_name = "serverHello"];</code>
        */
       public Builder clearServerHello() {
         copyOnWrite();
@@ -11536,21 +11536,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.ClientFinish client_finish = 12;</code>
+       * <code>.ymconnect.v1.ClientFinish client_finish = 12[json_name = "clientFinish"];</code>
        */
       @java.lang.Override
       public boolean hasClientFinish() {
         return instance.hasClientFinish();
       }
       /**
-       * <code>.ymconnect.v1.ClientFinish client_finish = 12;</code>
+       * <code>.ymconnect.v1.ClientFinish client_finish = 12[json_name = "clientFinish"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Session.ClientFinish getClientFinish() {
         return instance.getClientFinish();
       }
       /**
-       * <code>.ymconnect.v1.ClientFinish client_finish = 12;</code>
+       * <code>.ymconnect.v1.ClientFinish client_finish = 12[json_name = "clientFinish"];</code>
        */
       public Builder setClientFinish(ymconnect.v1.Session.ClientFinish value) {
         copyOnWrite();
@@ -11558,7 +11558,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ClientFinish client_finish = 12;</code>
+       * <code>.ymconnect.v1.ClientFinish client_finish = 12[json_name = "clientFinish"];</code>
        */
       public Builder setClientFinish(
           ymconnect.v1.Session.ClientFinish.Builder builderForValue) {
@@ -11567,7 +11567,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ClientFinish client_finish = 12;</code>
+       * <code>.ymconnect.v1.ClientFinish client_finish = 12[json_name = "clientFinish"];</code>
        */
       public Builder mergeClientFinish(ymconnect.v1.Session.ClientFinish value) {
         copyOnWrite();
@@ -11575,7 +11575,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ClientFinish client_finish = 12;</code>
+       * <code>.ymconnect.v1.ClientFinish client_finish = 12[json_name = "clientFinish"];</code>
        */
       public Builder clearClientFinish() {
         copyOnWrite();
@@ -11584,21 +11584,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.SessionEstablished session_established = 13;</code>
+       * <code>.ymconnect.v1.SessionEstablished session_established = 13[json_name = "sessionEstablished"];</code>
        */
       @java.lang.Override
       public boolean hasSessionEstablished() {
         return instance.hasSessionEstablished();
       }
       /**
-       * <code>.ymconnect.v1.SessionEstablished session_established = 13;</code>
+       * <code>.ymconnect.v1.SessionEstablished session_established = 13[json_name = "sessionEstablished"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Session.SessionEstablished getSessionEstablished() {
         return instance.getSessionEstablished();
       }
       /**
-       * <code>.ymconnect.v1.SessionEstablished session_established = 13;</code>
+       * <code>.ymconnect.v1.SessionEstablished session_established = 13[json_name = "sessionEstablished"];</code>
        */
       public Builder setSessionEstablished(ymconnect.v1.Session.SessionEstablished value) {
         copyOnWrite();
@@ -11606,7 +11606,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SessionEstablished session_established = 13;</code>
+       * <code>.ymconnect.v1.SessionEstablished session_established = 13[json_name = "sessionEstablished"];</code>
        */
       public Builder setSessionEstablished(
           ymconnect.v1.Session.SessionEstablished.Builder builderForValue) {
@@ -11615,7 +11615,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SessionEstablished session_established = 13;</code>
+       * <code>.ymconnect.v1.SessionEstablished session_established = 13[json_name = "sessionEstablished"];</code>
        */
       public Builder mergeSessionEstablished(ymconnect.v1.Session.SessionEstablished value) {
         copyOnWrite();
@@ -11623,7 +11623,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SessionEstablished session_established = 13;</code>
+       * <code>.ymconnect.v1.SessionEstablished session_established = 13[json_name = "sessionEstablished"];</code>
        */
       public Builder clearSessionEstablished() {
         copyOnWrite();
@@ -11632,21 +11632,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.PairingOffer pairing_offer = 14;</code>
+       * <code>.ymconnect.v1.PairingOffer pairing_offer = 14[json_name = "pairingOffer"];</code>
        */
       @java.lang.Override
       public boolean hasPairingOffer() {
         return instance.hasPairingOffer();
       }
       /**
-       * <code>.ymconnect.v1.PairingOffer pairing_offer = 14;</code>
+       * <code>.ymconnect.v1.PairingOffer pairing_offer = 14[json_name = "pairingOffer"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Session.PairingOffer getPairingOffer() {
         return instance.getPairingOffer();
       }
       /**
-       * <code>.ymconnect.v1.PairingOffer pairing_offer = 14;</code>
+       * <code>.ymconnect.v1.PairingOffer pairing_offer = 14[json_name = "pairingOffer"];</code>
        */
       public Builder setPairingOffer(ymconnect.v1.Session.PairingOffer value) {
         copyOnWrite();
@@ -11654,7 +11654,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingOffer pairing_offer = 14;</code>
+       * <code>.ymconnect.v1.PairingOffer pairing_offer = 14[json_name = "pairingOffer"];</code>
        */
       public Builder setPairingOffer(
           ymconnect.v1.Session.PairingOffer.Builder builderForValue) {
@@ -11663,7 +11663,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingOffer pairing_offer = 14;</code>
+       * <code>.ymconnect.v1.PairingOffer pairing_offer = 14[json_name = "pairingOffer"];</code>
        */
       public Builder mergePairingOffer(ymconnect.v1.Session.PairingOffer value) {
         copyOnWrite();
@@ -11671,7 +11671,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingOffer pairing_offer = 14;</code>
+       * <code>.ymconnect.v1.PairingOffer pairing_offer = 14[json_name = "pairingOffer"];</code>
        */
       public Builder clearPairingOffer() {
         copyOnWrite();
@@ -11680,21 +11680,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.PairingRequest pairing_request = 15;</code>
+       * <code>.ymconnect.v1.PairingRequest pairing_request = 15[json_name = "pairingRequest"];</code>
        */
       @java.lang.Override
       public boolean hasPairingRequest() {
         return instance.hasPairingRequest();
       }
       /**
-       * <code>.ymconnect.v1.PairingRequest pairing_request = 15;</code>
+       * <code>.ymconnect.v1.PairingRequest pairing_request = 15[json_name = "pairingRequest"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Session.PairingRequest getPairingRequest() {
         return instance.getPairingRequest();
       }
       /**
-       * <code>.ymconnect.v1.PairingRequest pairing_request = 15;</code>
+       * <code>.ymconnect.v1.PairingRequest pairing_request = 15[json_name = "pairingRequest"];</code>
        */
       public Builder setPairingRequest(ymconnect.v1.Session.PairingRequest value) {
         copyOnWrite();
@@ -11702,7 +11702,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingRequest pairing_request = 15;</code>
+       * <code>.ymconnect.v1.PairingRequest pairing_request = 15[json_name = "pairingRequest"];</code>
        */
       public Builder setPairingRequest(
           ymconnect.v1.Session.PairingRequest.Builder builderForValue) {
@@ -11711,7 +11711,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingRequest pairing_request = 15;</code>
+       * <code>.ymconnect.v1.PairingRequest pairing_request = 15[json_name = "pairingRequest"];</code>
        */
       public Builder mergePairingRequest(ymconnect.v1.Session.PairingRequest value) {
         copyOnWrite();
@@ -11719,7 +11719,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingRequest pairing_request = 15;</code>
+       * <code>.ymconnect.v1.PairingRequest pairing_request = 15[json_name = "pairingRequest"];</code>
        */
       public Builder clearPairingRequest() {
         copyOnWrite();
@@ -11728,21 +11728,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16;</code>
+       * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16[json_name = "pairingChallenge"];</code>
        */
       @java.lang.Override
       public boolean hasPairingChallenge() {
         return instance.hasPairingChallenge();
       }
       /**
-       * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16;</code>
+       * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16[json_name = "pairingChallenge"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Session.PairingChallenge getPairingChallenge() {
         return instance.getPairingChallenge();
       }
       /**
-       * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16;</code>
+       * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16[json_name = "pairingChallenge"];</code>
        */
       public Builder setPairingChallenge(ymconnect.v1.Session.PairingChallenge value) {
         copyOnWrite();
@@ -11750,7 +11750,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16;</code>
+       * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16[json_name = "pairingChallenge"];</code>
        */
       public Builder setPairingChallenge(
           ymconnect.v1.Session.PairingChallenge.Builder builderForValue) {
@@ -11759,7 +11759,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16;</code>
+       * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16[json_name = "pairingChallenge"];</code>
        */
       public Builder mergePairingChallenge(ymconnect.v1.Session.PairingChallenge value) {
         copyOnWrite();
@@ -11767,7 +11767,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16;</code>
+       * <code>.ymconnect.v1.PairingChallenge pairing_challenge = 16[json_name = "pairingChallenge"];</code>
        */
       public Builder clearPairingChallenge() {
         copyOnWrite();
@@ -11776,21 +11776,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.PairingProof pairing_proof = 17;</code>
+       * <code>.ymconnect.v1.PairingProof pairing_proof = 17[json_name = "pairingProof"];</code>
        */
       @java.lang.Override
       public boolean hasPairingProof() {
         return instance.hasPairingProof();
       }
       /**
-       * <code>.ymconnect.v1.PairingProof pairing_proof = 17;</code>
+       * <code>.ymconnect.v1.PairingProof pairing_proof = 17[json_name = "pairingProof"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Session.PairingProof getPairingProof() {
         return instance.getPairingProof();
       }
       /**
-       * <code>.ymconnect.v1.PairingProof pairing_proof = 17;</code>
+       * <code>.ymconnect.v1.PairingProof pairing_proof = 17[json_name = "pairingProof"];</code>
        */
       public Builder setPairingProof(ymconnect.v1.Session.PairingProof value) {
         copyOnWrite();
@@ -11798,7 +11798,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingProof pairing_proof = 17;</code>
+       * <code>.ymconnect.v1.PairingProof pairing_proof = 17[json_name = "pairingProof"];</code>
        */
       public Builder setPairingProof(
           ymconnect.v1.Session.PairingProof.Builder builderForValue) {
@@ -11807,7 +11807,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingProof pairing_proof = 17;</code>
+       * <code>.ymconnect.v1.PairingProof pairing_proof = 17[json_name = "pairingProof"];</code>
        */
       public Builder mergePairingProof(ymconnect.v1.Session.PairingProof value) {
         copyOnWrite();
@@ -11815,7 +11815,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingProof pairing_proof = 17;</code>
+       * <code>.ymconnect.v1.PairingProof pairing_proof = 17[json_name = "pairingProof"];</code>
        */
       public Builder clearPairingProof() {
         copyOnWrite();
@@ -11824,21 +11824,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.PairingResult pairing_result = 18;</code>
+       * <code>.ymconnect.v1.PairingResult pairing_result = 18[json_name = "pairingResult"];</code>
        */
       @java.lang.Override
       public boolean hasPairingResult() {
         return instance.hasPairingResult();
       }
       /**
-       * <code>.ymconnect.v1.PairingResult pairing_result = 18;</code>
+       * <code>.ymconnect.v1.PairingResult pairing_result = 18[json_name = "pairingResult"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Session.PairingResult getPairingResult() {
         return instance.getPairingResult();
       }
       /**
-       * <code>.ymconnect.v1.PairingResult pairing_result = 18;</code>
+       * <code>.ymconnect.v1.PairingResult pairing_result = 18[json_name = "pairingResult"];</code>
        */
       public Builder setPairingResult(ymconnect.v1.Session.PairingResult value) {
         copyOnWrite();
@@ -11846,7 +11846,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingResult pairing_result = 18;</code>
+       * <code>.ymconnect.v1.PairingResult pairing_result = 18[json_name = "pairingResult"];</code>
        */
       public Builder setPairingResult(
           ymconnect.v1.Session.PairingResult.Builder builderForValue) {
@@ -11855,7 +11855,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingResult pairing_result = 18;</code>
+       * <code>.ymconnect.v1.PairingResult pairing_result = 18[json_name = "pairingResult"];</code>
        */
       public Builder mergePairingResult(ymconnect.v1.Session.PairingResult value) {
         copyOnWrite();
@@ -11863,7 +11863,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PairingResult pairing_result = 18;</code>
+       * <code>.ymconnect.v1.PairingResult pairing_result = 18[json_name = "pairingResult"];</code>
        */
       public Builder clearPairingResult() {
         copyOnWrite();
@@ -11872,21 +11872,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19;</code>
+       * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19[json_name = "listPlayersRequest"];</code>
        */
       @java.lang.Override
       public boolean hasListPlayersRequest() {
         return instance.hasListPlayersRequest();
       }
       /**
-       * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19;</code>
+       * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19[json_name = "listPlayersRequest"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.ListPlayersRequest getListPlayersRequest() {
         return instance.getListPlayersRequest();
       }
       /**
-       * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19;</code>
+       * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19[json_name = "listPlayersRequest"];</code>
        */
       public Builder setListPlayersRequest(ymconnect.v1.Control.ListPlayersRequest value) {
         copyOnWrite();
@@ -11894,7 +11894,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19;</code>
+       * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19[json_name = "listPlayersRequest"];</code>
        */
       public Builder setListPlayersRequest(
           ymconnect.v1.Control.ListPlayersRequest.Builder builderForValue) {
@@ -11903,7 +11903,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19;</code>
+       * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19[json_name = "listPlayersRequest"];</code>
        */
       public Builder mergeListPlayersRequest(ymconnect.v1.Control.ListPlayersRequest value) {
         copyOnWrite();
@@ -11911,7 +11911,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19;</code>
+       * <code>.ymconnect.v1.ListPlayersRequest list_players_request = 19[json_name = "listPlayersRequest"];</code>
        */
       public Builder clearListPlayersRequest() {
         copyOnWrite();
@@ -11920,21 +11920,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20;</code>
+       * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20[json_name = "listPlayersResponse"];</code>
        */
       @java.lang.Override
       public boolean hasListPlayersResponse() {
         return instance.hasListPlayersResponse();
       }
       /**
-       * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20;</code>
+       * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20[json_name = "listPlayersResponse"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.ListPlayersResponse getListPlayersResponse() {
         return instance.getListPlayersResponse();
       }
       /**
-       * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20;</code>
+       * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20[json_name = "listPlayersResponse"];</code>
        */
       public Builder setListPlayersResponse(ymconnect.v1.Control.ListPlayersResponse value) {
         copyOnWrite();
@@ -11942,7 +11942,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20;</code>
+       * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20[json_name = "listPlayersResponse"];</code>
        */
       public Builder setListPlayersResponse(
           ymconnect.v1.Control.ListPlayersResponse.Builder builderForValue) {
@@ -11951,7 +11951,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20;</code>
+       * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20[json_name = "listPlayersResponse"];</code>
        */
       public Builder mergeListPlayersResponse(ymconnect.v1.Control.ListPlayersResponse value) {
         copyOnWrite();
@@ -11959,7 +11959,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20;</code>
+       * <code>.ymconnect.v1.ListPlayersResponse list_players_response = 20[json_name = "listPlayersResponse"];</code>
        */
       public Builder clearListPlayersResponse() {
         copyOnWrite();
@@ -11968,21 +11968,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21;</code>
+       * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21[json_name = "subscribePlayersRequest"];</code>
        */
       @java.lang.Override
       public boolean hasSubscribePlayersRequest() {
         return instance.hasSubscribePlayersRequest();
       }
       /**
-       * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21;</code>
+       * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21[json_name = "subscribePlayersRequest"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.SubscribePlayersRequest getSubscribePlayersRequest() {
         return instance.getSubscribePlayersRequest();
       }
       /**
-       * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21;</code>
+       * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21[json_name = "subscribePlayersRequest"];</code>
        */
       public Builder setSubscribePlayersRequest(ymconnect.v1.Control.SubscribePlayersRequest value) {
         copyOnWrite();
@@ -11990,7 +11990,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21;</code>
+       * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21[json_name = "subscribePlayersRequest"];</code>
        */
       public Builder setSubscribePlayersRequest(
           ymconnect.v1.Control.SubscribePlayersRequest.Builder builderForValue) {
@@ -11999,7 +11999,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21;</code>
+       * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21[json_name = "subscribePlayersRequest"];</code>
        */
       public Builder mergeSubscribePlayersRequest(ymconnect.v1.Control.SubscribePlayersRequest value) {
         copyOnWrite();
@@ -12007,7 +12007,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21;</code>
+       * <code>.ymconnect.v1.SubscribePlayersRequest subscribe_players_request = 21[json_name = "subscribePlayersRequest"];</code>
        */
       public Builder clearSubscribePlayersRequest() {
         copyOnWrite();
@@ -12016,21 +12016,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22;</code>
+       * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22[json_name = "subscribePlayersResponse"];</code>
        */
       @java.lang.Override
       public boolean hasSubscribePlayersResponse() {
         return instance.hasSubscribePlayersResponse();
       }
       /**
-       * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22;</code>
+       * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22[json_name = "subscribePlayersResponse"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.SubscribePlayersResponse getSubscribePlayersResponse() {
         return instance.getSubscribePlayersResponse();
       }
       /**
-       * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22;</code>
+       * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22[json_name = "subscribePlayersResponse"];</code>
        */
       public Builder setSubscribePlayersResponse(ymconnect.v1.Control.SubscribePlayersResponse value) {
         copyOnWrite();
@@ -12038,7 +12038,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22;</code>
+       * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22[json_name = "subscribePlayersResponse"];</code>
        */
       public Builder setSubscribePlayersResponse(
           ymconnect.v1.Control.SubscribePlayersResponse.Builder builderForValue) {
@@ -12047,7 +12047,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22;</code>
+       * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22[json_name = "subscribePlayersResponse"];</code>
        */
       public Builder mergeSubscribePlayersResponse(ymconnect.v1.Control.SubscribePlayersResponse value) {
         copyOnWrite();
@@ -12055,7 +12055,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22;</code>
+       * <code>.ymconnect.v1.SubscribePlayersResponse subscribe_players_response = 22[json_name = "subscribePlayersResponse"];</code>
        */
       public Builder clearSubscribePlayersResponse() {
         copyOnWrite();
@@ -12064,21 +12064,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.PlayerEvent player_event = 23;</code>
+       * <code>.ymconnect.v1.PlayerEvent player_event = 23[json_name = "playerEvent"];</code>
        */
       @java.lang.Override
       public boolean hasPlayerEvent() {
         return instance.hasPlayerEvent();
       }
       /**
-       * <code>.ymconnect.v1.PlayerEvent player_event = 23;</code>
+       * <code>.ymconnect.v1.PlayerEvent player_event = 23[json_name = "playerEvent"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Player.PlayerEvent getPlayerEvent() {
         return instance.getPlayerEvent();
       }
       /**
-       * <code>.ymconnect.v1.PlayerEvent player_event = 23;</code>
+       * <code>.ymconnect.v1.PlayerEvent player_event = 23[json_name = "playerEvent"];</code>
        */
       public Builder setPlayerEvent(ymconnect.v1.Player.PlayerEvent value) {
         copyOnWrite();
@@ -12086,7 +12086,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerEvent player_event = 23;</code>
+       * <code>.ymconnect.v1.PlayerEvent player_event = 23[json_name = "playerEvent"];</code>
        */
       public Builder setPlayerEvent(
           ymconnect.v1.Player.PlayerEvent.Builder builderForValue) {
@@ -12095,7 +12095,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerEvent player_event = 23;</code>
+       * <code>.ymconnect.v1.PlayerEvent player_event = 23[json_name = "playerEvent"];</code>
        */
       public Builder mergePlayerEvent(ymconnect.v1.Player.PlayerEvent value) {
         copyOnWrite();
@@ -12103,7 +12103,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerEvent player_event = 23;</code>
+       * <code>.ymconnect.v1.PlayerEvent player_event = 23[json_name = "playerEvent"];</code>
        */
       public Builder clearPlayerEvent() {
         copyOnWrite();
@@ -12112,21 +12112,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.CommandRequest command_request = 24;</code>
+       * <code>.ymconnect.v1.CommandRequest command_request = 24[json_name = "commandRequest"];</code>
        */
       @java.lang.Override
       public boolean hasCommandRequest() {
         return instance.hasCommandRequest();
       }
       /**
-       * <code>.ymconnect.v1.CommandRequest command_request = 24;</code>
+       * <code>.ymconnect.v1.CommandRequest command_request = 24[json_name = "commandRequest"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.CommandRequest getCommandRequest() {
         return instance.getCommandRequest();
       }
       /**
-       * <code>.ymconnect.v1.CommandRequest command_request = 24;</code>
+       * <code>.ymconnect.v1.CommandRequest command_request = 24[json_name = "commandRequest"];</code>
        */
       public Builder setCommandRequest(ymconnect.v1.Control.CommandRequest value) {
         copyOnWrite();
@@ -12134,7 +12134,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CommandRequest command_request = 24;</code>
+       * <code>.ymconnect.v1.CommandRequest command_request = 24[json_name = "commandRequest"];</code>
        */
       public Builder setCommandRequest(
           ymconnect.v1.Control.CommandRequest.Builder builderForValue) {
@@ -12143,7 +12143,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CommandRequest command_request = 24;</code>
+       * <code>.ymconnect.v1.CommandRequest command_request = 24[json_name = "commandRequest"];</code>
        */
       public Builder mergeCommandRequest(ymconnect.v1.Control.CommandRequest value) {
         copyOnWrite();
@@ -12151,7 +12151,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CommandRequest command_request = 24;</code>
+       * <code>.ymconnect.v1.CommandRequest command_request = 24[json_name = "commandRequest"];</code>
        */
       public Builder clearCommandRequest() {
         copyOnWrite();
@@ -12160,21 +12160,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.CommandResult command_result = 25;</code>
+       * <code>.ymconnect.v1.CommandResult command_result = 25[json_name = "commandResult"];</code>
        */
       @java.lang.Override
       public boolean hasCommandResult() {
         return instance.hasCommandResult();
       }
       /**
-       * <code>.ymconnect.v1.CommandResult command_result = 25;</code>
+       * <code>.ymconnect.v1.CommandResult command_result = 25[json_name = "commandResult"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.CommandResult getCommandResult() {
         return instance.getCommandResult();
       }
       /**
-       * <code>.ymconnect.v1.CommandResult command_result = 25;</code>
+       * <code>.ymconnect.v1.CommandResult command_result = 25[json_name = "commandResult"];</code>
        */
       public Builder setCommandResult(ymconnect.v1.Control.CommandResult value) {
         copyOnWrite();
@@ -12182,7 +12182,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CommandResult command_result = 25;</code>
+       * <code>.ymconnect.v1.CommandResult command_result = 25[json_name = "commandResult"];</code>
        */
       public Builder setCommandResult(
           ymconnect.v1.Control.CommandResult.Builder builderForValue) {
@@ -12191,7 +12191,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CommandResult command_result = 25;</code>
+       * <code>.ymconnect.v1.CommandResult command_result = 25[json_name = "commandResult"];</code>
        */
       public Builder mergeCommandResult(ymconnect.v1.Control.CommandResult value) {
         copyOnWrite();
@@ -12199,7 +12199,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CommandResult command_result = 25;</code>
+       * <code>.ymconnect.v1.CommandResult command_result = 25[json_name = "commandResult"];</code>
        */
       public Builder clearCommandResult() {
         copyOnWrite();
@@ -12208,21 +12208,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26;</code>
+       * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26[json_name = "selectPlayerRequest"];</code>
        */
       @java.lang.Override
       public boolean hasSelectPlayerRequest() {
         return instance.hasSelectPlayerRequest();
       }
       /**
-       * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26;</code>
+       * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26[json_name = "selectPlayerRequest"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.SelectPlayerRequest getSelectPlayerRequest() {
         return instance.getSelectPlayerRequest();
       }
       /**
-       * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26;</code>
+       * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26[json_name = "selectPlayerRequest"];</code>
        */
       public Builder setSelectPlayerRequest(ymconnect.v1.Control.SelectPlayerRequest value) {
         copyOnWrite();
@@ -12230,7 +12230,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26;</code>
+       * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26[json_name = "selectPlayerRequest"];</code>
        */
       public Builder setSelectPlayerRequest(
           ymconnect.v1.Control.SelectPlayerRequest.Builder builderForValue) {
@@ -12239,7 +12239,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26;</code>
+       * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26[json_name = "selectPlayerRequest"];</code>
        */
       public Builder mergeSelectPlayerRequest(ymconnect.v1.Control.SelectPlayerRequest value) {
         copyOnWrite();
@@ -12247,7 +12247,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26;</code>
+       * <code>.ymconnect.v1.SelectPlayerRequest select_player_request = 26[json_name = "selectPlayerRequest"];</code>
        */
       public Builder clearSelectPlayerRequest() {
         copyOnWrite();
@@ -12256,21 +12256,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27;</code>
+       * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27[json_name = "selectPlayerResult"];</code>
        */
       @java.lang.Override
       public boolean hasSelectPlayerResult() {
         return instance.hasSelectPlayerResult();
       }
       /**
-       * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27;</code>
+       * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27[json_name = "selectPlayerResult"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.SelectPlayerResult getSelectPlayerResult() {
         return instance.getSelectPlayerResult();
       }
       /**
-       * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27;</code>
+       * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27[json_name = "selectPlayerResult"];</code>
        */
       public Builder setSelectPlayerResult(ymconnect.v1.Control.SelectPlayerResult value) {
         copyOnWrite();
@@ -12278,7 +12278,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27;</code>
+       * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27[json_name = "selectPlayerResult"];</code>
        */
       public Builder setSelectPlayerResult(
           ymconnect.v1.Control.SelectPlayerResult.Builder builderForValue) {
@@ -12287,7 +12287,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27;</code>
+       * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27[json_name = "selectPlayerResult"];</code>
        */
       public Builder mergeSelectPlayerResult(ymconnect.v1.Control.SelectPlayerResult value) {
         copyOnWrite();
@@ -12295,7 +12295,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27;</code>
+       * <code>.ymconnect.v1.SelectPlayerResult select_player_result = 27[json_name = "selectPlayerResult"];</code>
        */
       public Builder clearSelectPlayerResult() {
         copyOnWrite();
@@ -12304,21 +12304,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28;</code>
+       * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28[json_name = "listTrustedClientsRequest"];</code>
        */
       @java.lang.Override
       public boolean hasListTrustedClientsRequest() {
         return instance.hasListTrustedClientsRequest();
       }
       /**
-       * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28;</code>
+       * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28[json_name = "listTrustedClientsRequest"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Session.ListTrustedClientsRequest getListTrustedClientsRequest() {
         return instance.getListTrustedClientsRequest();
       }
       /**
-       * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28;</code>
+       * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28[json_name = "listTrustedClientsRequest"];</code>
        */
       public Builder setListTrustedClientsRequest(ymconnect.v1.Session.ListTrustedClientsRequest value) {
         copyOnWrite();
@@ -12326,7 +12326,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28;</code>
+       * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28[json_name = "listTrustedClientsRequest"];</code>
        */
       public Builder setListTrustedClientsRequest(
           ymconnect.v1.Session.ListTrustedClientsRequest.Builder builderForValue) {
@@ -12335,7 +12335,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28;</code>
+       * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28[json_name = "listTrustedClientsRequest"];</code>
        */
       public Builder mergeListTrustedClientsRequest(ymconnect.v1.Session.ListTrustedClientsRequest value) {
         copyOnWrite();
@@ -12343,7 +12343,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28;</code>
+       * <code>.ymconnect.v1.ListTrustedClientsRequest list_trusted_clients_request = 28[json_name = "listTrustedClientsRequest"];</code>
        */
       public Builder clearListTrustedClientsRequest() {
         copyOnWrite();
@@ -12352,21 +12352,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29;</code>
+       * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29[json_name = "listTrustedClientsResponse"];</code>
        */
       @java.lang.Override
       public boolean hasListTrustedClientsResponse() {
         return instance.hasListTrustedClientsResponse();
       }
       /**
-       * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29;</code>
+       * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29[json_name = "listTrustedClientsResponse"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Session.ListTrustedClientsResponse getListTrustedClientsResponse() {
         return instance.getListTrustedClientsResponse();
       }
       /**
-       * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29;</code>
+       * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29[json_name = "listTrustedClientsResponse"];</code>
        */
       public Builder setListTrustedClientsResponse(ymconnect.v1.Session.ListTrustedClientsResponse value) {
         copyOnWrite();
@@ -12374,7 +12374,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29;</code>
+       * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29[json_name = "listTrustedClientsResponse"];</code>
        */
       public Builder setListTrustedClientsResponse(
           ymconnect.v1.Session.ListTrustedClientsResponse.Builder builderForValue) {
@@ -12383,7 +12383,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29;</code>
+       * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29[json_name = "listTrustedClientsResponse"];</code>
        */
       public Builder mergeListTrustedClientsResponse(ymconnect.v1.Session.ListTrustedClientsResponse value) {
         copyOnWrite();
@@ -12391,7 +12391,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29;</code>
+       * <code>.ymconnect.v1.ListTrustedClientsResponse list_trusted_clients_response = 29[json_name = "listTrustedClientsResponse"];</code>
        */
       public Builder clearListTrustedClientsResponse() {
         copyOnWrite();
@@ -12400,21 +12400,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30;</code>
+       * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30[json_name = "revokeClientRequest"];</code>
        */
       @java.lang.Override
       public boolean hasRevokeClientRequest() {
         return instance.hasRevokeClientRequest();
       }
       /**
-       * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30;</code>
+       * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30[json_name = "revokeClientRequest"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Session.RevokeClientRequest getRevokeClientRequest() {
         return instance.getRevokeClientRequest();
       }
       /**
-       * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30;</code>
+       * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30[json_name = "revokeClientRequest"];</code>
        */
       public Builder setRevokeClientRequest(ymconnect.v1.Session.RevokeClientRequest value) {
         copyOnWrite();
@@ -12422,7 +12422,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30;</code>
+       * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30[json_name = "revokeClientRequest"];</code>
        */
       public Builder setRevokeClientRequest(
           ymconnect.v1.Session.RevokeClientRequest.Builder builderForValue) {
@@ -12431,7 +12431,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30;</code>
+       * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30[json_name = "revokeClientRequest"];</code>
        */
       public Builder mergeRevokeClientRequest(ymconnect.v1.Session.RevokeClientRequest value) {
         copyOnWrite();
@@ -12439,7 +12439,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30;</code>
+       * <code>.ymconnect.v1.RevokeClientRequest revoke_client_request = 30[json_name = "revokeClientRequest"];</code>
        */
       public Builder clearRevokeClientRequest() {
         copyOnWrite();
@@ -12448,21 +12448,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31;</code>
+       * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31[json_name = "revokeClientResult"];</code>
        */
       @java.lang.Override
       public boolean hasRevokeClientResult() {
         return instance.hasRevokeClientResult();
       }
       /**
-       * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31;</code>
+       * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31[json_name = "revokeClientResult"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Session.RevokeClientResult getRevokeClientResult() {
         return instance.getRevokeClientResult();
       }
       /**
-       * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31;</code>
+       * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31[json_name = "revokeClientResult"];</code>
        */
       public Builder setRevokeClientResult(ymconnect.v1.Session.RevokeClientResult value) {
         copyOnWrite();
@@ -12470,7 +12470,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31;</code>
+       * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31[json_name = "revokeClientResult"];</code>
        */
       public Builder setRevokeClientResult(
           ymconnect.v1.Session.RevokeClientResult.Builder builderForValue) {
@@ -12479,7 +12479,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31;</code>
+       * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31[json_name = "revokeClientResult"];</code>
        */
       public Builder mergeRevokeClientResult(ymconnect.v1.Session.RevokeClientResult value) {
         copyOnWrite();
@@ -12487,7 +12487,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31;</code>
+       * <code>.ymconnect.v1.RevokeClientResult revoke_client_result = 31[json_name = "revokeClientResult"];</code>
        */
       public Builder clearRevokeClientResult() {
         copyOnWrite();
@@ -12496,21 +12496,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.ClientPing ping = 32;</code>
+       * <code>.ymconnect.v1.ClientPing ping = 32[json_name = "ping"];</code>
        */
       @java.lang.Override
       public boolean hasPing() {
         return instance.hasPing();
       }
       /**
-       * <code>.ymconnect.v1.ClientPing ping = 32;</code>
+       * <code>.ymconnect.v1.ClientPing ping = 32[json_name = "ping"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Session.ClientPing getPing() {
         return instance.getPing();
       }
       /**
-       * <code>.ymconnect.v1.ClientPing ping = 32;</code>
+       * <code>.ymconnect.v1.ClientPing ping = 32[json_name = "ping"];</code>
        */
       public Builder setPing(ymconnect.v1.Session.ClientPing value) {
         copyOnWrite();
@@ -12518,7 +12518,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ClientPing ping = 32;</code>
+       * <code>.ymconnect.v1.ClientPing ping = 32[json_name = "ping"];</code>
        */
       public Builder setPing(
           ymconnect.v1.Session.ClientPing.Builder builderForValue) {
@@ -12527,7 +12527,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ClientPing ping = 32;</code>
+       * <code>.ymconnect.v1.ClientPing ping = 32[json_name = "ping"];</code>
        */
       public Builder mergePing(ymconnect.v1.Session.ClientPing value) {
         copyOnWrite();
@@ -12535,7 +12535,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ClientPing ping = 32;</code>
+       * <code>.ymconnect.v1.ClientPing ping = 32[json_name = "ping"];</code>
        */
       public Builder clearPing() {
         copyOnWrite();
@@ -12544,21 +12544,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.ClientPong pong = 33;</code>
+       * <code>.ymconnect.v1.ClientPong pong = 33[json_name = "pong"];</code>
        */
       @java.lang.Override
       public boolean hasPong() {
         return instance.hasPong();
       }
       /**
-       * <code>.ymconnect.v1.ClientPong pong = 33;</code>
+       * <code>.ymconnect.v1.ClientPong pong = 33[json_name = "pong"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Session.ClientPong getPong() {
         return instance.getPong();
       }
       /**
-       * <code>.ymconnect.v1.ClientPong pong = 33;</code>
+       * <code>.ymconnect.v1.ClientPong pong = 33[json_name = "pong"];</code>
        */
       public Builder setPong(ymconnect.v1.Session.ClientPong value) {
         copyOnWrite();
@@ -12566,7 +12566,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ClientPong pong = 33;</code>
+       * <code>.ymconnect.v1.ClientPong pong = 33[json_name = "pong"];</code>
        */
       public Builder setPong(
           ymconnect.v1.Session.ClientPong.Builder builderForValue) {
@@ -12575,7 +12575,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ClientPong pong = 33;</code>
+       * <code>.ymconnect.v1.ClientPong pong = 33[json_name = "pong"];</code>
        */
       public Builder mergePong(ymconnect.v1.Session.ClientPong value) {
         copyOnWrite();
@@ -12583,7 +12583,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ClientPong pong = 33;</code>
+       * <code>.ymconnect.v1.ClientPong pong = 33[json_name = "pong"];</code>
        */
       public Builder clearPong() {
         copyOnWrite();
@@ -12592,21 +12592,21 @@ public final class Session {
       }
 
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 34;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 34[json_name = "error"];</code>
        */
       @java.lang.Override
       public boolean hasError() {
         return instance.hasError();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 34;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 34[json_name = "error"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Errors.ProtocolError getError() {
         return instance.getError();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 34;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 34[json_name = "error"];</code>
        */
       public Builder setError(ymconnect.v1.Errors.ProtocolError value) {
         copyOnWrite();
@@ -12614,7 +12614,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 34;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 34[json_name = "error"];</code>
        */
       public Builder setError(
           ymconnect.v1.Errors.ProtocolError.Builder builderForValue) {
@@ -12623,7 +12623,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 34;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 34[json_name = "error"];</code>
        */
       public Builder mergeError(ymconnect.v1.Errors.ProtocolError value) {
         copyOnWrite();
@@ -12631,7 +12631,7 @@ public final class Session {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 34;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 34[json_name = "error"];</code>
        */
       public Builder clearError() {
         copyOnWrite();

@@ -13,40 +13,40 @@ public final class Connector {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.BrowserDescriptor browser = 1;</code>
+     * <code>.ymconnect.v1.BrowserDescriptor browser = 1[json_name = "browser"];</code>
      * @return Whether the browser field is set.
      */
     boolean hasBrowser();
     /**
-     * <code>.ymconnect.v1.BrowserDescriptor browser = 1;</code>
+     * <code>.ymconnect.v1.BrowserDescriptor browser = 1[json_name = "browser"];</code>
      * @return The browser.
      */
     ymconnect.v1.Common.BrowserDescriptor getBrowser();
 
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      * @return Whether the protocolRange field is set.
      */
     boolean hasProtocolRange();
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      * @return The protocolRange.
      */
     ymconnect.v1.Common.VersionRange getProtocolRange();
 
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      * @return Whether the capabilities field is set.
      */
     boolean hasCapabilities();
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      * @return The capabilities.
      */
     ymconnect.v1.Capabilities.CapabilitySet getCapabilities();
 
     /**
-     * <code>bytes connector_nonce = 4;</code>
+     * <code>bytes connector_nonce = 4[json_name = "connectorNonce"];</code>
      * @return The connectorNonce.
      */
     com.google.protobuf.ByteString getConnectorNonce();
@@ -65,21 +65,21 @@ public final class Connector {
     public static final int BROWSER_FIELD_NUMBER = 1;
     private ymconnect.v1.Common.BrowserDescriptor browser_;
     /**
-     * <code>.ymconnect.v1.BrowserDescriptor browser = 1;</code>
+     * <code>.ymconnect.v1.BrowserDescriptor browser = 1[json_name = "browser"];</code>
      */
     @java.lang.Override
     public boolean hasBrowser() {
       return browser_ != null;
     }
     /**
-     * <code>.ymconnect.v1.BrowserDescriptor browser = 1;</code>
+     * <code>.ymconnect.v1.BrowserDescriptor browser = 1[json_name = "browser"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.BrowserDescriptor getBrowser() {
       return browser_ == null ? ymconnect.v1.Common.BrowserDescriptor.getDefaultInstance() : browser_;
     }
     /**
-     * <code>.ymconnect.v1.BrowserDescriptor browser = 1;</code>
+     * <code>.ymconnect.v1.BrowserDescriptor browser = 1[json_name = "browser"];</code>
      */
     private void setBrowser(ymconnect.v1.Common.BrowserDescriptor value) {
       value.getClass();
@@ -87,7 +87,7 @@ public final class Connector {
       
       }
     /**
-     * <code>.ymconnect.v1.BrowserDescriptor browser = 1;</code>
+     * <code>.ymconnect.v1.BrowserDescriptor browser = 1[json_name = "browser"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeBrowser(ymconnect.v1.Common.BrowserDescriptor value) {
@@ -102,7 +102,7 @@ public final class Connector {
       
     }
     /**
-     * <code>.ymconnect.v1.BrowserDescriptor browser = 1;</code>
+     * <code>.ymconnect.v1.BrowserDescriptor browser = 1[json_name = "browser"];</code>
      */
     private void clearBrowser() {  browser_ = null;
       
@@ -111,21 +111,21 @@ public final class Connector {
     public static final int PROTOCOL_RANGE_FIELD_NUMBER = 2;
     private ymconnect.v1.Common.VersionRange protocolRange_;
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      */
     @java.lang.Override
     public boolean hasProtocolRange() {
       return protocolRange_ != null;
     }
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.VersionRange getProtocolRange() {
       return protocolRange_ == null ? ymconnect.v1.Common.VersionRange.getDefaultInstance() : protocolRange_;
     }
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      */
     private void setProtocolRange(ymconnect.v1.Common.VersionRange value) {
       value.getClass();
@@ -133,7 +133,7 @@ public final class Connector {
       
       }
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeProtocolRange(ymconnect.v1.Common.VersionRange value) {
@@ -148,7 +148,7 @@ public final class Connector {
       
     }
     /**
-     * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+     * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
      */
     private void clearProtocolRange() {  protocolRange_ = null;
       
@@ -157,21 +157,21 @@ public final class Connector {
     public static final int CAPABILITIES_FIELD_NUMBER = 3;
     private ymconnect.v1.Capabilities.CapabilitySet capabilities_;
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      */
     @java.lang.Override
     public boolean hasCapabilities() {
       return capabilities_ != null;
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Capabilities.CapabilitySet getCapabilities() {
       return capabilities_ == null ? ymconnect.v1.Capabilities.CapabilitySet.getDefaultInstance() : capabilities_;
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      */
     private void setCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
       value.getClass();
@@ -179,7 +179,7 @@ public final class Connector {
       
       }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
@@ -194,7 +194,7 @@ public final class Connector {
       
     }
     /**
-     * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+     * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
      */
     private void clearCapabilities() {  capabilities_ = null;
       
@@ -203,7 +203,7 @@ public final class Connector {
     public static final int CONNECTOR_NONCE_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString connectorNonce_;
     /**
-     * <code>bytes connector_nonce = 4;</code>
+     * <code>bytes connector_nonce = 4[json_name = "connectorNonce"];</code>
      * @return The connectorNonce.
      */
     @java.lang.Override
@@ -211,7 +211,7 @@ public final class Connector {
       return connectorNonce_;
     }
     /**
-     * <code>bytes connector_nonce = 4;</code>
+     * <code>bytes connector_nonce = 4[json_name = "connectorNonce"];</code>
      * @param value The connectorNonce to set.
      */
     private void setConnectorNonce(com.google.protobuf.ByteString value) {
@@ -220,7 +220,7 @@ public final class Connector {
       connectorNonce_ = value;
     }
     /**
-     * <code>bytes connector_nonce = 4;</code>
+     * <code>bytes connector_nonce = 4[json_name = "connectorNonce"];</code>
      */
     private void clearConnectorNonce() {
       
@@ -323,21 +323,21 @@ public final class Connector {
 
 
       /**
-       * <code>.ymconnect.v1.BrowserDescriptor browser = 1;</code>
+       * <code>.ymconnect.v1.BrowserDescriptor browser = 1[json_name = "browser"];</code>
        */
       @java.lang.Override
       public boolean hasBrowser() {
         return instance.hasBrowser();
       }
       /**
-       * <code>.ymconnect.v1.BrowserDescriptor browser = 1;</code>
+       * <code>.ymconnect.v1.BrowserDescriptor browser = 1[json_name = "browser"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.BrowserDescriptor getBrowser() {
         return instance.getBrowser();
       }
       /**
-       * <code>.ymconnect.v1.BrowserDescriptor browser = 1;</code>
+       * <code>.ymconnect.v1.BrowserDescriptor browser = 1[json_name = "browser"];</code>
        */
       public Builder setBrowser(ymconnect.v1.Common.BrowserDescriptor value) {
         copyOnWrite();
@@ -345,7 +345,7 @@ public final class Connector {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.BrowserDescriptor browser = 1;</code>
+       * <code>.ymconnect.v1.BrowserDescriptor browser = 1[json_name = "browser"];</code>
        */
       public Builder setBrowser(
           ymconnect.v1.Common.BrowserDescriptor.Builder builderForValue) {
@@ -354,7 +354,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.BrowserDescriptor browser = 1;</code>
+       * <code>.ymconnect.v1.BrowserDescriptor browser = 1[json_name = "browser"];</code>
        */
       public Builder mergeBrowser(ymconnect.v1.Common.BrowserDescriptor value) {
         copyOnWrite();
@@ -362,7 +362,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.BrowserDescriptor browser = 1;</code>
+       * <code>.ymconnect.v1.BrowserDescriptor browser = 1[json_name = "browser"];</code>
        */
       public Builder clearBrowser() {  copyOnWrite();
         instance.clearBrowser();
@@ -370,21 +370,21 @@ public final class Connector {
       }
 
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       @java.lang.Override
       public boolean hasProtocolRange() {
         return instance.hasProtocolRange();
       }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.VersionRange getProtocolRange() {
         return instance.getProtocolRange();
       }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       public Builder setProtocolRange(ymconnect.v1.Common.VersionRange value) {
         copyOnWrite();
@@ -392,7 +392,7 @@ public final class Connector {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       public Builder setProtocolRange(
           ymconnect.v1.Common.VersionRange.Builder builderForValue) {
@@ -401,7 +401,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       public Builder mergeProtocolRange(ymconnect.v1.Common.VersionRange value) {
         copyOnWrite();
@@ -409,7 +409,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.VersionRange protocol_range = 2;</code>
+       * <code>.ymconnect.v1.VersionRange protocol_range = 2[json_name = "protocolRange"];</code>
        */
       public Builder clearProtocolRange() {  copyOnWrite();
         instance.clearProtocolRange();
@@ -417,21 +417,21 @@ public final class Connector {
       }
 
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       @java.lang.Override
       public boolean hasCapabilities() {
         return instance.hasCapabilities();
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Capabilities.CapabilitySet getCapabilities() {
         return instance.getCapabilities();
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       public Builder setCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
         copyOnWrite();
@@ -439,7 +439,7 @@ public final class Connector {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       public Builder setCapabilities(
           ymconnect.v1.Capabilities.CapabilitySet.Builder builderForValue) {
@@ -448,7 +448,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       public Builder mergeCapabilities(ymconnect.v1.Capabilities.CapabilitySet value) {
         copyOnWrite();
@@ -456,7 +456,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CapabilitySet capabilities = 3;</code>
+       * <code>.ymconnect.v1.CapabilitySet capabilities = 3[json_name = "capabilities"];</code>
        */
       public Builder clearCapabilities() {  copyOnWrite();
         instance.clearCapabilities();
@@ -464,7 +464,7 @@ public final class Connector {
       }
 
       /**
-       * <code>bytes connector_nonce = 4;</code>
+       * <code>bytes connector_nonce = 4[json_name = "connectorNonce"];</code>
        * @return The connectorNonce.
        */
       @java.lang.Override
@@ -472,7 +472,7 @@ public final class Connector {
         return instance.getConnectorNonce();
       }
       /**
-       * <code>bytes connector_nonce = 4;</code>
+       * <code>bytes connector_nonce = 4[json_name = "connectorNonce"];</code>
        * @param value The connectorNonce to set.
        * @return This builder for chaining.
        */
@@ -482,7 +482,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>bytes connector_nonce = 4;</code>
+       * <code>bytes connector_nonce = 4[json_name = "connectorNonce"];</code>
        * @return This builder for chaining.
        */
       public Builder clearConnectorNonce() {
@@ -574,30 +574,30 @@ public final class Connector {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 1;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 1[json_name = "selection"];</code>
      * @return Whether the selection field is set.
      */
     boolean hasSelection();
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 1;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 1[json_name = "selection"];</code>
      * @return The selection.
      */
     ymconnect.v1.Capabilities.ProtocolSelection getSelection();
 
     /**
-     * <code>string bridge_instance_id = 2;</code>
+     * <code>string bridge_instance_id = 2[json_name = "bridgeInstanceId"];</code>
      * @return The bridgeInstanceId.
      */
     java.lang.String getBridgeInstanceId();
     /**
-     * <code>string bridge_instance_id = 2;</code>
+     * <code>string bridge_instance_id = 2[json_name = "bridgeInstanceId"];</code>
      * @return The bytes for bridgeInstanceId.
      */
     com.google.protobuf.ByteString
         getBridgeInstanceIdBytes();
 
     /**
-     * <code>bytes bridge_nonce = 3;</code>
+     * <code>bytes bridge_nonce = 3[json_name = "bridgeNonce"];</code>
      * @return The bridgeNonce.
      */
     com.google.protobuf.ByteString getBridgeNonce();
@@ -617,21 +617,21 @@ public final class Connector {
     public static final int SELECTION_FIELD_NUMBER = 1;
     private ymconnect.v1.Capabilities.ProtocolSelection selection_;
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 1;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 1[json_name = "selection"];</code>
      */
     @java.lang.Override
     public boolean hasSelection() {
       return selection_ != null;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 1;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 1[json_name = "selection"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Capabilities.ProtocolSelection getSelection() {
       return selection_ == null ? ymconnect.v1.Capabilities.ProtocolSelection.getDefaultInstance() : selection_;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 1;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 1[json_name = "selection"];</code>
      */
     private void setSelection(ymconnect.v1.Capabilities.ProtocolSelection value) {
       value.getClass();
@@ -639,7 +639,7 @@ public final class Connector {
       
       }
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 1;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 1[json_name = "selection"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeSelection(ymconnect.v1.Capabilities.ProtocolSelection value) {
@@ -654,7 +654,7 @@ public final class Connector {
       
     }
     /**
-     * <code>.ymconnect.v1.ProtocolSelection selection = 1;</code>
+     * <code>.ymconnect.v1.ProtocolSelection selection = 1[json_name = "selection"];</code>
      */
     private void clearSelection() {  selection_ = null;
       
@@ -663,7 +663,7 @@ public final class Connector {
     public static final int BRIDGE_INSTANCE_ID_FIELD_NUMBER = 2;
     private java.lang.String bridgeInstanceId_;
     /**
-     * <code>string bridge_instance_id = 2;</code>
+     * <code>string bridge_instance_id = 2[json_name = "bridgeInstanceId"];</code>
      * @return The bridgeInstanceId.
      */
     @java.lang.Override
@@ -671,7 +671,7 @@ public final class Connector {
       return bridgeInstanceId_;
     }
     /**
-     * <code>string bridge_instance_id = 2;</code>
+     * <code>string bridge_instance_id = 2[json_name = "bridgeInstanceId"];</code>
      * @return The bytes for bridgeInstanceId.
      */
     @java.lang.Override
@@ -680,7 +680,7 @@ public final class Connector {
       return com.google.protobuf.ByteString.copyFromUtf8(bridgeInstanceId_);
     }
     /**
-     * <code>string bridge_instance_id = 2;</code>
+     * <code>string bridge_instance_id = 2[json_name = "bridgeInstanceId"];</code>
      * @param value The bridgeInstanceId to set.
      */
     private void setBridgeInstanceId(
@@ -690,14 +690,14 @@ public final class Connector {
       bridgeInstanceId_ = value;
     }
     /**
-     * <code>string bridge_instance_id = 2;</code>
+     * <code>string bridge_instance_id = 2[json_name = "bridgeInstanceId"];</code>
      */
     private void clearBridgeInstanceId() {
       
       bridgeInstanceId_ = getDefaultInstance().getBridgeInstanceId();
     }
     /**
-     * <code>string bridge_instance_id = 2;</code>
+     * <code>string bridge_instance_id = 2[json_name = "bridgeInstanceId"];</code>
      * @param value The bytes for bridgeInstanceId to set.
      */
     private void setBridgeInstanceIdBytes(
@@ -710,7 +710,7 @@ public final class Connector {
     public static final int BRIDGE_NONCE_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString bridgeNonce_;
     /**
-     * <code>bytes bridge_nonce = 3;</code>
+     * <code>bytes bridge_nonce = 3[json_name = "bridgeNonce"];</code>
      * @return The bridgeNonce.
      */
     @java.lang.Override
@@ -718,7 +718,7 @@ public final class Connector {
       return bridgeNonce_;
     }
     /**
-     * <code>bytes bridge_nonce = 3;</code>
+     * <code>bytes bridge_nonce = 3[json_name = "bridgeNonce"];</code>
      * @param value The bridgeNonce to set.
      */
     private void setBridgeNonce(com.google.protobuf.ByteString value) {
@@ -727,7 +727,7 @@ public final class Connector {
       bridgeNonce_ = value;
     }
     /**
-     * <code>bytes bridge_nonce = 3;</code>
+     * <code>bytes bridge_nonce = 3[json_name = "bridgeNonce"];</code>
      */
     private void clearBridgeNonce() {
       
@@ -830,21 +830,21 @@ public final class Connector {
 
 
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 1;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 1[json_name = "selection"];</code>
        */
       @java.lang.Override
       public boolean hasSelection() {
         return instance.hasSelection();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 1;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 1[json_name = "selection"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Capabilities.ProtocolSelection getSelection() {
         return instance.getSelection();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 1;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 1[json_name = "selection"];</code>
        */
       public Builder setSelection(ymconnect.v1.Capabilities.ProtocolSelection value) {
         copyOnWrite();
@@ -852,7 +852,7 @@ public final class Connector {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 1;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 1[json_name = "selection"];</code>
        */
       public Builder setSelection(
           ymconnect.v1.Capabilities.ProtocolSelection.Builder builderForValue) {
@@ -861,7 +861,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 1;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 1[json_name = "selection"];</code>
        */
       public Builder mergeSelection(ymconnect.v1.Capabilities.ProtocolSelection value) {
         copyOnWrite();
@@ -869,7 +869,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolSelection selection = 1;</code>
+       * <code>.ymconnect.v1.ProtocolSelection selection = 1[json_name = "selection"];</code>
        */
       public Builder clearSelection() {  copyOnWrite();
         instance.clearSelection();
@@ -877,7 +877,7 @@ public final class Connector {
       }
 
       /**
-       * <code>string bridge_instance_id = 2;</code>
+       * <code>string bridge_instance_id = 2[json_name = "bridgeInstanceId"];</code>
        * @return The bridgeInstanceId.
        */
       @java.lang.Override
@@ -885,7 +885,7 @@ public final class Connector {
         return instance.getBridgeInstanceId();
       }
       /**
-       * <code>string bridge_instance_id = 2;</code>
+       * <code>string bridge_instance_id = 2[json_name = "bridgeInstanceId"];</code>
        * @return The bytes for bridgeInstanceId.
        */
       @java.lang.Override
@@ -894,7 +894,7 @@ public final class Connector {
         return instance.getBridgeInstanceIdBytes();
       }
       /**
-       * <code>string bridge_instance_id = 2;</code>
+       * <code>string bridge_instance_id = 2[json_name = "bridgeInstanceId"];</code>
        * @param value The bridgeInstanceId to set.
        * @return This builder for chaining.
        */
@@ -905,7 +905,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>string bridge_instance_id = 2;</code>
+       * <code>string bridge_instance_id = 2[json_name = "bridgeInstanceId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearBridgeInstanceId() {
@@ -914,7 +914,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>string bridge_instance_id = 2;</code>
+       * <code>string bridge_instance_id = 2[json_name = "bridgeInstanceId"];</code>
        * @param value The bytes for bridgeInstanceId to set.
        * @return This builder for chaining.
        */
@@ -926,7 +926,7 @@ public final class Connector {
       }
 
       /**
-       * <code>bytes bridge_nonce = 3;</code>
+       * <code>bytes bridge_nonce = 3[json_name = "bridgeNonce"];</code>
        * @return The bridgeNonce.
        */
       @java.lang.Override
@@ -934,7 +934,7 @@ public final class Connector {
         return instance.getBridgeNonce();
       }
       /**
-       * <code>bytes bridge_nonce = 3;</code>
+       * <code>bytes bridge_nonce = 3[json_name = "bridgeNonce"];</code>
        * @param value The bridgeNonce to set.
        * @return This builder for chaining.
        */
@@ -944,7 +944,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>bytes bridge_nonce = 3;</code>
+       * <code>bytes bridge_nonce = 3[json_name = "bridgeNonce"];</code>
        * @return This builder for chaining.
        */
       public Builder clearBridgeNonce() {
@@ -1035,12 +1035,12 @@ public final class Connector {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      * @return Whether the snapshot field is set.
      */
     boolean hasSnapshot();
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      * @return The snapshot.
      */
     ymconnect.v1.Player.PlayerSnapshot getSnapshot();
@@ -1058,21 +1058,21 @@ public final class Connector {
     public static final int SNAPSHOT_FIELD_NUMBER = 1;
     private ymconnect.v1.Player.PlayerSnapshot snapshot_;
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      */
     @java.lang.Override
     public boolean hasSnapshot() {
       return snapshot_ != null;
     }
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Player.PlayerSnapshot getSnapshot() {
       return snapshot_ == null ? ymconnect.v1.Player.PlayerSnapshot.getDefaultInstance() : snapshot_;
     }
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      */
     private void setSnapshot(ymconnect.v1.Player.PlayerSnapshot value) {
       value.getClass();
@@ -1080,7 +1080,7 @@ public final class Connector {
       
       }
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeSnapshot(ymconnect.v1.Player.PlayerSnapshot value) {
@@ -1095,7 +1095,7 @@ public final class Connector {
       
     }
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      */
     private void clearSnapshot() {  snapshot_ = null;
       
@@ -1197,21 +1197,21 @@ public final class Connector {
 
 
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       @java.lang.Override
       public boolean hasSnapshot() {
         return instance.hasSnapshot();
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Player.PlayerSnapshot getSnapshot() {
         return instance.getSnapshot();
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       public Builder setSnapshot(ymconnect.v1.Player.PlayerSnapshot value) {
         copyOnWrite();
@@ -1219,7 +1219,7 @@ public final class Connector {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       public Builder setSnapshot(
           ymconnect.v1.Player.PlayerSnapshot.Builder builderForValue) {
@@ -1228,7 +1228,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       public Builder mergeSnapshot(ymconnect.v1.Player.PlayerSnapshot value) {
         copyOnWrite();
@@ -1236,7 +1236,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       public Builder clearSnapshot() {  copyOnWrite();
         instance.clearSnapshot();
@@ -1322,12 +1322,12 @@ public final class Connector {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      * @return Whether the snapshot field is set.
      */
     boolean hasSnapshot();
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      * @return The snapshot.
      */
     ymconnect.v1.Player.PlayerSnapshot getSnapshot();
@@ -1345,21 +1345,21 @@ public final class Connector {
     public static final int SNAPSHOT_FIELD_NUMBER = 1;
     private ymconnect.v1.Player.PlayerSnapshot snapshot_;
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      */
     @java.lang.Override
     public boolean hasSnapshot() {
       return snapshot_ != null;
     }
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Player.PlayerSnapshot getSnapshot() {
       return snapshot_ == null ? ymconnect.v1.Player.PlayerSnapshot.getDefaultInstance() : snapshot_;
     }
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      */
     private void setSnapshot(ymconnect.v1.Player.PlayerSnapshot value) {
       value.getClass();
@@ -1367,7 +1367,7 @@ public final class Connector {
       
       }
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeSnapshot(ymconnect.v1.Player.PlayerSnapshot value) {
@@ -1382,7 +1382,7 @@ public final class Connector {
       
     }
     /**
-     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+     * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
      */
     private void clearSnapshot() {  snapshot_ = null;
       
@@ -1484,21 +1484,21 @@ public final class Connector {
 
 
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       @java.lang.Override
       public boolean hasSnapshot() {
         return instance.hasSnapshot();
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Player.PlayerSnapshot getSnapshot() {
         return instance.getSnapshot();
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       public Builder setSnapshot(ymconnect.v1.Player.PlayerSnapshot value) {
         copyOnWrite();
@@ -1506,7 +1506,7 @@ public final class Connector {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       public Builder setSnapshot(
           ymconnect.v1.Player.PlayerSnapshot.Builder builderForValue) {
@@ -1515,7 +1515,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       public Builder mergeSnapshot(ymconnect.v1.Player.PlayerSnapshot value) {
         copyOnWrite();
@@ -1523,7 +1523,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1;</code>
+       * <code>.ymconnect.v1.PlayerSnapshot snapshot = 1[json_name = "snapshot"];</code>
        */
       public Builder clearSnapshot() {  copyOnWrite();
         instance.clearSnapshot();
@@ -1609,12 +1609,12 @@ public final class Connector {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.CommandRequest request = 1;</code>
+     * <code>.ymconnect.v1.CommandRequest request = 1[json_name = "request"];</code>
      * @return Whether the request field is set.
      */
     boolean hasRequest();
     /**
-     * <code>.ymconnect.v1.CommandRequest request = 1;</code>
+     * <code>.ymconnect.v1.CommandRequest request = 1[json_name = "request"];</code>
      * @return The request.
      */
     ymconnect.v1.Control.CommandRequest getRequest();
@@ -1632,21 +1632,21 @@ public final class Connector {
     public static final int REQUEST_FIELD_NUMBER = 1;
     private ymconnect.v1.Control.CommandRequest request_;
     /**
-     * <code>.ymconnect.v1.CommandRequest request = 1;</code>
+     * <code>.ymconnect.v1.CommandRequest request = 1[json_name = "request"];</code>
      */
     @java.lang.Override
     public boolean hasRequest() {
       return request_ != null;
     }
     /**
-     * <code>.ymconnect.v1.CommandRequest request = 1;</code>
+     * <code>.ymconnect.v1.CommandRequest request = 1[json_name = "request"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.CommandRequest getRequest() {
       return request_ == null ? ymconnect.v1.Control.CommandRequest.getDefaultInstance() : request_;
     }
     /**
-     * <code>.ymconnect.v1.CommandRequest request = 1;</code>
+     * <code>.ymconnect.v1.CommandRequest request = 1[json_name = "request"];</code>
      */
     private void setRequest(ymconnect.v1.Control.CommandRequest value) {
       value.getClass();
@@ -1654,7 +1654,7 @@ public final class Connector {
       
       }
     /**
-     * <code>.ymconnect.v1.CommandRequest request = 1;</code>
+     * <code>.ymconnect.v1.CommandRequest request = 1[json_name = "request"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeRequest(ymconnect.v1.Control.CommandRequest value) {
@@ -1669,7 +1669,7 @@ public final class Connector {
       
     }
     /**
-     * <code>.ymconnect.v1.CommandRequest request = 1;</code>
+     * <code>.ymconnect.v1.CommandRequest request = 1[json_name = "request"];</code>
      */
     private void clearRequest() {  request_ = null;
       
@@ -1771,21 +1771,21 @@ public final class Connector {
 
 
       /**
-       * <code>.ymconnect.v1.CommandRequest request = 1;</code>
+       * <code>.ymconnect.v1.CommandRequest request = 1[json_name = "request"];</code>
        */
       @java.lang.Override
       public boolean hasRequest() {
         return instance.hasRequest();
       }
       /**
-       * <code>.ymconnect.v1.CommandRequest request = 1;</code>
+       * <code>.ymconnect.v1.CommandRequest request = 1[json_name = "request"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.CommandRequest getRequest() {
         return instance.getRequest();
       }
       /**
-       * <code>.ymconnect.v1.CommandRequest request = 1;</code>
+       * <code>.ymconnect.v1.CommandRequest request = 1[json_name = "request"];</code>
        */
       public Builder setRequest(ymconnect.v1.Control.CommandRequest value) {
         copyOnWrite();
@@ -1793,7 +1793,7 @@ public final class Connector {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.CommandRequest request = 1;</code>
+       * <code>.ymconnect.v1.CommandRequest request = 1[json_name = "request"];</code>
        */
       public Builder setRequest(
           ymconnect.v1.Control.CommandRequest.Builder builderForValue) {
@@ -1802,7 +1802,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CommandRequest request = 1;</code>
+       * <code>.ymconnect.v1.CommandRequest request = 1[json_name = "request"];</code>
        */
       public Builder mergeRequest(ymconnect.v1.Control.CommandRequest value) {
         copyOnWrite();
@@ -1810,7 +1810,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CommandRequest request = 1;</code>
+       * <code>.ymconnect.v1.CommandRequest request = 1[json_name = "request"];</code>
        */
       public Builder clearRequest() {  copyOnWrite();
         instance.clearRequest();
@@ -1896,12 +1896,12 @@ public final class Connector {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.CommandResult result = 1;</code>
+     * <code>.ymconnect.v1.CommandResult result = 1[json_name = "result"];</code>
      * @return Whether the result field is set.
      */
     boolean hasResult();
     /**
-     * <code>.ymconnect.v1.CommandResult result = 1;</code>
+     * <code>.ymconnect.v1.CommandResult result = 1[json_name = "result"];</code>
      * @return The result.
      */
     ymconnect.v1.Control.CommandResult getResult();
@@ -1919,21 +1919,21 @@ public final class Connector {
     public static final int RESULT_FIELD_NUMBER = 1;
     private ymconnect.v1.Control.CommandResult result_;
     /**
-     * <code>.ymconnect.v1.CommandResult result = 1;</code>
+     * <code>.ymconnect.v1.CommandResult result = 1[json_name = "result"];</code>
      */
     @java.lang.Override
     public boolean hasResult() {
       return result_ != null;
     }
     /**
-     * <code>.ymconnect.v1.CommandResult result = 1;</code>
+     * <code>.ymconnect.v1.CommandResult result = 1[json_name = "result"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Control.CommandResult getResult() {
       return result_ == null ? ymconnect.v1.Control.CommandResult.getDefaultInstance() : result_;
     }
     /**
-     * <code>.ymconnect.v1.CommandResult result = 1;</code>
+     * <code>.ymconnect.v1.CommandResult result = 1[json_name = "result"];</code>
      */
     private void setResult(ymconnect.v1.Control.CommandResult value) {
       value.getClass();
@@ -1941,7 +1941,7 @@ public final class Connector {
       
       }
     /**
-     * <code>.ymconnect.v1.CommandResult result = 1;</code>
+     * <code>.ymconnect.v1.CommandResult result = 1[json_name = "result"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeResult(ymconnect.v1.Control.CommandResult value) {
@@ -1956,7 +1956,7 @@ public final class Connector {
       
     }
     /**
-     * <code>.ymconnect.v1.CommandResult result = 1;</code>
+     * <code>.ymconnect.v1.CommandResult result = 1[json_name = "result"];</code>
      */
     private void clearResult() {  result_ = null;
       
@@ -2058,21 +2058,21 @@ public final class Connector {
 
 
       /**
-       * <code>.ymconnect.v1.CommandResult result = 1;</code>
+       * <code>.ymconnect.v1.CommandResult result = 1[json_name = "result"];</code>
        */
       @java.lang.Override
       public boolean hasResult() {
         return instance.hasResult();
       }
       /**
-       * <code>.ymconnect.v1.CommandResult result = 1;</code>
+       * <code>.ymconnect.v1.CommandResult result = 1[json_name = "result"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Control.CommandResult getResult() {
         return instance.getResult();
       }
       /**
-       * <code>.ymconnect.v1.CommandResult result = 1;</code>
+       * <code>.ymconnect.v1.CommandResult result = 1[json_name = "result"];</code>
        */
       public Builder setResult(ymconnect.v1.Control.CommandResult value) {
         copyOnWrite();
@@ -2080,7 +2080,7 @@ public final class Connector {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.CommandResult result = 1;</code>
+       * <code>.ymconnect.v1.CommandResult result = 1[json_name = "result"];</code>
        */
       public Builder setResult(
           ymconnect.v1.Control.CommandResult.Builder builderForValue) {
@@ -2089,7 +2089,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CommandResult result = 1;</code>
+       * <code>.ymconnect.v1.CommandResult result = 1[json_name = "result"];</code>
        */
       public Builder mergeResult(ymconnect.v1.Control.CommandResult value) {
         copyOnWrite();
@@ -2097,7 +2097,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.CommandResult result = 1;</code>
+       * <code>.ymconnect.v1.CommandResult result = 1[json_name = "result"];</code>
        */
       public Builder clearResult() {  copyOnWrite();
         instance.clearResult();
@@ -2183,7 +2183,7 @@ public final class Connector {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>uint64 nonce = 1;</code>
+     * <code>uint64 nonce = 1[json_name = "nonce"];</code>
      * @return The nonce.
      */
     long getNonce();
@@ -2201,7 +2201,7 @@ public final class Connector {
     public static final int NONCE_FIELD_NUMBER = 1;
     private long nonce_;
     /**
-     * <code>uint64 nonce = 1;</code>
+     * <code>uint64 nonce = 1[json_name = "nonce"];</code>
      * @return The nonce.
      */
     @java.lang.Override
@@ -2209,7 +2209,7 @@ public final class Connector {
       return nonce_;
     }
     /**
-     * <code>uint64 nonce = 1;</code>
+     * <code>uint64 nonce = 1[json_name = "nonce"];</code>
      * @param value The nonce to set.
      */
     private void setNonce(long value) {
@@ -2217,7 +2217,7 @@ public final class Connector {
       nonce_ = value;
     }
     /**
-     * <code>uint64 nonce = 1;</code>
+     * <code>uint64 nonce = 1[json_name = "nonce"];</code>
      */
     private void clearNonce() {
       
@@ -2320,7 +2320,7 @@ public final class Connector {
 
 
       /**
-       * <code>uint64 nonce = 1;</code>
+       * <code>uint64 nonce = 1[json_name = "nonce"];</code>
        * @return The nonce.
        */
       @java.lang.Override
@@ -2328,7 +2328,7 @@ public final class Connector {
         return instance.getNonce();
       }
       /**
-       * <code>uint64 nonce = 1;</code>
+       * <code>uint64 nonce = 1[json_name = "nonce"];</code>
        * @param value The nonce to set.
        * @return This builder for chaining.
        */
@@ -2338,7 +2338,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>uint64 nonce = 1;</code>
+       * <code>uint64 nonce = 1[json_name = "nonce"];</code>
        * @return This builder for chaining.
        */
       public Builder clearNonce() {
@@ -2426,7 +2426,7 @@ public final class Connector {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>uint64 nonce = 1;</code>
+     * <code>uint64 nonce = 1[json_name = "nonce"];</code>
      * @return The nonce.
      */
     long getNonce();
@@ -2444,7 +2444,7 @@ public final class Connector {
     public static final int NONCE_FIELD_NUMBER = 1;
     private long nonce_;
     /**
-     * <code>uint64 nonce = 1;</code>
+     * <code>uint64 nonce = 1[json_name = "nonce"];</code>
      * @return The nonce.
      */
     @java.lang.Override
@@ -2452,7 +2452,7 @@ public final class Connector {
       return nonce_;
     }
     /**
-     * <code>uint64 nonce = 1;</code>
+     * <code>uint64 nonce = 1[json_name = "nonce"];</code>
      * @param value The nonce to set.
      */
     private void setNonce(long value) {
@@ -2460,7 +2460,7 @@ public final class Connector {
       nonce_ = value;
     }
     /**
-     * <code>uint64 nonce = 1;</code>
+     * <code>uint64 nonce = 1[json_name = "nonce"];</code>
      */
     private void clearNonce() {
       
@@ -2563,7 +2563,7 @@ public final class Connector {
 
 
       /**
-       * <code>uint64 nonce = 1;</code>
+       * <code>uint64 nonce = 1[json_name = "nonce"];</code>
        * @return The nonce.
        */
       @java.lang.Override
@@ -2571,7 +2571,7 @@ public final class Connector {
         return instance.getNonce();
       }
       /**
-       * <code>uint64 nonce = 1;</code>
+       * <code>uint64 nonce = 1[json_name = "nonce"];</code>
        * @param value The nonce to set.
        * @return This builder for chaining.
        */
@@ -2581,7 +2581,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>uint64 nonce = 1;</code>
+       * <code>uint64 nonce = 1[json_name = "nonce"];</code>
        * @return This builder for chaining.
        */
       public Builder clearNonce() {
@@ -2669,12 +2669,12 @@ public final class Connector {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string reason = 1;</code>
+     * <code>string reason = 1[json_name = "reason"];</code>
      * @return The reason.
      */
     java.lang.String getReason();
     /**
-     * <code>string reason = 1;</code>
+     * <code>string reason = 1[json_name = "reason"];</code>
      * @return The bytes for reason.
      */
     com.google.protobuf.ByteString
@@ -2694,7 +2694,7 @@ public final class Connector {
     public static final int REASON_FIELD_NUMBER = 1;
     private java.lang.String reason_;
     /**
-     * <code>string reason = 1;</code>
+     * <code>string reason = 1[json_name = "reason"];</code>
      * @return The reason.
      */
     @java.lang.Override
@@ -2702,7 +2702,7 @@ public final class Connector {
       return reason_;
     }
     /**
-     * <code>string reason = 1;</code>
+     * <code>string reason = 1[json_name = "reason"];</code>
      * @return The bytes for reason.
      */
     @java.lang.Override
@@ -2711,7 +2711,7 @@ public final class Connector {
       return com.google.protobuf.ByteString.copyFromUtf8(reason_);
     }
     /**
-     * <code>string reason = 1;</code>
+     * <code>string reason = 1[json_name = "reason"];</code>
      * @param value The reason to set.
      */
     private void setReason(
@@ -2721,14 +2721,14 @@ public final class Connector {
       reason_ = value;
     }
     /**
-     * <code>string reason = 1;</code>
+     * <code>string reason = 1[json_name = "reason"];</code>
      */
     private void clearReason() {
       
       reason_ = getDefaultInstance().getReason();
     }
     /**
-     * <code>string reason = 1;</code>
+     * <code>string reason = 1[json_name = "reason"];</code>
      * @param value The bytes for reason to set.
      */
     private void setReasonBytes(
@@ -2834,7 +2834,7 @@ public final class Connector {
 
 
       /**
-       * <code>string reason = 1;</code>
+       * <code>string reason = 1[json_name = "reason"];</code>
        * @return The reason.
        */
       @java.lang.Override
@@ -2842,7 +2842,7 @@ public final class Connector {
         return instance.getReason();
       }
       /**
-       * <code>string reason = 1;</code>
+       * <code>string reason = 1[json_name = "reason"];</code>
        * @return The bytes for reason.
        */
       @java.lang.Override
@@ -2851,7 +2851,7 @@ public final class Connector {
         return instance.getReasonBytes();
       }
       /**
-       * <code>string reason = 1;</code>
+       * <code>string reason = 1[json_name = "reason"];</code>
        * @param value The reason to set.
        * @return This builder for chaining.
        */
@@ -2862,7 +2862,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>string reason = 1;</code>
+       * <code>string reason = 1[json_name = "reason"];</code>
        * @return This builder for chaining.
        */
       public Builder clearReason() {
@@ -2871,7 +2871,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>string reason = 1;</code>
+       * <code>string reason = 1[json_name = "reason"];</code>
        * @param value The bytes for reason to set.
        * @return This builder for chaining.
        */
@@ -2961,133 +2961,133 @@ public final class Connector {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+     * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
      * @return Whether the header field is set.
      */
     boolean hasHeader();
     /**
-     * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+     * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
      * @return The header.
      */
     ymconnect.v1.Common.MessageHeader getHeader();
 
     /**
-     * <code>.ymconnect.v1.ConnectorHello hello = 10;</code>
+     * <code>.ymconnect.v1.ConnectorHello hello = 10[json_name = "hello"];</code>
      * @return Whether the hello field is set.
      */
     boolean hasHello();
     /**
-     * <code>.ymconnect.v1.ConnectorHello hello = 10;</code>
+     * <code>.ymconnect.v1.ConnectorHello hello = 10[json_name = "hello"];</code>
      * @return The hello.
      */
     ymconnect.v1.Connector.ConnectorHello getHello();
 
     /**
-     * <code>.ymconnect.v1.ConnectorReady ready = 11;</code>
+     * <code>.ymconnect.v1.ConnectorReady ready = 11[json_name = "ready"];</code>
      * @return Whether the ready field is set.
      */
     boolean hasReady();
     /**
-     * <code>.ymconnect.v1.ConnectorReady ready = 11;</code>
+     * <code>.ymconnect.v1.ConnectorReady ready = 11[json_name = "ready"];</code>
      * @return The ready.
      */
     ymconnect.v1.Connector.ConnectorReady getReady();
 
     /**
-     * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12;</code>
+     * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12[json_name = "playerAnnounced"];</code>
      * @return Whether the playerAnnounced field is set.
      */
     boolean hasPlayerAnnounced();
     /**
-     * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12;</code>
+     * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12[json_name = "playerAnnounced"];</code>
      * @return The playerAnnounced.
      */
     ymconnect.v1.Connector.PlayerAnnounced getPlayerAnnounced();
 
     /**
-     * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13;</code>
+     * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13[json_name = "playerStateObserved"];</code>
      * @return Whether the playerStateObserved field is set.
      */
     boolean hasPlayerStateObserved();
     /**
-     * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13;</code>
+     * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13[json_name = "playerStateObserved"];</code>
      * @return The playerStateObserved.
      */
     ymconnect.v1.Connector.PlayerStateObserved getPlayerStateObserved();
 
     /**
-     * <code>.ymconnect.v1.PlayerRemoved player_removed = 14;</code>
+     * <code>.ymconnect.v1.PlayerRemoved player_removed = 14[json_name = "playerRemoved"];</code>
      * @return Whether the playerRemoved field is set.
      */
     boolean hasPlayerRemoved();
     /**
-     * <code>.ymconnect.v1.PlayerRemoved player_removed = 14;</code>
+     * <code>.ymconnect.v1.PlayerRemoved player_removed = 14[json_name = "playerRemoved"];</code>
      * @return The playerRemoved.
      */
     ymconnect.v1.Player.PlayerRemoved getPlayerRemoved();
 
     /**
-     * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15;</code>
+     * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15[json_name = "commandRequest"];</code>
      * @return Whether the commandRequest field is set.
      */
     boolean hasCommandRequest();
     /**
-     * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15;</code>
+     * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15[json_name = "commandRequest"];</code>
      * @return The commandRequest.
      */
     ymconnect.v1.Connector.ConnectorCommandRequest getCommandRequest();
 
     /**
-     * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16;</code>
+     * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16[json_name = "commandResult"];</code>
      * @return Whether the commandResult field is set.
      */
     boolean hasCommandResult();
     /**
-     * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16;</code>
+     * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16[json_name = "commandResult"];</code>
      * @return The commandResult.
      */
     ymconnect.v1.Connector.ConnectorCommandResult getCommandResult();
 
     /**
-     * <code>.ymconnect.v1.ConnectorPing ping = 17;</code>
+     * <code>.ymconnect.v1.ConnectorPing ping = 17[json_name = "ping"];</code>
      * @return Whether the ping field is set.
      */
     boolean hasPing();
     /**
-     * <code>.ymconnect.v1.ConnectorPing ping = 17;</code>
+     * <code>.ymconnect.v1.ConnectorPing ping = 17[json_name = "ping"];</code>
      * @return The ping.
      */
     ymconnect.v1.Connector.ConnectorPing getPing();
 
     /**
-     * <code>.ymconnect.v1.ConnectorPong pong = 18;</code>
+     * <code>.ymconnect.v1.ConnectorPong pong = 18[json_name = "pong"];</code>
      * @return Whether the pong field is set.
      */
     boolean hasPong();
     /**
-     * <code>.ymconnect.v1.ConnectorPong pong = 18;</code>
+     * <code>.ymconnect.v1.ConnectorPong pong = 18[json_name = "pong"];</code>
      * @return The pong.
      */
     ymconnect.v1.Connector.ConnectorPong getPong();
 
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 19;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 19[json_name = "error"];</code>
      * @return Whether the error field is set.
      */
     boolean hasError();
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 19;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 19[json_name = "error"];</code>
      * @return The error.
      */
     ymconnect.v1.Errors.ProtocolError getError();
 
     /**
-     * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20;</code>
+     * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20[json_name = "shutdown"];</code>
      * @return Whether the shutdown field is set.
      */
     boolean hasShutdown();
     /**
-     * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20;</code>
+     * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20[json_name = "shutdown"];</code>
      * @return The shutdown.
      */
     ymconnect.v1.Connector.ConnectorShutdown getShutdown();
@@ -3168,21 +3168,21 @@ public final class Connector {
     public static final int HEADER_FIELD_NUMBER = 1;
     private ymconnect.v1.Common.MessageHeader header_;
     /**
-     * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+     * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
      */
     @java.lang.Override
     public boolean hasHeader() {
       return header_ != null;
     }
     /**
-     * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+     * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Common.MessageHeader getHeader() {
       return header_ == null ? ymconnect.v1.Common.MessageHeader.getDefaultInstance() : header_;
     }
     /**
-     * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+     * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
      */
     private void setHeader(ymconnect.v1.Common.MessageHeader value) {
       value.getClass();
@@ -3190,7 +3190,7 @@ public final class Connector {
       
       }
     /**
-     * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+     * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeHeader(ymconnect.v1.Common.MessageHeader value) {
@@ -3205,7 +3205,7 @@ public final class Connector {
       
     }
     /**
-     * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+     * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
      */
     private void clearHeader() {  header_ = null;
       
@@ -3213,14 +3213,14 @@ public final class Connector {
 
     public static final int HELLO_FIELD_NUMBER = 10;
     /**
-     * <code>.ymconnect.v1.ConnectorHello hello = 10;</code>
+     * <code>.ymconnect.v1.ConnectorHello hello = 10[json_name = "hello"];</code>
      */
     @java.lang.Override
     public boolean hasHello() {
       return payloadCase_ == 10;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorHello hello = 10;</code>
+     * <code>.ymconnect.v1.ConnectorHello hello = 10[json_name = "hello"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Connector.ConnectorHello getHello() {
@@ -3230,7 +3230,7 @@ public final class Connector {
       return ymconnect.v1.Connector.ConnectorHello.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ConnectorHello hello = 10;</code>
+     * <code>.ymconnect.v1.ConnectorHello hello = 10[json_name = "hello"];</code>
      */
     private void setHello(ymconnect.v1.Connector.ConnectorHello value) {
       value.getClass();
@@ -3238,7 +3238,7 @@ public final class Connector {
       payloadCase_ = 10;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorHello hello = 10;</code>
+     * <code>.ymconnect.v1.ConnectorHello hello = 10[json_name = "hello"];</code>
      */
     private void mergeHello(ymconnect.v1.Connector.ConnectorHello value) {
       value.getClass();
@@ -3252,7 +3252,7 @@ public final class Connector {
       payloadCase_ = 10;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorHello hello = 10;</code>
+     * <code>.ymconnect.v1.ConnectorHello hello = 10[json_name = "hello"];</code>
      */
     private void clearHello() {
       if (payloadCase_ == 10) {
@@ -3263,14 +3263,14 @@ public final class Connector {
 
     public static final int READY_FIELD_NUMBER = 11;
     /**
-     * <code>.ymconnect.v1.ConnectorReady ready = 11;</code>
+     * <code>.ymconnect.v1.ConnectorReady ready = 11[json_name = "ready"];</code>
      */
     @java.lang.Override
     public boolean hasReady() {
       return payloadCase_ == 11;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorReady ready = 11;</code>
+     * <code>.ymconnect.v1.ConnectorReady ready = 11[json_name = "ready"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Connector.ConnectorReady getReady() {
@@ -3280,7 +3280,7 @@ public final class Connector {
       return ymconnect.v1.Connector.ConnectorReady.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ConnectorReady ready = 11;</code>
+     * <code>.ymconnect.v1.ConnectorReady ready = 11[json_name = "ready"];</code>
      */
     private void setReady(ymconnect.v1.Connector.ConnectorReady value) {
       value.getClass();
@@ -3288,7 +3288,7 @@ public final class Connector {
       payloadCase_ = 11;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorReady ready = 11;</code>
+     * <code>.ymconnect.v1.ConnectorReady ready = 11[json_name = "ready"];</code>
      */
     private void mergeReady(ymconnect.v1.Connector.ConnectorReady value) {
       value.getClass();
@@ -3302,7 +3302,7 @@ public final class Connector {
       payloadCase_ = 11;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorReady ready = 11;</code>
+     * <code>.ymconnect.v1.ConnectorReady ready = 11[json_name = "ready"];</code>
      */
     private void clearReady() {
       if (payloadCase_ == 11) {
@@ -3313,14 +3313,14 @@ public final class Connector {
 
     public static final int PLAYER_ANNOUNCED_FIELD_NUMBER = 12;
     /**
-     * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12;</code>
+     * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12[json_name = "playerAnnounced"];</code>
      */
     @java.lang.Override
     public boolean hasPlayerAnnounced() {
       return payloadCase_ == 12;
     }
     /**
-     * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12;</code>
+     * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12[json_name = "playerAnnounced"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Connector.PlayerAnnounced getPlayerAnnounced() {
@@ -3330,7 +3330,7 @@ public final class Connector {
       return ymconnect.v1.Connector.PlayerAnnounced.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12;</code>
+     * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12[json_name = "playerAnnounced"];</code>
      */
     private void setPlayerAnnounced(ymconnect.v1.Connector.PlayerAnnounced value) {
       value.getClass();
@@ -3338,7 +3338,7 @@ public final class Connector {
       payloadCase_ = 12;
     }
     /**
-     * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12;</code>
+     * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12[json_name = "playerAnnounced"];</code>
      */
     private void mergePlayerAnnounced(ymconnect.v1.Connector.PlayerAnnounced value) {
       value.getClass();
@@ -3352,7 +3352,7 @@ public final class Connector {
       payloadCase_ = 12;
     }
     /**
-     * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12;</code>
+     * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12[json_name = "playerAnnounced"];</code>
      */
     private void clearPlayerAnnounced() {
       if (payloadCase_ == 12) {
@@ -3363,14 +3363,14 @@ public final class Connector {
 
     public static final int PLAYER_STATE_OBSERVED_FIELD_NUMBER = 13;
     /**
-     * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13;</code>
+     * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13[json_name = "playerStateObserved"];</code>
      */
     @java.lang.Override
     public boolean hasPlayerStateObserved() {
       return payloadCase_ == 13;
     }
     /**
-     * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13;</code>
+     * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13[json_name = "playerStateObserved"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Connector.PlayerStateObserved getPlayerStateObserved() {
@@ -3380,7 +3380,7 @@ public final class Connector {
       return ymconnect.v1.Connector.PlayerStateObserved.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13;</code>
+     * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13[json_name = "playerStateObserved"];</code>
      */
     private void setPlayerStateObserved(ymconnect.v1.Connector.PlayerStateObserved value) {
       value.getClass();
@@ -3388,7 +3388,7 @@ public final class Connector {
       payloadCase_ = 13;
     }
     /**
-     * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13;</code>
+     * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13[json_name = "playerStateObserved"];</code>
      */
     private void mergePlayerStateObserved(ymconnect.v1.Connector.PlayerStateObserved value) {
       value.getClass();
@@ -3402,7 +3402,7 @@ public final class Connector {
       payloadCase_ = 13;
     }
     /**
-     * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13;</code>
+     * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13[json_name = "playerStateObserved"];</code>
      */
     private void clearPlayerStateObserved() {
       if (payloadCase_ == 13) {
@@ -3413,14 +3413,14 @@ public final class Connector {
 
     public static final int PLAYER_REMOVED_FIELD_NUMBER = 14;
     /**
-     * <code>.ymconnect.v1.PlayerRemoved player_removed = 14;</code>
+     * <code>.ymconnect.v1.PlayerRemoved player_removed = 14[json_name = "playerRemoved"];</code>
      */
     @java.lang.Override
     public boolean hasPlayerRemoved() {
       return payloadCase_ == 14;
     }
     /**
-     * <code>.ymconnect.v1.PlayerRemoved player_removed = 14;</code>
+     * <code>.ymconnect.v1.PlayerRemoved player_removed = 14[json_name = "playerRemoved"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Player.PlayerRemoved getPlayerRemoved() {
@@ -3430,7 +3430,7 @@ public final class Connector {
       return ymconnect.v1.Player.PlayerRemoved.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.PlayerRemoved player_removed = 14;</code>
+     * <code>.ymconnect.v1.PlayerRemoved player_removed = 14[json_name = "playerRemoved"];</code>
      */
     private void setPlayerRemoved(ymconnect.v1.Player.PlayerRemoved value) {
       value.getClass();
@@ -3438,7 +3438,7 @@ public final class Connector {
       payloadCase_ = 14;
     }
     /**
-     * <code>.ymconnect.v1.PlayerRemoved player_removed = 14;</code>
+     * <code>.ymconnect.v1.PlayerRemoved player_removed = 14[json_name = "playerRemoved"];</code>
      */
     private void mergePlayerRemoved(ymconnect.v1.Player.PlayerRemoved value) {
       value.getClass();
@@ -3452,7 +3452,7 @@ public final class Connector {
       payloadCase_ = 14;
     }
     /**
-     * <code>.ymconnect.v1.PlayerRemoved player_removed = 14;</code>
+     * <code>.ymconnect.v1.PlayerRemoved player_removed = 14[json_name = "playerRemoved"];</code>
      */
     private void clearPlayerRemoved() {
       if (payloadCase_ == 14) {
@@ -3463,14 +3463,14 @@ public final class Connector {
 
     public static final int COMMAND_REQUEST_FIELD_NUMBER = 15;
     /**
-     * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15;</code>
+     * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15[json_name = "commandRequest"];</code>
      */
     @java.lang.Override
     public boolean hasCommandRequest() {
       return payloadCase_ == 15;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15;</code>
+     * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15[json_name = "commandRequest"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Connector.ConnectorCommandRequest getCommandRequest() {
@@ -3480,7 +3480,7 @@ public final class Connector {
       return ymconnect.v1.Connector.ConnectorCommandRequest.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15;</code>
+     * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15[json_name = "commandRequest"];</code>
      */
     private void setCommandRequest(ymconnect.v1.Connector.ConnectorCommandRequest value) {
       value.getClass();
@@ -3488,7 +3488,7 @@ public final class Connector {
       payloadCase_ = 15;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15;</code>
+     * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15[json_name = "commandRequest"];</code>
      */
     private void mergeCommandRequest(ymconnect.v1.Connector.ConnectorCommandRequest value) {
       value.getClass();
@@ -3502,7 +3502,7 @@ public final class Connector {
       payloadCase_ = 15;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15;</code>
+     * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15[json_name = "commandRequest"];</code>
      */
     private void clearCommandRequest() {
       if (payloadCase_ == 15) {
@@ -3513,14 +3513,14 @@ public final class Connector {
 
     public static final int COMMAND_RESULT_FIELD_NUMBER = 16;
     /**
-     * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16;</code>
+     * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16[json_name = "commandResult"];</code>
      */
     @java.lang.Override
     public boolean hasCommandResult() {
       return payloadCase_ == 16;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16;</code>
+     * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16[json_name = "commandResult"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Connector.ConnectorCommandResult getCommandResult() {
@@ -3530,7 +3530,7 @@ public final class Connector {
       return ymconnect.v1.Connector.ConnectorCommandResult.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16;</code>
+     * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16[json_name = "commandResult"];</code>
      */
     private void setCommandResult(ymconnect.v1.Connector.ConnectorCommandResult value) {
       value.getClass();
@@ -3538,7 +3538,7 @@ public final class Connector {
       payloadCase_ = 16;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16;</code>
+     * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16[json_name = "commandResult"];</code>
      */
     private void mergeCommandResult(ymconnect.v1.Connector.ConnectorCommandResult value) {
       value.getClass();
@@ -3552,7 +3552,7 @@ public final class Connector {
       payloadCase_ = 16;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16;</code>
+     * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16[json_name = "commandResult"];</code>
      */
     private void clearCommandResult() {
       if (payloadCase_ == 16) {
@@ -3563,14 +3563,14 @@ public final class Connector {
 
     public static final int PING_FIELD_NUMBER = 17;
     /**
-     * <code>.ymconnect.v1.ConnectorPing ping = 17;</code>
+     * <code>.ymconnect.v1.ConnectorPing ping = 17[json_name = "ping"];</code>
      */
     @java.lang.Override
     public boolean hasPing() {
       return payloadCase_ == 17;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorPing ping = 17;</code>
+     * <code>.ymconnect.v1.ConnectorPing ping = 17[json_name = "ping"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Connector.ConnectorPing getPing() {
@@ -3580,7 +3580,7 @@ public final class Connector {
       return ymconnect.v1.Connector.ConnectorPing.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ConnectorPing ping = 17;</code>
+     * <code>.ymconnect.v1.ConnectorPing ping = 17[json_name = "ping"];</code>
      */
     private void setPing(ymconnect.v1.Connector.ConnectorPing value) {
       value.getClass();
@@ -3588,7 +3588,7 @@ public final class Connector {
       payloadCase_ = 17;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorPing ping = 17;</code>
+     * <code>.ymconnect.v1.ConnectorPing ping = 17[json_name = "ping"];</code>
      */
     private void mergePing(ymconnect.v1.Connector.ConnectorPing value) {
       value.getClass();
@@ -3602,7 +3602,7 @@ public final class Connector {
       payloadCase_ = 17;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorPing ping = 17;</code>
+     * <code>.ymconnect.v1.ConnectorPing ping = 17[json_name = "ping"];</code>
      */
     private void clearPing() {
       if (payloadCase_ == 17) {
@@ -3613,14 +3613,14 @@ public final class Connector {
 
     public static final int PONG_FIELD_NUMBER = 18;
     /**
-     * <code>.ymconnect.v1.ConnectorPong pong = 18;</code>
+     * <code>.ymconnect.v1.ConnectorPong pong = 18[json_name = "pong"];</code>
      */
     @java.lang.Override
     public boolean hasPong() {
       return payloadCase_ == 18;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorPong pong = 18;</code>
+     * <code>.ymconnect.v1.ConnectorPong pong = 18[json_name = "pong"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Connector.ConnectorPong getPong() {
@@ -3630,7 +3630,7 @@ public final class Connector {
       return ymconnect.v1.Connector.ConnectorPong.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ConnectorPong pong = 18;</code>
+     * <code>.ymconnect.v1.ConnectorPong pong = 18[json_name = "pong"];</code>
      */
     private void setPong(ymconnect.v1.Connector.ConnectorPong value) {
       value.getClass();
@@ -3638,7 +3638,7 @@ public final class Connector {
       payloadCase_ = 18;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorPong pong = 18;</code>
+     * <code>.ymconnect.v1.ConnectorPong pong = 18[json_name = "pong"];</code>
      */
     private void mergePong(ymconnect.v1.Connector.ConnectorPong value) {
       value.getClass();
@@ -3652,7 +3652,7 @@ public final class Connector {
       payloadCase_ = 18;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorPong pong = 18;</code>
+     * <code>.ymconnect.v1.ConnectorPong pong = 18[json_name = "pong"];</code>
      */
     private void clearPong() {
       if (payloadCase_ == 18) {
@@ -3663,14 +3663,14 @@ public final class Connector {
 
     public static final int ERROR_FIELD_NUMBER = 19;
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 19;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 19[json_name = "error"];</code>
      */
     @java.lang.Override
     public boolean hasError() {
       return payloadCase_ == 19;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 19;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 19[json_name = "error"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Errors.ProtocolError getError() {
@@ -3680,7 +3680,7 @@ public final class Connector {
       return ymconnect.v1.Errors.ProtocolError.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 19;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 19[json_name = "error"];</code>
      */
     private void setError(ymconnect.v1.Errors.ProtocolError value) {
       value.getClass();
@@ -3688,7 +3688,7 @@ public final class Connector {
       payloadCase_ = 19;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 19;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 19[json_name = "error"];</code>
      */
     private void mergeError(ymconnect.v1.Errors.ProtocolError value) {
       value.getClass();
@@ -3702,7 +3702,7 @@ public final class Connector {
       payloadCase_ = 19;
     }
     /**
-     * <code>.ymconnect.v1.ProtocolError error = 19;</code>
+     * <code>.ymconnect.v1.ProtocolError error = 19[json_name = "error"];</code>
      */
     private void clearError() {
       if (payloadCase_ == 19) {
@@ -3713,14 +3713,14 @@ public final class Connector {
 
     public static final int SHUTDOWN_FIELD_NUMBER = 20;
     /**
-     * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20;</code>
+     * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20[json_name = "shutdown"];</code>
      */
     @java.lang.Override
     public boolean hasShutdown() {
       return payloadCase_ == 20;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20;</code>
+     * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20[json_name = "shutdown"];</code>
      */
     @java.lang.Override
     public ymconnect.v1.Connector.ConnectorShutdown getShutdown() {
@@ -3730,7 +3730,7 @@ public final class Connector {
       return ymconnect.v1.Connector.ConnectorShutdown.getDefaultInstance();
     }
     /**
-     * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20;</code>
+     * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20[json_name = "shutdown"];</code>
      */
     private void setShutdown(ymconnect.v1.Connector.ConnectorShutdown value) {
       value.getClass();
@@ -3738,7 +3738,7 @@ public final class Connector {
       payloadCase_ = 20;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20;</code>
+     * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20[json_name = "shutdown"];</code>
      */
     private void mergeShutdown(ymconnect.v1.Connector.ConnectorShutdown value) {
       value.getClass();
@@ -3752,7 +3752,7 @@ public final class Connector {
       payloadCase_ = 20;
     }
     /**
-     * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20;</code>
+     * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20[json_name = "shutdown"];</code>
      */
     private void clearShutdown() {
       if (payloadCase_ == 20) {
@@ -3869,21 +3869,21 @@ public final class Connector {
 
 
       /**
-       * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+       * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
        */
       @java.lang.Override
       public boolean hasHeader() {
         return instance.hasHeader();
       }
       /**
-       * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+       * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Common.MessageHeader getHeader() {
         return instance.getHeader();
       }
       /**
-       * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+       * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
        */
       public Builder setHeader(ymconnect.v1.Common.MessageHeader value) {
         copyOnWrite();
@@ -3891,7 +3891,7 @@ public final class Connector {
         return this;
         }
       /**
-       * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+       * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
        */
       public Builder setHeader(
           ymconnect.v1.Common.MessageHeader.Builder builderForValue) {
@@ -3900,7 +3900,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+       * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
        */
       public Builder mergeHeader(ymconnect.v1.Common.MessageHeader value) {
         copyOnWrite();
@@ -3908,7 +3908,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.MessageHeader header = 1;</code>
+       * <code>.ymconnect.v1.MessageHeader header = 1[json_name = "header"];</code>
        */
       public Builder clearHeader() {  copyOnWrite();
         instance.clearHeader();
@@ -3916,21 +3916,21 @@ public final class Connector {
       }
 
       /**
-       * <code>.ymconnect.v1.ConnectorHello hello = 10;</code>
+       * <code>.ymconnect.v1.ConnectorHello hello = 10[json_name = "hello"];</code>
        */
       @java.lang.Override
       public boolean hasHello() {
         return instance.hasHello();
       }
       /**
-       * <code>.ymconnect.v1.ConnectorHello hello = 10;</code>
+       * <code>.ymconnect.v1.ConnectorHello hello = 10[json_name = "hello"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Connector.ConnectorHello getHello() {
         return instance.getHello();
       }
       /**
-       * <code>.ymconnect.v1.ConnectorHello hello = 10;</code>
+       * <code>.ymconnect.v1.ConnectorHello hello = 10[json_name = "hello"];</code>
        */
       public Builder setHello(ymconnect.v1.Connector.ConnectorHello value) {
         copyOnWrite();
@@ -3938,7 +3938,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorHello hello = 10;</code>
+       * <code>.ymconnect.v1.ConnectorHello hello = 10[json_name = "hello"];</code>
        */
       public Builder setHello(
           ymconnect.v1.Connector.ConnectorHello.Builder builderForValue) {
@@ -3947,7 +3947,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorHello hello = 10;</code>
+       * <code>.ymconnect.v1.ConnectorHello hello = 10[json_name = "hello"];</code>
        */
       public Builder mergeHello(ymconnect.v1.Connector.ConnectorHello value) {
         copyOnWrite();
@@ -3955,7 +3955,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorHello hello = 10;</code>
+       * <code>.ymconnect.v1.ConnectorHello hello = 10[json_name = "hello"];</code>
        */
       public Builder clearHello() {
         copyOnWrite();
@@ -3964,21 +3964,21 @@ public final class Connector {
       }
 
       /**
-       * <code>.ymconnect.v1.ConnectorReady ready = 11;</code>
+       * <code>.ymconnect.v1.ConnectorReady ready = 11[json_name = "ready"];</code>
        */
       @java.lang.Override
       public boolean hasReady() {
         return instance.hasReady();
       }
       /**
-       * <code>.ymconnect.v1.ConnectorReady ready = 11;</code>
+       * <code>.ymconnect.v1.ConnectorReady ready = 11[json_name = "ready"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Connector.ConnectorReady getReady() {
         return instance.getReady();
       }
       /**
-       * <code>.ymconnect.v1.ConnectorReady ready = 11;</code>
+       * <code>.ymconnect.v1.ConnectorReady ready = 11[json_name = "ready"];</code>
        */
       public Builder setReady(ymconnect.v1.Connector.ConnectorReady value) {
         copyOnWrite();
@@ -3986,7 +3986,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorReady ready = 11;</code>
+       * <code>.ymconnect.v1.ConnectorReady ready = 11[json_name = "ready"];</code>
        */
       public Builder setReady(
           ymconnect.v1.Connector.ConnectorReady.Builder builderForValue) {
@@ -3995,7 +3995,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorReady ready = 11;</code>
+       * <code>.ymconnect.v1.ConnectorReady ready = 11[json_name = "ready"];</code>
        */
       public Builder mergeReady(ymconnect.v1.Connector.ConnectorReady value) {
         copyOnWrite();
@@ -4003,7 +4003,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorReady ready = 11;</code>
+       * <code>.ymconnect.v1.ConnectorReady ready = 11[json_name = "ready"];</code>
        */
       public Builder clearReady() {
         copyOnWrite();
@@ -4012,21 +4012,21 @@ public final class Connector {
       }
 
       /**
-       * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12;</code>
+       * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12[json_name = "playerAnnounced"];</code>
        */
       @java.lang.Override
       public boolean hasPlayerAnnounced() {
         return instance.hasPlayerAnnounced();
       }
       /**
-       * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12;</code>
+       * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12[json_name = "playerAnnounced"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Connector.PlayerAnnounced getPlayerAnnounced() {
         return instance.getPlayerAnnounced();
       }
       /**
-       * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12;</code>
+       * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12[json_name = "playerAnnounced"];</code>
        */
       public Builder setPlayerAnnounced(ymconnect.v1.Connector.PlayerAnnounced value) {
         copyOnWrite();
@@ -4034,7 +4034,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12;</code>
+       * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12[json_name = "playerAnnounced"];</code>
        */
       public Builder setPlayerAnnounced(
           ymconnect.v1.Connector.PlayerAnnounced.Builder builderForValue) {
@@ -4043,7 +4043,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12;</code>
+       * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12[json_name = "playerAnnounced"];</code>
        */
       public Builder mergePlayerAnnounced(ymconnect.v1.Connector.PlayerAnnounced value) {
         copyOnWrite();
@@ -4051,7 +4051,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12;</code>
+       * <code>.ymconnect.v1.PlayerAnnounced player_announced = 12[json_name = "playerAnnounced"];</code>
        */
       public Builder clearPlayerAnnounced() {
         copyOnWrite();
@@ -4060,21 +4060,21 @@ public final class Connector {
       }
 
       /**
-       * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13;</code>
+       * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13[json_name = "playerStateObserved"];</code>
        */
       @java.lang.Override
       public boolean hasPlayerStateObserved() {
         return instance.hasPlayerStateObserved();
       }
       /**
-       * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13;</code>
+       * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13[json_name = "playerStateObserved"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Connector.PlayerStateObserved getPlayerStateObserved() {
         return instance.getPlayerStateObserved();
       }
       /**
-       * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13;</code>
+       * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13[json_name = "playerStateObserved"];</code>
        */
       public Builder setPlayerStateObserved(ymconnect.v1.Connector.PlayerStateObserved value) {
         copyOnWrite();
@@ -4082,7 +4082,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13;</code>
+       * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13[json_name = "playerStateObserved"];</code>
        */
       public Builder setPlayerStateObserved(
           ymconnect.v1.Connector.PlayerStateObserved.Builder builderForValue) {
@@ -4091,7 +4091,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13;</code>
+       * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13[json_name = "playerStateObserved"];</code>
        */
       public Builder mergePlayerStateObserved(ymconnect.v1.Connector.PlayerStateObserved value) {
         copyOnWrite();
@@ -4099,7 +4099,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13;</code>
+       * <code>.ymconnect.v1.PlayerStateObserved player_state_observed = 13[json_name = "playerStateObserved"];</code>
        */
       public Builder clearPlayerStateObserved() {
         copyOnWrite();
@@ -4108,21 +4108,21 @@ public final class Connector {
       }
 
       /**
-       * <code>.ymconnect.v1.PlayerRemoved player_removed = 14;</code>
+       * <code>.ymconnect.v1.PlayerRemoved player_removed = 14[json_name = "playerRemoved"];</code>
        */
       @java.lang.Override
       public boolean hasPlayerRemoved() {
         return instance.hasPlayerRemoved();
       }
       /**
-       * <code>.ymconnect.v1.PlayerRemoved player_removed = 14;</code>
+       * <code>.ymconnect.v1.PlayerRemoved player_removed = 14[json_name = "playerRemoved"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Player.PlayerRemoved getPlayerRemoved() {
         return instance.getPlayerRemoved();
       }
       /**
-       * <code>.ymconnect.v1.PlayerRemoved player_removed = 14;</code>
+       * <code>.ymconnect.v1.PlayerRemoved player_removed = 14[json_name = "playerRemoved"];</code>
        */
       public Builder setPlayerRemoved(ymconnect.v1.Player.PlayerRemoved value) {
         copyOnWrite();
@@ -4130,7 +4130,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerRemoved player_removed = 14;</code>
+       * <code>.ymconnect.v1.PlayerRemoved player_removed = 14[json_name = "playerRemoved"];</code>
        */
       public Builder setPlayerRemoved(
           ymconnect.v1.Player.PlayerRemoved.Builder builderForValue) {
@@ -4139,7 +4139,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerRemoved player_removed = 14;</code>
+       * <code>.ymconnect.v1.PlayerRemoved player_removed = 14[json_name = "playerRemoved"];</code>
        */
       public Builder mergePlayerRemoved(ymconnect.v1.Player.PlayerRemoved value) {
         copyOnWrite();
@@ -4147,7 +4147,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.PlayerRemoved player_removed = 14;</code>
+       * <code>.ymconnect.v1.PlayerRemoved player_removed = 14[json_name = "playerRemoved"];</code>
        */
       public Builder clearPlayerRemoved() {
         copyOnWrite();
@@ -4156,21 +4156,21 @@ public final class Connector {
       }
 
       /**
-       * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15;</code>
+       * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15[json_name = "commandRequest"];</code>
        */
       @java.lang.Override
       public boolean hasCommandRequest() {
         return instance.hasCommandRequest();
       }
       /**
-       * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15;</code>
+       * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15[json_name = "commandRequest"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Connector.ConnectorCommandRequest getCommandRequest() {
         return instance.getCommandRequest();
       }
       /**
-       * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15;</code>
+       * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15[json_name = "commandRequest"];</code>
        */
       public Builder setCommandRequest(ymconnect.v1.Connector.ConnectorCommandRequest value) {
         copyOnWrite();
@@ -4178,7 +4178,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15;</code>
+       * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15[json_name = "commandRequest"];</code>
        */
       public Builder setCommandRequest(
           ymconnect.v1.Connector.ConnectorCommandRequest.Builder builderForValue) {
@@ -4187,7 +4187,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15;</code>
+       * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15[json_name = "commandRequest"];</code>
        */
       public Builder mergeCommandRequest(ymconnect.v1.Connector.ConnectorCommandRequest value) {
         copyOnWrite();
@@ -4195,7 +4195,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15;</code>
+       * <code>.ymconnect.v1.ConnectorCommandRequest command_request = 15[json_name = "commandRequest"];</code>
        */
       public Builder clearCommandRequest() {
         copyOnWrite();
@@ -4204,21 +4204,21 @@ public final class Connector {
       }
 
       /**
-       * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16;</code>
+       * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16[json_name = "commandResult"];</code>
        */
       @java.lang.Override
       public boolean hasCommandResult() {
         return instance.hasCommandResult();
       }
       /**
-       * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16;</code>
+       * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16[json_name = "commandResult"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Connector.ConnectorCommandResult getCommandResult() {
         return instance.getCommandResult();
       }
       /**
-       * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16;</code>
+       * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16[json_name = "commandResult"];</code>
        */
       public Builder setCommandResult(ymconnect.v1.Connector.ConnectorCommandResult value) {
         copyOnWrite();
@@ -4226,7 +4226,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16;</code>
+       * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16[json_name = "commandResult"];</code>
        */
       public Builder setCommandResult(
           ymconnect.v1.Connector.ConnectorCommandResult.Builder builderForValue) {
@@ -4235,7 +4235,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16;</code>
+       * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16[json_name = "commandResult"];</code>
        */
       public Builder mergeCommandResult(ymconnect.v1.Connector.ConnectorCommandResult value) {
         copyOnWrite();
@@ -4243,7 +4243,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16;</code>
+       * <code>.ymconnect.v1.ConnectorCommandResult command_result = 16[json_name = "commandResult"];</code>
        */
       public Builder clearCommandResult() {
         copyOnWrite();
@@ -4252,21 +4252,21 @@ public final class Connector {
       }
 
       /**
-       * <code>.ymconnect.v1.ConnectorPing ping = 17;</code>
+       * <code>.ymconnect.v1.ConnectorPing ping = 17[json_name = "ping"];</code>
        */
       @java.lang.Override
       public boolean hasPing() {
         return instance.hasPing();
       }
       /**
-       * <code>.ymconnect.v1.ConnectorPing ping = 17;</code>
+       * <code>.ymconnect.v1.ConnectorPing ping = 17[json_name = "ping"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Connector.ConnectorPing getPing() {
         return instance.getPing();
       }
       /**
-       * <code>.ymconnect.v1.ConnectorPing ping = 17;</code>
+       * <code>.ymconnect.v1.ConnectorPing ping = 17[json_name = "ping"];</code>
        */
       public Builder setPing(ymconnect.v1.Connector.ConnectorPing value) {
         copyOnWrite();
@@ -4274,7 +4274,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorPing ping = 17;</code>
+       * <code>.ymconnect.v1.ConnectorPing ping = 17[json_name = "ping"];</code>
        */
       public Builder setPing(
           ymconnect.v1.Connector.ConnectorPing.Builder builderForValue) {
@@ -4283,7 +4283,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorPing ping = 17;</code>
+       * <code>.ymconnect.v1.ConnectorPing ping = 17[json_name = "ping"];</code>
        */
       public Builder mergePing(ymconnect.v1.Connector.ConnectorPing value) {
         copyOnWrite();
@@ -4291,7 +4291,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorPing ping = 17;</code>
+       * <code>.ymconnect.v1.ConnectorPing ping = 17[json_name = "ping"];</code>
        */
       public Builder clearPing() {
         copyOnWrite();
@@ -4300,21 +4300,21 @@ public final class Connector {
       }
 
       /**
-       * <code>.ymconnect.v1.ConnectorPong pong = 18;</code>
+       * <code>.ymconnect.v1.ConnectorPong pong = 18[json_name = "pong"];</code>
        */
       @java.lang.Override
       public boolean hasPong() {
         return instance.hasPong();
       }
       /**
-       * <code>.ymconnect.v1.ConnectorPong pong = 18;</code>
+       * <code>.ymconnect.v1.ConnectorPong pong = 18[json_name = "pong"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Connector.ConnectorPong getPong() {
         return instance.getPong();
       }
       /**
-       * <code>.ymconnect.v1.ConnectorPong pong = 18;</code>
+       * <code>.ymconnect.v1.ConnectorPong pong = 18[json_name = "pong"];</code>
        */
       public Builder setPong(ymconnect.v1.Connector.ConnectorPong value) {
         copyOnWrite();
@@ -4322,7 +4322,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorPong pong = 18;</code>
+       * <code>.ymconnect.v1.ConnectorPong pong = 18[json_name = "pong"];</code>
        */
       public Builder setPong(
           ymconnect.v1.Connector.ConnectorPong.Builder builderForValue) {
@@ -4331,7 +4331,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorPong pong = 18;</code>
+       * <code>.ymconnect.v1.ConnectorPong pong = 18[json_name = "pong"];</code>
        */
       public Builder mergePong(ymconnect.v1.Connector.ConnectorPong value) {
         copyOnWrite();
@@ -4339,7 +4339,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorPong pong = 18;</code>
+       * <code>.ymconnect.v1.ConnectorPong pong = 18[json_name = "pong"];</code>
        */
       public Builder clearPong() {
         copyOnWrite();
@@ -4348,21 +4348,21 @@ public final class Connector {
       }
 
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 19;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 19[json_name = "error"];</code>
        */
       @java.lang.Override
       public boolean hasError() {
         return instance.hasError();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 19;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 19[json_name = "error"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Errors.ProtocolError getError() {
         return instance.getError();
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 19;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 19[json_name = "error"];</code>
        */
       public Builder setError(ymconnect.v1.Errors.ProtocolError value) {
         copyOnWrite();
@@ -4370,7 +4370,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 19;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 19[json_name = "error"];</code>
        */
       public Builder setError(
           ymconnect.v1.Errors.ProtocolError.Builder builderForValue) {
@@ -4379,7 +4379,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 19;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 19[json_name = "error"];</code>
        */
       public Builder mergeError(ymconnect.v1.Errors.ProtocolError value) {
         copyOnWrite();
@@ -4387,7 +4387,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ProtocolError error = 19;</code>
+       * <code>.ymconnect.v1.ProtocolError error = 19[json_name = "error"];</code>
        */
       public Builder clearError() {
         copyOnWrite();
@@ -4396,21 +4396,21 @@ public final class Connector {
       }
 
       /**
-       * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20;</code>
+       * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20[json_name = "shutdown"];</code>
        */
       @java.lang.Override
       public boolean hasShutdown() {
         return instance.hasShutdown();
       }
       /**
-       * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20;</code>
+       * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20[json_name = "shutdown"];</code>
        */
       @java.lang.Override
       public ymconnect.v1.Connector.ConnectorShutdown getShutdown() {
         return instance.getShutdown();
       }
       /**
-       * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20;</code>
+       * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20[json_name = "shutdown"];</code>
        */
       public Builder setShutdown(ymconnect.v1.Connector.ConnectorShutdown value) {
         copyOnWrite();
@@ -4418,7 +4418,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20;</code>
+       * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20[json_name = "shutdown"];</code>
        */
       public Builder setShutdown(
           ymconnect.v1.Connector.ConnectorShutdown.Builder builderForValue) {
@@ -4427,7 +4427,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20;</code>
+       * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20[json_name = "shutdown"];</code>
        */
       public Builder mergeShutdown(ymconnect.v1.Connector.ConnectorShutdown value) {
         copyOnWrite();
@@ -4435,7 +4435,7 @@ public final class Connector {
         return this;
       }
       /**
-       * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20;</code>
+       * <code>.ymconnect.v1.ConnectorShutdown shutdown = 20[json_name = "shutdown"];</code>
        */
       public Builder clearShutdown() {
         copyOnWrite();
