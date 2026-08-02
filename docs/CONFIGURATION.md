@@ -1,5 +1,7 @@
 # Bridge Configuration
 
+<!-- cspell:words usize -->
+
 ## Scope
 
 The Bridge configuration subsystem is owned by `ym-connect-bridge-core`. It resolves a
