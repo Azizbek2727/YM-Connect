@@ -101,7 +101,7 @@ impl RegistryStateError {
         registry: RegistryKind,
         operation: RegistryOperation,
         failure: RegistryFailure,
-        key: impl ToString,
+        key: &impl ToString,
     ) -> Self {
         Self {
             registry,
@@ -268,7 +268,7 @@ where
     /// Returns a registered value.
     #[must_use]
     pub fn get(&self, key: &V::Key) -> Option<&V> {
-        self.entries.get(key).map(|value| value.as_ref())
+        self.entries.get(key).map(AsRef::as_ref)
     }
 
     /// Returns a shared registered value.
@@ -294,7 +294,7 @@ where
     /// Iterates values in stable key order.
     #[must_use]
     pub fn values(&self) -> impl DoubleEndedIterator<Item = &V> + ExactSizeIterator {
-        self.entries.values().map(|value| value.as_ref())
+        self.entries.values().map(AsRef::as_ref)
     }
 
     /// Inserts a new canonical value.
@@ -380,7 +380,7 @@ where
                 V::REGISTRY_KIND,
                 public_operation,
                 RegistryFailure::DuplicateKey,
-                key,
+                &key,
             ));
         }
         if matches!(operation, WriteOperation::Replace) && existing.is_none() {
@@ -388,7 +388,7 @@ where
                 V::REGISTRY_KIND,
                 public_operation,
                 RegistryFailure::MissingKey,
-                key,
+                &key,
             ));
         }
         if existing.is_some_and(|existing| existing.as_ref() == &value) {
