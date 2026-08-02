@@ -54,7 +54,7 @@ impl StateRevision {
 }
 
 #[derive(Clone, Debug, PartialEq)]
-pub(super) struct BridgeStateData {
+pub(crate) struct BridgeStateData {
     pub(super) lifecycle: BridgeLifecycleState,
     pub(super) configuration: Arc<BridgeConfig>,
     pub(super) sessions: SessionRegistry,
