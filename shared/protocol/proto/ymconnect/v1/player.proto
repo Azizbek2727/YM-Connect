@@ -1,0 +1,108 @@
+syntax = "proto3";
+
+package ymconnect.v1;
+
+option java_package = "ymconnect.v1";
+option java_outer_classname = "Player";
+option java_multiple_files = false;
+option optimize_for = LITE_RUNTIME;
+
+import "ymconnect/v1/capabilities.proto";
+import "ymconnect/v1/common.proto";
+
+enum PlaybackStatus {
+  PLAYBACK_STATUS_UNSPECIFIED = 0;
+  PLAYBACK_STATUS_IDLE = 1;
+  PLAYBACK_STATUS_BUFFERING = 2;
+  PLAYBACK_STATUS_PLAYING = 3;
+  PLAYBACK_STATUS_PAUSED = 4;
+  PLAYBACK_STATUS_STOPPED = 5;
+  PLAYBACK_STATUS_ENDED = 6;
+}
+
+enum RepeatMode {
+  REPEAT_MODE_UNSPECIFIED = 0;
+  REPEAT_MODE_OFF = 1;
+  REPEAT_MODE_ALL = 2;
+  REPEAT_MODE_ONE = 3;
+}
+
+enum PlayerHealth {
+  PLAYER_HEALTH_UNSPECIFIED = 0;
+  PLAYER_HEALTH_READY = 1;
+  PLAYER_HEALTH_DEGRADED = 2;
+  PLAYER_HEALTH_UNAVAILABLE = 3;
+}
+
+enum MediaKind {
+  MEDIA_KIND_UNSPECIFIED = 0;
+  MEDIA_KIND_TRACK = 1;
+  MEDIA_KIND_PODCAST_EPISODE = 2;
+  MEDIA_KIND_AUDIOBOOK_CHAPTER = 3;
+  MEDIA_KIND_LIVE_STREAM = 4;
+}
+
+message TrackMetadata {
+  string provider = 1;
+  string media_id = 2;
+  MediaKind media_kind = 3;
+  string title = 4;
+  repeated string artists = 5;
+  string album = 6;
+  uint64 duration_ms = 7;
+  string artwork_url = 8;
+  bool explicit_content = 9;
+  bool liked = 10;
+}
+
+message PlaybackPosition {
+  uint64 position_ms = 1;
+  uint64 measured_at_unix_ms = 2;
+  double playback_rate = 3;
+}
+
+message PlaybackOptions {
+  double volume = 1;
+  bool muted = 2;
+  bool shuffle = 3;
+  RepeatMode repeat_mode = 4;
+}
+
+message PlayerDescriptor {
+  string player_id = 1;
+  string display_name = 2;
+  string provider = 3;
+  BrowserDescriptor browser = 4;
+  CapabilitySet capabilities = 5;
+  PlayerHealth health = 6;
+}
+
+message PlayerSnapshot {
+  PlayerDescriptor player = 1;
+  uint64 revision = 2;
+  PlaybackStatus status = 3;
+  TrackMetadata track = 4;
+  PlaybackPosition position = 5;
+  PlaybackOptions options = 6;
+  uint64 observed_at_unix_ms = 7;
+}
+
+message PlayerRemoved {
+  string player_id = 1;
+  uint64 removed_at_unix_ms = 2;
+  string reason = 3;
+}
+
+message ActivePlayerChanged {
+  string previous_player_id = 1;
+  string active_player_id = 2;
+  uint64 changed_at_unix_ms = 3;
+}
+
+message PlayerEvent {
+  oneof event {
+    PlayerSnapshot snapshot = 1;
+    PlayerRemoved removed = 2;
+    ActivePlayerChanged active_changed = 3;
+  }
+}

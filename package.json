@@ -12,8 +12,8 @@
   "scripts": {
     "bootstrap": "pnpm install --frozen-lockfile",
     "generate": "pnpm protocol:generate",
-    "generate:check": "pnpm protocol:generate && git diff --exit-code -- shared/generated shared/protocol/fixtures",
-    "protocol:generate": "buf generate --template shared/protocol/buf.gen.yaml",
+    "generate:check": "pnpm protocol:generate && git diff --exit-code -- shared/generated shared/protocol/descriptor shared/protocol/fixtures",
+    "protocol:generate": "pnpm protocol:descriptor && buf generate --template shared/protocol/buf.gen.yaml && pnpm --filter @ym-connect/protocol-fixtures generate",
     "protocol:lint": "buf lint",
     "protocol:build": "buf build",
     "protocol:breaking": "buf breaking --against '.git#branch=main'",
@@ -36,6 +36,7 @@
     "test:android": "./gradlew --no-daemon test",
     "test": "pnpm test:js && pnpm test:rust && pnpm test:android",
     "check": "pnpm generate:check && pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build",
-    "clean": "pnpm -r --if-present clean && cargo clean && ./gradlew --no-daemon clean"
+    "clean": "pnpm -r --if-present clean && cargo clean && ./gradlew --no-daemon clean",
+    "protocol:descriptor": "protoc -I shared/protocol/proto --include_imports --include_source_info --descriptor_set_out=shared/protocol/descriptor/ymconnect-v1.pb shared/protocol/proto/ymconnect/v1/capabilities.proto shared/protocol/proto/ymconnect/v1/common.proto shared/protocol/proto/ymconnect/v1/connector.proto shared/protocol/proto/ymconnect/v1/control.proto shared/protocol/proto/ymconnect/v1/errors.proto shared/protocol/proto/ymconnect/v1/player.proto shared/protocol/proto/ymconnect/v1/session.proto && node --input-type=module -e \"import { createHash } from 'node:crypto'; import { readFile, writeFile } from 'node:fs/promises'; const path = 'shared/protocol/descriptor/ymconnect-v1.pb'; const digest = createHash('sha256').update(await readFile(path)).digest('hex'); await writeFile(path + '.sha256', digest + '  ymconnect-v1.pb\\n');\""
   }
 }

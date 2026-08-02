@@ -1,0 +1,29 @@
+{
+  "name": "@ym-connect/protocol-fixtures",
+  "version": "0.1.0",
+  "description": "Golden YM Connect protocol vectors for cross-language conformance tests.",
+  "type": "module",
+  "private": true,
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js"
+    }
+  },
+  "scripts": {
+    "build": "node --check src/index.js",
+    "format:check": "pnpm dlx @biomejs/biome@2.5.6 check src test",
+    "lint": "pnpm dlx @biomejs/biome@2.5.6 lint src test",
+    "test": "node --test",
+    "typecheck": "pnpm --package=typescript@7.0.2 dlx tsc --noEmit --module NodeNext --moduleResolution NodeNext --target ES2024 src/index.d.ts",
+    "generate": "node --input-type=module -e \"import('./src/index.js').then(({writeCanonicalFixtures}) => writeCanonicalFixtures())\""
+  },
+  "dependencies": {
+    "@ym-connect/protocol": "workspace:*"
+  },
+  "engines": {
+    "node": ">=24.18.0"
+  },
+  "license": "Apache-2.0"
+}

@@ -1,4 +1,5 @@
 packages:
+  - "shared/generated/typescript"
   - "shared/packages/*"
   - "shared/tools/*"
   - "extension"

@@ -1,0 +1,174 @@
+syntax = "proto3";
+
+package ymconnect.v1;
+
+option java_package = "ymconnect.v1";
+option java_outer_classname = "Session";
+option java_multiple_files = false;
+option optimize_for = LITE_RUNTIME;
+
+import "ymconnect/v1/capabilities.proto";
+import "ymconnect/v1/common.proto";
+import "ymconnect/v1/control.proto";
+import "ymconnect/v1/errors.proto";
+import "ymconnect/v1/player.proto";
+
+enum SecuritySuite {
+  SECURITY_SUITE_UNSPECIFIED = 0;
+  SECURITY_SUITE_X25519_ED25519_HKDF_SHA256_CHACHA20_POLY1305 = 1;
+}
+
+enum PairingMethod {
+  PAIRING_METHOD_UNSPECIFIED = 0;
+  PAIRING_METHOD_QR_CODE = 1;
+  PAIRING_METHOD_MANUAL_CODE = 2;
+}
+
+enum TrustState {
+  TRUST_STATE_UNSPECIFIED = 0;
+  TRUST_STATE_PENDING = 1;
+  TRUST_STATE_TRUSTED = 2;
+  TRUST_STATE_REVOKED = 3;
+}
+
+message BridgeAdvertisement {
+  BridgeDescriptor bridge = 1;
+  VersionRange protocol_range = 2;
+  CapabilitySet capabilities = 3;
+  uint32 secure_port = 4;
+  uint64 expires_at_unix_ms = 5;
+  bytes advertisement_nonce = 6;
+  bytes signature = 7;
+}
+
+message PairingOffer {
+  string pairing_id = 1;
+  BridgeDescriptor bridge = 2;
+  VersionRange protocol_range = 3;
+  CapabilitySet capabilities = 4;
+  PairingMethod method = 5;
+  uint64 expires_at_unix_ms = 6;
+  bytes bridge_ephemeral_public_key = 7;
+  bytes offer_nonce = 8;
+  bytes signature = 9;
+}
+
+message PairingRequest {
+  string pairing_id = 1;
+  DeviceDescriptor client = 2;
+  bytes client_ephemeral_public_key = 3;
+  bytes client_nonce = 4;
+  bytes offer_digest = 5;
+}
+
+message PairingChallenge {
+  string pairing_id = 1;
+  bytes challenge = 2;
+  uint64 expires_at_unix_ms = 3;
+}
+
+message PairingProof {
+  string pairing_id = 1;
+  bytes challenge_signature = 2;
+  string verification_code = 3;
+}
+
+message PairingResult {
+  string pairing_id = 1;
+  bool accepted = 2;
+  string trust_id = 3;
+  bytes bridge_identity_signature = 4;
+  ProtocolSelection selection = 5;
+  ProtocolError error = 6;
+}
+
+message TrustedClient {
+  string trust_id = 1;
+  DeviceDescriptor client = 2;
+  TrustState state = 3;
+  uint64 created_at_unix_ms = 4;
+  uint64 last_seen_at_unix_ms = 5;
+}
+
+message ListTrustedClientsRequest {}
+message ListTrustedClientsResponse { repeated TrustedClient clients = 1; }
+message RevokeClientRequest { string trust_id = 1; }
+message RevokeClientResult {
+  string trust_id = 1;
+  bool revoked = 2;
+  ProtocolError error = 3;
+}
+
+message ClientHello {
+  DeviceDescriptor client = 1;
+  VersionRange protocol_range = 2;
+  CapabilitySet capabilities = 3;
+  SecuritySuite security_suite = 4;
+  bytes client_ephemeral_public_key = 5;
+  bytes client_nonce = 6;
+  string resume_token = 7;
+}
+
+message ServerHello {
+  BridgeDescriptor bridge = 1;
+  ProtocolSelection selection = 2;
+  SecuritySuite security_suite = 3;
+  bytes server_ephemeral_public_key = 4;
+  bytes server_nonce = 5;
+  bytes transcript_signature = 6;
+}
+
+message ClientFinish {
+  bytes transcript_signature = 1;
+  bytes client_proof = 2;
+}
+
+message SessionEstablished {
+  string session_id = 1;
+  uint64 expires_at_unix_ms = 2;
+  string resume_token = 3;
+  uint64 initial_send_sequence = 4;
+  uint64 initial_receive_sequence = 5;
+}
+
+message EncryptedFrame {
+  string session_id = 1;
+  uint64 sequence = 2;
+  bytes nonce = 3;
+  bytes ciphertext = 4;
+  bytes associated_data = 5;
+}
+
+message ClientPing { uint64 nonce = 1; }
+message ClientPong { uint64 nonce = 1; }
+
+message ClientEnvelope {
+  MessageHeader header = 1;
+  oneof payload {
+    ClientHello client_hello = 10;
+    ServerHello server_hello = 11;
+    ClientFinish client_finish = 12;
+    SessionEstablished session_established = 13;
+    PairingOffer pairing_offer = 14;
+    PairingRequest pairing_request = 15;
+    PairingChallenge pairing_challenge = 16;
+    PairingProof pairing_proof = 17;
+    PairingResult pairing_result = 18;
+    ListPlayersRequest list_players_request = 19;
+    ListPlayersResponse list_players_response = 20;
+    SubscribePlayersRequest subscribe_players_request = 21;
+    SubscribePlayersResponse subscribe_players_response = 22;
+    PlayerEvent player_event = 23;
+    CommandRequest command_request = 24;
+    CommandResult command_result = 25;
+    SelectPlayerRequest select_player_request = 26;
+    SelectPlayerResult select_player_result = 27;
+    ListTrustedClientsRequest list_trusted_clients_request = 28;
+    ListTrustedClientsResponse list_trusted_clients_response = 29;
+    RevokeClientRequest revoke_client_request = 30;
+    RevokeClientResult revoke_client_result = 31;
+    ClientPing ping = 32;
+    ClientPong pong = 33;
+    ProtocolError error = 34;
+  }
+}

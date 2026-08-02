@@ -1,0 +1,36 @@
+{
+  "name": "@ym-connect/protocol",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Canonical dependency-free TypeScript and JavaScript Protocol Buffer bindings for YM Connect.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js"
+    },
+    "./runtime": {
+      "types": "./src/runtime.d.ts",
+      "import": "./src/runtime.js"
+    },
+    "./gen/*": {
+      "types": "./src/gen/*.d.ts",
+      "import": "./src/gen/*.js"
+    }
+  },
+  "files": [
+    "README.md",
+    "src"
+  ],
+  "scripts": {
+    "build": "node --check src/runtime.js && node --check src/index.js",
+    "lint": "node --check src/runtime.js && node --check src/index.js && node --check test/codec.test.js",
+    "typecheck": "node --input-type=module -e \"import('./src/index.js')\"",
+    "test": "node --test test/*.test.js",
+    "clean": "node --input-type=module -e \"import('node:fs').then(({rmSync})=>rmSync('coverage',{recursive:true,force:true}))\""
+  },
+  "engines": {
+    "node": ">=24.18.0"
+  }
+}

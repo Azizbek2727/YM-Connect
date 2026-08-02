@@ -1,0 +1,107 @@
+syntax = "proto3";
+
+package ymconnect.v1;
+
+option java_package = "ymconnect.v1";
+option java_outer_classname = "Control";
+option java_multiple_files = false;
+option optimize_for = LITE_RUNTIME;
+
+import "ymconnect/v1/errors.proto";
+import "ymconnect/v1/player.proto";
+
+enum CommandType {
+  COMMAND_TYPE_UNSPECIFIED = 0;
+  COMMAND_TYPE_PLAY = 1;
+  COMMAND_TYPE_PAUSE = 2;
+  COMMAND_TYPE_STOP = 3;
+  COMMAND_TYPE_TOGGLE_PLAY_PAUSE = 4;
+  COMMAND_TYPE_SEEK_ABSOLUTE = 5;
+  COMMAND_TYPE_SEEK_RELATIVE = 6;
+  COMMAND_TYPE_NEXT = 7;
+  COMMAND_TYPE_PREVIOUS = 8;
+  COMMAND_TYPE_SET_VOLUME = 9;
+  COMMAND_TYPE_SET_MUTED = 10;
+  COMMAND_TYPE_SET_SHUFFLE = 11;
+  COMMAND_TYPE_SET_REPEAT = 12;
+  COMMAND_TYPE_SET_LIKE = 13;
+}
+
+enum CommandStatus {
+  COMMAND_STATUS_UNSPECIFIED = 0;
+  COMMAND_STATUS_ACCEPTED = 1;
+  COMMAND_STATUS_APPLIED = 2;
+  COMMAND_STATUS_REJECTED = 3;
+  COMMAND_STATUS_TIMED_OUT = 4;
+}
+
+message PlayCommand {}
+message PauseCommand {}
+message StopCommand {}
+message TogglePlayPauseCommand {}
+message NextCommand {}
+message PreviousCommand {}
+message SeekAbsoluteCommand { uint64 position_ms = 1; }
+message SeekRelativeCommand { sint64 offset_ms = 1; }
+message SetVolumeCommand { double volume = 1; }
+message SetMutedCommand { bool muted = 1; }
+message SetShuffleCommand { bool shuffle = 1; }
+message SetRepeatCommand { RepeatMode repeat_mode = 1; }
+message SetLikeCommand { bool liked = 1; }
+
+message PlaybackCommand {
+  oneof action {
+    PlayCommand play = 1;
+    PauseCommand pause = 2;
+    StopCommand stop = 3;
+    TogglePlayPauseCommand toggle_play_pause = 4;
+    SeekAbsoluteCommand seek_absolute = 5;
+    SeekRelativeCommand seek_relative = 6;
+    NextCommand next = 7;
+    PreviousCommand previous = 8;
+    SetVolumeCommand set_volume = 9;
+    SetMutedCommand set_muted = 10;
+    SetShuffleCommand set_shuffle = 11;
+    SetRepeatCommand set_repeat = 12;
+    SetLikeCommand set_like = 13;
+  }
+}
+
+message CommandRequest {
+  string command_id = 1;
+  string target_player_id = 2;
+  uint64 expected_revision = 3;
+  PlaybackCommand command = 4;
+  uint64 deadline_unix_ms = 5;
+}
+
+message CommandResult {
+  string command_id = 1;
+  CommandStatus status = 2;
+  PlayerSnapshot snapshot = 3;
+  ProtocolError error = 4;
+  uint64 completed_at_unix_ms = 5;
+}
+
+message ListPlayersRequest {}
+message ListPlayersResponse {
+  repeated PlayerSnapshot players = 1;
+  string active_player_id = 2;
+}
+
+message SubscribePlayersRequest {
+  bool include_initial_state = 1;
+}
+
+message SubscribePlayersResponse {
+  string subscription_id = 1;
+}
+
+message SelectPlayerRequest {
+  string player_id = 1;
+}
+
+message SelectPlayerResult {
+  string active_player_id = 1;
+  ProtocolError error = 2;
+}

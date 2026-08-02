@@ -1,0 +1,23 @@
+{
+  "command_request": {
+    "command": {
+      "set_volume": {
+        "volume": 0.5
+      }
+    },
+    "command_id": "cmd_AQIDBAUGBwgJCgsMDQ4PEA",
+    "deadline_unix_ms": "1785685205000",
+    "expected_revision": "42",
+    "target_player_id": "player:yandex-music:profile-a:tab-17"
+  },
+  "header": {
+    "correlation_id": "msg_AAECAwQFBgcICQoLDA0ODw",
+    "message_id": "msg_EBESExQVFhcYGRobHB0eHw",
+    "protocol_version": {
+      "major": 1
+    },
+    "sender_instance_id": "inst_android_fixture",
+    "sent_at_unix_ms": "1785685201000",
+    "sequence": "7"
+  }
+}

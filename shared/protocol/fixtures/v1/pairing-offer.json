@@ -1,0 +1,42 @@
+{
+  "bridge": {
+    "bridge_id": "bridge-desktop-a",
+    "bridge_version": "0.1.0",
+    "certificate_fingerprint": "oH6qwaKR3CtTBkcYPk37J5sFlvlksrr+xNkUqPaJHRI=",
+    "display_name": "Studio Desktop",
+    "identity_public_key": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=",
+    "platform": "PLATFORM_WINDOWS"
+  },
+  "bridge_ephemeral_public_key": "Hx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQA=",
+  "capabilities": {
+    "parameters": {
+      "security_suite": "x25519-ed25519-hkdf-sha256-chacha20-poly1305"
+    },
+    "required": [
+      "CAPABILITY_ENCRYPTED_TRANSPORT",
+      "CAPABILITY_REPLAY_PROTECTION"
+    ],
+    "supported": [
+      "CAPABILITY_ENCRYPTED_TRANSPORT",
+      "CAPABILITY_REPLAY_PROTECTION",
+      "CAPABILITY_SESSION_RESUMPTION",
+      "CAPABILITY_TRUST_MANAGEMENT",
+      "CAPABILITY_CLIENT_REVOCATION",
+      "CAPABILITY_MULTI_PLAYER"
+    ]
+  },
+  "expires_at_unix_ms": "1785685260000",
+  "method": "PAIRING_METHOD_QR_CODE",
+  "offer_nonce": "paWlpaWlpaWlpaWlpaWlpQ==",
+  "pairing_id": "pair_AAECAwQFBgcICQoLDA0ODw",
+  "protocol_range": {
+    "maximum": {
+      "major": 1,
+      "minor": 3
+    },
+    "minimum": {
+      "major": 1
+    }
+  },
+  "signature": "WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg=="
+}

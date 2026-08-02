@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package ymconnect.v1;
+
+option java_package = "ymconnect.v1";
+option java_outer_classname = "Common";
+option java_multiple_files = false;
+option optimize_for = LITE_RUNTIME;
+
+enum EndpointRole {
+  ENDPOINT_ROLE_UNSPECIFIED = 0;
+  ENDPOINT_ROLE_ANDROID_CLIENT = 1;
+  ENDPOINT_ROLE_BRIDGE_DAEMON = 2;
+  ENDPOINT_ROLE_NATIVE_HOST = 3;
+  ENDPOINT_ROLE_BROWSER_CONNECTOR = 4;
+  ENDPOINT_ROLE_PLAYER_ADAPTER = 5;
+}
+
+enum Platform {
+  PLATFORM_UNSPECIFIED = 0;
+  PLATFORM_ANDROID = 1;
+  PLATFORM_WINDOWS = 2;
+  PLATFORM_MACOS = 3;
+  PLATFORM_LINUX = 4;
+}
+
+enum BrowserFamily {
+  BROWSER_FAMILY_UNSPECIFIED = 0;
+  BROWSER_FAMILY_CHROMIUM = 1;
+  BROWSER_FAMILY_FIREFOX = 2;
+}
+
+enum TransportKind {
+  TRANSPORT_KIND_UNSPECIFIED = 0;
+  TRANSPORT_KIND_NATIVE_MESSAGING = 1;
+  TRANSPORT_KIND_PLATFORM_IPC = 2;
+  TRANSPORT_KIND_SECURE_LAN = 3;
+}
+
+message ProtocolVersion {
+  uint32 major = 1;
+  uint32 minor = 2;
+  uint32 patch = 3;
+}
+
+message VersionRange {
+  ProtocolVersion minimum = 1;
+  ProtocolVersion maximum = 2;
+}
+
+message MessageHeader {
+  ProtocolVersion protocol_version = 1;
+  string message_id = 2;
+  string correlation_id = 3;
+  uint64 sent_at_unix_ms = 4;
+  string sender_instance_id = 5;
+  uint64 sequence = 6;
+}
+
+message DeviceDescriptor {
+  string device_id = 1;
+  string display_name = 2;
+  Platform platform = 3;
+  string app_version = 4;
+  bytes identity_public_key = 5;
+}
+
+message BridgeDescriptor {
+  string bridge_id = 1;
+  string display_name = 2;
+  Platform platform = 3;
+  string bridge_version = 4;
+  bytes identity_public_key = 5;
+  bytes certificate_fingerprint = 6;
+}
+
+message BrowserDescriptor {
+  string connector_id = 1;
+  BrowserFamily family = 2;
+  string browser_version = 3;
+  string extension_version = 4;
+  string profile_id = 5;
+}
+
+message Empty {}

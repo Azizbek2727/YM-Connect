@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package ymconnect.v1;
+
+option java_package = "ymconnect.v1";
+option java_outer_classname = "Connector";
+option java_multiple_files = false;
+option optimize_for = LITE_RUNTIME;
+
+import "ymconnect/v1/capabilities.proto";
+import "ymconnect/v1/common.proto";
+import "ymconnect/v1/control.proto";
+import "ymconnect/v1/errors.proto";
+import "ymconnect/v1/player.proto";
+
+message ConnectorHello {
+  BrowserDescriptor browser = 1;
+  VersionRange protocol_range = 2;
+  CapabilitySet capabilities = 3;
+  bytes connector_nonce = 4;
+}
+
+message ConnectorReady {
+  ProtocolSelection selection = 1;
+  string bridge_instance_id = 2;
+  bytes bridge_nonce = 3;
+}
+
+message PlayerAnnounced {
+  PlayerSnapshot snapshot = 1;
+}
+
+message PlayerStateObserved {
+  PlayerSnapshot snapshot = 1;
+}
+
+message ConnectorCommandRequest {
+  CommandRequest request = 1;
+}
+
+message ConnectorCommandResult {
+  CommandResult result = 1;
+}
+
+message ConnectorPing {
+  uint64 nonce = 1;
+}
+
+message ConnectorPong {
+  uint64 nonce = 1;
+}
+
+message ConnectorShutdown {
+  string reason = 1;
+}
+
+message ConnectorEnvelope {
+  MessageHeader header = 1;
+  oneof payload {
+    ConnectorHello hello = 10;
+    ConnectorReady ready = 11;
+    PlayerAnnounced player_announced = 12;
+    PlayerStateObserved player_state_observed = 13;
+    PlayerRemoved player_removed = 14;
+    ConnectorCommandRequest command_request = 15;
+    ConnectorCommandResult command_result = 16;
+    ConnectorPing ping = 17;
+    ConnectorPong pong = 18;
+    ProtocolError error = 19;
+    ConnectorShutdown shutdown = 20;
+  }
+}

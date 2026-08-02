@@ -5,4 +5,21 @@ settings:
   excludeLinksFromLockfile: false
 
 importers:
+
   .: {}
+
+  shared/generated/typescript: {}
+
+  shared/packages/core:
+    dependencies:
+      '@ym-connect/protocol':
+        specifier: workspace:*
+        version: link:../../generated/typescript
+
+  shared/packages/protocol-fixtures:
+    dependencies:
+      '@ym-connect/protocol':
+        specifier: workspace:*
+        version: link:../../generated/typescript
+
+  shared/tools/protocol-codegen: {}

@@ -1,0 +1,60 @@
+{
+  "descriptor_sha256": "8e334182b6929d7aaed52eec8f8faa7cc42f58224cf24cf7daef46b2383578b2",
+  "fixtures": [
+    {
+      "binary": "protocol-version.bin",
+      "binary_sha256": "fb8da7eb5b1b399e7321179dac9e9f65773d7331e1e30554e3911e4325e1ef19",
+      "binary_size": 2,
+      "json": "protocol-version.json",
+      "json_sha256": "a4e7139f75e2cbe38b1d03177b87ecd8f7275b655b6d89838401f7edd0605b31",
+      "name": "protocol-version",
+      "type_name": "ymconnect.v1.ProtocolVersion"
+    },
+    {
+      "binary": "connector-hello.bin",
+      "binary_sha256": "f8f54968892950e25656513a8ead630fef37d71d12b44cc2b0bef5f0044cc0fe",
+      "binary_size": 159,
+      "json": "connector-hello.json",
+      "json_sha256": "469dc1933d3d290054730c4e5b243d1bd2c6dff11a2c18e151073c5855506176",
+      "name": "connector-hello",
+      "type_name": "ymconnect.v1.ConnectorHello"
+    },
+    {
+      "binary": "player-snapshot.bin",
+      "binary_sha256": "3e0c708081b45144a256f89db1ea67bd5a8238e6193b0210f97d1b8dc4f9df0d",
+      "binary_size": 422,
+      "json": "player-snapshot.json",
+      "json_sha256": "47d2d950f961d51ba6f1bcb2bcb638dad726c5bfbc032ea18e0ca22c317f5631",
+      "name": "player-snapshot",
+      "type_name": "ymconnect.v1.PlayerSnapshot"
+    },
+    {
+      "binary": "command-request.bin",
+      "binary_sha256": "628540d05e193ba14a2b0843d5d5d95fd40e7ba0ba1ad6cf17d76c12c14e791b",
+      "binary_size": 83,
+      "json": "command-request.json",
+      "json_sha256": "ef2e04bfa2639cf3840a7cc2dbdee4aac329ac0d5fbfddb5506fa27782eb46e5",
+      "name": "command-request",
+      "type_name": "ymconnect.v1.CommandRequest"
+    },
+    {
+      "binary": "pairing-offer.bin",
+      "binary_sha256": "da87b195b64f789df28b7708ce9502d77ba32451602cacbbde13501c8e20db2c",
+      "binary_size": 359,
+      "json": "pairing-offer.json",
+      "json_sha256": "5d775c88a8cb8ec9d1b5983d99b1de3a30e904b47f8ea7a1eb750bfb648388d0",
+      "name": "pairing-offer",
+      "type_name": "ymconnect.v1.PairingOffer"
+    },
+    {
+      "binary": "client-envelope.bin",
+      "binary_sha256": "6028e00faa3e35fa63275e3e94916b84484460272999613c1f394e4940827fda",
+      "binary_size": 184,
+      "json": "client-envelope.json",
+      "json_sha256": "8cbd2befc5745e4fb23ff60c0aaac258cf1e563f426144a1e488a88ac9770872",
+      "name": "client-envelope",
+      "type_name": "ymconnect.v1.ClientEnvelope"
+    }
+  ],
+  "schema_version": 1
+}

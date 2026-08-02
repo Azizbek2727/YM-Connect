@@ -1,0 +1,26 @@
+version: v2
+clean: false
+plugins:
+  - local:
+      - node
+      - shared/tools/protocol-codegen/src/plugin.mjs
+    out: shared/generated/typescript/src/gen
+    opt:
+      - language=typescript
+  - local:
+      - node
+      - shared/tools/protocol-codegen/src/plugin.mjs
+    out: shared/generated/rust/src/gen
+    opt:
+      - language=rust
+  - protoc_builtin: java
+    protoc_path: protoc
+    out: shared/generated/java/src/main/java
+    opt:
+      - lite
+  - local:
+      - node
+      - shared/tools/protocol-codegen/src/plugin.mjs
+    out: shared/generated/kotlin/src/main/kotlin
+    opt:
+      - language=kotlin

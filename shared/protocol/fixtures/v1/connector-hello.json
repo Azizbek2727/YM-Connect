@@ -1,0 +1,41 @@
+{
+  "browser": {
+    "browser_version": "140.0.7339.12",
+    "connector_id": "connector-chromium-profile-a",
+    "extension_version": "0.1.0",
+    "family": "BROWSER_FAMILY_CHROMIUM",
+    "profile_id": "profile-a"
+  },
+  "capabilities": {
+    "parameters": {
+      "adapter_api": "1",
+      "provider": "yandex-music"
+    },
+    "required": [
+      "CAPABILITY_PLAYBACK_READ"
+    ],
+    "supported": [
+      "CAPABILITY_PLAYBACK_READ",
+      "CAPABILITY_PLAY",
+      "CAPABILITY_PAUSE",
+      "CAPABILITY_SEEK_ABSOLUTE",
+      "CAPABILITY_NEXT",
+      "CAPABILITY_PREVIOUS",
+      "CAPABILITY_SET_VOLUME",
+      "CAPABILITY_SET_SHUFFLE",
+      "CAPABILITY_SET_REPEAT",
+      "CAPABILITY_TRACK_ARTWORK",
+      "CAPABILITY_TIMELINE_UPDATES"
+    ]
+  },
+  "connector_nonce": "AAECAwQFBgcICQoLDA0ODw==",
+  "protocol_range": {
+    "maximum": {
+      "major": 1,
+      "minor": 3
+    },
+    "minimum": {
+      "major": 1
+    }
+  }
+}

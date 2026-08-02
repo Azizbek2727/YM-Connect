@@ -1,0 +1,29 @@
+{
+  "name": "@ym-connect/protocol-codegen",
+  "version": "0.1.0",
+  "description": "Deterministic protoc plugin for committed YM Connect TypeScript, Rust, and Kotlin bindings.",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "protoc-gen-ym-connect": "./bin/protoc-gen-ym-connect"
+  },
+  "exports": {
+    ".": "./src/plugin.mjs"
+  },
+  "files": [
+    "README.md",
+    "bin",
+    "src"
+  ],
+  "scripts": {
+    "build": "node --check src/plugin.mjs && node --check bin/protoc-gen-ym-connect",
+    "format:check": "pnpm dlx @biomejs/biome@2.5.6 check src test",
+    "lint": "pnpm dlx @biomejs/biome@2.5.6 lint src test",
+    "test": "node --test",
+    "typecheck": "node --check src/plugin.mjs"
+  },
+  "engines": {
+    "node": ">=24.18.0"
+  },
+  "license": "Apache-2.0"
+}

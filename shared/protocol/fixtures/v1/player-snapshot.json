@@ -1,0 +1,57 @@
+{
+  "observed_at_unix_ms": "1785685200123",
+  "options": {
+    "repeat_mode": "REPEAT_MODE_ALL",
+    "shuffle": true,
+    "volume": 0.72
+  },
+  "player": {
+    "browser": {
+      "browser_version": "140.0.7339.12",
+      "connector_id": "connector-chromium-profile-a",
+      "extension_version": "0.1.0",
+      "family": "BROWSER_FAMILY_CHROMIUM",
+      "profile_id": "profile-a"
+    },
+    "capabilities": {
+      "parameters": {
+        "timeline_resolution_ms": "250"
+      },
+      "supported": [
+        "CAPABILITY_PLAYBACK_READ",
+        "CAPABILITY_PLAY",
+        "CAPABILITY_PAUSE",
+        "CAPABILITY_SEEK_ABSOLUTE",
+        "CAPABILITY_NEXT",
+        "CAPABILITY_PREVIOUS",
+        "CAPABILITY_SET_VOLUME",
+        "CAPABILITY_SET_LIKE"
+      ]
+    },
+    "display_name": "Yandex Music — Profile A",
+    "health": "PLAYER_HEALTH_READY",
+    "player_id": "player:yandex-music:profile-a:tab-17",
+    "provider": "yandex-music"
+  },
+  "position": {
+    "measured_at_unix_ms": "1785685200123",
+    "playback_rate": 1,
+    "position_ms": "98765"
+  },
+  "revision": "42",
+  "status": "PLAYBACK_STATUS_PLAYING",
+  "track": {
+    "album": "Cross-Language Fixtures",
+    "artists": [
+      "YM Connect Test Artist",
+      "Protocol Ensemble"
+    ],
+    "artwork_url": "https://avatars.yandex.net/get-music-content/test/400x400",
+    "duration_ms": "245000",
+    "liked": true,
+    "media_id": "track-2048",
+    "media_kind": "MEDIA_KIND_TRACK",
+    "provider": "yandex-music",
+    "title": "Golden Vector"
+  }
+}

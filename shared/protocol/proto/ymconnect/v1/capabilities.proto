@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package ymconnect.v1;
+
+option java_package = "ymconnect.v1";
+option java_outer_classname = "Capabilities";
+option java_multiple_files = false;
+option optimize_for = LITE_RUNTIME;
+
+import "ymconnect/v1/common.proto";
+
+enum Capability {
+  CAPABILITY_UNSPECIFIED = 0;
+  CAPABILITY_PLAYBACK_READ = 1;
+  CAPABILITY_PLAY = 2;
+  CAPABILITY_PAUSE = 3;
+  CAPABILITY_STOP = 4;
+  CAPABILITY_TOGGLE_PLAY_PAUSE = 5;
+  CAPABILITY_SEEK_ABSOLUTE = 6;
+  CAPABILITY_SEEK_RELATIVE = 7;
+  CAPABILITY_NEXT = 8;
+  CAPABILITY_PREVIOUS = 9;
+  CAPABILITY_SET_VOLUME = 10;
+  CAPABILITY_SET_MUTED = 11;
+  CAPABILITY_SET_SHUFFLE = 12;
+  CAPABILITY_SET_REPEAT = 13;
+  CAPABILITY_SET_LIKE = 14;
+  CAPABILITY_SELECT_PLAYER = 15;
+  CAPABILITY_MULTI_PLAYER = 16;
+  CAPABILITY_QUEUE_READ = 17;
+  CAPABILITY_TRACK_ARTWORK = 18;
+  CAPABILITY_TIMELINE_UPDATES = 19;
+  CAPABILITY_TRUST_MANAGEMENT = 20;
+  CAPABILITY_CLIENT_REVOCATION = 21;
+  CAPABILITY_SESSION_RESUMPTION = 22;
+  CAPABILITY_ENCRYPTED_TRANSPORT = 23;
+  CAPABILITY_REPLAY_PROTECTION = 24;
+  CAPABILITY_NATIVE_PEER_AUTH = 25;
+}
+
+message CapabilitySet {
+  repeated Capability supported = 1;
+  repeated Capability required = 2;
+  map<string, string> parameters = 3;
+}
+
+message CapabilityNegotiation {
+  CapabilitySet offered = 1;
+  CapabilitySet available = 2;
+  CapabilitySet negotiated = 3;
+  repeated Capability missing_required = 4;
+}
+
+message ProtocolSelection {
+  VersionRange local_range = 1;
+  VersionRange remote_range = 2;
+  ProtocolVersion selected_version = 3;
+  CapabilityNegotiation capabilities = 4;
+  bool compatible = 5;
+}
