@@ -34,5 +34,8 @@ test("marks non-overlapping major versions incompatible", () => {
     maximum: { major: 2, minor: 1, patch: 0 },
   };
   assert.equal(selectProtocolVersion(localRange, incompatible), undefined);
-  assert.equal(negotiateProtocol(localRange, incompatible, capabilities, capabilities).compatible, false);
+  assert.equal(
+    negotiateProtocol(localRange, incompatible, capabilities, capabilities).compatible,
+    false,
+  );
 });

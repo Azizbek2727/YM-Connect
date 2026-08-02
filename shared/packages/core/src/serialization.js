@@ -51,9 +51,12 @@ export function decodeDelimited(schema, bytes, maxFrameSize = DEFAULT_MAX_FRAME_
   const framed = normalizeBytes(bytes);
   if (framed.byteLength < 4) throw new FramingError("frame header is incomplete");
   const length = new DataView(framed.buffer, framed.byteOffset, 4).getUint32(0, false);
-  if (length > maxFrameSize) throw new FramingError(`frame declares ${length} bytes, exceeding the limit`);
+  if (length > maxFrameSize)
+    throw new FramingError(`frame declares ${length} bytes, exceeding the limit`);
   if (framed.byteLength !== length + 4) {
-    throw new FramingError(`frame length mismatch: declared ${length}, received ${framed.byteLength - 4}`);
+    throw new FramingError(
+      `frame length mismatch: declared ${length}, received ${framed.byteLength - 4}`,
+    );
   }
   return deserializeBinary(schema, framed.subarray(4), options);
 }

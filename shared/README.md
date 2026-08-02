@@ -21,6 +21,7 @@ The protocol uses semantic versions with strict major-version compatibility. A p
 connect only when its advertised version range overlaps the local range and every required
 capability is available. Minor versions are additive. Existing field numbers, enum numeric
 values, oneof memberships, and message semantics are immutable within protocol major version
+
 1. Removed fields and enum values must remain reserved.
 
 Unknown fields are retained or ignored according to the language runtime. Unknown enum values

@@ -33,9 +33,7 @@ async function extensionUsesPlaywright() {
   if (configuration.some(Boolean)) return true;
 
   try {
-    const manifest = JSON.parse(
-      await readFile(path.join(root, "extension/package.json"), "utf8"),
-    );
+    const manifest = JSON.parse(await readFile(path.join(root, "extension/package.json"), "utf8"));
     const dependencies = { ...manifest.dependencies, ...manifest.devDependencies };
     return Object.hasOwn(dependencies, "@playwright/test");
   } catch {
@@ -44,12 +42,10 @@ async function extensionUsesPlaywright() {
 }
 
 const bridge =
-  (await exists("bridge")) &&
-  (await containsFile("bridge", (name) => name === "Cargo.toml"));
+  (await exists("bridge")) && (await containsFile("bridge", (name) => name === "Cargo.toml"));
 const extension = await exists("extension/package.json");
 const android =
-  (await exists("android/app/build.gradle.kts")) ||
-  (await exists("android/app/build.gradle"));
+  (await exists("android/app/build.gradle.kts")) || (await exists("android/app/build.gradle"));
 const playwright = extension && (await extensionUsesPlaywright());
 const complete = bridge && extension && android;
 const status = { bridge, extension, android, playwright, complete };

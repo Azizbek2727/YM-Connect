@@ -15,11 +15,7 @@ for (const [index, line] of manifest.trimEnd().split("\n").entries()) {
   const match = /^([a-f0-9]{64})  ([^\r\n]+)$/.exec(line);
   if (!match) throw new Error(`Invalid checksum line ${index + 1}`);
   const relative = match[2];
-  if (
-    relative.includes("\\") ||
-    relative.startsWith("/") ||
-    relative.split("/").includes("..")
-  ) {
+  if (relative.includes("\\") || relative.startsWith("/") || relative.split("/").includes("..")) {
     throw new Error(`Unsafe checksum path: ${relative}`);
   }
   if (previous && previous.localeCompare(relative) >= 0) {
@@ -63,13 +59,12 @@ for (const [relative, digest] of expected) {
     throw new Error(`Checksum target is not a regular file: ${relative}`);
   }
   const targetRealPath = await realpath(absolute);
-  if (
-    targetRealPath !== rootRealPath &&
-    !targetRealPath.startsWith(`${rootRealPath}${path.sep}`)
-  ) {
+  if (targetRealPath !== rootRealPath && !targetRealPath.startsWith(`${rootRealPath}${path.sep}`)) {
     throw new Error(`Checksum target escapes the release directory: ${relative}`);
   }
-  const actual = createHash("sha256").update(await readFile(absolute)).digest("hex");
+  const actual = createHash("sha256")
+    .update(await readFile(absolute))
+    .digest("hex");
   if (actual !== digest) throw new Error(`Checksum mismatch for ${relative}`);
 }
 if (expected.size !== actualFiles.length) {

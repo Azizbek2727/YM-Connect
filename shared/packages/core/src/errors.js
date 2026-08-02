@@ -1,9 +1,4 @@
-import {
-  ErrorCode,
-  ErrorDomain,
-  ProtocolErrorSchema,
-  create,
-} from "@ym-connect/protocol";
+import { ErrorCode, ErrorDomain, ProtocolErrorSchema, create } from "@ym-connect/protocol";
 
 export class YmConnectError extends Error {
   constructor(message, options = {}) {

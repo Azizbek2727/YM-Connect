@@ -37,7 +37,9 @@ for (const file of files) {
   if (relative.includes("\\") || /[\r\n]/.test(relative)) {
     throw new Error(`Unsafe release filename: ${relative}`);
   }
-  const digest = createHash("sha256").update(await readFile(file)).digest("hex");
+  const digest = createHash("sha256")
+    .update(await readFile(file))
+    .digest("hex");
   lines.push(`${digest}  ${relative}`);
 }
 await writeFile(path.join(directory, manifestName), `${lines.join("\n")}\n`, "utf8");
