@@ -8,10 +8,13 @@ authors.workspace = true
 repository.workspace = true
 homepage.workspace = true
 readme.workspace = true
-description = "Runtime-independent lifecycle core for the YM Connect desktop Bridge."
+description = "Runtime-independent lifecycle and state core for the YM Connect desktop Bridge."
 keywords = ["bridge", "local-network", "yandex-music"]
 categories = ["asynchronous", "network-programming"]
 publish = false
+
+[dependencies]
+ym-connect-protocol.workspace = true
 
 [lints]
 workspace = true
