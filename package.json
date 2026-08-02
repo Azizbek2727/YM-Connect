@@ -21,7 +21,7 @@
     "protocol:fixtures:check": "pnpm --filter @ym-connect/protocol-fixtures test",
     "format": "pnpm dlx @biomejs/biome@2.5.6 format --write --files-ignore-unknown=true . && pnpm dlx markdownlint-cli2@0.23.2 --fix",
     "format:check": "pnpm dlx @biomejs/biome@2.5.6 format --files-ignore-unknown=true . && pnpm dlx markdownlint-cli2@0.23.2",
-    "spellcheck": "pnpm dlx cspell@10.0.1 --no-progress --show-suggestions .",
+    "spellcheck": "git ls-files | pnpm dlx cspell@10.0.1 --no-progress --show-suggestions --file-list stdin",
     "lint:js": "pnpm dlx @biomejs/biome@2.5.6 lint --files-ignore-unknown=true .",
     "lint:workspace": "pnpm -r --if-present lint",
     "lint:rust": "cargo clippy --workspace --all-targets --all-features --locked -- -D warnings",

@@ -5,6 +5,9 @@
   "enableGlobDot": true,
   "files": ["**/*.{md,json,jsonc,yaml,yml,toml,proto,ts,tsx,rs,kt,kts,xml,properties}"],
   "ignorePaths": [
+    ".git/**",
+    ".git/hooks/**",
+    "**/.git/**",
     "node_modules/**",
     "**/build/**",
     "**/dist/**",
