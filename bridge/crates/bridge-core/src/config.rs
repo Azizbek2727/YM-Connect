@@ -48,7 +48,7 @@ impl BridgeConfig {
 
     fn load_from(mut lookup: impl FnMut(&str) -> Option<OsString>) -> Result<Self, ConfigError> {
         let log_level = match read_unicode(&mut lookup, LOG_LEVEL_ENV)? {
-            Some(value) => LogLevel::parse(&value).ok_or_else(|| ConfigError::InvalidLogLevel {
+            Some(value) => LogLevel::parse(&value).ok_or(ConfigError::InvalidLogLevel {
                 variable: LOG_LEVEL_ENV,
                 value,
             })?,
@@ -157,7 +157,7 @@ fn read_unicode(
 
 fn parse_worker_threads(value: String) -> Result<NonZeroUsize, ConfigError> {
     match value.parse::<usize>() {
-        Ok(parsed) => NonZeroUsize::new(parsed).ok_or_else(|| ConfigError::InvalidWorkerThreads {
+        Ok(parsed) => NonZeroUsize::new(parsed).ok_or(ConfigError::InvalidWorkerThreads {
             variable: RUNTIME_WORKER_THREADS_ENV,
             value,
             source: None,
