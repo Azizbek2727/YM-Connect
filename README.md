@@ -1,10 +1,50 @@
 # YM Connect
 
-"Изначально проект задумывался как небольшое расширение для управления Яндекс Музыкой с телефона.
-В процессе разработки он вырос в полноценную кроссплатформенную платформу с собственной архитектурой,
-протоколом и инфраструктурой."
+## History
 
-"Давай, Морти, Зашли и вышли. Приключение на 20 минут."
+YM Connect started as what was supposed to be **a tiny weekend project**.
+
+The original goal was simple:
+
+> Control Yandex Music running in a browser on a Mac from an Android phone.
+
+That sounded like a small Chrome extension.
+
+It wasn't.
+
+What followed was far beyond the original idea:
+
+- a custom cross-platform Protocol Buffers protocol;
+- a production-ready Rust Bridge;
+- browser-agnostic architecture;
+- Native Messaging integration;
+- end-to-end encrypted pairing;
+- Android client;
+- deterministic code generation;
+- cross-language model generation;
+- reproducible builds;
+- multi-platform CI/CD;
+- supply-chain security;
+- architecture reviews;
+- independent design audits.
+
+Somewhere along the way, the project stopped being "just an extension" and became a platform.
+
+---
+
+It all began with a quote from *Rick and Morty*:
+
+> "Come on, Morty. In and out. A 20-minute adventure."
+
+It wasn't.
+
+---
+
+This project exists because someone said:
+
+> "It should only take one evening."
+
+Famous last words.
 
 YM Connect is a local-control system for operating Yandex Music playback in a desktop
 browser from an Android device. The system keeps discovery, trust, authorization, routing,
