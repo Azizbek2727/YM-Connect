@@ -31,7 +31,7 @@ impl BridgeConfig {
     ///
     /// Returns [`ConfigError`] when a configured value is non-Unicode or invalid.
     pub fn load() -> Result<Self, ConfigError> {
-        Self::load_from(env::var_os)
+        Self::load_from(|variable| env::var_os(variable))
     }
 
     /// Returns the configured minimum log level.
