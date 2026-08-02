@@ -66,7 +66,7 @@ impl BridgeConfig {
 }
 
 /// Immutable logging configuration.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LoggingConfig {
     level: LogLevel,
 }
@@ -79,16 +79,8 @@ impl LoggingConfig {
     }
 }
 
-impl Default for LoggingConfig {
-    fn default() -> Self {
-        Self {
-            level: DEFAULT_LOG_LEVEL,
-        }
-    }
-}
-
 /// Immutable asynchronous-runtime configuration.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RuntimeConfig {
     worker_threads: RuntimeWorkerThreads,
 }
@@ -98,14 +90,6 @@ impl RuntimeConfig {
     #[must_use]
     pub const fn worker_threads(self) -> RuntimeWorkerThreads {
         self.worker_threads
-    }
-}
-
-impl Default for RuntimeConfig {
-    fn default() -> Self {
-        Self {
-            worker_threads: DEFAULT_RUNTIME_WORKER_THREADS,
-        }
     }
 }
 
@@ -233,7 +217,7 @@ impl BridgeConfigLoader {
     ///
     /// Returns [`ConfigError`] when an enabled environment source contains an invalid value.
     pub fn load(self) -> Result<BridgeConfig, ConfigError> {
-        self.load_with_environment(|variable| env::var_os(variable))
+        self.load_with_environment(env::var_os)
     }
 
     fn load_with_environment(
