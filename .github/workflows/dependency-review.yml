@@ -1,0 +1,29 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+name: Dependency Review
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dependency-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Review dependency changes
+        uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
+        with:
+          fail-on-severity: moderate
+          allow-licenses: >-
+            Apache-2.0, MIT, BSD-2-Clause, BSD-3-Clause, ISC, MPL-2.0,
+            Unicode-3.0, Unicode-DFS-2016, Zlib, CC0-1.0
+          show-openssf-scorecard: true
+          warn-only: false

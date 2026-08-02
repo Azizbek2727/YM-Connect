@@ -1,0 +1,74 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+version: 2
+updates:
+  - package-ecosystem: npm
+    directories:
+      - "/"
+      - "/shared/generated/typescript"
+      - "/shared/packages/core"
+      - "/shared/packages/protocol-fixtures"
+      - "/shared/tools/protocol-codegen"
+      - "/extension"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "05:00"
+      timezone: Etc/UTC
+    open-pull-requests-limit: 10
+    labels: ["dependencies", "javascript"]
+    commit-message:
+      prefix: "build(deps-js)"
+    groups:
+      npm-minor-patch:
+        update-types: ["minor", "patch"]
+
+  - package-ecosystem: cargo
+    directories:
+      - "/"
+      - "/shared/generated/rust"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "05:30"
+      timezone: Etc/UTC
+    open-pull-requests-limit: 10
+    labels: ["dependencies", "rust"]
+    commit-message:
+      prefix: "build(deps-rust)"
+    groups:
+      cargo-minor-patch:
+        update-types: ["minor", "patch"]
+
+  - package-ecosystem: gradle
+    directories:
+      - "/"
+      - "/shared/generated/java"
+      - "/shared/generated/kotlin"
+      - "/android"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Etc/UTC
+    open-pull-requests-limit: 10
+    labels: ["dependencies", "android"]
+    commit-message:
+      prefix: "build(deps-gradle)"
+    groups:
+      gradle-minor-patch:
+        update-types: ["minor", "patch"]
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:30"
+      timezone: Etc/UTC
+    open-pull-requests-limit: 10
+    labels: ["dependencies", "ci"]
+    commit-message:
+      prefix: "build(deps-actions)"
+    groups:
+      actions-minor-patch:
+        update-types: ["minor", "patch"]

@@ -1,0 +1,82 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  detect:
+    runs-on: ubuntu-24.04
+    outputs:
+      bridge: ${{ steps.components.outputs.bridge }}
+      extension: ${{ steps.components.outputs.extension }}
+      android: ${{ steps.components.outputs.android }}
+      complete: ${{ steps.components.outputs.complete }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: ./.github/actions/setup-node
+        with:
+          install: "false"
+      - id: components
+        run: node .github/scripts/component-status.mjs
+
+  repository:
+    needs: detect
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup-node
+      - uses: ./.github/actions/setup-protocol
+      - name: Validate repository metadata
+        run: |
+          node .github/scripts/validate-release-tag.mjs --version-only
+          node .github/scripts/verify-lockfiles.mjs
+          node .github/scripts/verify-official-protobuf-es.mjs
+          node .github/scripts/verify-workflow-pins.mjs
+      - name: Validate generated code
+        run: pnpm generate:check
+      - name: Validate formatting and spelling
+        run: |
+          pnpm format:check
+          pnpm spellcheck
+      - name: Validate JavaScript workspace
+        run: |
+          pnpm lint:js
+          pnpm lint:workspace
+          pnpm typecheck
+          pnpm test:js
+          pnpm build:js
+      - name: Setup Rust
+        if: needs.detect.outputs.bridge == 'true'
+        uses: ./.github/actions/setup-rust
+      - name: Validate Rust workspace
+        if: needs.detect.outputs.bridge == 'true'
+        run: |
+          pnpm lint:rust
+          pnpm test:rust
+          pnpm build:rust
+      - name: Setup Gradle
+        if: needs.detect.outputs.android == 'true'
+        uses: ./.github/actions/setup-gradle
+      - name: Validate Gradle workspace
+        if: needs.detect.outputs.android == 'true'
+        run: |
+          ./gradlew --no-daemon verifyRepositoryVersion
+          pnpm lint:android
+          pnpm test:android
+          pnpm build:android
+      - name: Verify lockfiles remained unchanged
+        run: git diff --exit-code -- pnpm-lock.yaml Cargo.lock gradle/verification-metadata.xml

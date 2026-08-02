@@ -1,0 +1,51 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+"component: shared":
+  - changed-files:
+      - any-glob-to-any-file: "shared/**"
+"component: bridge":
+  - changed-files:
+      - any-glob-to-any-file: "bridge/**"
+"component: extension":
+  - changed-files:
+      - any-glob-to-any-file: "extension/**"
+"component: android":
+  - changed-files:
+      - any-glob-to-any-file: "android/**"
+protocol:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "shared/protocol/**"
+          - "shared/generated/**"
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.md"
+          - "docs/**"
+ci:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**"
+          - "package.json"
+          - "pnpm-workspace.yaml"
+release:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "RELEASE.md"
+          - ".github/workflows/release-*.yml"
+          - ".github/workflows/artifact-verification.yml"
+security:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "SECURITY.md"
+          - "deny.toml"
+          - ".github/workflows/security.yml"
+          - ".github/workflows/supply-chain.yml"
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "pnpm-lock.yaml"
+          - "Cargo.lock"
+          - "**/package.json"
+          - "**/Cargo.toml"
+          - "**/*.gradle.kts"
+          - "gradle/verification-metadata.xml"

@@ -1,0 +1,69 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+name: Gradle
+
+on:
+  pull_request:
+    paths:
+      - "android/**"
+      - "shared/generated/java/**"
+      - "shared/generated/kotlin/**"
+      - "build.gradle.kts"
+      - "settings.gradle.kts"
+      - "gradle.properties"
+      - "gradle/**"
+      - "gradlew"
+      - "gradlew.bat"
+      - ".github/workflows/gradle.yml"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gradle-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-15-intel, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: ./.github/actions/setup-node
+        with:
+          install: "false"
+      - uses: ./.github/actions/setup-gradle
+      - id: components
+        shell: bash
+        run: node .github/scripts/component-status.mjs
+      - name: Test generated Java models
+        shell: bash
+        run: ./gradlew --no-daemon -p shared/generated/java build
+      - name: Test generated Kotlin models
+        shell: bash
+        run: ./gradlew --no-daemon -p shared/generated/kotlin build
+      - name: Verify repository versions
+        if: steps.components.outputs.android == 'true'
+        shell: bash
+        run: ./gradlew --no-daemon verifyRepositoryVersion
+      - name: Lint Android
+        if: steps.components.outputs.android == 'true'
+        shell: bash
+        run: ./gradlew --no-daemon lint
+      - name: Test Android
+        if: steps.components.outputs.android == 'true'
+        shell: bash
+        run: ./gradlew --no-daemon test
+      - name: Assemble Android
+        if: steps.components.outputs.android == 'true'
+        shell: bash
+        run: ./gradlew --no-daemon assemble
+      - name: Verify dependency metadata remained unchanged
+        shell: bash
+        run: git diff --exit-code -- gradle/verification-metadata.xml

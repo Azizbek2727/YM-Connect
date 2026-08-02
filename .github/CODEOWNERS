@@ -1,0 +1,20 @@
+# Repository-wide ownership
+* @ym-connect/maintainers
+
+# Architecture and protocol contracts
+/shared/ @ym-connect/maintainers
+/shared/protocol/ @ym-connect/maintainers
+
+# Platform implementations
+/bridge/ @ym-connect/maintainers
+/extension/ @ym-connect/maintainers
+/android/ @ym-connect/maintainers
+
+# Security, CI, release, and dependency policy
+/.github/ @ym-connect/maintainers
+/SECURITY.md @ym-connect/maintainers
+/RELEASE.md @ym-connect/maintainers
+/deny.toml @ym-connect/maintainers
+/Cargo.lock @ym-connect/maintainers
+/pnpm-lock.yaml @ym-connect/maintainers
+/gradle/verification-metadata.xml @ym-connect/maintainers

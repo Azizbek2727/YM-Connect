@@ -1,0 +1,123 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+name: Release Candidate
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Branch, tag, or commit to build.
+        required: true
+        default: main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-candidate-${{ inputs.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            platform: linux-x86_64
+          - os: macos-15-intel
+            platform: macos-x86_64
+          - os: windows-2022
+            platform: windows-x86_64
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ inputs.ref || github.ref }}
+          fetch-depth: 0
+      - uses: ./.github/actions/setup-node
+      - uses: ./.github/actions/setup-protocol
+      - uses: ./.github/actions/setup-rust
+      - uses: ./.github/actions/setup-gradle
+      - id: components
+        shell: bash
+        run: node .github/scripts/component-status.mjs
+      - name: Require complete platform sources
+        if: steps.components.outputs.complete != 'true'
+        shell: bash
+        run: |
+          echo "Release builds require Bridge, Extension, and Android sources." >&2
+          exit 1
+      - name: Validate generated sources
+        shell: bash
+        run: pnpm generate:check
+      - name: Validate JavaScript
+        shell: bash
+        run: |
+          pnpm lint:js
+          pnpm lint:workspace
+          pnpm typecheck
+          pnpm test:js
+          pnpm build:js
+      - name: Validate Rust
+        shell: bash
+        run: |
+          pnpm lint:rust
+          pnpm test:rust
+          pnpm build:rust
+      - name: Validate Gradle
+        shell: bash
+        run: |
+          pnpm lint:android
+          pnpm test:android
+          pnpm build:android
+      - name: Collect platform release outputs
+        shell: bash
+        run: node .github/scripts/collect-release-artifacts.mjs --source . --destination staging --platform ${{ matrix.platform }} --require-complete
+      - name: Upload platform artifacts
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: release-${{ matrix.platform }}
+          path: staging
+          if-no-files-found: error
+          retention-days: 14
+
+  assemble:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ inputs.ref }}
+          fetch-depth: 0
+      - uses: ./.github/actions/setup-node
+        with:
+          install: "false"
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          pattern: release-*
+          path: release
+          merge-multiple: true
+      - name: Add source archive
+        run: git archive --format=tar.gz --output=release/ym-connect-source.tar.gz HEAD
+      - name: Require complete artifact set
+        run: node .github/scripts/collect-release-artifacts.mjs --destination release --validate-complete
+      - name: Generate SBOM
+        uses: anchore/sbom-action@f8bdd1d8ac5e901a77a92f111440fdb1b593736b # v0.20.6
+        with:
+          path: .
+          format: spdx-json
+          output-file: release/ym-connect.spdx.json
+          upload-artifact: false
+      - name: Generate and verify checksums
+        run: |
+          node .github/scripts/generate-checksums.mjs release
+          node .github/scripts/verify-checksums.mjs release
+      - name: Upload verified release candidate
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ym-connect-release-candidate
+          path: release
+          if-no-files-found: error
+          retention-days: 30

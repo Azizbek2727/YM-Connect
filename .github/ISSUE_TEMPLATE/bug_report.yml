@@ -1,0 +1,80 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+name: Bug report
+description: Report a reproducible defect in YM Connect.
+title: "[Bug]: "
+labels: ["bug", "needs-reproduction"]
+body:
+  - type: markdown
+    attributes:
+      value: Security vulnerabilities must be reported through the private security advisory link in the issue chooser.
+  - type: input
+    id: version
+    attributes:
+      label: YM Connect version
+      description: Use the release tag, commit SHA, or exact development branch.
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected component
+      options:
+        - Shared protocol or generated models
+        - Bridge daemon or native host
+        - Browser Extension
+        - Android application
+        - Installer or upgrade
+        - Build or release infrastructure
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include operating system, architecture, browser and version, Android version, and installation method as applicable.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest deterministic sequence that triggers the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs and evidence
+      description: Remove tokens, pairing secrets, device keys, personal data, and local filesystem identities before attaching output.
+      render: text
+  - type: dropdown
+    id: regression
+    attributes:
+      label: Regression status
+      options:
+        - Unknown
+        - Present in the first version tested
+        - Worked in an earlier released version
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I searched existing issues for the same behavior.
+          required: true
+        - label: This report does not contain secrets or sensitive trust material.
+          required: true

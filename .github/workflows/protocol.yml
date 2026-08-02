@@ -1,0 +1,56 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+name: Protocol Generation
+
+on:
+  pull_request:
+    paths:
+      - "shared/protocol/**"
+      - "shared/generated/**"
+      - "shared/tools/protocol-codegen/**"
+      - "shared/packages/protocol-fixtures/**"
+      - "buf.yaml"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/protocol.yml"
+  push:
+    branches: [main]
+    paths:
+      - "shared/protocol/**"
+      - "shared/generated/**"
+      - "shared/tools/protocol-codegen/**"
+      - "shared/packages/protocol-fixtures/**"
+      - "buf.yaml"
+      - "package.json"
+      - "pnpm-lock.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: protocol-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup-node
+      - uses: ./.github/actions/setup-protocol
+      - name: Lint and compile protocol
+        run: |
+          pnpm protocol:lint
+          pnpm protocol:build
+      - name: Verify canonical fixtures
+        run: pnpm protocol:fixtures:check
+      - name: Verify generated code freshness
+        run: pnpm generate:check
+      - name: Check compatibility against main
+        if: github.event_name == 'pull_request'
+        run: pnpm protocol:breaking
+      - name: Verify descriptor checksum
+        run: node --input-type=module -e "import { createHash } from 'node:crypto'; import { readFile } from 'node:fs/promises'; const data=await readFile('shared/protocol/descriptor/ymconnect-v1.pb'); const expected=(await readFile('shared/protocol/descriptor/ymconnect-v1.pb.sha256','utf8')).split(/\s+/)[0]; const actual=createHash('sha256').update(data).digest('hex'); if(actual!==expected) throw new Error('Descriptor checksum mismatch');"

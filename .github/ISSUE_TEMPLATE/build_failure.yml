@@ -1,0 +1,66 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+name: Build or CI failure
+description: Report a reproducible contributor bootstrap, build, test, packaging, or workflow failure.
+title: "[Build]: "
+labels: ["build", "needs-reproduction"]
+body:
+  - type: input
+    id: revision
+    attributes:
+      label: Repository revision
+      description: Provide the exact commit SHA or release tag.
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Failing stage
+      options:
+        - Repository bootstrap
+        - Protocol generation
+        - TypeScript build or tests
+        - Rust build or tests
+        - Gradle or Android build
+        - Playwright or browser integration
+        - Native-host integration
+        - Release packaging
+        - Artifact verification
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Host and toolchain
+      description: Include operating system, architecture, Node, pnpm, Rust, Java, Gradle, Buf, and protoc versions that were used.
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Exact command
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Complete failure output
+      description: Redact credentials and machine-specific sensitive paths.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: attempts
+    attributes:
+      label: Reproduction and attempted remediation
+    validations:
+      required: true
+  - type: checkboxes
+    id: clean
+    attributes:
+      label: Clean-state checks
+      options:
+        - label: I reproduced the failure from a clean checkout or documented why that was not possible.
+          required: true
+        - label: I used the tool versions pinned by the repository.
+          required: true

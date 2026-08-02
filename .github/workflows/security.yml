@@ -1,0 +1,96 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+name: Security Validation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 3 * * 2"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+
+concurrency:
+  group: security-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name != 'schedule' }}
+
+jobs:
+  repository-security:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup-node
+      - id: components
+        run: node .github/scripts/component-status.mjs
+      - name: Scan tracked files for credential material
+        shell: bash
+        run: |
+          if git grep -nE -- '-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----|AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{36,}'; then
+            echo "Credential-like material is present in tracked files." >&2
+            exit 1
+          fi
+      - uses: ./.github/actions/setup-rust
+        if: steps.components.outputs.bridge == 'true'
+      - name: Install cargo-deny
+        if: steps.components.outputs.bridge == 'true'
+        run: cargo install cargo-deny --locked
+      - name: Enforce Cargo dependency policy
+        if: steps.components.outputs.bridge == 'true'
+        run: cargo deny check
+      - uses: ./.github/actions/setup-gradle
+        if: steps.components.outputs.android == 'true'
+      - name: Enforce Gradle dependency verification
+        if: steps.components.outputs.android == 'true'
+        run: ./gradlew --no-daemon --dependency-verification=strict help
+      - name: Validate security infrastructure
+        run: |
+          node .github/scripts/verify-lockfiles.mjs
+          node .github/scripts/verify-workflow-pins.mjs
+          node .github/scripts/verify-official-protobuf-es.mjs
+
+  codeql-javascript:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@7211b7c8077ea37d8641b6271f6a365a22a5fbfa # v4.36.0
+        with:
+          languages: javascript-typescript
+          build-mode: none
+      - name: Analyze JavaScript and TypeScript
+        uses: github/codeql-action/analyze@7211b7c8077ea37d8641b6271f6a365a22a5fbfa # v4.36.0
+
+  codeql-java:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: ./.github/actions/setup-node
+        with:
+          install: "false"
+      - id: components
+        run: node .github/scripts/component-status.mjs
+      - name: Record unavailable Java analysis
+        if: steps.components.outputs.android != 'true'
+        run: echo "Java and Kotlin CodeQL analysis becomes active when the Android project exists."
+      - name: Initialize CodeQL
+        if: steps.components.outputs.android == 'true'
+        uses: github/codeql-action/init@7211b7c8077ea37d8641b6271f6a365a22a5fbfa # v4.36.0
+        with:
+          languages: java-kotlin
+          build-mode: manual
+      - uses: ./.github/actions/setup-gradle
+        if: steps.components.outputs.android == 'true'
+      - name: Build Java and Kotlin for CodeQL
+        if: steps.components.outputs.android == 'true'
+        run: ./gradlew --no-daemon assemble
+      - name: Analyze Java and Kotlin
+        if: steps.components.outputs.android == 'true'
+        uses: github/codeql-action/analyze@7211b7c8077ea37d8641b6271f6a365a22a5fbfa # v4.36.0

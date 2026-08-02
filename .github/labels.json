@@ -1,0 +1,102 @@
+[
+  {
+    "name": "bug",
+    "color": "d73a4a",
+    "description": "Confirmed defect or regression"
+  },
+  {
+    "name": "feature",
+    "color": "0e8a16",
+    "description": "New user-visible capability"
+  },
+  {
+    "name": "build",
+    "color": "5319e7",
+    "description": "Build, bootstrap, packaging, or developer tooling"
+  },
+  {
+    "name": "documentation",
+    "color": "0075ca",
+    "description": "Documentation-only change"
+  },
+  {
+    "name": "security",
+    "color": "b60205",
+    "description": "Security-sensitive change or finding"
+  },
+  {
+    "name": "protocol",
+    "color": "1d76db",
+    "description": "Canonical protocol or generated model change"
+  },
+  {
+    "name": "ci",
+    "color": "0052cc",
+    "description": "Continuous integration or repository automation"
+  },
+  {
+    "name": "release",
+    "color": "6f42c1",
+    "description": "Release engineering and publication"
+  },
+  {
+    "name": "dependencies",
+    "color": "0366d6",
+    "description": "Dependency or lockfile update"
+  },
+  {
+    "name": "javascript",
+    "color": "f1e05a",
+    "description": "TypeScript or JavaScript change"
+  },
+  {
+    "name": "rust",
+    "color": "dea584",
+    "description": "Rust change"
+  },
+  {
+    "name": "android",
+    "color": "3ddc84",
+    "description": "Android, Gradle, Java, or Kotlin change"
+  },
+  {
+    "name": "component: shared",
+    "color": "bfdadc",
+    "description": "Shared protocol or common library"
+  },
+  {
+    "name": "component: bridge",
+    "color": "c5def5",
+    "description": "Native Bridge daemon or installers"
+  },
+  {
+    "name": "component: extension",
+    "color": "c2e0c6",
+    "description": "Browser Extension or adapter integration"
+  },
+  {
+    "name": "component: android",
+    "color": "d4c5f9",
+    "description": "Android application"
+  },
+  {
+    "name": "breaking-change",
+    "color": "b60205",
+    "description": "Requires explicit compatibility or migration review"
+  },
+  {
+    "name": "needs-reproduction",
+    "color": "fbca04",
+    "description": "Needs a minimal reliable reproduction"
+  },
+  {
+    "name": "blocked",
+    "color": "000000",
+    "description": "Cannot proceed because of an external dependency"
+  },
+  {
+    "name": "ready-for-review",
+    "color": "0e8a16",
+    "description": "Author considers the change complete"
+  }
+]

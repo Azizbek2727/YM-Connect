@@ -1,0 +1,65 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+name: Rust
+
+on:
+  pull_request:
+    paths:
+      - "bridge/**"
+      - "shared/generated/rust/**"
+      - "Cargo.toml"
+      - "Cargo.lock"
+      - "rust-toolchain.toml"
+      - "rustfmt.toml"
+      - "clippy.toml"
+      - "deny.toml"
+      - ".github/workflows/rust.yml"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rust-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-15-intel, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: ./.github/actions/setup-node
+      - uses: ./.github/actions/setup-rust
+      - id: components
+        shell: bash
+        run: node .github/scripts/component-status.mjs
+      - name: Format generated Rust models
+        shell: bash
+        run: cargo fmt --manifest-path shared/generated/rust/Cargo.toml -- --check
+      - name: Build generated Rust models
+        shell: bash
+        run: cargo build --manifest-path shared/generated/rust/Cargo.toml
+      - name: Test generated Rust models
+        shell: bash
+        run: cargo test --manifest-path shared/generated/rust/Cargo.toml
+      - name: Lint Bridge workspace
+        if: steps.components.outputs.bridge == 'true'
+        shell: bash
+        run: pnpm lint:rust
+      - name: Test Bridge workspace
+        if: steps.components.outputs.bridge == 'true'
+        shell: bash
+        run: pnpm test:rust
+      - name: Build Bridge workspace
+        if: steps.components.outputs.bridge == 'true'
+        shell: bash
+        run: pnpm build:rust
+      - name: Verify Cargo lockfiles remained unchanged
+        shell: bash
+        run: git diff --exit-code -- Cargo.lock

@@ -1,0 +1,142 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+name: Tagged Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tagged-release-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            platform: linux-x86_64
+            signing-hook: bridge/installers/linux/sign-release.sh
+          - os: macos-15-intel
+            platform: macos-x86_64
+            signing-hook: bridge/installers/macos/sign-release.sh
+          - os: windows-2022
+            platform: windows-x86_64
+            signing-hook: bridge/installers/windows/sign-release.sh
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup-node
+      - name: Validate release tag
+        shell: bash
+        run: node .github/scripts/validate-release-tag.mjs ${{ github.ref_name }}
+      - uses: ./.github/actions/setup-protocol
+      - uses: ./.github/actions/setup-rust
+      - uses: ./.github/actions/setup-gradle
+      - id: components
+        shell: bash
+        run: node .github/scripts/component-status.mjs
+      - name: Require complete platform sources
+        if: steps.components.outputs.complete != 'true'
+        shell: bash
+        run: exit 1
+      - name: Validate and build JavaScript
+        shell: bash
+        run: |
+          pnpm generate:check
+          pnpm lint:js
+          pnpm lint:workspace
+          pnpm typecheck
+          pnpm test:js
+          pnpm build:js
+      - name: Validate and build Rust
+        shell: bash
+        run: |
+          pnpm lint:rust
+          pnpm test:rust
+          pnpm build:rust
+      - name: Validate and build Gradle
+        shell: bash
+        run: |
+          pnpm lint:android
+          pnpm test:android
+          pnpm build:android
+      - name: Collect platform release outputs
+        shell: bash
+        run: node .github/scripts/collect-release-artifacts.mjs --source . --destination staging --platform ${{ matrix.platform }} --require-complete
+      - name: Run protected platform-signing hook
+        if: vars.ENABLE_RELEASE_SIGNING == 'true'
+        shell: bash
+        env:
+          SIGNING_HOOK: ${{ matrix.signing-hook }}
+        run: |
+          test -x "$SIGNING_HOOK"
+          "$SIGNING_HOOK" "staging/${{ matrix.platform }}"
+      - name: Upload platform artifacts
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: release-${{ matrix.platform }}
+          path: staging
+          if-no-files-found: error
+          retention-days: 7
+
+  publish:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    environment: release
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup-node
+        with:
+          install: "false"
+      - name: Validate release tag
+        run: node .github/scripts/validate-release-tag.mjs ${{ github.ref_name }}
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          pattern: release-*
+          path: release
+          merge-multiple: true
+      - name: Add source archive
+        run: git archive --format=tar.gz --output=release/ym-connect-${{ github.ref_name }}-source.tar.gz HEAD
+      - name: Require complete artifact set
+        run: node .github/scripts/collect-release-artifacts.mjs --destination release --validate-complete
+      - name: Generate release SBOM
+        uses: anchore/sbom-action@f8bdd1d8ac5e901a77a92f111440fdb1b593736b # v0.20.6
+        with:
+          path: .
+          format: spdx-json
+          output-file: release/ym-connect-${{ github.ref_name }}.spdx.json
+          upload-artifact: false
+      - name: Generate and verify checksums
+        run: |
+          node .github/scripts/generate-checksums.mjs release
+          node .github/scripts/verify-checksums.mjs release
+      - name: Attest release artifacts
+        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32 # v4.1.0
+        with:
+          subject-checksums: release/SHA256SUMS
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh release create "${{ github.ref_name }}" --draft --verify-tag --generate-notes --title "YM Connect ${{ github.ref_name }}"
+          while IFS= read -r -d '' artifact; do
+            gh release upload "${{ github.ref_name }}" "$artifact" --clobber
+          done < <(find release -type f -print0 | sort -z)
+          gh release edit "${{ github.ref_name }}" --draft=false

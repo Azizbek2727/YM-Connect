@@ -1,0 +1,66 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+name: Browser and Native Host Integration
+
+on:
+  pull_request:
+    paths:
+      - "bridge/**"
+      - "extension/**"
+      - "shared/**"
+      - "Cargo.lock"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/integration.yml"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: integration-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  integration:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-15-intel, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: ./.github/actions/setup-node
+      - uses: ./.github/actions/setup-rust
+      - id: components
+        shell: bash
+        run: node .github/scripts/component-status.mjs
+      - name: Record unavailable integration suite
+        if: steps.components.outputs.bridge != 'true' || steps.components.outputs.extension != 'true'
+        shell: bash
+        run: echo "Browser/native-host integration becomes active when both Bridge and Extension directories are present."
+      - name: Install Playwright browsers on Linux
+        if: steps.components.outputs.bridge == 'true' && steps.components.outputs.extension == 'true' && steps.components.outputs.playwright == 'true' && runner.os == 'Linux'
+        shell: bash
+        run: pnpm --dir extension exec playwright install --with-deps
+      - name: Install Playwright browsers on macOS and Windows
+        if: steps.components.outputs.bridge == 'true' && steps.components.outputs.extension == 'true' && steps.components.outputs.playwright == 'true' && runner.os != 'Linux'
+        shell: bash
+        run: pnpm --dir extension exec playwright install
+      - name: Build JavaScript integration components
+        if: steps.components.outputs.bridge == 'true' && steps.components.outputs.extension == 'true'
+        shell: bash
+        run: pnpm build:js
+      - name: Build native host
+        if: steps.components.outputs.bridge == 'true' && steps.components.outputs.extension == 'true'
+        shell: bash
+        run: pnpm build:rust
+      - name: Test JavaScript and browser integration
+        if: steps.components.outputs.bridge == 'true' && steps.components.outputs.extension == 'true'
+        shell: bash
+        run: pnpm test:js
+      - name: Test native host and recovery behavior
+        if: steps.components.outputs.bridge == 'true' && steps.components.outputs.extension == 'true'
+        shell: bash
+        run: pnpm test:rust

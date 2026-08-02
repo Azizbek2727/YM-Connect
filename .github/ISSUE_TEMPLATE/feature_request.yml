@@ -1,0 +1,62 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+name: Feature request
+description: Propose a user-visible capability or developer improvement.
+title: "[Feature]: "
+labels: ["feature"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: Describe the concrete user or contributor problem without prescribing an implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Required outcome
+      description: State observable acceptance criteria.
+    validations:
+      required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Primary scope
+      options:
+        - Shared protocol or models
+        - Bridge daemon or native host
+        - Browser Extension
+        - Android application
+        - Installer or release process
+        - Contributor infrastructure
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility impact
+      description: Describe protocol, persisted-state, browser, Bridge, Android, installer, or minimum-version implications.
+    validations:
+      required: true
+  - type: textarea
+    id: security
+    attributes:
+      label: Security and privacy impact
+      description: Identify trust-boundary, authentication, local-network, permission, data-retention, or privacy effects.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: true
+  - type: checkboxes
+    id: architecture
+    attributes:
+      label: Architecture checks
+      options:
+        - label: The request does not assume that untrusted page data can define trusted adapter behavior.
+          required: true
+        - label: The request preserves Bridge ownership of sessions, trust, and routing.
+          required: true

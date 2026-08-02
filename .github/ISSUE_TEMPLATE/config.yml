@@ -1,0 +1,9 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/ym-connect/ym-connect/security/advisories/new
+    about: Report vulnerabilities privately through GitHub Security Advisories.
+  - name: Support and usage questions
+    url: https://github.com/ym-connect/ym-connect/discussions
+    about: Ask installation, configuration, and usage questions in Discussions.

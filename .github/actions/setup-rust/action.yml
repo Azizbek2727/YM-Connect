@@ -1,0 +1,15 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+name: Setup Rust toolchain
+description: Install the repository-pinned Rust compiler, formatter, and linter.
+runs:
+  using: composite
+  steps:
+    - name: Install pinned Rust toolchain
+      shell: bash
+      run: rustup toolchain install 1.97.1 --profile minimal --component clippy,rustfmt
+    - name: Select pinned Rust toolchain
+      shell: bash
+      run: rustup default 1.97.1
+    - name: Report Rust versions
+      shell: bash
+      run: rustc --version && cargo --version && cargo clippy --version && cargo fmt --version

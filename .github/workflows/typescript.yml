@@ -1,0 +1,53 @@
+# cspell:words anchore attest attestations bufbuild codeql dependabot macos notarization openssf playwright protoc sarif sbom scorecard spdx syft temurin webkit x86
+name: TypeScript
+
+on:
+  pull_request:
+    paths:
+      - "**/*.js"
+      - "**/*.mjs"
+      - "**/*.ts"
+      - "**/*.json"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - ".github/workflows/typescript.yml"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: typescript-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-15-intel, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: ./.github/actions/setup-node
+      - name: Lint JavaScript and workspace packages
+        shell: bash
+        run: |
+          pnpm lint:js
+          pnpm lint:workspace
+      - name: Typecheck
+        shell: bash
+        run: pnpm typecheck
+      - name: Test
+        shell: bash
+        run: pnpm test:js
+      - name: Build
+        shell: bash
+        run: pnpm build:js
+      - name: Verify lockfile remained unchanged
+        shell: bash
+        run: git diff --exit-code -- pnpm-lock.yaml
