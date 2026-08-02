@@ -5,10 +5,11 @@ runs:
   using: composite
   steps:
     - name: Install protoc 3.13.0
-      uses: arduino/setup-protoc@c65c819552d16ad3c9b72d9dfd5ba5237b9c906b # v3.0.0
-      with:
-        version: "3.13.0"
-        repo-token: ${{ github.token }}
+      id: protoc
+      shell: pwsh
+      run: |
+        $installer = Join-Path $env:GITHUB_ACTION_PATH "../../scripts/install-protoc.ps1"
+        & $installer
     - name: Install Buf 1.69.0
       uses: bufbuild/buf-setup-action@a47c93e0b1648d5651a065437926377d060baa99 # v1.50.0
       with:
