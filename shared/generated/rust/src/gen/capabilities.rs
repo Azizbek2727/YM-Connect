@@ -37,8 +37,8 @@ pub struct CapabilitySet {
     pub supported: ::prost::alloc::vec::Vec<i32>,
     #[prost(enumeration = "Capability", repeated, tag = "2")]
     pub required: ::prost::alloc::vec::Vec<i32>,
-    #[prost(map = "string, string", tag = "3")]
-    pub parameters: ::std::collections::HashMap<::prost::alloc::string::String, ::prost::alloc::string::String>,
+    #[prost(btree_map = "string, string", tag = "3")]
+    pub parameters: ::std::collections::BTreeMap<::prost::alloc::string::String, ::prost::alloc::string::String>,
 }
 
 #[derive(Clone, PartialEq, ::prost::Message)]

@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 import {
   generateLanguage,
   parseProtoSource,
@@ -56,5 +58,18 @@ test("emits Rust and Kotlin surfaces", () => {
   const [kotlin] = generateLanguage("kotlin", files, ["sample.proto"]);
   assert.match(rust.content, /prost::Message/u);
   assert.match(rust.content, /pub mod sample/u);
+  assert.match(rust.content, /prost\(btree_map = "string, string"/u);
+  assert.match(rust.content, /std::collections::BTreeMap/u);
   assert.match(kotlin.content, /inline fun sample/u);
+});
+
+test("executes the cross-platform protoc plugin launcher", () => {
+  const launcher = fileURLToPath(new URL("../bin/protoc-gen-ym-connect", import.meta.url));
+  const result = spawnSync(process.execPath, [launcher], {
+    input: Buffer.alloc(0),
+    encoding: null,
+  });
+  assert.equal(result.status, 1);
+  assert.equal(result.stderr.length, 0);
+  assert.ok(result.stdout.length > 0);
 });

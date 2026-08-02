@@ -61,7 +61,7 @@ pub struct ProtocolError {
     pub retryable: bool,
     #[prost(uint64, tag = "5")]
     pub retry_after_ms: u64,
-    #[prost(map = "string, string", tag = "6")]
-    pub metadata: ::std::collections::HashMap<::prost::alloc::string::String, ::prost::alloc::string::String>,
+    #[prost(btree_map = "string, string", tag = "6")]
+    pub metadata: ::std::collections::BTreeMap<::prost::alloc::string::String, ::prost::alloc::string::String>,
 }
 

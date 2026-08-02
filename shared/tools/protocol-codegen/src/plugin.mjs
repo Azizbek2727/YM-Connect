@@ -2,6 +2,7 @@
 
 import { readFile } from "node:fs/promises";
 import { isAbsolute, relative, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 import process from "node:process";
 
 const SCALARS = new Set([
@@ -309,9 +310,14 @@ function generateRust(file, symbols) {
       let rustType; let attr;
       if (field.map) {
         const valueResolved = resolveType(field.map.valueType, file);
-        const valueType = valueResolved.kind === "scalar" ? rustScalar(valueResolved.type) : valueResolved.typeName.split(".").at(-1);
-        rustType = `::std::collections::HashMap<::prost::alloc::string::String, ${valueType}>`;
-        attr = `#[prost(map = "string, ${valueResolved.kind === "scalar" ? valueResolved.type : "message"}", tag = "${field.number}")]`;
+        const valueType =
+          valueResolved.kind === "scalar"
+            ? rustScalar(valueResolved.type)
+            : valueResolved.typeName.split(".").at(-1);
+        rustType =
+          `::std::collections::BTreeMap<::prost::alloc::string::String, ${valueType}>`;
+        const valueKind = valueResolved.kind === "scalar" ? valueResolved.type : "message";
+        attr = `#[prost(btree_map = "string, ${valueKind}", tag = "${field.number}")]`;
       } else {
         const resolved = resolveType(field.type, file);
         if (field.label === "repeated") {
@@ -437,7 +443,7 @@ async function loadFiles(fileNames) {
   }
   return loaded;
 }
-async function run() {
+export async function run() {
   const chunks = []; for await (const chunk of process.stdin) chunks.push(chunk);
   try {
     const request = decodeRequest(Buffer.concat(chunks));
@@ -450,4 +456,6 @@ async function run() {
     process.stdout.write(encodeResponse([], message)); process.exitCode = 1;
   }
 }
-if (import.meta.url === new URL(`file://${process.argv[1]}`).href) await run();
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+  await run();
+}
