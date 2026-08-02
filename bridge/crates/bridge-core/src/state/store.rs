@@ -412,16 +412,15 @@ impl BridgeStateSubscription {
         let Some(store) = self.store.upgrade() else {
             return Ok(false);
         };
-
-        let removed = match store.subscribers.lock() {
-            Ok(mut subscribers) => subscribers.remove(&self.identifier).is_some(),
-            Err(_) => {
-                self.active.store(true, Ordering::Release);
-                return Err(StateError::LockPoisoned {
-                    lock: StateLock::Subscribers,
-                });
-            }
+        let Ok(mut subscribers) = store.subscribers.lock() else {
+            self.active.store(true, Ordering::Release);
+            return Err(StateError::LockPoisoned {
+                lock: StateLock::Subscribers,
+            });
         };
+        let removed = subscribers.remove(&self.identifier).is_some();
+        drop(subscribers);
+
         while self.receiver.try_recv().is_ok() {}
         Ok(removed)
     }
