@@ -37,7 +37,7 @@ impl LogLevel {
         }
     }
 
-    const fn allows(self, record_level: Self) -> bool {
+    fn allows(self, record_level: Self) -> bool {
         !matches!(self, Self::Off) && record_level <= self
     }
 
