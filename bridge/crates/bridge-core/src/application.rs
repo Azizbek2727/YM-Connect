@@ -45,11 +45,7 @@ impl BridgeApplication {
     ///
     /// Returns [`BridgeError`] when the shutdown signal cannot be observed.
     pub async fn run(self) -> Result<(), BridgeError> {
-        let worker_threads = self
-            .config
-            .runtime()
-            .worker_threads()
-            .map_or_else(|| "automatic".to_owned(), |value| value.get().to_string());
+        let worker_threads = self.config.runtime().worker_threads().to_string();
 
         self.dependencies.logger.log(LogRecord::new(
             LogLevel::Info,
