@@ -1,0 +1,74 @@
+# Operating systems
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors and IDEs
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+*~
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+secrets/
+
+# JavaScript and TypeScript
+node_modules/
+.pnpm-store/
+.npm/
+.yarn/
+*.tsbuildinfo
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# Rust
+target/
+bridge/target/
+*.profraw
+
+# Gradle and Android
+.gradle/
+build/
+**/build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Generated and packaged artifacts
+dist/
+artifacts/
+release/
+*.apk
+*.aab
+*.aar
+*.msi
+*.dmg
+*.pkg
+*.deb
+*.rpm
+*.AppImage
+
+# Logs and crash output
+*.log
+*.pid
+*.dmp
+hs_err_pid*
+
+# Temporary files
+.tmp/
+tmp/
+.cache/

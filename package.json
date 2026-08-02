@@ -1,0 +1,41 @@
+{
+  "name": "ym-connect",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local, authenticated Android control for Yandex Music playback in desktop browsers.",
+  "license": "Apache-2.0",
+  "packageManager": "pnpm@11.17.0",
+  "engines": {
+    "node": "24.18.0",
+    "pnpm": "11.17.0"
+  },
+  "scripts": {
+    "bootstrap": "pnpm install --frozen-lockfile",
+    "generate": "pnpm protocol:generate",
+    "generate:check": "pnpm protocol:generate && git diff --exit-code -- shared/generated shared/protocol/fixtures",
+    "protocol:generate": "buf generate --template shared/protocol/buf.gen.yaml",
+    "protocol:lint": "buf lint",
+    "protocol:build": "buf build",
+    "protocol:breaking": "buf breaking --against '.git#branch=main'",
+    "protocol:fixtures:check": "pnpm --filter @ym-connect/protocol-fixtures test",
+    "format": "pnpm dlx @biomejs/biome@2.5.6 format --write --files-ignore-unknown=true . && pnpm dlx markdownlint-cli2@0.23.2 --fix",
+    "format:check": "pnpm dlx @biomejs/biome@2.5.6 format --files-ignore-unknown=true . && pnpm dlx markdownlint-cli2@0.23.2",
+    "spellcheck": "pnpm dlx cspell@10.0.1 --no-progress --show-suggestions .",
+    "lint:js": "pnpm dlx @biomejs/biome@2.5.6 lint --files-ignore-unknown=true .",
+    "lint:workspace": "pnpm -r --if-present lint",
+    "lint:rust": "cargo clippy --workspace --all-targets --all-features --locked -- -D warnings",
+    "lint:android": "./gradlew --no-daemon lint",
+    "lint": "pnpm protocol:lint && pnpm lint:js && pnpm lint:workspace && pnpm lint:rust && pnpm lint:android && pnpm spellcheck",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "build:js": "pnpm -r --if-present build",
+    "build:rust": "cargo build --workspace --all-features --locked",
+    "build:android": "./gradlew --no-daemon assemble",
+    "build": "pnpm protocol:build && pnpm build:js && pnpm build:rust && pnpm build:android",
+    "test:js": "pnpm -r --if-present test",
+    "test:rust": "cargo test --workspace --all-features --locked",
+    "test:android": "./gradlew --no-daemon test",
+    "test": "pnpm test:js && pnpm test:rust && pnpm test:android",
+    "check": "pnpm generate:check && pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build",
+    "clean": "pnpm -r --if-present clean && cargo clean && ./gradlew --no-daemon clean"
+  }
+}

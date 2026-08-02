@@ -1,0 +1,33 @@
+* text=auto eol=lf
+
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+*.jar binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.keystore binary
+*.p12 binary
+*.der binary
+*.bin binary
+*.pb binary
+*.zip binary
+
+*.proto diff
+*.rs diff
+*.kt diff
+*.kts diff
+*.ts diff
+
+shared/generated/** linguist-generated=true
+android/**/build/generated/** linguist-generated=true
+extension/dist/** linguist-generated=true
+bridge/target/** linguist-generated=true
+
+.github/ export-ignore
+docs/internal/ export-ignore
