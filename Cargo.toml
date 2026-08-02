@@ -1,6 +1,7 @@
 [workspace]
 resolver = "3"
 members = ["bridge/crates/*"]
+default-members = ["bridge/crates/bridge-daemon"]
 
 [workspace.package]
 version = "0.1.0"
@@ -8,6 +9,13 @@ edition = "2024"
 rust-version = "1.97.1"
 license = "Apache-2.0"
 authors = ["YM Connect contributors"]
+repository = "https://github.com/Azizbek2727/YM-Connect"
+homepage = "https://github.com/Azizbek2727/YM-Connect"
+readme = "README.md"
+
+[workspace.dependencies]
+tokio = { version = "=1.53.1", default-features = false, features = ["rt-multi-thread", "signal"] }
+ym-connect-bridge-core = { version = "=0.1.0", path = "bridge/crates/bridge-core" }
 
 [workspace.lints.rust]
 unsafe_code = "forbid"

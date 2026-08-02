@@ -1,0 +1,17 @@
+[package]
+name = "ym-connect-bridge-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+readme.workspace = true
+description = "Runtime-independent lifecycle core for the YM Connect desktop Bridge."
+keywords = ["bridge", "local-network", "yandex-music"]
+categories = ["asynchronous", "network-programming"]
+publish = false
+
+[lints]
+workspace = true
