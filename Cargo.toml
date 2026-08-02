@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["bridge/crates/*"]
+members = ["bridge/crates/*", "shared/generated/rust"]
 default-members = ["bridge/crates/bridge-daemon"]
 
 [workspace.package]
