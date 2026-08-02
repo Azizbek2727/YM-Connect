@@ -623,7 +623,8 @@ fn concurrent_read_write_stress_preserves_snapshot_invariants() -> TestResult {
                     "snapshot revision moved backwards",
                 ));
             }
-            if snapshot.devices().len() > snapshot.revision().get() as usize {
+            let revision = usize::try_from(snapshot.revision().get()).unwrap_or(usize::MAX);
+            if snapshot.devices().len() > revision {
                 return Err(StateError::rejected(
                     "snapshot-invariant",
                     "device count exceeded committed revision",
