@@ -31,7 +31,8 @@ non-environment source can parse its input outside the core and provide a strong
 ## Configuration model
 
 The resolved model contains immutable logging and runtime sections. All fields are private
-and exposed only through read-only accessors.
+and exposed only through read-only accessors. The resolved snapshot has no mutation API and
+is passed to startup components only after every enabled source has been validated.
 
 | Field | Rust type | Default |
 | --- | --- | --- |
