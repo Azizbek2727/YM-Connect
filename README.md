@@ -1,5 +1,11 @@
 # YM Connect
 
+"Изначально проект задумывался как небольшое расширение для управления Яндекс Музыкой с телефона. 
+В процессе разработки он вырос в полноценную кроссплатформенную платформу с собственной архитектурой, 
+протоколом и инфраструктурой."
+
+"Давай, Морти, Зашли и вышли. Приключение на 20 минут."
+
 YM Connect is a local-control system for operating Yandex Music playback in a desktop
 browser from an Android device. The system keeps discovery, trust, authorization, routing,
 and client transport in a native desktop Bridge instead of exposing browser extension
