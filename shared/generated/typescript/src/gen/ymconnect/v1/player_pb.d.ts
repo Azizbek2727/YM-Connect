@@ -104,11 +104,7 @@ export interface ActivePlayerChanged {
 export declare const ActivePlayerChangedSchema: MessageSchema<ActivePlayerChanged>;
 
 export interface PlayerEvent {
-  event:
-    | { case: "snapshot"; value: PlayerSnapshot }
-    | { case: "removed"; value: PlayerRemoved }
-    | { case: "activeChanged"; value: ActivePlayerChanged }
-    | { case: undefined; value?: undefined };
+  event: { case: "snapshot"; value: PlayerSnapshot } | { case: "removed"; value: PlayerRemoved } | { case: "activeChanged"; value: ActivePlayerChanged } | { case: undefined; value?: undefined };
 }
 export declare const PlayerEventSchema: MessageSchema<PlayerEvent>;
 

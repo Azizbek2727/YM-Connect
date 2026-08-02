@@ -2,122 +2,25 @@
 import "./common_pb.js";
 import { defineEnum, defineMessage } from "../../../runtime.js";
 
-export const Capability = defineEnum("ymconnect.v1.Capability", {
-  CAPABILITY_UNSPECIFIED: 0,
-  CAPABILITY_PLAYBACK_READ: 1,
-  CAPABILITY_PLAY: 2,
-  CAPABILITY_PAUSE: 3,
-  CAPABILITY_STOP: 4,
-  CAPABILITY_TOGGLE_PLAY_PAUSE: 5,
-  CAPABILITY_SEEK_ABSOLUTE: 6,
-  CAPABILITY_SEEK_RELATIVE: 7,
-  CAPABILITY_NEXT: 8,
-  CAPABILITY_PREVIOUS: 9,
-  CAPABILITY_SET_VOLUME: 10,
-  CAPABILITY_SET_MUTED: 11,
-  CAPABILITY_SET_SHUFFLE: 12,
-  CAPABILITY_SET_REPEAT: 13,
-  CAPABILITY_SET_LIKE: 14,
-  CAPABILITY_SELECT_PLAYER: 15,
-  CAPABILITY_MULTI_PLAYER: 16,
-  CAPABILITY_QUEUE_READ: 17,
-  CAPABILITY_TRACK_ARTWORK: 18,
-  CAPABILITY_TIMELINE_UPDATES: 19,
-  CAPABILITY_TRUST_MANAGEMENT: 20,
-  CAPABILITY_CLIENT_REVOCATION: 21,
-  CAPABILITY_SESSION_RESUMPTION: 22,
-  CAPABILITY_ENCRYPTED_TRANSPORT: 23,
-  CAPABILITY_REPLAY_PROTECTION: 24,
-  CAPABILITY_NATIVE_PEER_AUTH: 25,
-});
+export const Capability = defineEnum("ymconnect.v1.Capability", { "CAPABILITY_UNSPECIFIED": 0, "CAPABILITY_PLAYBACK_READ": 1, "CAPABILITY_PLAY": 2, "CAPABILITY_PAUSE": 3, "CAPABILITY_STOP": 4, "CAPABILITY_TOGGLE_PLAY_PAUSE": 5, "CAPABILITY_SEEK_ABSOLUTE": 6, "CAPABILITY_SEEK_RELATIVE": 7, "CAPABILITY_NEXT": 8, "CAPABILITY_PREVIOUS": 9, "CAPABILITY_SET_VOLUME": 10, "CAPABILITY_SET_MUTED": 11, "CAPABILITY_SET_SHUFFLE": 12, "CAPABILITY_SET_REPEAT": 13, "CAPABILITY_SET_LIKE": 14, "CAPABILITY_SELECT_PLAYER": 15, "CAPABILITY_MULTI_PLAYER": 16, "CAPABILITY_QUEUE_READ": 17, "CAPABILITY_TRACK_ARTWORK": 18, "CAPABILITY_TIMELINE_UPDATES": 19, "CAPABILITY_TRUST_MANAGEMENT": 20, "CAPABILITY_CLIENT_REVOCATION": 21, "CAPABILITY_SESSION_RESUMPTION": 22, "CAPABILITY_ENCRYPTED_TRANSPORT": 23, "CAPABILITY_REPLAY_PROTECTION": 24, "CAPABILITY_NATIVE_PEER_AUTH": 25 });
 export const CapabilitySetSchema = defineMessage("ymconnect.v1.CapabilitySet", [
-  {
-    no: 1,
-    name: "supported",
-    protoName: "supported",
-    kind: "enum",
-    typeName: "ymconnect.v1.Capability",
-    repeated: true,
-  },
-  {
-    no: 2,
-    name: "required",
-    protoName: "required",
-    kind: "enum",
-    typeName: "ymconnect.v1.Capability",
-    repeated: true,
-  },
-  {
-    no: 3,
-    name: "parameters",
-    protoName: "parameters",
-    kind: "map",
-    keyScalar: "string",
-    value: { kind: "scalar", scalar: "string" },
-  },
+  { no: 1, name: "supported", protoName: "supported", kind: "enum", typeName: "ymconnect.v1.Capability", repeated: true },
+  { no: 2, name: "required", protoName: "required", kind: "enum", typeName: "ymconnect.v1.Capability", repeated: true },
+  { no: 3, name: "parameters", protoName: "parameters", kind: "map", keyScalar: "string", value: { kind: "scalar", scalar: "string" } },
 ]);
 
 export const CapabilityNegotiationSchema = defineMessage("ymconnect.v1.CapabilityNegotiation", [
-  {
-    no: 1,
-    name: "offered",
-    protoName: "offered",
-    kind: "message",
-    typeName: "ymconnect.v1.CapabilitySet",
-  },
-  {
-    no: 2,
-    name: "available",
-    protoName: "available",
-    kind: "message",
-    typeName: "ymconnect.v1.CapabilitySet",
-  },
-  {
-    no: 3,
-    name: "negotiated",
-    protoName: "negotiated",
-    kind: "message",
-    typeName: "ymconnect.v1.CapabilitySet",
-  },
-  {
-    no: 4,
-    name: "missingRequired",
-    protoName: "missing_required",
-    kind: "enum",
-    typeName: "ymconnect.v1.Capability",
-    repeated: true,
-  },
+  { no: 1, name: "offered", protoName: "offered", kind: "message", typeName: "ymconnect.v1.CapabilitySet" },
+  { no: 2, name: "available", protoName: "available", kind: "message", typeName: "ymconnect.v1.CapabilitySet" },
+  { no: 3, name: "negotiated", protoName: "negotiated", kind: "message", typeName: "ymconnect.v1.CapabilitySet" },
+  { no: 4, name: "missingRequired", protoName: "missing_required", kind: "enum", typeName: "ymconnect.v1.Capability", repeated: true },
 ]);
 
 export const ProtocolSelectionSchema = defineMessage("ymconnect.v1.ProtocolSelection", [
-  {
-    no: 1,
-    name: "localRange",
-    protoName: "local_range",
-    kind: "message",
-    typeName: "ymconnect.v1.VersionRange",
-  },
-  {
-    no: 2,
-    name: "remoteRange",
-    protoName: "remote_range",
-    kind: "message",
-    typeName: "ymconnect.v1.VersionRange",
-  },
-  {
-    no: 3,
-    name: "selectedVersion",
-    protoName: "selected_version",
-    kind: "message",
-    typeName: "ymconnect.v1.ProtocolVersion",
-  },
-  {
-    no: 4,
-    name: "capabilities",
-    protoName: "capabilities",
-    kind: "message",
-    typeName: "ymconnect.v1.CapabilityNegotiation",
-  },
+  { no: 1, name: "localRange", protoName: "local_range", kind: "message", typeName: "ymconnect.v1.VersionRange" },
+  { no: 2, name: "remoteRange", protoName: "remote_range", kind: "message", typeName: "ymconnect.v1.VersionRange" },
+  { no: 3, name: "selectedVersion", protoName: "selected_version", kind: "message", typeName: "ymconnect.v1.ProtocolVersion" },
+  { no: 4, name: "capabilities", protoName: "capabilities", kind: "message", typeName: "ymconnect.v1.CapabilityNegotiation" },
   { no: 5, name: "compatible", protoName: "compatible", kind: "scalar", scalar: "bool" },
 ]);
 

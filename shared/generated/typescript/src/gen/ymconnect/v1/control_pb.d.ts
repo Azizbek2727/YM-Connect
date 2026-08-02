@@ -30,22 +30,28 @@ export declare const CommandStatus: Readonly<{
 }>;
 export type CommandStatus = (typeof CommandStatus)[keyof typeof CommandStatus];
 
-export interface PlayCommand {}
+export interface PlayCommand {
+}
 export declare const PlayCommandSchema: MessageSchema<PlayCommand>;
 
-export interface PauseCommand {}
+export interface PauseCommand {
+}
 export declare const PauseCommandSchema: MessageSchema<PauseCommand>;
 
-export interface StopCommand {}
+export interface StopCommand {
+}
 export declare const StopCommandSchema: MessageSchema<StopCommand>;
 
-export interface TogglePlayPauseCommand {}
+export interface TogglePlayPauseCommand {
+}
 export declare const TogglePlayPauseCommandSchema: MessageSchema<TogglePlayPauseCommand>;
 
-export interface NextCommand {}
+export interface NextCommand {
+}
 export declare const NextCommandSchema: MessageSchema<NextCommand>;
 
-export interface PreviousCommand {}
+export interface PreviousCommand {
+}
 export declare const PreviousCommandSchema: MessageSchema<PreviousCommand>;
 
 export interface SeekAbsoluteCommand {
@@ -84,21 +90,7 @@ export interface SetLikeCommand {
 export declare const SetLikeCommandSchema: MessageSchema<SetLikeCommand>;
 
 export interface PlaybackCommand {
-  action:
-    | { case: "play"; value: PlayCommand }
-    | { case: "pause"; value: PauseCommand }
-    | { case: "stop"; value: StopCommand }
-    | { case: "togglePlayPause"; value: TogglePlayPauseCommand }
-    | { case: "seekAbsolute"; value: SeekAbsoluteCommand }
-    | { case: "seekRelative"; value: SeekRelativeCommand }
-    | { case: "next"; value: NextCommand }
-    | { case: "previous"; value: PreviousCommand }
-    | { case: "setVolume"; value: SetVolumeCommand }
-    | { case: "setMuted"; value: SetMutedCommand }
-    | { case: "setShuffle"; value: SetShuffleCommand }
-    | { case: "setRepeat"; value: SetRepeatCommand }
-    | { case: "setLike"; value: SetLikeCommand }
-    | { case: undefined; value?: undefined };
+  action: { case: "play"; value: PlayCommand } | { case: "pause"; value: PauseCommand } | { case: "stop"; value: StopCommand } | { case: "togglePlayPause"; value: TogglePlayPauseCommand } | { case: "seekAbsolute"; value: SeekAbsoluteCommand } | { case: "seekRelative"; value: SeekRelativeCommand } | { case: "next"; value: NextCommand } | { case: "previous"; value: PreviousCommand } | { case: "setVolume"; value: SetVolumeCommand } | { case: "setMuted"; value: SetMutedCommand } | { case: "setShuffle"; value: SetShuffleCommand } | { case: "setRepeat"; value: SetRepeatCommand } | { case: "setLike"; value: SetLikeCommand } | { case: undefined; value?: undefined };
 }
 export declare const PlaybackCommandSchema: MessageSchema<PlaybackCommand>;
 
@@ -120,7 +112,8 @@ export interface CommandResult {
 }
 export declare const CommandResultSchema: MessageSchema<CommandResult>;
 
-export interface ListPlayersRequest {}
+export interface ListPlayersRequest {
+}
 export declare const ListPlayersRequestSchema: MessageSchema<ListPlayersRequest>;
 
 export interface ListPlayersResponse {
