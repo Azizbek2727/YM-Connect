@@ -12,7 +12,9 @@ mod shutdown;
 
 pub use application::{BridgeApplication, BridgeDependencies};
 pub use config::{
-    BridgeConfig, ConfigError, LOG_LEVEL_ENV, RUNTIME_WORKER_THREADS_ENV, RuntimeConfig,
+    BridgeConfig, BridgeConfigLayer, BridgeConfigLoader, ConfigError, ConfigErrorKind,
+    ConfigField, ConfigSource, DEFAULT_LOG_LEVEL, DEFAULT_RUNTIME_WORKER_THREADS, LOG_LEVEL_ENV,
+    LoggingConfig, RUNTIME_WORKER_THREADS_ENV, RuntimeConfig, RuntimeWorkerThreads,
 };
 pub use error::BridgeError;
 pub use logging::{LogLevel, LogRecord, Logger, StderrLogger};
