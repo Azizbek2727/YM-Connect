@@ -159,7 +159,7 @@ checksum = "f0805222e57f7521d6a62e36fa9163bc891acd422f971defe97d64e70d0a4fe5"
 name = "windows-sys"
 version = "0.61.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ae13722936d6a62a34f31e6f1f7353fc19b518fcd6b3d83ca3fce510234933d6"
+checksum = "ae137229bcbd6cdf1f7b80a31df61766145077ddf49416a728b02cb3921ff3fc"
 dependencies = [
  "windows-link",
 ]
