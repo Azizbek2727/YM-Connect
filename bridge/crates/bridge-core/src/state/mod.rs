@@ -30,5 +30,7 @@ pub use store::{
     BridgeStateStore, BridgeStateSubscription, NotificationSummary, StateUpdate, SubscriptionId,
 };
 
+pub(super) use snapshot::BridgeStateData;
+
 #[cfg(test)]
 mod tests;
