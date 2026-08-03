@@ -5,14 +5,23 @@
 //! module stores public identity material, lifecycle records, signed responses, and immutable trust
 //! records, but never stores private keys, shared secrets, derived keys, or transport credentials.
 
+#[allow(clippy::missing_errors_doc)]
 mod crypto;
+#[allow(missing_docs)]
 #[path = "error_v2.rs"]
 mod error;
 mod event;
+#[allow(clippy::missing_errors_doc, clippy::needless_pass_by_value)]
 #[path = "manager_v2.rs"]
 mod manager;
+#[allow(
+    missing_docs,
+    clippy::missing_errors_doc,
+    clippy::too_many_arguments
+)]
 #[path = "model_v2.rs"]
 mod model;
+#[allow(clippy::missing_errors_doc)]
 mod rust_crypto;
 
 pub use crypto::PairingCryptoProvider;
