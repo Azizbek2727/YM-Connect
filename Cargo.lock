@@ -157,7 +157,7 @@ dependencies = [
 name = "either"
 version = "1.17.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9e5e8f2f02a2fc9c202ef7996f01353650d38dc5a5c147595a9f839a9aff4ee"
+checksum = "9e5e8f6c15a24b9a3ee5efec809ccd006d3b30e8b3bb63c39af737c7f87daa1d"
 
 [[package]]
 name = "errno"
