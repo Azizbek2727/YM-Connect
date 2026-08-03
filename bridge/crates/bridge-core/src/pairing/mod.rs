@@ -8,6 +8,7 @@
 mod crypto;
 #[path = "error_v2.rs"]
 mod error;
+mod event;
 #[path = "manager_v2.rs"]
 mod manager;
 #[path = "model_v2.rs"]
@@ -15,6 +16,7 @@ mod model;
 
 pub use crypto::PairingCryptoProvider;
 pub use error::{PairingError, PairingResult};
+pub use event::{PairingEvent, PairingEventKind};
 pub use manager::{
     CreatePairingChallenge, CreatePairingSession, EstablishPairingTrust, PairingManager,
     PairingMutation, ReceivePairingResponse, RevokeTrustedPeer, TransitionPairing, TrustMutation,
