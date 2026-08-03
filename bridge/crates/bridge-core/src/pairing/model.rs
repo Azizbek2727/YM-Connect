@@ -4,50 +4,33 @@ use ym_connect_protocol::v1::{Capability, CapabilitySet, ProtocolVersion};
 
 use crate::{DeviceId, RegistryKind, SessionId, StateIdentifierError, StateRegistryValue};
 
-const PUBLIC_KEY_LENGTH: usize = 32;
-const CHALLENGE_NONCE_LENGTH: usize = 32;
-const CONFIRMATION_TAG_LENGTH: usize = 16;
-
-macro_rules! define_identifier {
-    ($name:ident, $error:ident, $description:literal) => {
-        #[doc = $description]
+macro_rules! identifier {
+    ($name:ident, $variant:ident, $doc:literal) => {
+        #[doc = $doc]
         #[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
         pub struct $name(Arc<str>);
-
         impl $name {
             /// Creates a validated identifier.
-            ///
-            /// # Errors
-            ///
-            /// Returns the corresponding model error when `value` is empty.
             pub fn new(value: impl Into<String>) -> Result<Self, PairingModelError> {
                 let value = value.into();
-                if value.is_empty() {
-                    return Err(PairingModelError::$error);
-                }
+                if value.is_empty() { return Err(PairingModelError::$variant); }
                 Ok(Self(Arc::from(value)))
             }
-
-            /// Returns the identifier text.
+            /// Returns identifier text.
             #[must_use]
-            pub fn as_str(&self) -> &str {
-                &self.0
-            }
+            pub fn as_str(&self) -> &str { &self.0 }
         }
-
         impl fmt::Display for $name {
-            fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
-                formatter.write_str(self.as_str())
-            }
+            fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result { f.write_str(self.as_str()) }
         }
     };
 }
 
-define_identifier!(PairingId, EmptyPairingId, "Validated pairing-session identifier.");
-define_identifier!(ChallengeId, EmptyChallengeId, "Validated pairing-challenge identifier.");
-define_identifier!(BridgeId, EmptyBridgeId, "Validated Bridge identity identifier.");
+identifier!(PairingId, EmptyPairingId, "Validated pairing-session identifier.");
+identifier!(ChallengeId, EmptyChallengeId, "Validated pairing-challenge identifier.");
+identifier!(BridgeId, EmptyBridgeId, "Validated Bridge identity identifier.");
 
-/// Validation failure for a Pairing Core model value.
+/// Pairing model validation failure.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum PairingModelError {
     /// Pairing identifier was empty.
@@ -58,273 +41,161 @@ pub enum PairingModelError {
     EmptyBridgeId,
     /// Metadata key was empty.
     EmptyMetadataKey,
-    /// An Ed25519 or X25519 public key had an invalid length.
+    /// Public key was not 32 bytes.
     InvalidPublicKeyLength { actual: usize },
-    /// A challenge nonce had an invalid length.
-    InvalidChallengeNonceLength { actual: usize },
-    /// A ChaCha20-Poly1305 confirmation tag had an invalid length.
+    /// Challenge nonce was not 32 bytes.
+    InvalidNonceLength { actual: usize },
+    /// Confirmation tag was not 16 bytes.
     InvalidConfirmationTagLength { actual: usize },
-    /// Challenge expiry did not follow creation time.
+    /// Challenge expiry was invalid.
     InvalidChallengeWindow,
-    /// A protocol version used major version zero.
+    /// Protocol version was invalid.
     InvalidProtocolVersion,
-    /// Pairing capabilities were malformed or omitted required security capabilities.
+    /// Pairing capabilities were invalid.
     InvalidCapabilities,
 }
 
 impl fmt::Display for PairingModelError {
-    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            Self::EmptyPairingId => formatter.write_str("pairing identifier must not be empty"),
-            Self::EmptyChallengeId => formatter.write_str("challenge identifier must not be empty"),
-            Self::EmptyBridgeId => formatter.write_str("Bridge identifier must not be empty"),
-            Self::EmptyMetadataKey => formatter.write_str("trust metadata key must not be empty"),
-            Self::InvalidPublicKeyLength { actual } => write!(
-                formatter,
-                "identity and ephemeral public keys must contain {PUBLIC_KEY_LENGTH} bytes, got {actual}"
-            ),
-            Self::InvalidChallengeNonceLength { actual } => write!(
-                formatter,
-                "pairing challenge nonce must contain {CHALLENGE_NONCE_LENGTH} bytes, got {actual}"
-            ),
-            Self::InvalidConfirmationTagLength { actual } => write!(
-                formatter,
-                "pairing confirmation tag must contain {CONFIRMATION_TAG_LENGTH} bytes, got {actual}"
-            ),
-            Self::InvalidChallengeWindow => {
-                formatter.write_str("pairing challenge expiry must be later than creation")
-            }
-            Self::InvalidProtocolVersion => {
-                formatter.write_str("pairing protocol major version must be non-zero")
-            }
-            Self::InvalidCapabilities => formatter.write_str(
-                "pairing capabilities must be unique, valid, and include required security capabilities",
-            ),
+            Self::EmptyPairingId => f.write_str("pairing identifier must not be empty"),
+            Self::EmptyChallengeId => f.write_str("challenge identifier must not be empty"),
+            Self::EmptyBridgeId => f.write_str("Bridge identifier must not be empty"),
+            Self::EmptyMetadataKey => f.write_str("trust metadata key must not be empty"),
+            Self::InvalidPublicKeyLength { actual } => write!(f, "public key must contain 32 bytes, got {actual}"),
+            Self::InvalidNonceLength { actual } => write!(f, "challenge nonce must contain 32 bytes, got {actual}"),
+            Self::InvalidConfirmationTagLength { actual } => write!(f, "confirmation tag must contain 16 bytes, got {actual}"),
+            Self::InvalidChallengeWindow => f.write_str("challenge expiry must follow creation"),
+            Self::InvalidProtocolVersion => f.write_str("protocol major version must be non-zero"),
+            Self::InvalidCapabilities => f.write_str("pairing capabilities are invalid"),
         }
     }
 }
-
 impl Error for PairingModelError {}
 
-/// Milliseconds since the Unix epoch used by Pairing Core.
+/// Unix-millisecond timestamp.
 #[derive(Clone, Copy, Debug, Default, Eq, Ord, PartialEq, PartialOrd)]
 pub struct PairingTimestamp(u64);
-
 impl PairingTimestamp {
-    /// Creates a timestamp from Unix milliseconds.
+    /// Creates a timestamp.
     #[must_use]
-    pub const fn from_unix_millis(value: u64) -> Self {
-        Self(value)
-    }
-
+    pub const fn from_unix_millis(value: u64) -> Self { Self(value) }
     /// Returns Unix milliseconds.
     #[must_use]
-    pub const fn as_unix_millis(self) -> u64 {
-        self.0
-    }
+    pub const fn as_unix_millis(self) -> u64 { self.0 }
 }
 
-/// Monotonic revision of a pairing or trust record.
+/// Monotonic pairing/trust revision.
 #[derive(Clone, Copy, Debug, Default, Eq, Ord, PartialEq, PartialOrd)]
 pub struct PairingRevision(u64);
-
 impl PairingRevision {
     /// Initial revision.
     pub const INITIAL: Self = Self(0);
-
     /// Creates a revision.
     #[must_use]
-    pub const fn new(value: u64) -> Self {
-        Self(value)
-    }
-
-    /// Returns the numeric revision.
+    pub const fn new(value: u64) -> Self { Self(value) }
+    /// Returns numeric value.
     #[must_use]
-    pub const fn get(self) -> u64 {
-        self.0
-    }
-
+    pub const fn get(self) -> u64 { self.0 }
     pub(crate) const fn checked_next(self) -> Option<Self> {
-        match self.0.checked_add(1) {
-            Some(value) => Some(Self(value)),
-            None => None,
-        }
+        match self.0.checked_add(1) { Some(value) => Some(Self(value)), None => None }
     }
 }
 
-/// Fixed cryptographic algorithm suite permitted by Pairing Core.
+/// Fixed approved algorithm suite.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PairingAlgorithmSuite;
-
 impl PairingAlgorithmSuite {
-    /// X25519 key agreement identifier.
+    /// Key agreement algorithm.
     pub const KEY_AGREEMENT: &'static str = "X25519";
-    /// Ed25519 signature identifier.
+    /// Signature algorithm.
     pub const SIGNATURE: &'static str = "Ed25519";
-    /// HKDF-SHA-256 key derivation identifier.
+    /// Key derivation algorithm.
     pub const KEY_DERIVATION: &'static str = "HKDF-SHA-256";
-    /// ChaCha20-Poly1305 confirmation identifier.
+    /// Confirmation algorithm.
     pub const CONFIRMATION: &'static str = "ChaCha20-Poly1305";
 }
 
 /// Validated immutable 32-byte public key.
 #[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub struct PairingPublicKey(Arc<[u8; PUBLIC_KEY_LENGTH]>);
-
+pub struct PairingPublicKey(Arc<[u8; 32]>);
 impl PairingPublicKey {
-    /// Creates a validated public key.
-    ///
-    /// # Errors
-    ///
-    /// Returns [`PairingModelError::InvalidPublicKeyLength`] for non-32-byte input.
+    /// Creates a key.
     pub fn new(bytes: impl AsRef<[u8]>) -> Result<Self, PairingModelError> {
         let bytes = bytes.as_ref();
-        let array = <[u8; PUBLIC_KEY_LENGTH]>::try_from(bytes).map_err(|_| {
-            PairingModelError::InvalidPublicKeyLength {
-                actual: bytes.len(),
-            }
-        })?;
-        Ok(Self(Arc::new(array)))
+        Ok(Self(Arc::new(<[u8; 32]>::try_from(bytes).map_err(|_| PairingModelError::InvalidPublicKeyLength { actual: bytes.len() })?)))
     }
-
-    /// Returns public-key bytes.
+    /// Returns key bytes.
     #[must_use]
-    pub fn as_bytes(&self) -> &[u8; PUBLIC_KEY_LENGTH] {
-        &self.0
-    }
+    pub fn as_bytes(&self) -> &[u8; 32] { &self.0 }
 }
 
-/// Immutable challenge nonce.
+/// Validated immutable 32-byte nonce.
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PairingNonce(Arc<[u8; CHALLENGE_NONCE_LENGTH]>);
-
+pub struct PairingNonce(Arc<[u8; 32]>);
 impl PairingNonce {
-    /// Creates a validated challenge nonce.
-    ///
-    /// # Errors
-    ///
-    /// Returns a model error for non-32-byte input.
+    /// Creates a nonce.
     pub fn new(bytes: impl AsRef<[u8]>) -> Result<Self, PairingModelError> {
         let bytes = bytes.as_ref();
-        let array = <[u8; CHALLENGE_NONCE_LENGTH]>::try_from(bytes).map_err(|_| {
-            PairingModelError::InvalidChallengeNonceLength {
-                actual: bytes.len(),
-            }
-        })?;
-        Ok(Self(Arc::new(array)))
+        Ok(Self(Arc::new(<[u8; 32]>::try_from(bytes).map_err(|_| PairingModelError::InvalidNonceLength { actual: bytes.len() })?)))
     }
-
     /// Returns nonce bytes.
     #[must_use]
-    pub fn as_bytes(&self) -> &[u8; CHALLENGE_NONCE_LENGTH] {
-        &self.0
-    }
+    pub fn as_bytes(&self) -> &[u8; 32] { &self.0 }
 }
 
-/// Immutable ChaCha20-Poly1305 authentication tag.
+/// Validated immutable 16-byte confirmation tag.
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PairingConfirmationTag(Arc<[u8; CONFIRMATION_TAG_LENGTH]>);
-
+pub struct PairingConfirmationTag(Arc<[u8; 16]>);
 impl PairingConfirmationTag {
-    /// Creates a validated confirmation tag.
-    ///
-    /// # Errors
-    ///
-    /// Returns a model error for non-16-byte input.
+    /// Creates a tag.
     pub fn new(bytes: impl AsRef<[u8]>) -> Result<Self, PairingModelError> {
         let bytes = bytes.as_ref();
-        let array = <[u8; CONFIRMATION_TAG_LENGTH]>::try_from(bytes).map_err(|_| {
-            PairingModelError::InvalidConfirmationTagLength {
-                actual: bytes.len(),
-            }
-        })?;
-        Ok(Self(Arc::new(array)))
+        Ok(Self(Arc::new(<[u8; 16]>::try_from(bytes).map_err(|_| PairingModelError::InvalidConfirmationTagLength { actual: bytes.len() })?)))
     }
-
     /// Returns tag bytes.
     #[must_use]
-    pub fn as_bytes(&self) -> &[u8; CONFIRMATION_TAG_LENGTH] {
-        &self.0
-    }
+    pub fn as_bytes(&self) -> &[u8; 16] { &self.0 }
 }
 
-/// Immutable bridge identity used by pairing transcripts.
+/// Immutable Bridge identity.
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct BridgeIdentity {
-    id: BridgeId,
-    identity_key: PairingPublicKey,
-}
-
+pub struct BridgeIdentity { id: BridgeId, identity_key: PairingPublicKey }
 impl BridgeIdentity {
-    /// Creates a bridge identity.
+    /// Creates a Bridge identity.
     #[must_use]
-    pub const fn new(id: BridgeId, identity_key: PairingPublicKey) -> Self {
-        Self { id, identity_key }
-    }
-
-    /// Returns the bridge identifier.
+    pub const fn new(id: BridgeId, identity_key: PairingPublicKey) -> Self { Self { id, identity_key } }
+    /// Returns identifier.
     #[must_use]
-    pub const fn id(&self) -> &BridgeId {
-        &self.id
-    }
-
-    /// Returns the Ed25519 identity key.
+    pub const fn id(&self) -> &BridgeId { &self.id }
+    /// Returns Ed25519 public key.
     #[must_use]
-    pub const fn identity_key(&self) -> &PairingPublicKey {
-        &self.identity_key
-    }
+    pub const fn identity_key(&self) -> &PairingPublicKey { &self.identity_key }
 }
 
-/// Pairing-specific immutable capability declaration.
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PairingCapabilities {
-    canonical: CapabilitySet,
-}
-
+/// Validated canonical pairing capability set.
+#[derive(Clone, Debug, PartialEq)]
+pub struct PairingCapabilities(CapabilitySet);
 impl PairingCapabilities {
-    /// Validates a canonical protocol capability set for pairing.
-    ///
-    /// # Errors
-    ///
-    /// Returns [`PairingModelError::InvalidCapabilities`] when values are invalid, duplicated, or
-    /// required values are absent from supported values.
-    pub fn new(mut canonical: CapabilitySet) -> Result<Self, PairingModelError> {
-        canonical.supported.sort_unstable();
-        canonical.required.sort_unstable();
-        if canonical.supported.windows(2).any(|pair| pair[0] == pair[1])
-            || canonical.required.windows(2).any(|pair| pair[0] == pair[1])
-            || canonical.supported.iter().any(|value| Capability::try_from(*value).is_err())
-            || canonical.required.iter().any(|value| Capability::try_from(*value).is_err())
-            || canonical.supported.contains(&(Capability::CapabilityUnspecified as i32))
-            || canonical.required.contains(&(Capability::CapabilityUnspecified as i32))
-            || canonical
-                .required
-                .iter()
-                .any(|value| canonical.supported.binary_search(value).is_err())
-        {
-            return Err(PairingModelError::InvalidCapabilities);
-        }
-        Ok(Self { canonical })
+    /// Creates validated capabilities.
+    pub fn new(mut value: CapabilitySet) -> Result<Self, PairingModelError> {
+        value.supported.sort_unstable();
+        value.required.sort_unstable();
+        let invalid = value.supported.windows(2).any(|v| v[0] == v[1])
+            || value.required.windows(2).any(|v| v[0] == v[1])
+            || value.supported.iter().any(|v| Capability::try_from(*v).is_err() || *v == 0)
+            || value.required.iter().any(|v| Capability::try_from(*v).is_err() || *v == 0)
+            || value.required.iter().any(|v| value.supported.binary_search(v).is_err());
+        if invalid { return Err(PairingModelError::InvalidCapabilities); }
+        Ok(Self(value))
     }
-
-    /// Returns the canonical generated capability set.
+    /// Returns generated canonical value.
     #[must_use]
-    pub const fn canonical(&self) -> &CapabilitySet {
-        &self.canonical
-    }
-
-    /// Returns whether a capability is supported.
-    #[must_use]
-    pub fn supports(&self, capability: Capability) -> bool {
-        self.canonical
-            .supported
-            .binary_search(&(capability as i32))
-            .is_ok()
-    }
+    pub const fn canonical(&self) -> &CapabilitySet { &self.0 }
 }
 
-/// Pairing policy governing freshness, versions, replacement, and required capabilities.
-#[derive(Clone, Debug, Eq, PartialEq)]
+/// Pairing policy.
+#[derive(Clone, Debug, PartialEq)]
 pub struct PairingPolicy {
     protocol_version: ProtocolVersion,
     capabilities: PairingCapabilities,
@@ -332,64 +203,30 @@ pub struct PairingPolicy {
     allow_trust_replacement: bool,
     allow_revoked_replacement: bool,
 }
-
 impl PairingPolicy {
-    /// Creates a validated policy.
-    ///
-    /// # Errors
-    ///
-    /// Returns a model error for invalid version or zero challenge lifetime.
-    pub fn new(
-        protocol_version: ProtocolVersion,
-        capabilities: PairingCapabilities,
-        challenge_lifetime_ms: u64,
-        allow_trust_replacement: bool,
-        allow_revoked_replacement: bool,
-    ) -> Result<Self, PairingModelError> {
-        if protocol_version.major == 0 || challenge_lifetime_ms == 0 {
-            return Err(PairingModelError::InvalidProtocolVersion);
-        }
-        Ok(Self {
-            protocol_version,
-            capabilities,
-            challenge_lifetime_ms,
-            allow_trust_replacement,
-            allow_revoked_replacement,
-        })
+    /// Creates a policy.
+    pub fn new(protocol_version: ProtocolVersion, capabilities: PairingCapabilities, challenge_lifetime_ms: u64, allow_trust_replacement: bool, allow_revoked_replacement: bool) -> Result<Self, PairingModelError> {
+        if protocol_version.major == 0 || challenge_lifetime_ms == 0 { return Err(PairingModelError::InvalidProtocolVersion); }
+        Ok(Self { protocol_version, capabilities, challenge_lifetime_ms, allow_trust_replacement, allow_revoked_replacement })
     }
-
-    /// Returns the supported protocol version.
+    /// Returns protocol version.
     #[must_use]
-    pub const fn protocol_version(&self) -> &ProtocolVersion {
-        &self.protocol_version
-    }
-
-    /// Returns pairing capabilities.
+    pub const fn protocol_version(&self) -> &ProtocolVersion { &self.protocol_version }
+    /// Returns capabilities.
     #[must_use]
-    pub const fn capabilities(&self) -> &PairingCapabilities {
-        &self.capabilities
-    }
-
-    /// Returns challenge lifetime in milliseconds.
+    pub const fn capabilities(&self) -> &PairingCapabilities { &self.capabilities }
+    /// Returns challenge lifetime.
     #[must_use]
-    pub const fn challenge_lifetime_ms(&self) -> u64 {
-        self.challenge_lifetime_ms
-    }
-
-    /// Returns whether active trust replacement is permitted.
+    pub const fn challenge_lifetime_ms(&self) -> u64 { self.challenge_lifetime_ms }
+    /// Returns active replacement policy.
     #[must_use]
-    pub const fn allow_trust_replacement(&self) -> bool {
-        self.allow_trust_replacement
-    }
-
-    /// Returns whether revoked trust replacement is permitted.
+    pub const fn allow_trust_replacement(&self) -> bool { self.allow_trust_replacement }
+    /// Returns revoked replacement policy.
     #[must_use]
-    pub const fn allow_revoked_replacement(&self) -> bool {
-        self.allow_revoked_replacement
-    }
+    pub const fn allow_revoked_replacement(&self) -> bool { self.allow_revoked_replacement }
 }
 
-/// Pairing challenge bound to Bridge identity and an ephemeral X25519 key.
+/// Pairing challenge.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PairingChallenge {
     id: ChallengeId,
@@ -398,39 +235,19 @@ pub struct PairingChallenge {
     created_at: PairingTimestamp,
     expires_at: PairingTimestamp,
 }
-
 impl PairingChallenge {
     /// Creates a challenge.
-    ///
-    /// # Errors
-    ///
-    /// Returns a model error unless expiry follows creation.
-    pub fn new(
-        id: ChallengeId,
-        nonce: PairingNonce,
-        bridge_ephemeral_key: PairingPublicKey,
-        created_at: PairingTimestamp,
-        expires_at: PairingTimestamp,
-    ) -> Result<Self, PairingModelError> {
-        if expires_at <= created_at {
-            return Err(PairingModelError::InvalidChallengeWindow);
-        }
-        Ok(Self {
-            id,
-            nonce,
-            bridge_ephemeral_key,
-            created_at,
-            expires_at,
-        })
+    pub fn new(id: ChallengeId, nonce: PairingNonce, bridge_ephemeral_key: PairingPublicKey, created_at: PairingTimestamp, expires_at: PairingTimestamp) -> Result<Self, PairingModelError> {
+        if expires_at <= created_at { return Err(PairingModelError::InvalidChallengeWindow); }
+        Ok(Self { id, nonce, bridge_ephemeral_key, created_at, expires_at })
     }
-
-    /// Returns the challenge identifier.
+    /// Returns identifier.
     #[must_use]
     pub const fn id(&self) -> &ChallengeId { &self.id }
-    /// Returns the nonce.
+    /// Returns nonce.
     #[must_use]
     pub const fn nonce(&self) -> &PairingNonce { &self.nonce }
-    /// Returns the bridge X25519 public key.
+    /// Returns Bridge X25519 key.
     #[must_use]
     pub const fn bridge_ephemeral_key(&self) -> &PairingPublicKey { &self.bridge_ephemeral_key }
     /// Returns creation time.
@@ -439,13 +256,13 @@ impl PairingChallenge {
     /// Returns expiry time.
     #[must_use]
     pub const fn expires_at(&self) -> PairingTimestamp { self.expires_at }
-    /// Returns whether the challenge is expired at `observed_at`.
+    /// Returns expiry status.
     #[must_use]
     pub fn is_expired(&self, observed_at: PairingTimestamp) -> bool { observed_at >= self.expires_at }
 }
 
 /// Peer pairing request.
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PairingRequest {
     device_id: DeviceId,
     identity_key: PairingPublicKey,
@@ -453,185 +270,125 @@ pub struct PairingRequest {
     protocol_version: ProtocolVersion,
     capabilities: PairingCapabilities,
 }
-
 impl PairingRequest {
-    /// Creates a pairing request.
+    /// Creates a request.
     #[must_use]
-    pub const fn new(
-        device_id: DeviceId,
-        identity_key: PairingPublicKey,
-        ephemeral_key: PairingPublicKey,
-        protocol_version: ProtocolVersion,
-        capabilities: PairingCapabilities,
-    ) -> Self {
+    pub const fn new(device_id: DeviceId, identity_key: PairingPublicKey, ephemeral_key: PairingPublicKey, protocol_version: ProtocolVersion, capabilities: PairingCapabilities) -> Self {
         Self { device_id, identity_key, ephemeral_key, protocol_version, capabilities }
     }
-    /// Returns the peer device identifier.
+    /// Returns device identifier.
     #[must_use]
     pub const fn device_id(&self) -> &DeviceId { &self.device_id }
-    /// Returns the Ed25519 public identity key.
+    /// Returns Ed25519 key.
     #[must_use]
     pub const fn identity_key(&self) -> &PairingPublicKey { &self.identity_key }
-    /// Returns the X25519 ephemeral public key.
+    /// Returns X25519 key.
     #[must_use]
     pub const fn ephemeral_key(&self) -> &PairingPublicKey { &self.ephemeral_key }
-    /// Returns the proposed protocol version.
+    /// Returns protocol version.
     #[must_use]
     pub const fn protocol_version(&self) -> &ProtocolVersion { &self.protocol_version }
-    /// Returns proposed pairing capabilities.
+    /// Returns capabilities.
     #[must_use]
     pub const fn capabilities(&self) -> &PairingCapabilities { &self.capabilities }
 }
 
-/// Signed peer response and pairing-confirmation tag.
-#[derive(Clone, Debug, Eq, PartialEq)]
+/// Signed peer response.
+#[derive(Clone, Debug, PartialEq)]
 pub struct PairingResponse {
     challenge_id: ChallengeId,
     request: PairingRequest,
     signature: Arc<[u8]>,
     confirmation_tag: PairingConfirmationTag,
 }
-
 impl PairingResponse {
     /// Creates a response.
     #[must_use]
-    pub fn new(
-        challenge_id: ChallengeId,
-        request: PairingRequest,
-        signature: impl Into<Arc<[u8]>>,
-        confirmation_tag: PairingConfirmationTag,
-    ) -> Self {
+    pub fn new(challenge_id: ChallengeId, request: PairingRequest, signature: impl Into<Arc<[u8]>>, confirmation_tag: PairingConfirmationTag) -> Self {
         Self { challenge_id, request, signature: signature.into(), confirmation_tag }
     }
-    /// Returns the challenge identifier.
+    /// Returns challenge identifier.
     #[must_use]
     pub const fn challenge_id(&self) -> &ChallengeId { &self.challenge_id }
-    /// Returns the request.
+    /// Returns request.
     #[must_use]
     pub const fn request(&self) -> &PairingRequest { &self.request }
-    /// Returns the Ed25519 signature.
+    /// Returns signature bytes.
     #[must_use]
     pub fn signature(&self) -> &[u8] { &self.signature }
-    /// Returns the confirmation tag.
+    /// Returns confirmation tag.
     #[must_use]
     pub const fn confirmation_tag(&self) -> &PairingConfirmationTag { &self.confirmation_tag }
 }
 
 /// Pairing lifecycle state.
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub enum PairingState {
-    /// Pairing record exists before challenge creation.
-    Idle,
-    /// Challenge was created.
-    ChallengeCreated,
-    /// Challenge was exposed to the peer.
-    ChallengeSent,
-    /// A response was accepted for verification.
-    ResponseReceived,
-    /// Peer identity and confirmation were verified.
-    IdentityVerified,
-    /// Trust record was committed.
-    TrustEstablished,
-    /// Pairing completed successfully.
-    Completed,
-    /// Pairing was explicitly rejected.
-    Rejected,
-    /// Pairing challenge expired.
-    Expired,
-    /// Pairing or peer trust was revoked.
-    Revoked,
-    /// Pairing was cancelled.
-    Cancelled,
-}
-
+pub enum PairingState { Idle, ChallengeCreated, ChallengeSent, ResponseReceived, IdentityVerified, TrustEstablished, Completed, Rejected, Expired, Revoked, Cancelled }
 impl PairingState {
-    /// Returns whether the state is terminal.
+    /// Returns terminal status.
     #[must_use]
-    pub const fn is_terminal(self) -> bool {
-        matches!(self, Self::Completed | Self::Rejected | Self::Expired | Self::Revoked | Self::Cancelled)
-    }
-
-    /// Returns whether a direct transition is legal.
+    pub const fn is_terminal(self) -> bool { matches!(self, Self::Completed | Self::Rejected | Self::Expired | Self::Revoked | Self::Cancelled) }
+    /// Returns transition validity.
     #[must_use]
     pub const fn can_transition_to(self, next: Self) -> bool {
-        matches!(
-            (self, next),
+        matches!((self, next),
             (Self::Idle, Self::ChallengeCreated | Self::Cancelled)
-                | (Self::ChallengeCreated, Self::ChallengeSent | Self::Expired | Self::Cancelled)
-                | (Self::ChallengeSent, Self::ResponseReceived | Self::Rejected | Self::Expired | Self::Cancelled)
-                | (Self::ResponseReceived, Self::IdentityVerified | Self::Rejected | Self::Expired | Self::Cancelled)
-                | (Self::IdentityVerified, Self::TrustEstablished | Self::Rejected | Self::Revoked | Self::Cancelled)
-                | (Self::TrustEstablished, Self::Completed | Self::Revoked)
-        )
+            | (Self::ChallengeCreated, Self::ChallengeSent | Self::Expired | Self::Cancelled)
+            | (Self::ChallengeSent, Self::ResponseReceived | Self::Rejected | Self::Expired | Self::Cancelled)
+            | (Self::ResponseReceived, Self::IdentityVerified | Self::Rejected | Self::Expired | Self::Cancelled)
+            | (Self::IdentityVerified, Self::TrustEstablished | Self::Rejected | Self::Revoked | Self::Cancelled)
+            | (Self::TrustEstablished, Self::Completed | Self::Revoked))
     }
 }
 
-/// Explicit trust action supplied by the caller after user or policy authorization.
+/// Explicit trust decision.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum TrustDecision {
-    /// Create trust only when no record exists.
-    Trust,
-    /// Replace an existing identity under policy.
-    Replace,
-    /// Reject trust establishment.
-    Reject,
-}
+pub enum TrustDecision { Trust, Replace, Reject }
 
-/// Validated trust metadata key.
+/// Trust metadata key.
 #[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub struct TrustMetadataKey(Arc<str>);
-
 impl TrustMetadataKey {
-    /// Creates a metadata key.
-    ///
-    /// # Errors
-    ///
-    /// Returns a model error when empty.
+    /// Creates a key.
     pub fn new(value: impl Into<String>) -> Result<Self, PairingModelError> {
         let value = value.into();
         if value.is_empty() { return Err(PairingModelError::EmptyMetadataKey); }
         Ok(Self(Arc::from(value)))
     }
-    /// Returns key text.
+    /// Returns text.
     #[must_use]
     pub fn as_str(&self) -> &str { &self.0 }
 }
 
-/// Immutable trust metadata value.
+/// Trust metadata value.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TrustMetadataValue(Arc<str>);
-
 impl TrustMetadataValue {
-    /// Creates a metadata value.
+    /// Creates a value.
     #[must_use]
     pub fn new(value: impl Into<String>) -> Self { Self(Arc::from(value.into())) }
-    /// Returns value text.
+    /// Returns text.
     #[must_use]
     pub fn as_str(&self) -> &str { &self.0 }
 }
 
-/// Deterministically ordered trust metadata.
+/// Deterministic immutable trust metadata.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct TrustMetadata(BTreeMap<TrustMetadataKey, TrustMetadataValue>);
-
 impl TrustMetadata {
     /// Creates empty metadata.
     #[must_use]
     pub const fn new() -> Self { Self(BTreeMap::new()) }
-    /// Inserts or replaces an entry.
+    /// Inserts an entry.
     #[must_use]
-    pub fn insert(&mut self, key: TrustMetadataKey, value: TrustMetadataValue) -> Option<TrustMetadataValue> {
-        self.0.insert(key, value)
-    }
-    /// Iterates entries in key order.
+    pub fn insert(&mut self, key: TrustMetadataKey, value: TrustMetadataValue) -> Option<TrustMetadataValue> { self.0.insert(key, value) }
+    /// Iterates in deterministic order.
     #[must_use]
-    pub fn iter(&self) -> impl ExactSizeIterator<Item = (&TrustMetadataKey, &TrustMetadataValue)> {
-        self.0.iter()
-    }
+    pub fn iter(&self) -> impl ExactSizeIterator<Item = (&TrustMetadataKey, &TrustMetadataValue)> { self.0.iter() }
 }
 
 /// Immutable trusted-peer record.
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct TrustedPeer {
     bridge_identity: BridgeIdentity,
     device_id: DeviceId,
@@ -644,149 +401,123 @@ pub struct TrustedPeer {
     metadata: TrustMetadata,
     revision: PairingRevision,
 }
-
 impl TrustedPeer {
-    /// Creates an immutable trust record.
+    /// Creates a trust record.
     #[must_use]
-    pub const fn new(
-        bridge_identity: BridgeIdentity,
-        device_id: DeviceId,
-        peer_identity_key: PairingPublicKey,
-        capabilities: PairingCapabilities,
-        protocol_version: ProtocolVersion,
-        trusted_at: PairingTimestamp,
-        metadata: TrustMetadata,
-        revision: PairingRevision,
-    ) -> Self {
+    pub const fn new(bridge_identity: BridgeIdentity, device_id: DeviceId, peer_identity_key: PairingPublicKey, capabilities: PairingCapabilities, protocol_version: ProtocolVersion, trusted_at: PairingTimestamp, metadata: TrustMetadata, revision: PairingRevision) -> Self {
         Self { bridge_identity, device_id, peer_identity_key, capabilities, protocol_version, trusted_at, last_verified_at: trusted_at, revoked_at: None, metadata, revision }
     }
-    /// Returns the Bridge identity.
+    /// Returns Bridge identity.
     #[must_use]
     pub const fn bridge_identity(&self) -> &BridgeIdentity { &self.bridge_identity }
-    /// Returns the peer device identifier.
+    /// Returns device identifier.
     #[must_use]
     pub const fn device_id(&self) -> &DeviceId { &self.device_id }
-    /// Returns the peer identity key.
+    /// Returns peer key.
     #[must_use]
     pub const fn peer_identity_key(&self) -> &PairingPublicKey { &self.peer_identity_key }
     /// Returns capabilities.
     #[must_use]
     pub const fn capabilities(&self) -> &PairingCapabilities { &self.capabilities }
-    /// Returns protocol version.
+    /// Returns version.
     #[must_use]
     pub const fn protocol_version(&self) -> &ProtocolVersion { &self.protocol_version }
-    /// Returns initial trust timestamp.
+    /// Returns trust time.
     #[must_use]
     pub const fn trusted_at(&self) -> PairingTimestamp { self.trusted_at }
-    /// Returns last verification timestamp.
+    /// Returns last verification time.
     #[must_use]
     pub const fn last_verified_at(&self) -> PairingTimestamp { self.last_verified_at }
-    /// Returns revocation timestamp.
+    /// Returns revocation time.
     #[must_use]
     pub const fn revoked_at(&self) -> Option<PairingTimestamp> { self.revoked_at }
     /// Returns metadata.
     #[must_use]
     pub const fn metadata(&self) -> &TrustMetadata { &self.metadata }
-    /// Returns record revision.
+    /// Returns revision.
     #[must_use]
     pub const fn revision(&self) -> PairingRevision { self.revision }
-    /// Returns whether trust is revoked.
+    /// Returns revocation status.
     #[must_use]
     pub const fn is_revoked(&self) -> bool { self.revoked_at.is_some() }
-
-    pub(crate) fn revoked(&self, timestamp: PairingTimestamp) -> Option<Self> {
-        let revision = self.revision.checked_next()?;
+    pub(crate) fn revoked(&self, at: PairingTimestamp) -> Option<Self> {
         let mut next = self.clone();
-        next.revoked_at = Some(timestamp);
-        next.last_verified_at = timestamp;
-        next.revision = revision;
+        next.revision = self.revision.checked_next()?;
+        next.last_verified_at = at;
+        next.revoked_at = Some(at);
         Some(next)
     }
 }
-
 impl StateRegistryValue for TrustedPeer {
     type Key = DeviceId;
     const REGISTRY_KIND: RegistryKind = RegistryKind::TrustedPeers;
     fn registry_key(&self) -> Result<Self::Key, StateIdentifierError> { Ok(self.device_id.clone()) }
 }
 
-/// Immutable pairing-session record.
-#[derive(Clone, Debug, Eq, PartialEq)]
+/// Immutable pairing aggregate.
+#[derive(Clone, Debug, PartialEq)]
 pub struct PairingSession {
     id: PairingId,
     bridge_identity: BridgeIdentity,
     session_id: Option<SessionId>,
     challenge: Option<PairingChallenge>,
-    request: Option<PairingRequest>,
+    response: Option<PairingResponse>,
     state: PairingState,
     challenge_consumed: bool,
     revision: PairingRevision,
     created_at: PairingTimestamp,
     updated_at: PairingTimestamp,
 }
-
 impl PairingSession {
-    /// Creates an idle pairing session.
+    /// Creates an idle pairing aggregate.
     #[must_use]
-    pub const fn new(
-        id: PairingId,
-        bridge_identity: BridgeIdentity,
-        session_id: Option<SessionId>,
-        created_at: PairingTimestamp,
-    ) -> Self {
-        Self { id, bridge_identity, session_id, challenge: None, request: None, state: PairingState::Idle, challenge_consumed: false, revision: PairingRevision::INITIAL, created_at, updated_at: created_at }
+    pub const fn new(id: PairingId, bridge_identity: BridgeIdentity, session_id: Option<SessionId>, created_at: PairingTimestamp) -> Self {
+        Self { id, bridge_identity, session_id, challenge: None, response: None, state: PairingState::Idle, challenge_consumed: false, revision: PairingRevision::INITIAL, created_at, updated_at: created_at }
     }
-    /// Returns the pairing identifier.
+    /// Returns identifier.
     #[must_use]
     pub const fn id(&self) -> &PairingId { &self.id }
     /// Returns Bridge identity.
     #[must_use]
     pub const fn bridge_identity(&self) -> &BridgeIdentity { &self.bridge_identity }
-    /// Returns optional bound session.
+    /// Returns optional session.
     #[must_use]
     pub const fn session_id(&self) -> Option<&SessionId> { self.session_id.as_ref() }
     /// Returns challenge.
     #[must_use]
     pub const fn challenge(&self) -> Option<&PairingChallenge> { self.challenge.as_ref() }
-    /// Returns peer request.
+    /// Returns response.
     #[must_use]
-    pub const fn request(&self) -> Option<&PairingRequest> { self.request.as_ref() }
-    /// Returns lifecycle state.
+    pub const fn response(&self) -> Option<&PairingResponse> { self.response.as_ref() }
+    /// Returns request.
+    #[must_use]
+    pub fn request(&self) -> Option<&PairingRequest> { self.response.as_ref().map(PairingResponse::request) }
+    /// Returns state.
     #[must_use]
     pub const fn state(&self) -> PairingState { self.state }
-    /// Returns whether challenge was consumed.
+    /// Returns consumption status.
     #[must_use]
     pub const fn challenge_consumed(&self) -> bool { self.challenge_consumed }
-    /// Returns record revision.
+    /// Returns revision.
     #[must_use]
     pub const fn revision(&self) -> PairingRevision { self.revision }
-    /// Returns creation timestamp.
+    /// Returns creation time.
     #[must_use]
     pub const fn created_at(&self) -> PairingTimestamp { self.created_at }
-    /// Returns last update timestamp.
+    /// Returns update time.
     #[must_use]
     pub const fn updated_at(&self) -> PairingTimestamp { self.updated_at }
-
-    pub(crate) fn next(
-        &self,
-        state: PairingState,
-        timestamp: PairingTimestamp,
-        challenge: Option<PairingChallenge>,
-        request: Option<PairingRequest>,
-        consume: bool,
-    ) -> Option<Self> {
-        let revision = self.revision.checked_next()?;
+    pub(crate) fn next(&self, state: PairingState, at: PairingTimestamp, challenge: Option<PairingChallenge>, response: Option<PairingResponse>, consume: bool) -> Option<Self> {
         let mut next = self.clone();
+        next.revision = self.revision.checked_next()?;
         next.state = state;
-        next.updated_at = timestamp;
-        if let Some(challenge) = challenge { next.challenge = Some(challenge); }
-        if let Some(request) = request { next.request = Some(request); }
+        next.updated_at = at;
+        if let Some(value) = challenge { next.challenge = Some(value); }
+        if let Some(value) = response { next.response = Some(value); }
         next.challenge_consumed |= consume;
-        next.revision = revision;
         Some(next)
     }
 }
-
 impl StateRegistryValue for PairingSession {
     type Key = PairingId;
     const REGISTRY_KIND: RegistryKind = RegistryKind::PairingSessions;
