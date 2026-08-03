@@ -2,12 +2,15 @@
 //!
 //! Pairing Core enforces the security invariants documented in
 //! `docs/PAIRING_SECURITY_INVARIANTS.md`. Bridge State is the only mutable source of truth. The
-//! module stores public identity material, lifecycle records, responses, and immutable trust
+//! module stores public identity material, lifecycle records, signed responses, and immutable trust
 //! records, but never stores private keys, shared secrets, derived keys, or transport credentials.
 
 mod crypto;
+#[path = "error_v2.rs"]
 mod error;
+#[path = "manager_v2.rs"]
 mod manager;
+#[path = "model_v2.rs"]
 mod model;
 
 pub use crypto::PairingCryptoProvider;
