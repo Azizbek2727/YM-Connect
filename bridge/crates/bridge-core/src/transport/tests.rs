@@ -143,7 +143,7 @@ fn join<T>(handle: thread::JoinHandle<T>) -> TestResult<T> {
 }
 
 #[test]
-fn model_values_are_strongly_typed_and_validated() {
+fn model_values_are_strongly_typed_and_validated() -> TestResult {
     assert!(matches!(
         TransportId::new(""),
         Err(ref error) if error.kind() == StateIdentifierKind::Transport
@@ -160,6 +160,21 @@ fn model_values_are_strongly_typed_and_validated() {
         TransportCapabilities::new().with_maximum_envelope_size(0),
         Err(TransportModelError::ZeroMaximumEnvelopeSize)
     );
+    let operation_error = TransportError::operation_failed(
+        transport_id()?,
+        Some(connection_id("operation")?),
+        TransportOperation::Send,
+        "send_failed",
+        "concrete transport rejected the envelope",
+    );
+    assert!(matches!(
+        operation_error,
+        TransportError::OperationFailed {
+            operation: TransportOperation::Send,
+            ..
+        }
+    ));
+    Ok(())
 }
 
 #[test]
