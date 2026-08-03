@@ -471,8 +471,12 @@ impl PairingManager {
             for peer in draft.trusted_peers().values() {
                 if peer.device_id() != request.device_id()
                     && peer.peer_identity_key() == request.identity_key()
-                    && !peer.is_revoked()
                 {
+                    if peer.is_revoked() {
+                        return Err(PairingError::RevokedPeer {
+                            device_id: peer.device_id().clone(),
+                        });
+                    }
                     return Err(PairingError::DuplicateIdentityKey {
                         existing_device_id: peer.device_id().clone(),
                     });
@@ -606,7 +610,10 @@ impl PairingManager {
     }
 
     /// Looks up a pairing session.
-    pub fn lookup_session(&self, pairing_id: &PairingId) -> PairingResult<Option<Arc<PairingSession>>> {
+    pub fn lookup_session(
+        &self,
+        pairing_id: &PairingId,
+    ) -> PairingResult<Option<Arc<PairingSession>>> {
         Ok(self
             .state
             .snapshot()?
@@ -770,12 +777,12 @@ fn replacement_revision(
             });
         }
     } else if decision != TrustDecision::Replace || !policy.allow_trust_replacement() {
-        return if peer.peer_identity_key() != request.identity_key() {
-            Err(PairingError::DuplicateDeviceIdentity {
+        return if peer.peer_identity_key() == request.identity_key() {
+            Err(PairingError::TrustReplacementForbidden {
                 device_id: request.device_id().clone(),
             })
         } else {
-            Err(PairingError::TrustReplacementForbidden {
+            Err(PairingError::DuplicateDeviceIdentity {
                 device_id: request.device_id().clone(),
             })
         };
