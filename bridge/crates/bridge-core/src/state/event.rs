@@ -1,5 +1,7 @@
 use std::sync::Arc;
 
+use crate::SessionStateTransition;
+
 use super::{
     BridgeLifecycleState, BridgeStateData, BridgeStateSnapshot, CapabilityOwner, ConnectorId,
     DeviceId, SessionId, StateRegistry, StateRegistryValue, StateRevision,
@@ -91,6 +93,8 @@ pub enum BridgeStateChange {
     },
     /// Immutable configuration snapshot changed.
     Configuration,
+    /// Session lifecycle changed through the Session Manager.
+    SessionLifecycle(SessionStateTransition),
     /// Session registry changed.
     Sessions(RegistryDelta<SessionId>),
     /// Device registry changed.
@@ -116,6 +120,7 @@ impl BridgeStateEvent {
         revision: StateRevision,
         before: &BridgeStateData,
         after: &BridgeStateData,
+        mut session_transitions: Vec<SessionStateTransition>,
         snapshot: BridgeStateSnapshot,
     ) -> Self {
         let mut changes = Vec::new();
@@ -129,6 +134,20 @@ impl BridgeStateEvent {
         if before.configuration != after.configuration {
             changes.push(BridgeStateChange::Configuration);
         }
+
+        session_transitions.sort_by(|left, right| {
+            left.session_id()
+                .cmp(right.session_id())
+                .then_with(|| left.timestamp().cmp(&right.timestamp()))
+                .then_with(|| left.session_revision().cmp(&right.session_revision()))
+                .then_with(|| left.previous().cmp(&right.previous()))
+                .then_with(|| left.current().cmp(&right.current()))
+        });
+        changes.extend(
+            session_transitions
+                .into_iter()
+                .map(BridgeStateChange::SessionLifecycle),
+        );
 
         let sessions = RegistryDelta::between(&before.sessions, &after.sessions);
         if !sessions.is_empty() {
