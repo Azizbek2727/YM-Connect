@@ -144,9 +144,8 @@ impl SessionLifecycleState {
         matches!(
             (self, next),
             (Self::Created, Self::Negotiating | Self::Closing)
-                | (Self::Negotiating, Self::Active | Self::Closing)
+                | (Self::Negotiating | Self::Suspended, Self::Active | Self::Closing)
                 | (Self::Active, Self::Suspended | Self::Closing)
-                | (Self::Suspended, Self::Active | Self::Closing)
                 | (Self::Closing, Self::Closed)
         )
     }
