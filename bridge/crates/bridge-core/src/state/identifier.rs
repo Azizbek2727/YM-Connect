@@ -5,6 +5,10 @@ use std::{fmt, str::FromStr, sync::Arc};
 pub enum StateIdentifierKind {
     /// Session identifier.
     Session,
+    /// Pairing identifier.
+    Pairing,
+    /// Trust identifier.
+    Trust,
     /// Device identifier.
     Device,
     /// Browser connector identifier.
@@ -19,6 +23,8 @@ impl fmt::Display for StateIdentifierKind {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         formatter.write_str(match self {
             Self::Session => "session",
+            Self::Pairing => "pairing",
+            Self::Trust => "trust",
             Self::Device => "device",
             Self::Connector => "connector",
             Self::Transport => "transport",
@@ -121,6 +127,16 @@ define_identifier!(
     SessionId,
     StateIdentifierKind::Session,
     "Validated session identifier."
+);
+define_identifier!(
+    PairingId,
+    StateIdentifierKind::Pairing,
+    "Validated pairing identifier."
+);
+define_identifier!(
+    TrustId,
+    StateIdentifierKind::Trust,
+    "Validated trust identifier."
 );
 define_identifier!(
     DeviceId,
