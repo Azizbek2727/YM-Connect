@@ -2,7 +2,7 @@ use std::{error::Error, fmt, sync::Arc};
 
 use crate::{
     ChallengeId, DeviceId, PairingId, PairingModelError, PairingRevision, PairingState,
-    PairingTimestamp, SessionId, StateError,
+    PairingTimestamp, RegistryStateError, SessionId, StateError,
 };
 
 /// Pairing Core result type.
@@ -21,6 +21,8 @@ pub enum PairingError {
     DuplicatePairing { pairing_id: PairingId },
     /// Challenge identifier already existed.
     DuplicateChallenge { challenge_id: ChallengeId },
+    /// Challenge lifetime violated local policy.
+    InvalidChallengeLifetime { pairing_id: PairingId },
     /// Referenced Bridge session was absent.
     MissingSession { session_id: SessionId },
     /// Lifecycle transition was illegal.
@@ -45,7 +47,7 @@ pub enum PairingError {
     InvalidSignature { code: Arc<str>, message: Arc<str> },
     /// Key-agreement confirmation was invalid.
     InvalidKeyConfirmation { code: Arc<str>, message: Arc<str> },
-    /// Protocol major version was unsupported.
+    /// Protocol version was unsupported.
     UnsupportedProtocolVersion,
     /// Peer selected a lower mutually supported version.
     ProtocolDowngrade,
@@ -102,6 +104,7 @@ impl fmt::Display for PairingError {
             Self::PairingNotFound { pairing_id } => write!(f, "pairing session {pairing_id} does not exist"),
             Self::DuplicatePairing { pairing_id } => write!(f, "pairing session {pairing_id} already exists"),
             Self::DuplicateChallenge { challenge_id } => write!(f, "pairing challenge {challenge_id} already exists"),
+            Self::InvalidChallengeLifetime { pairing_id } => write!(f, "pairing challenge for {pairing_id} violates local lifetime policy"),
             Self::MissingSession { session_id } => write!(f, "session {session_id} does not exist"),
             Self::InvalidTransition { pairing_id, previous, requested } => write!(f, "pairing session {pairing_id} cannot transition from {previous:?} to {requested:?}"),
             Self::TerminalPairing { pairing_id, state } => write!(f, "pairing session {pairing_id} is terminal in state {state:?}"),
@@ -143,6 +146,9 @@ impl Error for PairingError {
 
 impl From<StateError> for PairingError {
     fn from(source: StateError) -> Self { Self::State(source) }
+}
+impl From<RegistryStateError> for PairingError {
+    fn from(source: RegistryStateError) -> Self { Self::State(StateError::from(source)) }
 }
 impl From<PairingModelError> for PairingError {
     fn from(source: PairingModelError) -> Self { Self::Model(source) }
