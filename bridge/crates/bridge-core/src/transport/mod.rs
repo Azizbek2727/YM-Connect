@@ -10,7 +10,7 @@ mod interfaces;
 mod manager;
 mod model;
 
-pub use error::{TransportError, TransportResult};
+pub use error::{TransportError, TransportOperation, TransportResult};
 pub use interfaces::{TransportConnection, TransportFactory, TransportFuture};
 pub use manager::{
     BindTransportSession, CloseTransportConnection, CreateTransportConnection,
