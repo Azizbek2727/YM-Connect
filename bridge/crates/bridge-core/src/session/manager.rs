@@ -405,7 +405,6 @@ impl SessionManager {
         &self,
         command: RestoreSession,
     ) -> Result<SessionMutation, SessionManagerError> {
-        let capabilities = normalize_capabilities(command.capabilities)?;
         validate_protocol_version(&command.protocol_version)?;
         validate_restore_timestamps(&command)?;
         validate_elapsed(
@@ -414,6 +413,7 @@ impl SessionManager {
             command.restored_at,
             self.policy.inactivity_timeout,
         )?;
+        let capabilities = normalize_capabilities(command.capabilities)?;
         let result_id = command.session_id.clone();
         let policy = self.policy;
 
