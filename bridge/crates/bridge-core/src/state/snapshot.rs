@@ -1,13 +1,13 @@
 use std::sync::Arc;
 
-use ym_connect_protocol::v1::{BrowserDescriptor, DeviceDescriptor, SessionEstablished};
+use ym_connect_protocol::v1::{BrowserDescriptor, DeviceDescriptor};
 
-use crate::BridgeConfig;
+use crate::{BridgeConfig, BridgeSession, SessionStateTransition};
 
 use super::{CapabilityRegistration, StateRegistry};
 
 /// Deterministic session registry.
-pub type SessionRegistry = StateRegistry<SessionEstablished>;
+pub type SessionRegistry = StateRegistry<BridgeSession>;
 
 /// Deterministic device registry.
 pub type DeviceRegistry = StateRegistry<DeviceDescriptor>;
@@ -144,15 +144,19 @@ impl BridgeStateSnapshot {
 #[derive(Debug)]
 pub struct BridgeStateDraft {
     data: BridgeStateData,
+    session_transitions: Vec<SessionStateTransition>,
 }
 
 impl BridgeStateDraft {
     pub(super) fn from_data(data: &BridgeStateData) -> Self {
-        Self { data: data.clone() }
+        Self {
+            data: data.clone(),
+            session_transitions: Vec::new(),
+        }
     }
 
-    pub(super) fn into_data(self) -> BridgeStateData {
-        self.data
+    pub(super) fn into_parts(self) -> (BridgeStateData, Vec<SessionStateTransition>) {
+        (self.data, self.session_transitions)
     }
 
     /// Returns the draft lifecycle state.
@@ -187,9 +191,21 @@ impl BridgeStateDraft {
         true
     }
 
+    /// Returns the immutable draft session registry.
+    #[must_use]
+    pub const fn sessions(&self) -> &SessionRegistry {
+        &self.data.sessions
+    }
+
     /// Returns the mutable session registry.
     pub const fn sessions_mut(&mut self) -> &mut SessionRegistry {
         &mut self.data.sessions
+    }
+
+    /// Returns the immutable draft device registry.
+    #[must_use]
+    pub const fn devices(&self) -> &DeviceRegistry {
+        &self.data.devices
     }
 
     /// Returns the mutable device registry.
@@ -197,13 +213,29 @@ impl BridgeStateDraft {
         &mut self.data.devices
     }
 
+    /// Returns the immutable draft connector registry.
+    #[must_use]
+    pub const fn connectors(&self) -> &ConnectorRegistry {
+        &self.data.connectors
+    }
+
     /// Returns the mutable connector registry.
     pub const fn connectors_mut(&mut self) -> &mut ConnectorRegistry {
         &mut self.data.connectors
     }
 
+    /// Returns the immutable draft capability registry.
+    #[must_use]
+    pub const fn capabilities(&self) -> &CapabilityRegistry {
+        &self.data.capabilities
+    }
+
     /// Returns the mutable capability registry.
     pub const fn capabilities_mut(&mut self) -> &mut CapabilityRegistry {
         &mut self.data.capabilities
+    }
+
+    pub(crate) fn record_session_transition(&mut self, transition: SessionStateTransition) {
+        self.session_transitions.push(transition);
     }
 }
