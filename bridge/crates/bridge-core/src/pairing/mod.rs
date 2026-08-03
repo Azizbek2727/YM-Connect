@@ -12,7 +12,6 @@ mod crypto;
 mod error;
 mod event;
 #[allow(clippy::missing_errors_doc, clippy::needless_pass_by_value)]
-#[path = "manager_v2.rs"]
 mod manager;
 #[allow(
     missing_docs,
