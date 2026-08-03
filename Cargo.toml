@@ -19,6 +19,7 @@ ed25519-dalek = { version = "=2.1.1", default-features = false, features = ["ran
 hkdf = { version = "=0.12.4", default-features = false }
 rand_core = { version = "=0.6.4", default-features = false }
 sha2 = { version = "=0.10.9", default-features = false }
+subtle = { version = "=2.6.1", default-features = false }
 tokio = { version = "=1.53.1", default-features = false, features = ["rt-multi-thread", "signal"] }
 x25519-dalek = { version = "=2.0.1", default-features = false, features = ["static_secrets", "zeroize"] }
 zeroize = { version = "=1.8.2", default-features = false, features = ["zeroize_derive"] }
