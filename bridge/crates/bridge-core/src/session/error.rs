@@ -161,55 +161,75 @@ impl SessionManagerError {
             message: message.into(),
         }
     }
-}
 
-impl fmt::Display for SessionManagerError {
-    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+    fn format_identity_and_lifecycle(
+        &self,
+        formatter: &mut fmt::Formatter<'_>,
+    ) -> Option<fmt::Result> {
         match self {
-            Self::State(source) => write!(formatter, "Bridge State operation failed: {source}"),
+            Self::State(source) => {
+                Some(write!(formatter, "Bridge State operation failed: {source}"))
+            }
             Self::SessionNotFound { session_id } => {
-                write!(formatter, "session {session_id} does not exist")
+                Some(write!(formatter, "session {session_id} does not exist"))
             }
             Self::DuplicateSession { session_id } => {
-                write!(formatter, "session {session_id} already exists")
+                Some(write!(formatter, "session {session_id} already exists"))
             }
             Self::DuplicateLiveAssociation {
                 session_id,
                 conflicting_session_id,
                 device_id,
                 connector_id,
-            } => write!(
+            } => Some(write!(
                 formatter,
                 "session {session_id} conflicts with live session {conflicting_session_id} for device {device_id} and connector {connector_id}"
-            ),
+            )),
             Self::MissingDevice { device_id } => {
-                write!(formatter, "device {device_id} does not exist")
+                Some(write!(formatter, "device {device_id} does not exist"))
             }
             Self::MissingConnector { connector_id } => {
-                write!(formatter, "connector {connector_id} does not exist")
+                Some(write!(formatter, "connector {connector_id} does not exist"))
             }
             Self::InvalidTransition {
                 session_id,
                 previous,
                 requested,
-            } => write!(
+            } => Some(write!(
                 formatter,
                 "session {session_id} cannot transition from {previous:?} to {requested:?}"
-            ),
-            Self::TerminalSession { session_id, state } => write!(
+            )),
+            Self::TerminalSession { session_id, state } => Some(write!(
                 formatter,
                 "session {session_id} is terminal in state {state:?}"
-            ),
+            )),
             Self::StaleRevision {
                 session_id,
                 expected,
                 actual,
-            } => write!(
+            } => Some(write!(
                 formatter,
                 "session {session_id} revision is stale: expected {}, actual {}",
                 expected.get(),
                 actual.get()
-            ),
+            )),
+            Self::ExpiredSession { .. }
+            | Self::TimestampRegression { .. }
+            | Self::InvalidRestoreTimestamps { .. }
+            | Self::InvalidProtocolVersion { .. }
+            | Self::InvalidCapability { .. }
+            | Self::DuplicateCapability { .. }
+            | Self::MissingRequiredCapability { .. }
+            | Self::RevisionExhausted { .. }
+            | Self::StateInvariant { .. } => None,
+        }
+    }
+
+    fn format_temporal_and_negotiation(
+        &self,
+        formatter: &mut fmt::Formatter<'_>,
+    ) -> fmt::Result {
+        match self {
             Self::ExpiredSession {
                 session_id,
                 last_activity_at,
@@ -268,7 +288,23 @@ impl fmt::Display for SessionManagerError {
             Self::StateInvariant { message } => {
                 write!(formatter, "Session Manager state invariant failed: {message}")
             }
+            Self::State(_)
+            | Self::SessionNotFound { .. }
+            | Self::DuplicateSession { .. }
+            | Self::DuplicateLiveAssociation { .. }
+            | Self::MissingDevice { .. }
+            | Self::MissingConnector { .. }
+            | Self::InvalidTransition { .. }
+            | Self::TerminalSession { .. }
+            | Self::StaleRevision { .. } => Ok(()),
         }
+    }
+}
+
+impl fmt::Display for SessionManagerError {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        self.format_identity_and_lifecycle(formatter)
+            .unwrap_or_else(|| self.format_temporal_and_negotiation(formatter))
     }
 }
 
