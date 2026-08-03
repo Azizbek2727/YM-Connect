@@ -1,10 +1,10 @@
 use std::sync::Arc;
 
-use crate::SessionStateTransition;
+use crate::{SessionStateTransition, TransportEvent};
 
 use super::{
-    BridgeLifecycleState, BridgeStateData, BridgeStateSnapshot, CapabilityOwner, ConnectorId,
-    DeviceId, SessionId, StateRegistry, StateRegistryValue, StateRevision,
+    BridgeLifecycleState, BridgeStateData, BridgeStateSnapshot, CapabilityOwner, ConnectionId,
+    ConnectorId, DeviceId, SessionId, StateRegistry, StateRegistryValue, StateRevision,
 };
 
 /// Deterministic key-level changes for one state registry.
@@ -95,12 +95,16 @@ pub enum BridgeStateChange {
     Configuration,
     /// Session lifecycle changed through the Session Manager.
     SessionLifecycle(SessionStateTransition),
+    /// Transport connection lifecycle or session binding changed.
+    Transport(TransportEvent),
     /// Session registry changed.
     Sessions(RegistryDelta<SessionId>),
     /// Device registry changed.
     Devices(RegistryDelta<DeviceId>),
     /// Connector registry changed.
     Connectors(RegistryDelta<ConnectorId>),
+    /// Transport connection registry changed.
+    Connections(RegistryDelta<ConnectionId>),
     /// Capability registry changed.
     Capabilities(RegistryDelta<CapabilityOwner>),
 }
@@ -149,6 +153,12 @@ impl BridgeStateEvent {
                 .map(BridgeStateChange::SessionLifecycle),
         );
 
+        changes.extend(
+            transport_events_between(before, after)
+                .into_iter()
+                .map(BridgeStateChange::Transport),
+        );
+
         let sessions = RegistryDelta::between(&before.sessions, &after.sessions);
         if !sessions.is_empty() {
             changes.push(BridgeStateChange::Sessions(sessions));
@@ -162,6 +172,11 @@ impl BridgeStateEvent {
         let connectors = RegistryDelta::between(&before.connectors, &after.connectors);
         if !connectors.is_empty() {
             changes.push(BridgeStateChange::Connectors(connectors));
+        }
+
+        let connections = RegistryDelta::between(&before.connections, &after.connections);
+        if !connections.is_empty() {
+            changes.push(BridgeStateChange::Connections(connections));
         }
 
         let capabilities = RegistryDelta::between(&before.capabilities, &after.capabilities);
@@ -200,4 +215,55 @@ impl BridgeStateEvent {
     pub const fn snapshot(&self) -> &BridgeStateSnapshot {
         &self.snapshot
     }
+}
+
+fn transport_events_between(
+    before: &BridgeStateData,
+    after: &BridgeStateData,
+) -> Vec<TransportEvent> {
+    let mut events = Vec::new();
+
+    for (connection_id, connection) in after.connections.iter() {
+        match before.connections.get(connection_id) {
+            None => events.push(TransportEvent::lifecycle(
+                connection_id.clone(),
+                connection.transport_id().clone(),
+                None,
+                Some(connection.state()),
+                connection.revision(),
+                connection.updated_at(),
+            )),
+            Some(previous) => {
+                if previous.state() != connection.state() {
+                    events.push(TransportEvent::lifecycle(
+                        connection_id.clone(),
+                        connection.transport_id().clone(),
+                        Some(previous.state()),
+                        Some(connection.state()),
+                        connection.revision(),
+                        connection.updated_at(),
+                    ));
+                }
+                if previous.session_id() != connection.session_id() {
+                    events.push(TransportEvent::session_binding(
+                        connection_id.clone(),
+                        connection.transport_id().clone(),
+                        previous.session_id().cloned(),
+                        connection.session_id().cloned(),
+                        connection.revision(),
+                        connection.updated_at(),
+                    ));
+                }
+            }
+        }
+    }
+
+    events.sort_by(|left, right| {
+        left.connection_id()
+            .cmp(right.connection_id())
+            .then_with(|| left.timestamp().cmp(&right.timestamp()))
+            .then_with(|| left.connection_revision().cmp(&right.connection_revision()))
+            .then_with(|| left.sort_rank().cmp(&right.sort_rank()))
+    });
+    events
 }

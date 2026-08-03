@@ -22,6 +22,8 @@ pub enum RegistryKind {
     Devices,
     /// Browser connector registry.
     Connectors,
+    /// Transport connection registry.
+    Connections,
     /// Capability ownership registry.
     Capabilities,
 }
@@ -32,6 +34,7 @@ impl fmt::Display for RegistryKind {
             Self::Sessions => "sessions",
             Self::Devices => "devices",
             Self::Connectors => "connectors",
+            Self::Connections => "connections",
             Self::Capabilities => "capabilities",
         })
     }

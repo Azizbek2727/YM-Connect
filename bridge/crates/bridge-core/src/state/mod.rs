@@ -1,9 +1,9 @@
 //! Runtime-independent, deterministic Bridge state management.
 //!
 //! The state store is the single source of truth for Bridge lifecycle, configuration, sessions,
-//! devices, browser connectors, and capability ownership. It uses only standard-library
-//! synchronization and message passing; no asynchronous runtime, platform, transport, browser,
-//! or operating-system integration is required.
+//! devices, browser connectors, transport connections, and capability ownership. It uses only
+//! standard-library synchronization and message passing; no asynchronous runtime, platform,
+//! transport implementation, browser, or operating-system integration is required.
 
 mod error;
 mod event;
@@ -15,8 +15,8 @@ mod store;
 pub use error::{StateError, StateLock, StateReceiveError};
 pub use event::{BridgeStateChange, BridgeStateEvent, RegistryDelta};
 pub use identifier::{
-    CapabilityOwner, ConnectorId, DeviceId, SessionId, StateIdentifierError,
-    StateIdentifierKind,
+    CapabilityOwner, ConnectionId, ConnectorId, DeviceId, SessionId, StateIdentifierError,
+    StateIdentifierKind, TransportId,
 };
 pub use registry::{
     CapabilityRegistration, RegistryFailure, RegistryKind, RegistryMutation, RegistryOperation,
@@ -24,7 +24,7 @@ pub use registry::{
 };
 pub use snapshot::{
     BridgeLifecycleState, BridgeStateDraft, BridgeStateSnapshot, CapabilityRegistry,
-    ConnectorRegistry, DeviceRegistry, SessionRegistry, StateRevision,
+    ConnectionRegistry, ConnectorRegistry, DeviceRegistry, SessionRegistry, StateRevision,
 };
 pub use store::{
     BridgeStateStore, BridgeStateSubscription, NotificationSummary, StateUpdate, SubscriptionId,

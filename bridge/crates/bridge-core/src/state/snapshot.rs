@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use ym_connect_protocol::v1::{BrowserDescriptor, DeviceDescriptor};
 
-use crate::{BridgeConfig, BridgeSession, SessionStateTransition};
+use crate::{BridgeConfig, BridgeSession, SessionStateTransition, TransportConnectionSnapshot};
 
 use super::{CapabilityRegistration, StateRegistry};
 
@@ -14,6 +14,9 @@ pub type DeviceRegistry = StateRegistry<DeviceDescriptor>;
 
 /// Deterministic browser connector registry.
 pub type ConnectorRegistry = StateRegistry<BrowserDescriptor>;
+
+/// Deterministic transport connection registry.
+pub type ConnectionRegistry = StateRegistry<TransportConnectionSnapshot>;
 
 /// Deterministic capability ownership registry.
 pub type CapabilityRegistry = StateRegistry<CapabilityRegistration>;
@@ -60,6 +63,7 @@ pub(crate) struct BridgeStateData {
     pub(super) sessions: SessionRegistry,
     pub(super) devices: DeviceRegistry,
     pub(super) connectors: ConnectorRegistry,
+    pub(super) connections: ConnectionRegistry,
     pub(super) capabilities: CapabilityRegistry,
 }
 
@@ -71,6 +75,7 @@ impl BridgeStateData {
             sessions: SessionRegistry::new(),
             devices: DeviceRegistry::new(),
             connectors: ConnectorRegistry::new(),
+            connections: ConnectionRegistry::new(),
             capabilities: CapabilityRegistry::new(),
         }
     }
@@ -122,6 +127,12 @@ impl BridgeStateSnapshot {
     #[must_use]
     pub fn connectors(&self) -> &ConnectorRegistry {
         &self.data.connectors
+    }
+
+    /// Returns the immutable transport connection registry.
+    #[must_use]
+    pub fn connections(&self) -> &ConnectionRegistry {
+        &self.data.connections
     }
 
     /// Returns the immutable capability registry.
@@ -222,6 +233,17 @@ impl BridgeStateDraft {
     /// Returns the mutable connector registry.
     pub const fn connectors_mut(&mut self) -> &mut ConnectorRegistry {
         &mut self.data.connectors
+    }
+
+    /// Returns the immutable draft transport connection registry.
+    #[must_use]
+    pub const fn connections(&self) -> &ConnectionRegistry {
+        &self.data.connections
+    }
+
+    /// Returns the mutable transport connection registry.
+    pub const fn connections_mut(&mut self) -> &mut ConnectionRegistry {
+        &mut self.data.connections
     }
 
     /// Returns the immutable draft capability registry.
