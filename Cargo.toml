@@ -15,14 +15,13 @@ readme = "README.md"
 
 [workspace.dependencies]
 chacha20poly1305 = { version = "=0.10.1", default-features = false, features = ["alloc"] }
-ed25519-dalek = { version = "=2.1.1", default-features = false, features = ["rand_core", "zeroize"] }
+ed25519-dalek = { version = "=2.1.1", default-features = false, features = ["zeroize"] }
 hkdf = { version = "=0.12.4", default-features = false }
-rand_core = { version = "=0.6.4", default-features = false }
 sha2 = { version = "=0.10.9", default-features = false }
 subtle = { version = "=2.6.1", default-features = false }
 tokio = { version = "=1.53.1", default-features = false, features = ["rt-multi-thread", "signal"] }
 x25519-dalek = { version = "=2.0.1", default-features = false, features = ["static_secrets", "zeroize"] }
-zeroize = { version = "=1.8.2", default-features = false, features = ["zeroize_derive"] }
+zeroize = { version = "=1.8.2", default-features = false }
 ym-connect-bridge-core = { version = "=0.1.0", path = "bridge/crates/bridge-core" }
 ym-connect-protocol = { version = "=0.1.0", path = "shared/generated/rust" }
 
