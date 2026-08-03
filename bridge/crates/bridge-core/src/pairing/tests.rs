@@ -87,7 +87,7 @@ fn policy(
     )?)
 }
 
-fn manager(
+fn new_manager(
     allow_trust_replacement: bool,
     allow_revoked_replacement: bool,
 ) -> TestResult<(BridgeStateStore, PairingManager)> {
@@ -334,7 +334,7 @@ fn lifecycle_matrix_covers_every_legal_and_illegal_transition() -> TestResult {
 
 #[test]
 fn replay_stale_revision_and_duplicate_identifiers_roll_back() -> TestResult {
-    let (store, manager) = manager(false, false)?;
+    let (store, manager) = new_manager(false, false)?;
     let pairing = pairing_id("pairing-replay")?;
     create_and_send(&manager, &pairing, "challenge-replay")?;
     let before_duplicate = store.snapshot()?;
@@ -377,7 +377,7 @@ fn replay_stale_revision_and_duplicate_identifiers_roll_back() -> TestResult {
 
 #[test]
 fn challenge_freshness_expiration_and_terminal_states_are_enforced() -> TestResult {
-    let (store, manager) = manager(false, false)?;
+    let (store, manager) = new_manager(false, false)?;
     let pairing = pairing_id("pairing-expiry")?;
     create_and_send(&manager, &pairing, "challenge-expiry")?;
     let before = store.snapshot()?;
@@ -417,7 +417,7 @@ fn challenge_freshness_expiration_and_terminal_states_are_enforced() -> TestResu
 
 #[test]
 fn invalid_keys_signatures_versions_and_downgrades_are_rejected() -> TestResult {
-    let (_store, manager) = manager(false, false)?;
+    let (_store, manager) = new_manager(false, false)?;
 
     let downgrade_pairing = pairing_id("pairing-downgrade")?;
     create_and_send(&manager, &downgrade_pairing, "challenge-downgrade")?;
@@ -510,7 +510,7 @@ fn invalid_keys_signatures_versions_and_downgrades_are_rejected() -> TestResult 
 
 #[test]
 fn trust_insertion_lookup_ordering_and_revocation_are_consistent() -> TestResult {
-    let (store, manager) = manager(false, false)?;
+    let (store, manager) = new_manager(false, false)?;
     let first = seed_trust(
         &manager,
         "pairing-trust-b",
@@ -558,7 +558,7 @@ fn trust_insertion_lookup_ordering_and_revocation_are_consistent() -> TestResult
 
 #[test]
 fn duplicate_identity_and_active_replacement_policy_matrix_are_enforced() -> TestResult {
-    let (_store, manager) = manager(false, false)?;
+    let (_store, manager) = new_manager(false, false)?;
     seed_trust(
         &manager,
         "pairing-original",
@@ -607,7 +607,7 @@ fn duplicate_identity_and_active_replacement_policy_matrix_are_enforced() -> Tes
         Err(PairingError::DuplicateDeviceIdentity { .. })
     ));
 
-    let (_store, replacement_manager) = manager(true, false)?;
+    let (_store, replacement_manager) = new_manager(true, false)?;
     seed_trust(
         &replacement_manager,
         "pairing-replace-original",
@@ -650,7 +650,7 @@ fn duplicate_identity_and_active_replacement_policy_matrix_are_enforced() -> Tes
 #[test]
 fn revoked_replacement_policy_matrix_is_enforced() -> TestResult {
     for allow_revoked_replacement in [false, true] {
-        let (store, manager) = manager(true, allow_revoked_replacement)?;
+        let (store, manager) = new_manager(true, allow_revoked_replacement)?;
         seed_trust(
             &manager,
             "pairing-revoked-original",
@@ -705,18 +705,21 @@ fn revoked_replacement_policy_matrix_is_enforced() -> TestResult {
 
 #[test]
 fn concurrent_pairing_creation_has_one_winner() -> TestResult {
-    let (_store, manager) = manager(false, false)?;
+    let (_store, manager) = new_manager(false, false)?;
     let manager = Arc::new(manager);
     let handles = (0..8)
         .map(|_| {
             let manager = Arc::clone(&manager);
-            thread::spawn(move || -> TestResult<PairingMutation> {
-                Ok(manager.create_session(CreatePairingSession {
-                    pairing_id: pairing_id("pairing-concurrent")?,
-                    bridge_identity: bridge_identity()?,
+            thread::spawn(move || -> PairingResult<PairingMutation> {
+                manager.create_session(CreatePairingSession {
+                    pairing_id: PairingId::new("pairing-concurrent")?,
+                    bridge_identity: BridgeIdentity::new(
+                        BridgeId::new(BRIDGE_ID)?,
+                        PairingPublicKey::new([1; 32])?,
+                    ),
                     session_id: None,
                     created_at: PairingTimestamp::from_unix_millis(100),
-                })?)
+                })
             })
         })
         .collect::<Vec<_>>();
@@ -728,8 +731,8 @@ fn concurrent_pairing_creation_has_one_winner() -> TestResult {
             .map_err(|_| io::Error::other("pairing creation worker panicked"))?
         {
             Ok(_) => successes += 1,
-            Err(error) if matches!(*error, PairingError::DuplicatePairing { .. }) => duplicates += 1,
-            Err(error) => return Err(error),
+            Err(PairingError::DuplicatePairing { .. }) => duplicates += 1,
+            Err(error) => return Err(error.into()),
         }
     }
     assert_eq!(successes, 1);
@@ -739,7 +742,7 @@ fn concurrent_pairing_creation_has_one_winner() -> TestResult {
 
 #[test]
 fn concurrent_trust_replacement_has_one_revision_winner() -> TestResult {
-    let (store, manager) = manager(true, false)?;
+    let (store, manager) = new_manager(true, false)?;
     seed_trust(
         &manager,
         "pairing-concurrent-original",
@@ -798,11 +801,11 @@ fn concurrent_trust_replacement_has_one_revision_winner() -> TestResult {
     assert_eq!(stale, 1);
     let peer = required_peer(&store, &DeviceId::new("device-concurrent")?)?;
     assert_eq!(peer.revision(), PairingRevision::new(1));
+    let snapshot = store.snapshot()?;
     let states = [first, second]
         .into_iter()
         .map(|pairing_id| {
-            store
-                .snapshot()?
+            snapshot
                 .pairing_sessions()
                 .get(&pairing_id)
                 .map(PairingSession::state)
@@ -828,7 +831,7 @@ fn concurrent_trust_replacement_has_one_revision_winner() -> TestResult {
 
 #[test]
 fn stale_trust_revision_and_timestamp_fail_atomically() -> TestResult {
-    let (store, manager) = manager(true, false)?;
+    let (store, manager) = new_manager(true, false)?;
     seed_trust(
         &manager,
         "pairing-stale-original",
@@ -873,7 +876,7 @@ fn stale_trust_revision_and_timestamp_fail_atomically() -> TestResult {
 
 #[test]
 fn event_ordering_and_registry_deltas_are_deterministic() -> TestResult {
-    let (_store, manager) = manager(false, false)?;
+    let (_store, manager) = new_manager(false, false)?;
     let pairing = pairing_id("pairing-events")?;
     verify(
         &manager,
@@ -951,8 +954,8 @@ fn event_ordering_and_registry_deltas_are_deterministic() -> TestResult {
 
 #[test]
 fn identical_inputs_produce_identical_snapshots_and_events() -> TestResult {
-    let (first_store, first_manager) = manager(false, false)?;
-    let (second_store, second_manager) = manager(false, false)?;
+    let (first_store, first_manager) = new_manager(false, false)?;
+    let (second_store, second_manager) = new_manager(false, false)?;
     let mut first_changes = Vec::new();
     let mut second_changes = Vec::new();
     for (manager, changes) in [
