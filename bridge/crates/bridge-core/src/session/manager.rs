@@ -5,9 +5,10 @@ use ym_connect_protocol::v1::{Capability, CapabilitySet, ProtocolVersion};
 use crate::{
     BridgeSession, BridgeStateDraft, BridgeStateStore, ConnectorId, DeviceId, SessionCapabilityList,
     SessionDuration, SessionId, SessionLifecycleState, SessionManagerError, SessionMetadata,
-    SessionRecordParts, SessionRevision, SessionStateTransition, SessionTimestamp, StateError,
-    StateUpdate,
+    SessionRevision, SessionStateTransition, SessionTimestamp, StateError, StateUpdate,
 };
+
+use super::SessionRecordParts;
 
 /// Default inactivity timeout used by applications that choose the documented policy value.
 pub const DEFAULT_SESSION_INACTIVITY_TIMEOUT_MS: u64 = 30 * 60 * 1_000;
@@ -108,32 +109,27 @@ pub struct RestoreSession {
 }
 
 impl RestoreSession {
-    /// Creates a session-restoration command.
+    /// Creates a session-restoration command from the session's original creation input.
     #[must_use]
     pub fn new(
-        session_id: SessionId,
-        device_id: DeviceId,
-        connector_id: ConnectorId,
-        capabilities: CapabilitySet,
-        protocol_version: ProtocolVersion,
+        original: CreateSession,
         lifecycle: SessionLifecycleState,
         revision: SessionRevision,
-        created_at: SessionTimestamp,
         last_activity_at: SessionTimestamp,
         restored_at: SessionTimestamp,
     ) -> Self {
         Self {
-            session_id,
-            device_id,
-            connector_id,
-            capabilities,
-            protocol_version,
+            session_id: original.session_id,
+            device_id: original.device_id,
+            connector_id: original.connector_id,
+            capabilities: original.capabilities,
+            protocol_version: original.protocol_version,
             lifecycle,
             revision,
-            created_at,
+            created_at: original.created_at,
             last_activity_at,
             restored_at,
-            metadata: SessionMetadata::new(),
+            metadata: original.metadata,
         }
     }
 
@@ -233,9 +229,18 @@ macro_rules! define_transition_command {
     };
 }
 
-define_transition_command!(SuspendSession, "Command that transitions an active session to suspended.");
-define_transition_command!(ResumeSession, "Command that transitions a suspended session to active.");
-define_transition_command!(CloseSession, "Command that advances a session toward the closed terminal state.");
+define_transition_command!(
+    SuspendSession,
+    "Command that transitions an active session to suspended."
+);
+define_transition_command!(
+    ResumeSession,
+    "Command that transitions a suspended session to active."
+);
+define_transition_command!(
+    CloseSession,
+    "Command that advances a session toward the closed terminal state."
+);
 
 /// Command that removes every session expired at one deterministic observation timestamp.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -317,7 +322,7 @@ pub struct SessionManager {
 impl SessionManager {
     /// Creates a Session Manager over an existing Bridge State store.
     #[must_use]
-    pub const fn new(state: BridgeStateStore, policy: SessionPolicy) -> Self {
+    pub fn new(state: BridgeStateStore, policy: SessionPolicy) -> Self {
         Self { state, policy }
     }
 
@@ -348,42 +353,44 @@ impl SessionManager {
         let result_id = command.session_id.clone();
         let policy = self.policy;
 
-        let update = self.state.update_with(move |draft| {
-            validate_associations(draft, &command.device_id, &command.connector_id)?;
-            validate_new_session(
-                draft,
-                policy,
-                &command.session_id,
-                &command.device_id,
-                &command.connector_id,
-                SessionLifecycleState::Created,
-            )?;
+        let update = self
+            .state
+            .update_with::<SessionManagerError>(move |draft| {
+                validate_associations(draft, &command.device_id, &command.connector_id)?;
+                validate_new_session(
+                    draft,
+                    policy,
+                    &command.session_id,
+                    &command.device_id,
+                    &command.connector_id,
+                    SessionLifecycleState::Created,
+                )?;
 
-            let session = BridgeSession::from_parts(SessionRecordParts {
-                session_id: command.session_id.clone(),
-                created_at: command.created_at,
-                last_activity_at: command.created_at,
-                lifecycle: SessionLifecycleState::Created,
-                device_id: command.device_id,
-                connector_id: command.connector_id,
-                capabilities,
-                protocol_version: command.protocol_version,
-                revision: SessionRevision::INITIAL,
-                metadata: command.metadata,
-            });
-            let _ = draft
-                .sessions_mut()
-                .insert(session)
-                .map_err(StateError::from)?;
-            draft.record_session_transition(SessionStateTransition::new(
-                command.session_id,
-                None,
-                Some(SessionLifecycleState::Created),
-                SessionRevision::INITIAL,
-                command.created_at,
-            ));
-            Ok(())
-        })?;
+                let session = BridgeSession::from_parts(SessionRecordParts {
+                    session_id: command.session_id.clone(),
+                    created_at: command.created_at,
+                    last_activity_at: command.created_at,
+                    lifecycle: SessionLifecycleState::Created,
+                    device_id: command.device_id,
+                    connector_id: command.connector_id,
+                    capabilities,
+                    protocol_version: command.protocol_version,
+                    revision: SessionRevision::INITIAL,
+                    metadata: command.metadata,
+                });
+                let _ = draft
+                    .sessions_mut()
+                    .insert(session)
+                    .map_err(StateError::from)?;
+                draft.record_session_transition(SessionStateTransition::new(
+                    command.session_id,
+                    None,
+                    Some(SessionLifecycleState::Created),
+                    SessionRevision::INITIAL,
+                    command.created_at,
+                ));
+                Ok(())
+            })?;
 
         mutation_from_update(&result_id, update)
     }
@@ -410,42 +417,44 @@ impl SessionManager {
         let result_id = command.session_id.clone();
         let policy = self.policy;
 
-        let update = self.state.update_with(move |draft| {
-            validate_associations(draft, &command.device_id, &command.connector_id)?;
-            validate_new_session(
-                draft,
-                policy,
-                &command.session_id,
-                &command.device_id,
-                &command.connector_id,
-                command.lifecycle,
-            )?;
+        let update = self
+            .state
+            .update_with::<SessionManagerError>(move |draft| {
+                validate_associations(draft, &command.device_id, &command.connector_id)?;
+                validate_new_session(
+                    draft,
+                    policy,
+                    &command.session_id,
+                    &command.device_id,
+                    &command.connector_id,
+                    command.lifecycle,
+                )?;
 
-            let session = BridgeSession::from_parts(SessionRecordParts {
-                session_id: command.session_id.clone(),
-                created_at: command.created_at,
-                last_activity_at: command.last_activity_at,
-                lifecycle: command.lifecycle,
-                device_id: command.device_id,
-                connector_id: command.connector_id,
-                capabilities,
-                protocol_version: command.protocol_version,
-                revision: command.revision,
-                metadata: command.metadata,
-            });
-            let _ = draft
-                .sessions_mut()
-                .insert(session)
-                .map_err(StateError::from)?;
-            draft.record_session_transition(SessionStateTransition::new(
-                command.session_id,
-                None,
-                Some(command.lifecycle),
-                command.revision,
-                command.restored_at,
-            ));
-            Ok(())
-        })?;
+                let session = BridgeSession::from_parts(SessionRecordParts {
+                    session_id: command.session_id.clone(),
+                    created_at: command.created_at,
+                    last_activity_at: command.last_activity_at,
+                    lifecycle: command.lifecycle,
+                    device_id: command.device_id,
+                    connector_id: command.connector_id,
+                    capabilities,
+                    protocol_version: command.protocol_version,
+                    revision: command.revision,
+                    metadata: command.metadata,
+                });
+                let _ = draft
+                    .sessions_mut()
+                    .insert(session)
+                    .map_err(StateError::from)?;
+                draft.record_session_transition(SessionStateTransition::new(
+                    command.session_id,
+                    None,
+                    Some(command.lifecycle),
+                    command.revision,
+                    command.restored_at,
+                ));
+                Ok(())
+            })?;
 
         mutation_from_update(&result_id, update)
     }
@@ -469,56 +478,63 @@ impl SessionManager {
         let result_id = command.session_id.clone();
         let timeout = self.policy.inactivity_timeout;
 
-        let update = self.state.update_with(move |draft| {
-            let current = current_session(draft, &command.session_id)?;
-            validate_current(&current, command.expected_revision, command.timestamp, timeout)?;
-
-            let mut parts = current.to_parts();
-            let previous_lifecycle = parts.lifecycle;
-            if let Some(requested) = command.lifecycle {
-                validate_transition(&current, requested)?;
-                parts.lifecycle = requested;
-            }
-            if let Some(capabilities) = command.capabilities {
-                parts.capabilities = capabilities;
-            }
-            if let Some(protocol_version) = command.protocol_version {
-                parts.protocol_version = protocol_version;
-            }
-            if let Some(metadata) = command.metadata {
-                parts.metadata = metadata;
-            }
-
-            let changed = parts.lifecycle != current.lifecycle()
-                || parts.capabilities != *current.capabilities()
-                || parts.protocol_version != *current.protocol_version()
-                || parts.metadata != *current.metadata()
-                || command.timestamp != current.last_activity_at();
-            if !changed {
-                return Ok(());
-            }
-
-            parts.last_activity_at = command.timestamp;
-            parts.revision = next_revision(&current)?;
-            let next = BridgeSession::from_parts(parts);
-            let next_revision = next.revision();
-            let next_lifecycle = next.lifecycle();
-            let _ = draft
-                .sessions_mut()
-                .replace(next)
-                .map_err(StateError::from)?;
-
-            if previous_lifecycle != next_lifecycle {
-                draft.record_session_transition(SessionStateTransition::new(
-                    command.session_id,
-                    Some(previous_lifecycle),
-                    Some(next_lifecycle),
-                    next_revision,
+        let update = self
+            .state
+            .update_with::<SessionManagerError>(move |draft| {
+                let current = current_session(draft, &command.session_id)?;
+                validate_current(
+                    &current,
+                    command.expected_revision,
                     command.timestamp,
-                ));
-            }
-            Ok(())
-        })?;
+                    timeout,
+                )?;
+
+                let mut parts = current.to_parts();
+                let previous_lifecycle = parts.lifecycle;
+                if let Some(requested) = command.lifecycle {
+                    validate_transition(&current, requested)?;
+                    parts.lifecycle = requested;
+                }
+                if let Some(capabilities) = command.capabilities {
+                    parts.capabilities = capabilities;
+                }
+                if let Some(protocol_version) = command.protocol_version {
+                    parts.protocol_version = protocol_version;
+                }
+                if let Some(metadata) = command.metadata {
+                    parts.metadata = metadata;
+                }
+
+                let changed = parts.lifecycle != current.lifecycle()
+                    || &parts.capabilities != current.capabilities()
+                    || &parts.protocol_version != current.protocol_version()
+                    || &parts.metadata != current.metadata()
+                    || command.timestamp != current.last_activity_at();
+                if !changed {
+                    return Ok(());
+                }
+
+                parts.last_activity_at = command.timestamp;
+                parts.revision = next_revision(&current)?;
+                let next = BridgeSession::from_parts(parts);
+                let next_revision = next.revision();
+                let next_lifecycle = next.lifecycle();
+                let _ = draft
+                    .sessions_mut()
+                    .replace(next)
+                    .map_err(StateError::from)?;
+
+                if previous_lifecycle != next_lifecycle {
+                    draft.record_session_transition(SessionStateTransition::new(
+                        command.session_id,
+                        Some(previous_lifecycle),
+                        Some(next_lifecycle),
+                        next_revision,
+                        command.timestamp,
+                    ));
+                }
+                Ok(())
+            })?;
 
         mutation_from_update(&result_id, update)
     }
@@ -586,44 +602,46 @@ impl SessionManager {
         let timeout = self.policy.inactivity_timeout;
         let mut removed = Vec::new();
 
-        let update = self.state.update_with(|draft| {
-            let mut candidates = Vec::new();
-            for (session_id, session) in draft.sessions().iter() {
-                let Some(elapsed) = command
-                    .observed_at
-                    .checked_duration_since(session.last_activity_at())
-                else {
-                    return Err(SessionManagerError::TimestampRegression {
-                        session_id: session_id.clone(),
-                        previous: session.last_activity_at(),
-                        requested: command.observed_at,
-                    });
-                };
-                if elapsed >= timeout.as_millis() {
-                    candidates.push((
-                        session_id.clone(),
-                        session.lifecycle(),
-                        session.revision(),
-                    ));
+        let update = self
+            .state
+            .update_with::<SessionManagerError>(|draft| {
+                let mut candidates = Vec::new();
+                for (session_id, session) in draft.sessions().iter() {
+                    let Some(elapsed) = command
+                        .observed_at
+                        .checked_duration_since(session.last_activity_at())
+                    else {
+                        return Err(SessionManagerError::TimestampRegression {
+                            session_id: session_id.clone(),
+                            previous: session.last_activity_at(),
+                            requested: command.observed_at,
+                        });
+                    };
+                    if elapsed >= timeout.as_millis() {
+                        candidates.push((
+                            session_id.clone(),
+                            session.lifecycle(),
+                            session.revision(),
+                        ));
+                    }
                 }
-            }
 
-            for (session_id, lifecycle, revision) in candidates {
-                let _ = draft
-                    .sessions_mut()
-                    .remove(&session_id)
-                    .map_err(StateError::from)?;
-                draft.record_session_transition(SessionStateTransition::new(
-                    session_id.clone(),
-                    Some(lifecycle),
-                    None,
-                    revision,
-                    command.observed_at,
-                ));
-                removed.push(session_id);
-            }
-            Ok(())
-        })?;
+                for (session_id, lifecycle, revision) in candidates {
+                    let _ = draft
+                        .sessions_mut()
+                        .remove(&session_id)
+                        .map_err(StateError::from)?;
+                    draft.record_session_transition(SessionStateTransition::new(
+                        session_id.clone(),
+                        Some(lifecycle),
+                        None,
+                        revision,
+                        command.observed_at,
+                    ));
+                    removed.push(session_id);
+                }
+                Ok(())
+            })?;
 
         Ok(ExpiredSessions::new(removed, update))
     }
@@ -646,17 +664,11 @@ impl SessionManager {
     ///
     /// Returns a Bridge State synchronization error.
     pub fn list_sessions(&self) -> Result<Vec<Arc<BridgeSession>>, SessionManagerError> {
-        Ok(self
-            .state
-            .snapshot()?
+        let snapshot = self.state.snapshot()?;
+        Ok(snapshot
             .sessions()
             .keys()
-            .filter_map(|session_id| {
-                self.state
-                    .snapshot()
-                    .ok()
-                    .and_then(|snapshot| snapshot.sessions().get_shared(session_id))
-            })
+            .filter_map(|session_id| snapshot.sessions().get_shared(session_id))
             .collect())
     }
 
@@ -678,39 +690,43 @@ impl SessionManager {
     ) -> Result<SessionMutation, SessionManagerError> {
         let result_id = session_id.clone();
         let timeout = self.policy.inactivity_timeout;
-        let update = self.state.update_with(move |draft| {
-            let current = current_session(draft, &session_id)?;
-            validate_current(&current, expected_revision, timestamp, timeout)?;
-            let requested = match intent {
-                TransitionIntent::Suspend => SessionLifecycleState::Suspended,
-                TransitionIntent::Resume => SessionLifecycleState::Active,
-                TransitionIntent::Close if current.lifecycle() == SessionLifecycleState::Closing => {
-                    SessionLifecycleState::Closed
-                }
-                TransitionIntent::Close => SessionLifecycleState::Closing,
-            };
-            validate_transition(&current, requested)?;
+        let update = self
+            .state
+            .update_with::<SessionManagerError>(move |draft| {
+                let current = current_session(draft, &session_id)?;
+                validate_current(&current, expected_revision, timestamp, timeout)?;
+                let requested = match intent {
+                    TransitionIntent::Suspend => SessionLifecycleState::Suspended,
+                    TransitionIntent::Resume => SessionLifecycleState::Active,
+                    TransitionIntent::Close
+                        if current.lifecycle() == SessionLifecycleState::Closing =>
+                    {
+                        SessionLifecycleState::Closed
+                    }
+                    TransitionIntent::Close => SessionLifecycleState::Closing,
+                };
+                validate_transition(&current, requested)?;
 
-            let previous = current.lifecycle();
-            let mut parts = current.to_parts();
-            parts.lifecycle = requested;
-            parts.last_activity_at = timestamp;
-            parts.revision = next_revision(&current)?;
-            let next = BridgeSession::from_parts(parts);
-            let revision = next.revision();
-            let _ = draft
-                .sessions_mut()
-                .replace(next)
-                .map_err(StateError::from)?;
-            draft.record_session_transition(SessionStateTransition::new(
-                session_id,
-                Some(previous),
-                Some(requested),
-                revision,
-                timestamp,
-            ));
-            Ok(())
-        })?;
+                let previous = current.lifecycle();
+                let mut parts = current.to_parts();
+                parts.lifecycle = requested;
+                parts.last_activity_at = timestamp;
+                parts.revision = next_revision(&current)?;
+                let next = BridgeSession::from_parts(parts);
+                let revision = next.revision();
+                let _ = draft
+                    .sessions_mut()
+                    .replace(next)
+                    .map_err(StateError::from)?;
+                draft.record_session_transition(SessionStateTransition::new(
+                    session_id,
+                    Some(previous),
+                    Some(requested),
+                    revision,
+                    timestamp,
+                ));
+                Ok(())
+            })?;
 
         mutation_from_update(&result_id, update)
     }
@@ -934,9 +950,10 @@ fn validate_capability_list(
         }
     }
     values.sort_unstable();
-    if let Some(duplicate) = values.windows(2).find_map(|window| {
-        (window[0] == window[1]).then_some(window[0])
-    }) {
+    if let Some(duplicate) = values
+        .windows(2)
+        .find_map(|window| (window[0] == window[1]).then_some(window[0]))
+    {
         return Err(SessionManagerError::DuplicateCapability {
             list,
             value: duplicate,
