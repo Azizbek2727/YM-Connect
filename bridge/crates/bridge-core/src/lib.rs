@@ -1,14 +1,16 @@
 //! Runtime-independent primitives for the YM Connect desktop Bridge.
 //!
 //! This crate owns configuration, runtime state, session lifecycle orchestration, transport
-//! contracts, logging contracts, dependency injection, and the application lifecycle. Platform,
-//! concrete transport, and asynchronous-runtime integrations belong in executable or adapter
-//! crates so the core remains browser-, protocol-encoding-, and runtime-agnostic.
+//! contracts, pairing and trust orchestration, logging contracts, dependency injection, and the
+//! application lifecycle. Platform, concrete transport, cryptographic implementation, and
+//! asynchronous-runtime integrations belong in executable or adapter crates so the core remains
+//! browser-, protocol-encoding-, and runtime-agnostic.
 
 mod application;
 mod config;
 mod error;
 mod logging;
+mod pairing;
 mod session;
 mod shutdown;
 mod state;
@@ -22,6 +24,16 @@ pub use config::{
 };
 pub use error::BridgeError;
 pub use logging::{LogLevel, LogRecord, Logger, StderrLogger};
+pub use pairing::{
+    BridgeId, BridgeIdentity, ChallengeId, CreatePairingChallenge, CreatePairingSession,
+    EstablishPairingTrust, PairingAlgorithmSuite, PairingCapabilities, PairingChallenge,
+    PairingConfirmationTag, PairingCryptoProvider, PairingError, PairingEvent, PairingEventKind,
+    PairingId, PairingManager, PairingModelError, PairingMutation, PairingNonce, PairingPolicy,
+    PairingPublicKey, PairingRequest, PairingResponse, PairingResult, PairingRevision,
+    PairingSession, PairingState, PairingTimestamp, ReceivePairingResponse, RevokeTrustedPeer,
+    TransitionPairing, TrustDecision, TrustMetadata, TrustMetadataKey, TrustMetadataValue,
+    TrustMutation, TrustStore, TrustedPeer, VerifyPairingIdentity,
+};
 pub use session::{
     BridgeSession, CloseSession, CreateSession, DEFAULT_SESSION_INACTIVITY_TIMEOUT_MS,
     ExpiredSessions, RemoveExpiredSessions, RestoreSession, ResumeSession, SessionCapabilityList,
@@ -34,11 +46,11 @@ pub use state::{
     BridgeLifecycleState, BridgeStateChange, BridgeStateDraft, BridgeStateEvent,
     BridgeStateSnapshot, BridgeStateStore, BridgeStateSubscription, CapabilityOwner,
     CapabilityRegistration, CapabilityRegistry, ConnectionId, ConnectionRegistry, ConnectorId,
-    ConnectorRegistry, DeviceId, DeviceRegistry, NotificationSummary, RegistryDelta,
-    RegistryFailure, RegistryKind, RegistryMutation, RegistryOperation, RegistryStateError,
-    SessionId, SessionRegistry, StateError, StateIdentifierError, StateIdentifierKind, StateLock,
-    StateReceiveError, StateRegistry, StateRegistryValue, StateRevision, StateUpdate,
-    SubscriptionId, TransportId,
+    ConnectorRegistry, DeviceId, DeviceRegistry, NotificationSummary, PairingSessionRegistry,
+    RegistryDelta, RegistryFailure, RegistryKind, RegistryMutation, RegistryOperation,
+    RegistryStateError, SessionId, SessionRegistry, StateError, StateIdentifierError,
+    StateIdentifierKind, StateLock, StateReceiveError, StateRegistry, StateRegistryValue,
+    StateRevision, StateUpdate, SubscriptionId, TransportId, TrustedPeerRegistry,
 };
 pub use transport::{
     BindTransportSession, CloseTransportConnection, CreateTransportConnection,
