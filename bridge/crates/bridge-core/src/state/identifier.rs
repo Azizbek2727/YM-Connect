@@ -9,6 +9,10 @@ pub enum StateIdentifierKind {
     Device,
     /// Browser connector identifier.
     Connector,
+    /// Transport implementation identifier.
+    Transport,
+    /// Transport connection identifier.
+    Connection,
 }
 
 impl fmt::Display for StateIdentifierKind {
@@ -17,6 +21,8 @@ impl fmt::Display for StateIdentifierKind {
             Self::Session => "session",
             Self::Device => "device",
             Self::Connector => "connector",
+            Self::Transport => "transport",
+            Self::Connection => "connection",
         })
     }
 }
@@ -111,12 +117,30 @@ macro_rules! define_identifier {
     };
 }
 
-define_identifier!(SessionId, StateIdentifierKind::Session, "Validated session identifier.");
-define_identifier!(DeviceId, StateIdentifierKind::Device, "Validated device identifier.");
+define_identifier!(
+    SessionId,
+    StateIdentifierKind::Session,
+    "Validated session identifier."
+);
+define_identifier!(
+    DeviceId,
+    StateIdentifierKind::Device,
+    "Validated device identifier."
+);
 define_identifier!(
     ConnectorId,
     StateIdentifierKind::Connector,
     "Validated browser connector identifier."
+);
+define_identifier!(
+    TransportId,
+    StateIdentifierKind::Transport,
+    "Validated transport implementation identifier."
+);
+define_identifier!(
+    ConnectionId,
+    StateIdentifierKind::Connection,
+    "Validated transport connection identifier."
 );
 
 /// Runtime owner of a canonical capability set.
