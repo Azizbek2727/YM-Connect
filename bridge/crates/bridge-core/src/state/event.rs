@@ -1,10 +1,11 @@
 use std::sync::Arc;
 
-use crate::{SessionStateTransition, TransportEvent};
+use crate::{PairingStateTransition, SessionStateTransition, TransportEvent};
 
 use super::{
     BridgeLifecycleState, BridgeStateData, BridgeStateSnapshot, CapabilityOwner, ConnectionId,
-    ConnectorId, DeviceId, SessionId, StateRegistry, StateRegistryValue, StateRevision,
+    ConnectorId, DeviceId, PairingId, SessionId, StateRegistry, StateRegistryValue, StateRevision,
+    TrustId,
 };
 
 /// Deterministic key-level changes for one state registry.
@@ -95,10 +96,16 @@ pub enum BridgeStateChange {
     Configuration,
     /// Session lifecycle changed through the Session Manager.
     SessionLifecycle(SessionStateTransition),
+    /// Pairing lifecycle changed through the Pairing Manager.
+    PairingLifecycle(PairingStateTransition),
     /// Transport connection lifecycle or session binding changed.
     Transport(TransportEvent),
     /// Session registry changed.
     Sessions(RegistryDelta<SessionId>),
+    /// Pairing registry changed.
+    Pairings(RegistryDelta<PairingId>),
+    /// Trusted-peer registry changed.
+    TrustedPeers(RegistryDelta<TrustId>),
     /// Device registry changed.
     Devices(RegistryDelta<DeviceId>),
     /// Connector registry changed.
@@ -154,6 +161,12 @@ impl BridgeStateEvent {
         );
 
         changes.extend(
+            pairing_events_between(before, after)
+                .into_iter()
+                .map(BridgeStateChange::PairingLifecycle),
+        );
+
+        changes.extend(
             transport_events_between(before, after)
                 .into_iter()
                 .map(BridgeStateChange::Transport),
@@ -162,6 +175,16 @@ impl BridgeStateEvent {
         let sessions = RegistryDelta::between(&before.sessions, &after.sessions);
         if !sessions.is_empty() {
             changes.push(BridgeStateChange::Sessions(sessions));
+        }
+
+        let pairings = RegistryDelta::between(&before.pairings, &after.pairings);
+        if !pairings.is_empty() {
+            changes.push(BridgeStateChange::Pairings(pairings));
+        }
+
+        let trusted_peers = RegistryDelta::between(&before.trusted_peers, &after.trusted_peers);
+        if !trusted_peers.is_empty() {
+            changes.push(BridgeStateChange::TrustedPeers(trusted_peers));
         }
 
         let devices = RegistryDelta::between(&before.devices, &after.devices);
@@ -215,6 +238,43 @@ impl BridgeStateEvent {
     pub const fn snapshot(&self) -> &BridgeStateSnapshot {
         &self.snapshot
     }
+}
+
+fn pairing_events_between(
+    before: &BridgeStateData,
+    after: &BridgeStateData,
+) -> Vec<PairingStateTransition> {
+    let mut transitions = Vec::new();
+    for (pairing_id, pairing) in after.pairings.iter() {
+        match before.pairings.get(pairing_id) {
+            None => transitions.push(PairingStateTransition::new(
+                pairing_id.clone(),
+                None,
+                pairing.state(),
+                pairing.revision(),
+                pairing.updated_at(),
+            )),
+            Some(previous) if previous.state() != pairing.state() => {
+                transitions.push(PairingStateTransition::new(
+                    pairing_id.clone(),
+                    Some(previous.state()),
+                    pairing.state(),
+                    pairing.revision(),
+                    pairing.updated_at(),
+                ));
+            }
+            Some(_) => {}
+        }
+    }
+    transitions.sort_by(|left, right| {
+        left.pairing_id()
+            .cmp(right.pairing_id())
+            .then_with(|| left.timestamp().cmp(&right.timestamp()))
+            .then_with(|| left.pairing_revision().cmp(&right.pairing_revision()))
+            .then_with(|| left.previous().cmp(&right.previous()))
+            .then_with(|| left.current().cmp(&right.current()))
+    });
+    transitions
 }
 
 fn transport_events_between(
