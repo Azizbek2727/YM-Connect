@@ -1,9 +1,9 @@
 //! Runtime-independent primitives for the YM Connect desktop Bridge.
 //!
-//! This crate owns configuration, runtime state, session lifecycle orchestration, logging
-//! contracts, dependency injection, and the application lifecycle. Platform and
-//! asynchronous-runtime integrations belong in executable crates so the core remains browser-,
-//! transport-, and runtime-agnostic.
+//! This crate owns configuration, runtime state, session lifecycle orchestration, transport
+//! contracts, logging contracts, dependency injection, and the application lifecycle. Platform,
+//! concrete transport, and asynchronous-runtime integrations belong in executable or adapter
+//! crates so the core remains browser-, protocol-encoding-, and runtime-agnostic.
 
 mod application;
 mod config;
@@ -12,6 +12,7 @@ mod logging;
 mod session;
 mod shutdown;
 mod state;
+mod transport;
 
 pub use application::{BridgeApplication, BridgeDependencies};
 pub use config::{
@@ -32,9 +33,19 @@ pub use shutdown::{ShutdownError, ShutdownFuture, ShutdownSignal};
 pub use state::{
     BridgeLifecycleState, BridgeStateChange, BridgeStateDraft, BridgeStateEvent,
     BridgeStateSnapshot, BridgeStateStore, BridgeStateSubscription, CapabilityOwner,
-    CapabilityRegistration, CapabilityRegistry, ConnectorId, ConnectorRegistry, DeviceId,
-    DeviceRegistry, NotificationSummary, RegistryDelta, RegistryFailure, RegistryKind,
-    RegistryMutation, RegistryOperation, RegistryStateError, SessionId, SessionRegistry,
-    StateError, StateIdentifierError, StateIdentifierKind, StateLock, StateReceiveError,
-    StateRegistry, StateRegistryValue, StateRevision, StateUpdate, SubscriptionId,
+    CapabilityRegistration, CapabilityRegistry, ConnectionId, ConnectionRegistry, ConnectorId,
+    ConnectorRegistry, DeviceId, DeviceRegistry, NotificationSummary, RegistryDelta,
+    RegistryFailure, RegistryKind, RegistryMutation, RegistryOperation, RegistryStateError,
+    SessionId, SessionRegistry, StateError, StateIdentifierError, StateIdentifierKind, StateLock,
+    StateReceiveError, StateRegistry, StateRegistryValue, StateRevision, StateUpdate,
+    SubscriptionId, TransportId,
+};
+pub use transport::{
+    BindTransportSession, CloseTransportConnection, CreateTransportConnection,
+    TransitionTransportConnection, TransportCapabilities, TransportConnection,
+    TransportConnectionSnapshot, TransportEndpoint, TransportEndpointAddress,
+    TransportEndpointRole, TransportError, TransportEvent, TransportEventKind, TransportFactory,
+    TransportFeature, TransportFuture, TransportManager, TransportMessageEnvelope,
+    TransportModelError, TransportMutation, TransportResult, TransportRevision, TransportState,
+    TransportStatistics, TransportTimestamp, UnbindTransportSession,
 };
