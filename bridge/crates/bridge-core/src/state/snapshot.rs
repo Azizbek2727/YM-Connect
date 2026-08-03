@@ -2,12 +2,21 @@ use std::sync::Arc;
 
 use ym_connect_protocol::v1::{BrowserDescriptor, DeviceDescriptor};
 
-use crate::{BridgeConfig, BridgeSession, SessionStateTransition, TransportConnectionSnapshot};
+use crate::{
+    BridgeConfig, BridgeSession, PairingSession, SessionStateTransition,
+    TransportConnectionSnapshot, TrustedPeer,
+};
 
 use super::{CapabilityRegistration, StateRegistry};
 
 /// Deterministic session registry.
 pub type SessionRegistry = StateRegistry<BridgeSession>;
+
+/// Deterministic pairing-session registry.
+pub type PairingRegistry = StateRegistry<PairingSession>;
+
+/// Deterministic trusted-peer registry.
+pub type TrustedPeerRegistry = StateRegistry<TrustedPeer>;
 
 /// Deterministic device registry.
 pub type DeviceRegistry = StateRegistry<DeviceDescriptor>;
@@ -61,6 +70,8 @@ pub(crate) struct BridgeStateData {
     pub(super) lifecycle: BridgeLifecycleState,
     pub(super) configuration: Arc<BridgeConfig>,
     pub(super) sessions: SessionRegistry,
+    pub(super) pairings: PairingRegistry,
+    pub(super) trusted_peers: TrustedPeerRegistry,
     pub(super) devices: DeviceRegistry,
     pub(super) connectors: ConnectorRegistry,
     pub(super) connections: ConnectionRegistry,
@@ -73,6 +84,8 @@ impl BridgeStateData {
             lifecycle: BridgeLifecycleState::Initializing,
             configuration: Arc::new(configuration),
             sessions: SessionRegistry::new(),
+            pairings: PairingRegistry::new(),
+            trusted_peers: TrustedPeerRegistry::new(),
             devices: DeviceRegistry::new(),
             connectors: ConnectorRegistry::new(),
             connections: ConnectionRegistry::new(),
@@ -115,6 +128,18 @@ impl BridgeStateSnapshot {
     #[must_use]
     pub fn sessions(&self) -> &SessionRegistry {
         &self.data.sessions
+    }
+
+    /// Returns the immutable pairing registry.
+    #[must_use]
+    pub fn pairings(&self) -> &PairingRegistry {
+        &self.data.pairings
+    }
+
+    /// Returns the immutable trusted-peer registry.
+    #[must_use]
+    pub fn trusted_peers(&self) -> &TrustedPeerRegistry {
+        &self.data.trusted_peers
     }
 
     /// Returns the immutable device registry.
@@ -211,6 +236,28 @@ impl BridgeStateDraft {
     /// Returns the mutable session registry.
     pub const fn sessions_mut(&mut self) -> &mut SessionRegistry {
         &mut self.data.sessions
+    }
+
+    /// Returns the immutable draft pairing registry.
+    #[must_use]
+    pub const fn pairings(&self) -> &PairingRegistry {
+        &self.data.pairings
+    }
+
+    /// Returns the mutable pairing registry.
+    pub const fn pairings_mut(&mut self) -> &mut PairingRegistry {
+        &mut self.data.pairings
+    }
+
+    /// Returns the immutable draft trusted-peer registry.
+    #[must_use]
+    pub const fn trusted_peers(&self) -> &TrustedPeerRegistry {
+        &self.data.trusted_peers
+    }
+
+    /// Returns the mutable trusted-peer registry.
+    pub const fn trusted_peers_mut(&mut self) -> &mut TrustedPeerRegistry {
+        &mut self.data.trusted_peers
     }
 
     /// Returns the immutable draft device registry.
