@@ -79,7 +79,11 @@ fn policy(
     allow_revoked_replacement: bool,
 ) -> TestResult<PairingPolicy> {
     Ok(PairingPolicy::new(
-        ProtocolVersion { major: 1, minor: 2, patch: 0 },
+        ProtocolVersion {
+            major: 1,
+            minor: 2,
+            patch: 0,
+        },
         capabilities()?,
         1_000,
         allow_trust_replacement,
@@ -150,7 +154,11 @@ fn response(
         request(
             device_id,
             identity_byte,
-            ProtocolVersion { major: 1, minor: 2, patch: 0 },
+            ProtocolVersion {
+                major: 1,
+                minor: 2,
+                patch: 0,
+            },
         )?,
         b"valid-signature",
         [7; 16],
@@ -244,7 +252,13 @@ fn seed_trust(
     timestamp: u64,
 ) -> TestResult<TrustMutation> {
     let pairing = pairing_id(pairing_name)?;
-    verify(manager, &pairing, challenge_name, device_id, identity_byte)?;
+    verify(
+        manager,
+        &pairing,
+        challenge_name,
+        device_id,
+        identity_byte,
+    )?;
     Ok(establish(
         manager,
         pairing,
@@ -263,7 +277,7 @@ fn required_peer(
 }
 
 #[test]
-fn approved_algorithms_and_model_validation_are_fixed() -> TestResult {
+fn approved_algorithms_and_model_validation_are_fixed() {
     assert!(PairingPublicKey::new([1; 31]).is_err());
     assert!(PairingNonce::new([1; 31]).is_err());
     assert!(PairingConfirmationTag::new([1; 15]).is_err());
@@ -272,12 +286,14 @@ fn approved_algorithms_and_model_validation_are_fixed() -> TestResult {
     assert_eq!(PairingAlgorithmSuite::KEY_AGREEMENT, "X25519");
     assert_eq!(PairingAlgorithmSuite::SIGNATURE, "Ed25519");
     assert_eq!(PairingAlgorithmSuite::KEY_DERIVATION, "HKDF-SHA-256");
-    assert_eq!(PairingAlgorithmSuite::CONFIRMATION, "ChaCha20-Poly1305");
-    Ok(())
+    assert_eq!(
+        PairingAlgorithmSuite::CONFIRMATION,
+        "ChaCha20-Poly1305"
+    );
 }
 
 #[test]
-fn lifecycle_matrix_covers_every_legal_and_illegal_transition() -> TestResult {
+fn lifecycle_matrix_covers_every_legal_and_illegal_transition() {
     let states = [
         PairingState::Idle,
         PairingState::ChallengeCreated,
@@ -326,10 +342,13 @@ fn lifecycle_matrix_covers_every_legal_and_illegal_transition() -> TestResult {
                     PairingState::Completed | PairingState::Revoked
                 )
             );
-            assert_eq!(previous.can_transition_to(next), legal, "{previous:?} -> {next:?}");
+            assert_eq!(
+                previous.can_transition_to(next),
+                legal,
+                "{previous:?} -> {next:?}"
+            );
         }
     }
-    Ok(())
 }
 
 #[test]
@@ -344,7 +363,10 @@ fn replay_stale_revision_and_duplicate_identifiers_roll_back() -> TestResult {
         session_id: None,
         created_at: PairingTimestamp::from_unix_millis(121),
     });
-    assert!(matches!(duplicate, Err(PairingError::DuplicatePairing { .. })));
+    assert!(matches!(
+        duplicate,
+        Err(PairingError::DuplicatePairing { .. })
+    ));
     assert_eq!(store.snapshot()?, before_duplicate);
 
     let first_response = response("challenge-replay", "device-replay", 8)?;
@@ -361,7 +383,10 @@ fn replay_stale_revision_and_duplicate_identifiers_roll_back() -> TestResult {
         response: first_response,
         received_at: PairingTimestamp::from_unix_millis(131),
     });
-    assert!(matches!(replay, Err(PairingError::ReplayDetected { .. })));
+    assert!(matches!(
+        replay,
+        Err(PairingError::ReplayDetected { .. })
+    ));
     assert_eq!(store.snapshot()?, before_replay);
 
     let stale = manager.transition(TransitionPairing {
@@ -387,7 +412,10 @@ fn challenge_freshness_expiration_and_terminal_states_are_enforced() -> TestResu
         state: PairingState::Expired,
         timestamp: PairingTimestamp::from_unix_millis(500),
     });
-    assert!(matches!(early, Err(PairingError::ChallengeNotExpired { .. })));
+    assert!(matches!(
+        early,
+        Err(PairingError::ChallengeNotExpired { .. })
+    ));
     assert_eq!(store.snapshot()?, before);
 
     let stale_response = manager.receive_response(ReceivePairingResponse {
@@ -396,7 +424,10 @@ fn challenge_freshness_expiration_and_terminal_states_are_enforced() -> TestResu
         response: response("challenge-expiry", "device-expiry", 8)?,
         received_at: PairingTimestamp::from_unix_millis(CHALLENGE_EXPIRES_AT),
     });
-    assert!(matches!(stale_response, Err(PairingError::ChallengeExpired { .. })));
+    assert!(matches!(
+        stale_response,
+        Err(PairingError::ChallengeExpired { .. })
+    ));
     assert_eq!(store.snapshot()?, before);
 
     manager.transition(TransitionPairing {
@@ -411,7 +442,10 @@ fn challenge_freshness_expiration_and_terminal_states_are_enforced() -> TestResu
         state: PairingState::Cancelled,
         timestamp: PairingTimestamp::from_unix_millis(CHALLENGE_EXPIRES_AT + 1),
     });
-    assert!(matches!(terminal, Err(PairingError::TerminalPairing { .. })));
+    assert!(matches!(
+        terminal,
+        Err(PairingError::TerminalPairing { .. })
+    ));
     Ok(())
 }
 
@@ -429,14 +463,21 @@ fn invalid_keys_signatures_versions_and_downgrades_are_rejected() -> TestResult 
             request(
                 "device-downgrade",
                 8,
-                ProtocolVersion { major: 1, minor: 1, patch: 9 },
+                ProtocolVersion {
+                    major: 1,
+                    minor: 1,
+                    patch: 9,
+                },
             )?,
             b"valid-signature",
             [7; 16],
         )?,
         received_at: PairingTimestamp::from_unix_millis(130),
     });
-    assert!(matches!(downgrade, Err(PairingError::ProtocolDowngrade)));
+    assert!(matches!(
+        downgrade,
+        Err(PairingError::ProtocolDowngrade)
+    ));
 
     let unsupported_pairing = pairing_id("pairing-unsupported")?;
     create_and_send(&manager, &unsupported_pairing, "challenge-unsupported")?;
@@ -448,7 +489,11 @@ fn invalid_keys_signatures_versions_and_downgrades_are_rejected() -> TestResult 
             request(
                 "device-unsupported",
                 8,
-                ProtocolVersion { major: 2, minor: 0, patch: 0 },
+                ProtocolVersion {
+                    major: 2,
+                    minor: 0,
+                    patch: 0,
+                },
             )?,
             b"valid-signature",
             [7; 16],
@@ -473,7 +518,10 @@ fn invalid_keys_signatures_versions_and_downgrades_are_rejected() -> TestResult 
         expected_revision: PairingRevision::new(3),
         verified_at: PairingTimestamp::from_unix_millis(140),
     });
-    assert!(matches!(invalid_key, Err(PairingError::InvalidPublicKey { .. })));
+    assert!(matches!(
+        invalid_key,
+        Err(PairingError::InvalidPublicKey { .. })
+    ));
 
     let invalid_signature_pairing = pairing_id("pairing-invalid-signature")?;
     create_and_send(
@@ -489,7 +537,11 @@ fn invalid_keys_signatures_versions_and_downgrades_are_rejected() -> TestResult 
             request(
                 "device-invalid-signature",
                 8,
-                ProtocolVersion { major: 1, minor: 2, patch: 0 },
+                ProtocolVersion {
+                    major: 1,
+                    minor: 2,
+                    patch: 0,
+                },
             )?,
             b"invalid-signature",
             [7; 16],
@@ -544,7 +596,10 @@ fn trust_insertion_lookup_ordering_and_revocation_are_consistent() -> TestResult
     let revoked = required_peer(&store, &device_a)?;
     assert!(revoked.is_revoked());
     assert_eq!(revoked.revision(), PairingRevision::new(1));
-    assert_eq!(revoked.last_verified_at(), PairingTimestamp::from_unix_millis(160));
+    assert_eq!(
+        revoked.last_verified_at(),
+        PairingTimestamp::from_unix_millis(160)
+    );
     assert_eq!(
         revocation
             .snapshot()
@@ -680,7 +735,10 @@ fn revoked_replacement_policy_matrix_is_enforced() -> TestResult {
             TrustDecision::Trust,
             170,
         );
-        assert!(matches!(trust_decision, Err(PairingError::RevokedPeer { .. })));
+        assert!(matches!(
+            trust_decision,
+            Err(PairingError::RevokedPeer { .. })
+        ));
         let replacement_decision = establish(
             &manager,
             replacement,
@@ -700,6 +758,51 @@ fn revoked_replacement_policy_matrix_is_enforced() -> TestResult {
             assert!(required_peer(&store, &device)?.is_revoked());
         }
     }
+    Ok(())
+}
+
+#[test]
+fn revoked_identity_cannot_rebind_to_another_device_id() -> TestResult {
+    let (store, manager) = new_manager(true, true)?;
+    seed_trust(
+        &manager,
+        "pairing-rebind-original",
+        "challenge-rebind-original",
+        "device-rebind-original",
+        8,
+        150,
+    )?;
+    let original_device = DeviceId::new("device-rebind-original")?;
+    manager.revoke_trusted_peer(RevokeTrustedPeer {
+        device_id: original_device.clone(),
+        expected_revision: PairingRevision::INITIAL,
+        revoked_at: PairingTimestamp::from_unix_millis(160),
+    })?;
+
+    let attempted_rebind = pairing_id("pairing-rebind-attempt")?;
+    verify(
+        &manager,
+        &attempted_rebind,
+        "challenge-rebind-attempt",
+        "device-rebind-new",
+        8,
+    )?;
+    let before = store.snapshot()?;
+    let result = establish(
+        &manager,
+        attempted_rebind,
+        None,
+        TrustDecision::Trust,
+        170,
+    );
+    assert!(matches!(result, Err(PairingError::RevokedPeer { .. })));
+    assert_eq!(store.snapshot()?, before);
+    assert!(required_peer(&store, &original_device)?.is_revoked());
+    assert!(TrustStore::lookup_trusted_peer(
+        &store,
+        &DeviceId::new("device-rebind-new")?
+    )?
+    .is_none());
     Ok(())
 }
 
@@ -856,7 +959,10 @@ fn stale_trust_revision_and_timestamp_fail_atomically() -> TestResult {
         TrustDecision::Replace,
         160,
     );
-    assert!(matches!(stale, Err(PairingError::StaleTrustRevision { .. })));
+    assert!(matches!(
+        stale,
+        Err(PairingError::StaleTrustRevision { .. })
+    ));
     assert_eq!(store.snapshot()?, before);
 
     let regressed = establish(
@@ -988,11 +1094,10 @@ fn identical_inputs_produce_identical_snapshots_and_events() -> TestResult {
 }
 
 #[test]
-fn pairing_public_types_are_send_and_sync() -> TestResult {
+fn pairing_public_types_are_send_and_sync() {
     fn assert_send_sync<T: Send + Sync>() {}
     assert_send_sync::<PairingManager>();
     assert_send_sync::<PairingSession>();
     assert_send_sync::<TrustedPeer>();
     assert_send_sync::<RustCryptoPairingProvider>();
-    Ok(())
 }
