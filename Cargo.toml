@@ -14,9 +14,15 @@ homepage = "https://github.com/Azizbek2727/YM-Connect"
 readme = "README.md"
 
 [workspace.dependencies]
+chacha20poly1305 = "=0.11.0"
+ed25519-dalek = "=3.0.0"
+hkdf = "=0.13.0"
+sha2 = "=0.11.0"
 tokio = { version = "=1.53.1", default-features = false, features = ["rt-multi-thread", "signal"] }
+x25519-dalek = { version = "=3.0.0", default-features = false, features = ["static_secrets", "zeroize"] }
 ym-connect-bridge-core = { version = "=0.1.0", path = "bridge/crates/bridge-core" }
 ym-connect-protocol = { version = "=0.1.0", path = "shared/generated/rust" }
+zeroize = { version = "=1.9.0", default-features = false }
 
 [workspace.lints.rust]
 unsafe_code = "forbid"
