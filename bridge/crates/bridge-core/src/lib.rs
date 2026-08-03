@@ -1,13 +1,15 @@
 //! Runtime-independent primitives for the YM Connect desktop Bridge.
 //!
-//! This crate owns configuration, runtime state, logging contracts, dependency injection, and
-//! the application lifecycle. Platform and asynchronous-runtime integrations belong in
-//! executable crates so the core remains browser-, transport-, and runtime-agnostic.
+//! This crate owns configuration, runtime state, session lifecycle orchestration, logging
+//! contracts, dependency injection, and the application lifecycle. Platform and
+//! asynchronous-runtime integrations belong in executable crates so the core remains browser-,
+//! transport-, and runtime-agnostic.
 
 mod application;
 mod config;
 mod error;
 mod logging;
+mod session;
 mod shutdown;
 mod state;
 
@@ -19,6 +21,13 @@ pub use config::{
 };
 pub use error::BridgeError;
 pub use logging::{LogLevel, LogRecord, Logger, StderrLogger};
+pub use session::{
+    BridgeSession, CloseSession, CreateSession, DEFAULT_SESSION_INACTIVITY_TIMEOUT_MS,
+    ExpiredSessions, RemoveExpiredSessions, RestoreSession, ResumeSession, SessionCapabilityList,
+    SessionDuration, SessionLifecycleState, SessionManager, SessionManagerError, SessionMetadata,
+    SessionMetadataKey, SessionMetadataValue, SessionModelError, SessionMutation, SessionPolicy,
+    SessionRevision, SessionStateTransition, SessionTimestamp, SuspendSession, UpdateSession,
+};
 pub use shutdown::{ShutdownError, ShutdownFuture, ShutdownSignal};
 pub use state::{
     BridgeLifecycleState, BridgeStateChange, BridgeStateDraft, BridgeStateEvent,

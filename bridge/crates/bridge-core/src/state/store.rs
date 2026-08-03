@@ -181,22 +181,42 @@ impl BridgeStateStore {
         &self,
         operation: impl FnOnce(&mut BridgeStateDraft) -> Result<(), StateError>,
     ) -> Result<StateUpdate, StateError> {
+        self.update_with(operation)
+    }
+
+    /// Applies one atomic transaction with a caller-defined structured error type.
+    ///
+    /// The error type must accept [`StateError`] so synchronization, panic-isolation, and revision
+    /// failures remain structured while domain validation errors can propagate without lossy
+    /// conversion.
+    ///
+    /// # Errors
+    ///
+    /// Returns either the caller's domain error or a converted [`StateError`].
+    pub fn update_with<E>(
+        &self,
+        operation: impl FnOnce(&mut BridgeStateDraft) -> Result<(), E>,
+    ) -> Result<StateUpdate, E>
+    where
+        E: From<StateError>,
+    {
         let mut state = self
             .inner
             .state
             .write()
-            .map_err(|_| StateError::LockPoisoned {
+            .map_err(|_| E::from(StateError::LockPoisoned {
                 lock: StateLock::State,
-            })?;
+            }))?;
         let before = Arc::clone(&*state);
         let mut draft = BridgeStateDraft::from_data(before.as_ref());
 
         match panic::catch_unwind(AssertUnwindSafe(|| operation(&mut draft))) {
             Ok(result) => result?,
-            Err(_) => return Err(StateError::UpdatePanicked),
+            Err(_) => return Err(E::from(StateError::UpdatePanicked)),
         }
 
-        let after = Arc::new(draft.into_data());
+        let (after_data, session_transitions) = draft.into_parts();
+        let after = Arc::new(after_data);
         let previous_revision = StateRevision::new(self.inner.revision.load(Ordering::Relaxed));
 
         if before.as_ref() == after.as_ref() {
@@ -210,14 +230,14 @@ impl BridgeStateStore {
             .get()
             .checked_add(1)
             .map(StateRevision::new)
-            .ok_or(StateError::RevisionExhausted)?;
+            .ok_or_else(|| E::from(StateError::RevisionExhausted))?;
         let mut subscribers = self
             .inner
             .subscribers
             .lock()
-            .map_err(|_| StateError::LockPoisoned {
+            .map_err(|_| E::from(StateError::LockPoisoned {
                 lock: StateLock::Subscribers,
-            })?;
+            }))?;
 
         *state = Arc::clone(&after);
         self.inner
@@ -230,6 +250,7 @@ impl BridgeStateStore {
             next_revision,
             before.as_ref(),
             after.as_ref(),
+            session_transitions,
             snapshot.clone(),
         ));
         let notifications = notify_subscribers(&mut subscribers, &event);

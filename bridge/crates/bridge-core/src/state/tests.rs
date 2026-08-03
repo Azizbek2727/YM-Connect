@@ -11,10 +11,13 @@ use std::{
 };
 
 use ym_connect_protocol::v1::{
-    BrowserDescriptor, CapabilitySet, DeviceDescriptor, SessionEstablished,
+    BrowserDescriptor, CapabilitySet, DeviceDescriptor, ProtocolVersion,
 };
 
-use crate::{state::*, BridgeConfig, BridgeConfigLayer, LogLevel};
+use crate::{
+    session::SessionRecordParts, state::*, BridgeConfig, BridgeConfigLayer, BridgeSession,
+    LogLevel, SessionLifecycleState, SessionMetadata, SessionRevision, SessionTimestamp,
+};
 
 type TestResult<T = ()> = Result<T, Box<dyn Error + Send + Sync>>;
 
@@ -33,11 +36,30 @@ fn device(identifier: impl Into<String>, display_name: impl Into<String>) -> Dev
     }
 }
 
-fn session(identifier: impl Into<String>) -> SessionEstablished {
-    SessionEstablished {
-        session_id: identifier.into(),
-        ..SessionEstablished::default()
-    }
+fn session(identifier: impl Into<String>) -> Result<BridgeSession, StateError> {
+    let session_id = SessionId::new(identifier.into())
+        .map_err(|error| StateError::rejected("state-test-session-id", error.to_string()))?;
+    let device_id = DeviceId::new("state-test-device")
+        .map_err(|error| StateError::rejected("state-test-device-id", error.to_string()))?;
+    let connector_id = ConnectorId::new("state-test-connector")
+        .map_err(|error| StateError::rejected("state-test-connector-id", error.to_string()))?;
+
+    Ok(BridgeSession::from_parts(SessionRecordParts {
+        session_id,
+        created_at: SessionTimestamp::from_unix_millis(1),
+        last_activity_at: SessionTimestamp::from_unix_millis(1),
+        lifecycle: SessionLifecycleState::Created,
+        device_id,
+        connector_id,
+        capabilities: CapabilitySet::default(),
+        protocol_version: ProtocolVersion {
+            major: 1,
+            minor: 0,
+            patch: 0,
+        },
+        revision: SessionRevision::INITIAL,
+        metadata: SessionMetadata::new(),
+    }))
 }
 
 fn connector(identifier: impl Into<String>) -> BrowserDescriptor {
@@ -180,8 +202,8 @@ fn identical_input_produces_identical_deterministic_snapshots() -> TestResult {
         store.update(|draft| {
             let _ = draft.devices_mut().insert(device("z-device", "Z"))?;
             let _ = draft.devices_mut().insert(device("a-device", "A"))?;
-            let _ = draft.sessions_mut().insert(session("session-b"))?;
-            let _ = draft.sessions_mut().insert(session("session-a"))?;
+            let _ = draft.sessions_mut().insert(session("session-b")?)?;
+            let _ = draft.sessions_mut().insert(session("session-a")?)?;
             Ok(())
         })?;
     }
@@ -214,12 +236,20 @@ fn registries_support_insert_lookup_iteration_and_empty_state() -> TestResult {
     assert!(devices.is_empty());
 
     let mutation = devices.insert(device("device-b", "B"))?;
-    assert_eq!(mutation, RegistryMutation::Inserted(DeviceId::new("device-b")?));
+    assert_eq!(
+        mutation,
+        RegistryMutation::Inserted(DeviceId::new("device-b")?)
+    );
     let _ = devices.insert(device("device-a", "A"))?;
 
     let key = DeviceId::new("device-a")?;
     assert!(devices.contains_key(&key));
-    assert_eq!(devices.get(&key).map(|entry| entry.display_name.as_str()), Some("A"));
+    assert_eq!(
+        devices
+            .get(&key)
+            .map(|entry| entry.display_name.as_str()),
+        Some("A")
+    );
     assert_eq!(
         devices.keys().map(DeviceId::as_str).collect::<Vec<_>>(),
         vec!["device-a", "device-b"]
@@ -236,7 +266,12 @@ fn registry_replacement_and_removal_are_explicit() -> TestResult {
 
     let replacement = devices.replace(device("device-a", "New"))?;
     assert_eq!(replacement, RegistryMutation::Replaced(key.clone()));
-    assert_eq!(devices.get(&key).map(|entry| entry.display_name.as_str()), Some("New"));
+    assert_eq!(
+        devices
+            .get(&key)
+            .map(|entry| entry.display_name.as_str()),
+        Some("New")
+    );
 
     let (removal, removed) = devices.remove(&key)?;
     assert_eq!(removal, RegistryMutation::Removed(key));
@@ -280,7 +315,7 @@ fn all_concrete_registries_accept_canonical_records() -> TestResult {
     let mut connectors = ConnectorRegistry::new();
     let mut capabilities = CapabilityRegistry::new();
 
-    let _ = sessions.insert(session("session-a"))?;
+    let _ = sessions.insert(session("session-a")?)?;
     let _ = connectors.insert(connector("connector-a"))?;
     let _ = capabilities.insert(CapabilityRegistration::new(
         CapabilityOwner::Bridge,
@@ -299,13 +334,13 @@ fn all_concrete_registries_accept_canonical_records() -> TestResult {
 
 #[test]
 fn invalid_canonical_identifiers_are_rejected() {
-    let mut sessions = SessionRegistry::new();
-    let result = sessions.insert(session(""));
+    let mut devices = DeviceRegistry::new();
+    let result = devices.insert(device("", "Invalid"));
 
     assert!(matches!(
         result,
         Err(ref error)
-            if error.registry() == RegistryKind::Sessions
+            if error.registry() == RegistryKind::Devices
                 && error.failure() == RegistryFailure::InvalidIdentifier
     ));
 }
@@ -344,7 +379,9 @@ fn subscribers_receive_notifications_in_revision_order() -> TestResult {
     for index in 0..20 {
         let identifier = format!("device-{index:02}");
         let _ = store.update(|draft| {
-            let _ = draft.devices_mut().insert(device(identifier, "Ordered"))?;
+            let _ = draft
+                .devices_mut()
+                .insert(device(identifier, "Ordered"))?;
             Ok(())
         })?;
     }
@@ -405,7 +442,10 @@ fn disconnected_subscribers_do_not_block_other_subscribers() -> TestResult {
         Ok(())
     })?;
 
-    assert_eq!(active.recv_timeout(Duration::from_secs(1))?.revision().get(), 1);
+    assert_eq!(
+        active.recv_timeout(Duration::from_secs(1))?.revision().get(),
+        1
+    );
     assert_eq!(update.notifications().delivered(), 1);
     assert_eq!(store.subscriber_count()?, 1);
     Ok(())
@@ -449,8 +489,14 @@ fn update_events_contain_consistent_committed_snapshots() -> TestResult {
     assert_eq!(event.snapshot(), update.snapshot());
     assert_eq!(event.snapshot(), &store.snapshot()?);
     assert_eq!(event.changes().len(), 2);
-    assert!(matches!(event.changes()[0], BridgeStateChange::Lifecycle { .. }));
-    assert!(matches!(event.changes()[1], BridgeStateChange::Devices(_)));
+    assert!(matches!(
+        event.changes()[0],
+        BridgeStateChange::Lifecycle { .. }
+    ));
+    assert!(matches!(
+        event.changes()[1],
+        BridgeStateChange::Devices(_)
+    ));
     Ok(())
 }
 
@@ -465,7 +511,10 @@ fn configuration_snapshot_updates_are_typed_and_immutable() -> TestResult {
     })?;
 
     assert_eq!(before.configuration(), &BridgeConfig::default());
-    assert_eq!(update.snapshot().configuration().logging().level(), LogLevel::Debug);
+    assert_eq!(
+        update.snapshot().configuration().logging().level(),
+        LogLevel::Debug
+    );
     assert!(matches!(
         update.event(),
         Some(event) if event.changes() == [BridgeStateChange::Configuration]
@@ -477,8 +526,10 @@ fn configuration_snapshot_updates_are_typed_and_immutable() -> TestResult {
 fn partial_updates_preserve_unmodified_subsystems() -> TestResult {
     let store = BridgeStateStore::default();
     let _ = store.update(|draft| {
-        let _ = draft.sessions_mut().insert(session("session-a"))?;
-        let _ = draft.connectors_mut().insert(connector("connector-a"))?;
+        let _ = draft.sessions_mut().insert(session("session-a")?)?;
+        let _ = draft
+            .connectors_mut()
+            .insert(connector("connector-a"))?;
         Ok(())
     })?;
     let before = store.snapshot()?;
@@ -526,7 +577,10 @@ fn rejected_updates_propagate_errors_without_committing() -> TestResult {
             if code.as_ref() == "policy" && message.as_ref() == "operation denied"
     ));
     assert_eq!(store.snapshot()?.revision(), StateRevision::INITIAL);
-    assert_eq!(store.snapshot()?.lifecycle(), BridgeLifecycleState::Initializing);
+    assert_eq!(
+        store.snapshot()?.lifecycle(),
+        BridgeLifecycleState::Initializing
+    );
     Ok(())
 }
 
@@ -588,7 +642,9 @@ fn concurrent_notification_order_matches_atomic_revision_order() -> TestResult {
             for item_index in 0..25 {
                 let identifier = format!("ordered-{worker_index}-{item_index}");
                 store.update(|draft| {
-                    let _ = draft.devices_mut().insert(device(identifier, "Ordered"))?;
+                    let _ = draft
+                        .devices_mut()
+                        .insert(device(identifier, "Ordered"))?;
                     Ok(())
                 })?;
             }
@@ -638,7 +694,9 @@ fn concurrent_read_write_stress_preserves_snapshot_invariants() -> TestResult {
     for index in 0..250 {
         let identifier = format!("stress-{index:03}");
         let _ = store.update(|draft| {
-            let _ = draft.devices_mut().insert(device(identifier, "Stress"))?;
+            let _ = draft
+                .devices_mut()
+                .insert(device(identifier, "Stress"))?;
             Ok(())
         })?;
     }
