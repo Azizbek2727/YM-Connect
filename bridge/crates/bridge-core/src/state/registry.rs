@@ -9,15 +9,17 @@ use ym_connect_protocol::v1::{
     BrowserDescriptor, CapabilitySet, DeviceDescriptor, SessionEstablished,
 };
 
-use super::{
-    CapabilityOwner, ConnectorId, DeviceId, SessionId, StateIdentifierError,
-};
+use super::{CapabilityOwner, ConnectorId, DeviceId, SessionId, StateIdentifierError};
 
 /// Registry contained by a Bridge state snapshot.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum RegistryKind {
     /// Active session registry.
     Sessions,
+    /// Pairing-session registry.
+    Pairings,
+    /// Immutable trusted-peer registry.
+    TrustedPeers,
     /// Known device registry.
     Devices,
     /// Browser connector registry.
@@ -32,6 +34,8 @@ impl fmt::Display for RegistryKind {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         formatter.write_str(match self {
             Self::Sessions => "sessions",
+            Self::Pairings => "pairings",
+            Self::TrustedPeers => "trusted peers",
             Self::Devices => "devices",
             Self::Connectors => "connectors",
             Self::Connections => "connections",
@@ -370,11 +374,7 @@ where
     ) -> Result<RegistryMutation<V::Key>, RegistryStateError> {
         let public_operation = operation.public();
         let key = value.registry_key().map_err(|identifier| {
-            RegistryStateError::invalid_identifier(
-                V::REGISTRY_KIND,
-                public_operation,
-                identifier,
-            )
+            RegistryStateError::invalid_identifier(V::REGISTRY_KIND, public_operation, identifier)
         })?;
         let existing = self.entries.get(&key);
 
