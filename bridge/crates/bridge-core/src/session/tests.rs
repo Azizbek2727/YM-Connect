@@ -105,14 +105,9 @@ fn restore_command(
     revision: u64,
 ) -> TestResult<RestoreSession> {
     Ok(RestoreSession::new(
-        session_id(identifier)?,
-        device(association_index)?,
-        connector(association_index)?,
-        capabilities(),
-        protocol_version(),
+        create_command(identifier, association_index, 1)?,
         lifecycle,
         SessionRevision::new(revision),
-        timestamp(1),
         timestamp(2),
         timestamp(3),
     ))
@@ -271,14 +266,16 @@ fn valid_session_restore_preserves_persisted_fields() -> TestResult {
 fn restore_rejects_invalid_timestamp_order_and_expiration() -> TestResult {
     let (manager, store) = setup(1)?;
     let invalid = RestoreSession::new(
-        session_id("invalid-time")?,
-        device(0)?,
-        connector(0)?,
-        capabilities(),
-        protocol_version(),
+        CreateSession::new(
+            session_id("invalid-time")?,
+            device(0)?,
+            connector(0)?,
+            capabilities(),
+            protocol_version(),
+            timestamp(5),
+        ),
         SessionLifecycleState::Active,
         SessionRevision::new(1),
-        timestamp(5),
         timestamp(4),
         timestamp(6),
     );
@@ -288,14 +285,16 @@ fn restore_rejects_invalid_timestamp_order_and_expiration() -> TestResult {
     ));
 
     let expired = RestoreSession::new(
-        session_id("expired")?,
-        device(0)?,
-        connector(0)?,
-        capabilities(),
-        protocol_version(),
+        CreateSession::new(
+            session_id("expired")?,
+            device(0)?,
+            connector(0)?,
+            capabilities(),
+            protocol_version(),
+            timestamp(1),
+        ),
         SessionLifecycleState::Active,
         SessionRevision::new(1),
-        timestamp(1),
         timestamp(2),
         timestamp(102),
     );
@@ -379,9 +378,15 @@ fn every_disallowed_lifecycle_transition_is_rejected() -> TestResult {
                 .with_lifecycle(requested),
             );
             if previous.is_terminal() {
-                assert!(matches!(result, Err(SessionManagerError::TerminalSession { .. })));
+                assert!(matches!(
+                    result,
+                    Err(SessionManagerError::TerminalSession { .. })
+                ));
             } else {
-                assert!(matches!(result, Err(SessionManagerError::InvalidTransition { .. })));
+                assert!(matches!(
+                    result,
+                    Err(SessionManagerError::InvalidTransition { .. })
+                ));
             }
             assert_eq!(store.snapshot()?, before);
         }
@@ -502,7 +507,11 @@ fn update_replaces_metadata_capabilities_and_protocol_version() -> TestResult {
     assert_eq!(updated.session().capabilities(), &replacement_capabilities);
     assert_eq!(updated.session().protocol_version(), &replacement_version);
     assert_eq!(
-        updated.session().metadata().get(&key).map(SessionMetadataValue::as_str),
+        updated
+            .session()
+            .metadata()
+            .get(&key)
+            .map(SessionMetadataValue::as_str),
         Some("en-US")
     );
     assert!(transition(updated.state_update()).is_err());
@@ -597,7 +606,10 @@ fn missing_session_operations_do_not_commit() -> TestResult {
         timestamp(10),
     ));
 
-    assert!(matches!(result, Err(SessionManagerError::SessionNotFound { .. })));
+    assert!(matches!(
+        result,
+        Err(SessionManagerError::SessionNotFound { .. })
+    ));
     assert_eq!(store.snapshot()?, before);
     Ok(())
 }
@@ -742,7 +754,13 @@ fn lifecycle_events_contain_required_typed_fields() -> TestResult {
     assert_eq!(creation.current(), Some(SessionLifecycleState::Created));
     assert_eq!(creation.session_revision(), SessionRevision::INITIAL);
     assert_eq!(creation.timestamp(), timestamp(10));
-    assert_eq!(created.state_update().event().map(BridgeStateEvent::revision), Some(StateRevision::new(2)));
+    assert_eq!(
+        created
+            .state_update()
+            .event()
+            .map(|event| event.revision().get()),
+        Some(2)
+    );
 
     let negotiating = manager.update_session(
         UpdateSession::new(
@@ -754,7 +772,10 @@ fn lifecycle_events_contain_required_typed_fields() -> TestResult {
     )?;
     let lifecycle = transition(negotiating.state_update())?;
     assert_eq!(lifecycle.previous(), Some(SessionLifecycleState::Created));
-    assert_eq!(lifecycle.current(), Some(SessionLifecycleState::Negotiating));
+    assert_eq!(
+        lifecycle.current(),
+        Some(SessionLifecycleState::Negotiating)
+    );
     assert_eq!(lifecycle.session_revision(), SessionRevision::new(1));
     assert_eq!(lifecycle.timestamp(), timestamp(11));
     Ok(())
@@ -779,7 +800,10 @@ fn rejected_transitions_emit_no_event_and_do_not_partially_update() -> TestResul
         .with_lifecycle(SessionLifecycleState::Active)
         .with_metadata(metadata),
     );
-    assert!(matches!(result, Err(SessionManagerError::InvalidTransition { .. })));
+    assert!(matches!(
+        result,
+        Err(SessionManagerError::InvalidTransition { .. })
+    ));
     assert_eq!(subscription.try_recv(), Err(StateReceiveError::Empty));
     assert_eq!(store.snapshot()?, before);
     assert!(manager
@@ -804,7 +828,10 @@ fn state_snapshots_remain_immutable_across_session_updates() -> TestResult {
     )?;
 
     assert_eq!(
-        before.sessions().get(&session_id("snapshot")?).map(BridgeSession::lifecycle),
+        before
+            .sessions()
+            .get(&session_id("snapshot")?)
+            .map(BridgeSession::lifecycle),
         Some(SessionLifecycleState::Created)
     );
     assert_eq!(
@@ -965,14 +992,23 @@ fn identical_operations_produce_deterministic_snapshots_and_events() -> TestResu
     )?;
 
     assert_eq!(first_store.snapshot()?, second_store.snapshot()?);
-    assert_eq!(first_updated.state_update().event(), second_updated.state_update().event());
+    assert_eq!(
+        first_updated.state_update().event(),
+        second_updated.state_update().event()
+    );
     Ok(())
 }
 
 #[test]
 fn metadata_container_and_policy_are_strongly_typed() -> TestResult {
-    assert_eq!(SessionDuration::from_millis(0), Err(SessionModelError::ZeroDuration));
-    assert_eq!(SessionMetadataKey::new(""), Err(SessionModelError::EmptyMetadataKey));
+    assert_eq!(
+        SessionDuration::from_millis(0),
+        Err(SessionModelError::ZeroDuration)
+    );
+    assert_eq!(
+        SessionMetadataKey::new(""),
+        Err(SessionModelError::EmptyMetadataKey)
+    );
 
     let timeout = SessionDuration::from_millis(250)?;
     let policy = SessionPolicy::new(timeout).with_unique_live_association(false);
