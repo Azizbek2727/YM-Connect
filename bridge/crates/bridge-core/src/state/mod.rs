@@ -9,7 +9,6 @@
 mod error;
 mod event;
 mod identifier;
-#[allow(clippy::missing_errors_doc)]
 mod registry;
 mod snapshot;
 mod store;
