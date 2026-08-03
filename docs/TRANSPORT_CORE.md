@@ -58,6 +58,11 @@ Both interfaces return `TransportFuture`, which is based exclusively on `std::fu
 Concrete implementations may use Tokio or another executor internally without exposing it through
 the core API.
 
+Concrete implementations report create, send, receive, and close failures through
+`TransportError::operation_failed`. The error carries `TransportId`, optional `ConnectionId`, typed
+`TransportOperation`, stable implementation-defined code, and diagnostic message without exposing
+a runtime-specific error type through the public contract.
+
 ## Message abstraction
 
 `TransportMessageEnvelope` contains:
