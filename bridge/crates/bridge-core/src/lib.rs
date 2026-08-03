@@ -46,6 +46,7 @@ pub use transport::{
     TransportConnectionSnapshot, TransportEndpoint, TransportEndpointAddress,
     TransportEndpointRole, TransportError, TransportEvent, TransportEventKind, TransportFactory,
     TransportFeature, TransportFuture, TransportManager, TransportMessageEnvelope,
-    TransportModelError, TransportMutation, TransportResult, TransportRevision, TransportState,
-    TransportStatistics, TransportTimestamp, UnbindTransportSession,
+    TransportModelError, TransportMutation, TransportOperation, TransportResult,
+    TransportRevision, TransportState, TransportStatistics, TransportTimestamp,
+    UnbindTransportSession,
 };
