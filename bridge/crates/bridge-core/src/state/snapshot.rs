@@ -277,8 +277,7 @@ impl BridgeStateDraft {
         &self.data.pairing_sessions
     }
 
-    /// Returns the mutable pairing-session registry.
-    pub const fn pairing_sessions_mut(&mut self) -> &mut PairingSessionRegistry {
+    pub(crate) const fn pairing_sessions_mut(&mut self) -> &mut PairingSessionRegistry {
         &mut self.data.pairing_sessions
     }
 
@@ -288,8 +287,7 @@ impl BridgeStateDraft {
         &self.data.trusted_peers
     }
 
-    /// Returns the mutable trusted-peer registry.
-    pub const fn trusted_peers_mut(&mut self) -> &mut TrustedPeerRegistry {
+    pub(crate) const fn trusted_peers_mut(&mut self) -> &mut TrustedPeerRegistry {
         &mut self.data.trusted_peers
     }
 
