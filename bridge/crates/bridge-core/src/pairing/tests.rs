@@ -147,7 +147,13 @@ fn create_and_send(manager: &PairingManager, id: &PairingId, challenge_id: &str)
         .unwrap_or_else(|error| panic!("send: {error}"));
 }
 
-fn verify(manager: &PairingManager, id: &PairingId, challenge_id: &str, device_id: &str, key_byte: u8) {
+fn verify(
+    manager: &PairingManager,
+    id: &PairingId,
+    challenge_id: &str,
+    device_id: &str,
+    key_byte: u8,
+) {
     create_and_send(manager, id, challenge_id);
     manager
         .receive_response(ReceivePairingResponse {
@@ -196,12 +202,36 @@ fn lifecycle_matrix_rejects_every_unlisted_edge_and_terminal_reuse() {
         for next in states {
             let legal = matches!(
                 (previous, next),
-                (PairingState::Idle, PairingState::ChallengeCreated | PairingState::Cancelled)
-                    | (PairingState::ChallengeCreated, PairingState::ChallengeSent | PairingState::Expired | PairingState::Cancelled)
-                    | (PairingState::ChallengeSent, PairingState::ResponseReceived | PairingState::Rejected | PairingState::Expired | PairingState::Cancelled)
-                    | (PairingState::ResponseReceived, PairingState::IdentityVerified | PairingState::Rejected | PairingState::Expired | PairingState::Cancelled)
-                    | (PairingState::IdentityVerified, PairingState::TrustEstablished | PairingState::Rejected | PairingState::Revoked | PairingState::Cancelled)
-                    | (PairingState::TrustEstablished, PairingState::Completed | PairingState::Revoked)
+                (
+                    PairingState::Idle,
+                    PairingState::ChallengeCreated | PairingState::Cancelled
+                ) | (
+                    PairingState::ChallengeCreated,
+                    PairingState::ChallengeSent
+                        | PairingState::Expired
+                        | PairingState::Cancelled
+                ) | (
+                    PairingState::ChallengeSent,
+                    PairingState::ResponseReceived
+                        | PairingState::Rejected
+                        | PairingState::Expired
+                        | PairingState::Cancelled
+                ) | (
+                    PairingState::ResponseReceived,
+                    PairingState::IdentityVerified
+                        | PairingState::Rejected
+                        | PairingState::Expired
+                        | PairingState::Cancelled
+                ) | (
+                    PairingState::IdentityVerified,
+                    PairingState::TrustEstablished
+                        | PairingState::Rejected
+                        | PairingState::Revoked
+                        | PairingState::Cancelled
+                ) | (
+                    PairingState::TrustEstablished,
+                    PairingState::Completed | PairingState::Revoked
+                )
             );
             assert_eq!(previous.can_transition_to(next), legal, "{previous:?} -> {next:?}");
         }
@@ -210,11 +240,11 @@ fn lifecycle_matrix_rejects_every_unlisted_edge_and_terminal_reuse() {
 
 #[test]
 fn duplicate_pairing_replay_and_stale_revision_roll_back() {
-    let manager = manager(false, false);
+    let pairing_manager = manager(false, false);
     let id = pairing_id("pairing-replay");
-    create_and_send(&manager, &id, "challenge-replay");
+    create_and_send(&pairing_manager, &id, "challenge-replay");
     assert!(matches!(
-        manager.create_session(CreatePairingSession {
+        pairing_manager.create_session(CreatePairingSession {
             pairing_id: id.clone(),
             bridge_identity: BridgeIdentity::new(
                 BridgeId::new("bridge-1").unwrap_or_else(|error| panic!("bridge: {error}")),
@@ -231,9 +261,11 @@ fn duplicate_pairing_replay_and_stale_revision_roll_back() {
         response: response("challenge-replay", "device-1", 8),
         received_at: PairingTimestamp::from_unix_millis(130),
     };
-    manager.receive_response(first.clone()).unwrap_or_else(|error| panic!("first: {error}"));
+    pairing_manager
+        .receive_response(first.clone())
+        .unwrap_or_else(|error| panic!("first: {error}"));
     assert!(matches!(
-        manager.receive_response(ReceivePairingResponse {
+        pairing_manager.receive_response(ReceivePairingResponse {
             expected_revision: PairingRevision::new(3),
             received_at: PairingTimestamp::from_unix_millis(131),
             ..first
@@ -241,18 +273,22 @@ fn duplicate_pairing_replay_and_stale_revision_roll_back() {
         Err(PairingError::ReplayDetected { .. })
     ));
     assert_eq!(
-        manager.lookup_session(&id).unwrap_or_else(|error| panic!("lookup: {error}")).unwrap_or_else(|| panic!("missing")).state(),
+        pairing_manager
+            .lookup_session(&id)
+            .unwrap_or_else(|error| panic!("lookup: {error}"))
+            .unwrap_or_else(|| panic!("missing"))
+            .state(),
         PairingState::ResponseReceived
     );
 }
 
 #[test]
 fn expiration_and_cancellation_are_terminal_and_deterministic() {
-    let manager = manager(false, false);
+    let pairing_manager = manager(false, false);
     let expired = pairing_id("expired");
-    create_and_send(&manager, &expired, "expired-challenge");
+    create_and_send(&pairing_manager, &expired, "expired-challenge");
     assert!(matches!(
-        manager.transition(TransitionPairing {
+        pairing_manager.transition(TransitionPairing {
             pairing_id: expired.clone(),
             expected_revision: PairingRevision::new(2),
             state: PairingState::Expired,
@@ -260,14 +296,16 @@ fn expiration_and_cancellation_are_terminal_and_deterministic() {
         }),
         Err(PairingError::ChallengeNotExpired { .. })
     ));
-    manager.transition(TransitionPairing {
-        pairing_id: expired.clone(),
-        expected_revision: PairingRevision::new(2),
-        state: PairingState::Expired,
-        timestamp: PairingTimestamp::from_unix_millis(1_110),
-    }).unwrap_or_else(|error| panic!("expire: {error}"));
+    pairing_manager
+        .transition(TransitionPairing {
+            pairing_id: expired.clone(),
+            expected_revision: PairingRevision::new(2),
+            state: PairingState::Expired,
+            timestamp: PairingTimestamp::from_unix_millis(1_110),
+        })
+        .unwrap_or_else(|error| panic!("expire: {error}"));
     assert!(matches!(
-        manager.transition(TransitionPairing {
+        pairing_manager.transition(TransitionPairing {
             pairing_id: expired,
             expected_revision: PairingRevision::new(3),
             state: PairingState::Cancelled,
@@ -279,11 +317,12 @@ fn expiration_and_cancellation_are_terminal_and_deterministic() {
 
 #[test]
 fn downgrade_invalid_signature_and_invalid_public_keys_are_rejected() {
-    let manager = manager(false, false);
+    let pairing_manager = manager(false, false);
     let id = pairing_id("security-validation");
-    create_and_send(&manager, &id, "security-challenge");
+    create_and_send(&pairing_manager, &id, "security-challenge");
     let downgraded = PairingResponse::new(
-        ChallengeId::new("security-challenge").unwrap_or_else(|error| panic!("challenge: {error}")),
+        ChallengeId::new("security-challenge")
+            .unwrap_or_else(|error| panic!("challenge: {error}")),
         PairingRequest::new(
             DeviceId::new("device-1").unwrap_or_else(|error| panic!("device: {error}")),
             key(8),
@@ -294,98 +333,137 @@ fn downgrade_invalid_signature_and_invalid_public_keys_are_rejected() {
         Arc::<[u8]>::from(&b"valid-signature"[..]),
         PairingConfirmationTag::new([7; 16]).unwrap_or_else(|error| panic!("tag: {error}")),
     );
-    assert!(matches!(manager.receive_response(ReceivePairingResponse {
-        pairing_id: id,
-        expected_revision: PairingRevision::new(2),
-        response: downgraded,
-        received_at: PairingTimestamp::from_unix_millis(130),
-    }), Err(PairingError::ProtocolDowngrade)));
+    assert!(matches!(
+        pairing_manager.receive_response(ReceivePairingResponse {
+            pairing_id: id,
+            expected_revision: PairingRevision::new(2),
+            response: downgraded,
+            received_at: PairingTimestamp::from_unix_millis(130),
+        }),
+        Err(PairingError::ProtocolDowngrade)
+    ));
 
     let invalid_manager = manager(false, false);
     let invalid_id = pairing_id("invalid-key");
     create_and_send(&invalid_manager, &invalid_id, "invalid-key-challenge");
-    invalid_manager.receive_response(ReceivePairingResponse {
-        pairing_id: invalid_id.clone(),
-        expected_revision: PairingRevision::new(2),
-        response: response("invalid-key-challenge", "device-invalid", 0),
-        received_at: PairingTimestamp::from_unix_millis(130),
-    }).unwrap_or_else(|error| panic!("response: {error}"));
-    assert!(matches!(invalid_manager.verify_identity(VerifyPairingIdentity {
-        pairing_id: invalid_id,
-        expected_revision: PairingRevision::new(3),
-        verified_at: PairingTimestamp::from_unix_millis(140),
-    }), Err(PairingError::InvalidPublicKey { .. })));
+    invalid_manager
+        .receive_response(ReceivePairingResponse {
+            pairing_id: invalid_id.clone(),
+            expected_revision: PairingRevision::new(2),
+            response: response("invalid-key-challenge", "device-invalid", 0),
+            received_at: PairingTimestamp::from_unix_millis(130),
+        })
+        .unwrap_or_else(|error| panic!("response: {error}"));
+    assert!(matches!(
+        invalid_manager.verify_identity(VerifyPairingIdentity {
+            pairing_id: invalid_id,
+            expected_revision: PairingRevision::new(3),
+            verified_at: PairingTimestamp::from_unix_millis(140),
+        }),
+        Err(PairingError::InvalidPublicKey { .. })
+    ));
 }
 
 #[test]
 fn trust_establishment_revocation_and_events_are_atomic() {
-    let manager = manager(false, false);
+    let pairing_manager = manager(false, false);
     let id = pairing_id("trust-flow");
-    verify(&manager, &id, "trust-challenge", "device-trust", 8);
-    let trust = manager.establish_trust(EstablishPairingTrust {
-        pairing_id: id.clone(),
-        expected_revision: PairingRevision::new(4),
-        decision: TrustDecision::Trust,
-        metadata: TrustMetadata::new(),
-        trusted_at: PairingTimestamp::from_unix_millis(150),
-    }).unwrap_or_else(|error| panic!("trust: {error}"));
+    verify(&pairing_manager, &id, "trust-challenge", "device-trust", 8);
+    let trust = pairing_manager
+        .establish_trust(EstablishPairingTrust {
+            pairing_id: id.clone(),
+            expected_revision: PairingRevision::new(4),
+            decision: TrustDecision::Trust,
+            metadata: TrustMetadata::new(),
+            trusted_at: PairingTimestamp::from_unix_millis(150),
+        })
+        .unwrap_or_else(|error| panic!("trust: {error}"));
     assert_eq!(trust.session().state(), PairingState::TrustEstablished);
     assert!(!trust.trusted_peer().is_revoked());
     assert!(trust.state_update().event().is_some_and(|event| {
-        event.changes().iter().any(|change| matches!(change, BridgeStateChange::Pairing(_)))
+        event
+            .changes()
+            .iter()
+            .any(|change| matches!(change, BridgeStateChange::Pairing(_)))
     }));
-    let device_id = DeviceId::new("device-trust").unwrap_or_else(|error| panic!("device: {error}"));
-    let revoked = manager.revoke_trusted_peer(RevokeTrustedPeer {
-        device_id: device_id.clone(),
-        expected_revision: PairingRevision::INITIAL,
-        revoked_at: PairingTimestamp::from_unix_millis(160),
-    }).unwrap_or_else(|error| panic!("revoke: {error}"));
-    assert!(revoked.snapshot().trusted_peers().get(&device_id).is_some_and(crate::TrustedPeer::is_revoked));
-    assert_eq!(revoked.snapshot().pairing_sessions().get(&id).map(crate::PairingSession::state), Some(PairingState::Revoked));
+    let device_id =
+        DeviceId::new("device-trust").unwrap_or_else(|error| panic!("device: {error}"));
+    let revoked = pairing_manager
+        .revoke_trusted_peer(RevokeTrustedPeer {
+            device_id: device_id.clone(),
+            expected_revision: PairingRevision::INITIAL,
+            revoked_at: PairingTimestamp::from_unix_millis(160),
+        })
+        .unwrap_or_else(|error| panic!("revoke: {error}"));
+    assert!(
+        revoked
+            .snapshot()
+            .trusted_peers()
+            .get(&device_id)
+            .is_some_and(crate::TrustedPeer::is_revoked)
+    );
+    assert_eq!(
+        revoked
+            .snapshot()
+            .pairing_sessions()
+            .get(&id)
+            .map(crate::PairingSession::state),
+        Some(PairingState::Revoked)
+    );
 }
 
 #[test]
 fn duplicate_identity_and_replacement_policy_are_enforced() {
-    let manager = manager(false, false);
+    let pairing_manager = manager(false, false);
     let first = pairing_id("first-trust");
-    verify(&manager, &first, "first-challenge", "device-one", 8);
-    manager.establish_trust(EstablishPairingTrust {
-        pairing_id: first,
-        expected_revision: PairingRevision::new(4),
-        decision: TrustDecision::Trust,
-        metadata: TrustMetadata::new(),
-        trusted_at: PairingTimestamp::from_unix_millis(150),
-    }).unwrap_or_else(|error| panic!("first trust: {error}"));
+    verify(&pairing_manager, &first, "first-challenge", "device-one", 8);
+    pairing_manager
+        .establish_trust(EstablishPairingTrust {
+            pairing_id: first,
+            expected_revision: PairingRevision::new(4),
+            decision: TrustDecision::Trust,
+            metadata: TrustMetadata::new(),
+            trusted_at: PairingTimestamp::from_unix_millis(150),
+        })
+        .unwrap_or_else(|error| panic!("first trust: {error}"));
     let second = pairing_id("second-trust");
-    verify(&manager, &second, "second-challenge", "device-two", 8);
-    assert!(matches!(manager.establish_trust(EstablishPairingTrust {
-        pairing_id: second,
-        expected_revision: PairingRevision::new(4),
-        decision: TrustDecision::Trust,
-        metadata: TrustMetadata::new(),
-        trusted_at: PairingTimestamp::from_unix_millis(151),
-    }), Err(PairingError::DuplicateIdentityKey { .. })));
+    verify(&pairing_manager, &second, "second-challenge", "device-two", 8);
+    assert!(matches!(
+        pairing_manager.establish_trust(EstablishPairingTrust {
+            pairing_id: second,
+            expected_revision: PairingRevision::new(4),
+            decision: TrustDecision::Trust,
+            metadata: TrustMetadata::new(),
+            trusted_at: PairingTimestamp::from_unix_millis(151),
+        }),
+        Err(PairingError::DuplicateIdentityKey { .. })
+    ));
 }
 
 #[test]
 fn concurrent_creation_and_stale_trust_updates_have_one_winner() {
-    let manager = Arc::new(manager(false, false));
+    let pairing_manager = Arc::new(manager(false, false));
     let mut handles = Vec::new();
     for _ in 0..8 {
-        let manager = Arc::clone(&manager);
-        handles.push(thread::spawn(move || manager.create_session(CreatePairingSession {
-            pairing_id: pairing_id("concurrent"),
-            bridge_identity: BridgeIdentity::new(
-                BridgeId::new("bridge-1").unwrap_or_else(|error| panic!("bridge: {error}")),
-                key(1),
-            ),
-            session_id: None,
-            created_at: PairingTimestamp::from_unix_millis(100),
-        })));
+        let pairing_manager = Arc::clone(&pairing_manager);
+        handles.push(thread::spawn(move || {
+            pairing_manager.create_session(CreatePairingSession {
+                pairing_id: pairing_id("concurrent"),
+                bridge_identity: BridgeIdentity::new(
+                    BridgeId::new("bridge-1")
+                        .unwrap_or_else(|error| panic!("bridge: {error}")),
+                    key(1),
+                ),
+                session_id: None,
+                created_at: PairingTimestamp::from_unix_millis(100),
+            })
+        }));
     }
-    let successes = handles.into_iter().filter(|handle| {
-        handle.join().unwrap_or_else(|_| panic!("thread panicked")).is_ok()
-    }).count();
+    let successes = handles
+        .into_iter()
+        .map(|handle| handle.join().unwrap_or_else(|_| panic!("thread panicked")))
+        .filter(Result::is_ok)
+        .count();
     assert_eq!(successes, 1);
 }
 
@@ -393,21 +471,28 @@ fn concurrent_creation_and_stale_trust_updates_have_one_winner() {
 fn snapshots_lists_and_events_are_deterministic() {
     let first = manager(false, false);
     let second = manager(false, false);
-    for manager in [&first, &second] {
+    for pairing_manager in [&first, &second] {
         for value in ["pairing-b", "pairing-a"] {
-            manager.create_session(CreatePairingSession {
-                pairing_id: pairing_id(value),
-                bridge_identity: BridgeIdentity::new(
-                    BridgeId::new("bridge-1").unwrap_or_else(|error| panic!("bridge: {error}")),
-                    key(1),
-                ),
-                session_id: None,
-                created_at: PairingTimestamp::from_unix_millis(100),
-            }).unwrap_or_else(|error| panic!("create: {error}"));
+            pairing_manager
+                .create_session(CreatePairingSession {
+                    pairing_id: pairing_id(value),
+                    bridge_identity: BridgeIdentity::new(
+                        BridgeId::new("bridge-1")
+                            .unwrap_or_else(|error| panic!("bridge: {error}")),
+                        key(1),
+                    ),
+                    session_id: None,
+                    created_at: PairingTimestamp::from_unix_millis(100),
+                })
+                .unwrap_or_else(|error| panic!("create: {error}"));
         }
     }
-    let first_sessions = first.list_sessions().unwrap_or_else(|error| panic!("list: {error}"));
-    let second_sessions = second.list_sessions().unwrap_or_else(|error| panic!("list: {error}"));
+    let first_sessions = first
+        .list_sessions()
+        .unwrap_or_else(|error| panic!("list: {error}"));
+    let second_sessions = second
+        .list_sessions()
+        .unwrap_or_else(|error| panic!("list: {error}"));
     assert_eq!(first_sessions, second_sessions);
     assert_eq!(first_sessions[0].id().as_str(), "pairing-a");
 }
