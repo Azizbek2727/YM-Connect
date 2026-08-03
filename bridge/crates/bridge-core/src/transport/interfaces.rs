@@ -31,13 +31,13 @@ pub trait TransportConnection: fmt::Debug + Send + Sync + 'static {
     fn statistics(&self) -> TransportStatistics;
 
     /// Sends one opaque transport envelope.
-    fn send<'a>(&'a self, envelope: TransportMessageEnvelope) -> TransportFuture<'a, ()>;
+    fn send(&self, envelope: TransportMessageEnvelope) -> TransportFuture<'_, ()>;
 
     /// Receives one opaque transport envelope.
-    fn receive<'a>(&'a self) -> TransportFuture<'a, TransportMessageEnvelope>;
+    fn receive(&self) -> TransportFuture<'_, TransportMessageEnvelope>;
 
     /// Requests graceful closure of the concrete connection.
-    fn close<'a>(&'a self) -> TransportFuture<'a, ()>;
+    fn close(&self) -> TransportFuture<'_, ()>;
 }
 
 /// Runtime-independent factory contract implemented by each concrete transport.
@@ -52,9 +52,9 @@ pub trait TransportFactory: fmt::Debug + Send + Sync + 'static {
     fn capabilities(&self) -> &TransportCapabilities;
 
     /// Creates one concrete connection for an endpoint descriptor.
-    fn create<'a>(
-        &'a self,
+    fn create(
+        &self,
         connection_id: ConnectionId,
         endpoint: TransportEndpoint,
-    ) -> TransportFuture<'a, Arc<dyn TransportConnection>>;
+    ) -> TransportFuture<'_, Arc<dyn TransportConnection>>;
 }
