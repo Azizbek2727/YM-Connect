@@ -11,10 +11,13 @@ use std::{
 };
 
 use ym_connect_protocol::v1::{
-    BrowserDescriptor, CapabilitySet, DeviceDescriptor, SessionEstablished,
+    BrowserDescriptor, CapabilitySet, DeviceDescriptor, ProtocolVersion,
 };
 
-use crate::{state::*, BridgeConfig, BridgeConfigLayer, LogLevel};
+use crate::{
+    session::SessionRecordParts, state::*, BridgeConfig, BridgeConfigLayer, BridgeSession,
+    LogLevel, SessionLifecycleState, SessionMetadata, SessionRevision, SessionTimestamp,
+};
 
 type TestResult<T = ()> = Result<T, Box<dyn Error + Send + Sync>>;
 
@@ -33,11 +36,23 @@ fn device(identifier: impl Into<String>, display_name: impl Into<String>) -> Dev
     }
 }
 
-fn session(identifier: impl Into<String>) -> SessionEstablished {
-    SessionEstablished {
-        session_id: identifier.into(),
-        ..SessionEstablished::default()
-    }
+fn session(identifier: impl Into<String>) -> TestResult<BridgeSession> {
+    Ok(BridgeSession::from_parts(SessionRecordParts {
+        session_id: SessionId::new(identifier.into())?,
+        created_at: SessionTimestamp::from_unix_millis(1),
+        last_activity_at: SessionTimestamp::from_unix_millis(1),
+        lifecycle: SessionLifecycleState::Created,
+        device_id: DeviceId::new("state-test-device")?,
+        connector_id: ConnectorId::new("state-test-connector")?,
+        capabilities: CapabilitySet::default(),
+        protocol_version: ProtocolVersion {
+            major: 1,
+            minor: 0,
+            patch: 0,
+        },
+        revision: SessionRevision::INITIAL,
+        metadata: SessionMetadata::new(),
+    }))
 }
 
 fn connector(identifier: impl Into<String>) -> BrowserDescriptor {
@@ -180,8 +195,8 @@ fn identical_input_produces_identical_deterministic_snapshots() -> TestResult {
         store.update(|draft| {
             let _ = draft.devices_mut().insert(device("z-device", "Z"))?;
             let _ = draft.devices_mut().insert(device("a-device", "A"))?;
-            let _ = draft.sessions_mut().insert(session("session-b"))?;
-            let _ = draft.sessions_mut().insert(session("session-a"))?;
+            let _ = draft.sessions_mut().insert(session("session-b")?)?;
+            let _ = draft.sessions_mut().insert(session("session-a")?)?;
             Ok(())
         })?;
     }
@@ -280,7 +295,7 @@ fn all_concrete_registries_accept_canonical_records() -> TestResult {
     let mut connectors = ConnectorRegistry::new();
     let mut capabilities = CapabilityRegistry::new();
 
-    let _ = sessions.insert(session("session-a"))?;
+    let _ = sessions.insert(session("session-a")?)?;
     let _ = connectors.insert(connector("connector-a"))?;
     let _ = capabilities.insert(CapabilityRegistration::new(
         CapabilityOwner::Bridge,
@@ -299,13 +314,13 @@ fn all_concrete_registries_accept_canonical_records() -> TestResult {
 
 #[test]
 fn invalid_canonical_identifiers_are_rejected() {
-    let mut sessions = SessionRegistry::new();
-    let result = sessions.insert(session(""));
+    let mut devices = DeviceRegistry::new();
+    let result = devices.insert(device("", "Invalid"));
 
     assert!(matches!(
         result,
         Err(ref error)
-            if error.registry() == RegistryKind::Sessions
+            if error.registry() == RegistryKind::Devices
                 && error.failure() == RegistryFailure::InvalidIdentifier
     ));
 }
@@ -477,7 +492,7 @@ fn configuration_snapshot_updates_are_typed_and_immutable() -> TestResult {
 fn partial_updates_preserve_unmodified_subsystems() -> TestResult {
     let store = BridgeStateStore::default();
     let _ = store.update(|draft| {
-        let _ = draft.sessions_mut().insert(session("session-a"))?;
+        let _ = draft.sessions_mut().insert(session("session-a")?)?;
         let _ = draft.connectors_mut().insert(connector("connector-a"))?;
         Ok(())
     })?;
