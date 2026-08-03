@@ -939,7 +939,7 @@ fn normalize_capabilities(
 }
 
 fn validate_capability_list(
-    values: &mut Vec<i32>,
+    values: &mut [i32],
     list: SessionCapabilityList,
 ) -> Result<(), SessionManagerError> {
     for value in values.iter().copied() {
