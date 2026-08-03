@@ -450,7 +450,7 @@ fn challenge_freshness_expiration_and_terminal_states_are_enforced() -> TestResu
 }
 
 #[test]
-fn invalid_keys_signatures_versions_and_downgrades_are_rejected() -> TestResult {
+fn invalid_versions_and_downgrades_are_rejected() -> TestResult {
     let (_store, manager) = new_manager(false, false)?;
 
     let downgrade_pairing = pairing_id("pairing-downgrade")?;
@@ -504,6 +504,12 @@ fn invalid_keys_signatures_versions_and_downgrades_are_rejected() -> TestResult 
         unsupported,
         Err(PairingError::UnsupportedProtocolVersion)
     ));
+    Ok(())
+}
+
+#[test]
+fn invalid_public_keys_and_signatures_are_rejected() -> TestResult {
+    let (_store, manager) = new_manager(false, false)?;
 
     let invalid_key_pairing = pairing_id("pairing-invalid-key")?;
     create_and_send(&manager, &invalid_key_pairing, "challenge-invalid-key")?;
