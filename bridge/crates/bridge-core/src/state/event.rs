@@ -17,11 +17,7 @@ pub struct RegistryDelta<K> {
 
 impl<K> RegistryDelta<K> {
     fn new(inserted: Vec<K>, replaced: Vec<K>, removed: Vec<K>) -> Self {
-        Self {
-            inserted: inserted.into(),
-            replaced: replaced.into(),
-            removed: removed.into(),
-        }
+        Self { inserted: inserted.into(), replaced: replaced.into(), removed: removed.into() }
     }
 
     /// Returns inserted keys in deterministic order.
@@ -208,11 +204,11 @@ fn pairing_events_between(before: &BridgeStateData, after: &BridgeStateData) -> 
         }
     }
     events.sort_by(|left, right| {
-        left.pairing_id().map(PairingId::as_str).cmp(&right.pairing_id().map(PairingId::as_str))
+        left.sort_rank().cmp(&right.sort_rank())
+            .then_with(|| left.pairing_id().map(PairingId::as_str).cmp(&right.pairing_id().map(PairingId::as_str)))
             .then_with(|| left.device_id().map(DeviceId::as_str).cmp(&right.device_id().map(DeviceId::as_str)))
             .then_with(|| left.timestamp().cmp(&right.timestamp()))
             .then_with(|| left.revision().cmp(&right.revision()))
-            .then_with(|| left.sort_rank().cmp(&right.sort_rank()))
     });
     events
 }
