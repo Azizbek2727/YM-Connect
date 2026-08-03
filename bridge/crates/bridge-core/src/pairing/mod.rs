@@ -13,6 +13,7 @@ mod event;
 mod manager;
 #[path = "model_v2.rs"]
 mod model;
+mod rust_crypto;
 
 pub use crypto::PairingCryptoProvider;
 pub use error::{PairingError, PairingResult};
@@ -28,6 +29,9 @@ pub use model::{
     PairingPolicy, PairingPublicKey, PairingRequest, PairingResponse, PairingRevision,
     PairingSession, PairingState, PairingTimestamp, TrustDecision, TrustMetadata,
     TrustMetadataKey, TrustMetadataValue, TrustedPeer,
+};
+pub use rust_crypto::{
+    PairingEphemeralSecret, PairingEphemeralSecretSource, RustCryptoPairingProvider,
 };
 
 #[cfg(test)]
