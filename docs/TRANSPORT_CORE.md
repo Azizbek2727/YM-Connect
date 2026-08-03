@@ -40,6 +40,10 @@ types and participate in deterministic ordering.
 Only the matching concrete `TransportFactory` interprets the opaque address. Transport Core does
 not parse URLs, native-host names, Android identifiers, socket addresses, or platform handles.
 
+Endpoint addresses are stored in Bridge State snapshots and may be visible to state observers. They
+must contain non-secret routing identity only. Credentials, bearer tokens, keys, and other secret
+material belong in the future concrete transport's protected configuration or trust storage.
+
 ## I/O interfaces
 
 `TransportConnection` is an object-safe, `Send + Sync` contract for:
@@ -63,6 +67,10 @@ Concrete implementations report create, send, receive, and close failures throug
 `TransportOperation`, stable implementation-defined code, and diagnostic message without exposing
 a runtime-specific error type through the public contract.
 
+The future runtime orchestrator is responsible for constructing a state record from the same
+endpoint and capability declaration exposed by its selected factory. Transport Core intentionally
+does not couple factory I/O with Bridge State transactions.
+
 ## Message abstraction
 
 `TransportMessageEnvelope` contains:
@@ -71,7 +79,7 @@ a runtime-specific error type through the public contract.
 - an immutable opaque byte payload.
 
 The payload has no transport-level encoding semantics. Protocol serialization, Protocol Buffer
-encoding, WebSocket framing, Native Messaging packetization, compression, and encryption remain
+encoding, WebSocket framing, Native Messaging packet framing, compression, and encryption remain
 outside Transport Core.
 
 ## Capabilities
