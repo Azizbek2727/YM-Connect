@@ -3,10 +3,10 @@ use std::sync::Arc;
 use ym_connect_protocol::v1::{CapabilitySet, ProtocolVersion};
 
 use crate::{
-    BridgeStateDraft, BridgeStateStore, ChallengeId, DeviceId, PairingCapabilities,
-    PairingChallenge, PairingCryptoProvider, PairingError, PairingId, PairingPolicy,
-    PairingRequest, PairingResponse, PairingResult, PairingRevision, PairingSession, PairingState,
-    PairingTimestamp, SessionId, StateUpdate, TrustDecision, TrustMetadata, TrustedPeer,
+    BridgeStateDraft, BridgeStateStore, DeviceId, PairingCapabilities, PairingChallenge,
+    PairingCryptoProvider, PairingError, PairingId, PairingPolicy, PairingRequest, PairingResponse,
+    PairingResult, PairingRevision, PairingSession, PairingState, PairingTimestamp, SessionId,
+    StateUpdate, TrustDecision, TrustMetadata, TrustedPeer,
 };
 
 /// Read-only abstraction over immutable trusted-peer snapshots.
@@ -23,12 +23,11 @@ impl TrustStore for BridgeStateStore {
     }
 
     fn list_trusted_peers(&self) -> PairingResult<Vec<Arc<TrustedPeer>>> {
-        Ok(self
-            .snapshot()?
+        let snapshot = self.snapshot()?;
+        Ok(snapshot
             .trusted_peers()
-            .values()
-            .cloned()
-            .map(Arc::new)
+            .keys()
+            .filter_map(|key| snapshot.trusted_peers().get_shared(key))
             .collect())
     }
 }
@@ -185,6 +184,7 @@ impl PairingManager {
 
     /// Creates an idle pairing session.
     pub fn create_session(&self, command: CreatePairingSession) -> PairingResult<PairingMutation> {
+        self.crypto.validate_ed25519_public_key(command.bridge_identity.identity_key())?;
         let id = command.pairing_id.clone();
         let update = self.state.update_with(|draft| {
             if draft.pairing_sessions().contains_key(&id) {
@@ -210,6 +210,13 @@ impl PairingManager {
     pub fn create_challenge(&self, command: CreatePairingChallenge) -> PairingResult<PairingMutation> {
         self.crypto.validate_x25519_public_key(command.challenge.bridge_ephemeral_key())?;
         let id = command.pairing_id.clone();
+        let expected_expiry = command.challenge.created_at().as_unix_millis()
+            .checked_add(self.policy.challenge_lifetime_ms())
+            .ok_or_else(|| PairingError::InvalidChallengeLifetime { pairing_id: id.clone() })?;
+        if command.challenge.expires_at().as_unix_millis() != expected_expiry {
+            return Err(PairingError::InvalidChallengeLifetime { pairing_id: id });
+        }
+        let id = command.pairing_id.clone();
         let challenge_id = command.challenge.id().clone();
         let update = self.state.update_with(|draft| {
             if draft.pairing_sessions().values().any(|session| {
@@ -220,9 +227,13 @@ impl PairingManager {
             let current = required(draft, &id)?;
             validate_revision_time(current.as_ref(), command.expected_revision, command.challenge.created_at())?;
             validate_transition(current.as_ref(), PairingState::ChallengeCreated)?;
-            let next = current
-                .next(PairingState::ChallengeCreated, command.challenge.created_at(), Some(command.challenge.clone()), None, false)
-                .ok_or(PairingError::RevisionExhausted)?;
+            let next = current.next(
+                PairingState::ChallengeCreated,
+                command.challenge.created_at(),
+                Some(command.challenge.clone()),
+                None,
+                false,
+            ).ok_or(PairingError::RevisionExhausted)?;
             draft.pairing_sessions_mut().replace(next)?;
             Ok(())
         })?;
@@ -239,13 +250,11 @@ impl PairingManager {
             if command.state == PairingState::Expired {
                 let challenge = current.challenge().ok_or_else(|| PairingError::state_invariant("expiration requires a challenge"))?;
                 if !challenge.is_expired(command.timestamp) {
-                    return Err(PairingError::ChallengeNotExpired {
-                        pairing_id: id.clone(),
-                        challenge_id: challenge.id().clone(),
-                    });
+                    return Err(PairingError::ChallengeNotExpired { pairing_id: id.clone(), challenge_id: challenge.id().clone() });
                 }
             }
-            let next = current.next(command.state, command.timestamp, None, None, false).ok_or(PairingError::RevisionExhausted)?;
+            let next = current.next(command.state, command.timestamp, None, None, false)
+                .ok_or(PairingError::RevisionExhausted)?;
             draft.pairing_sessions_mut().replace(next)?;
             Ok(())
         })?;
@@ -258,11 +267,11 @@ impl PairingManager {
         let update = self.state.update_with(|draft| {
             let current = required(draft, &id)?;
             validate_revision_time(current.as_ref(), command.expected_revision, command.received_at)?;
-            validate_transition(current.as_ref(), PairingState::ResponseReceived)?;
             let challenge = current.challenge().ok_or_else(|| PairingError::state_invariant("response requires a challenge"))?;
             if current.challenge_consumed() {
                 return Err(PairingError::ReplayDetected { pairing_id: id.clone(), challenge_id: challenge.id().clone() });
             }
+            validate_transition(current.as_ref(), PairingState::ResponseReceived)?;
             if challenge.id() != command.response.challenge_id() {
                 return Err(PairingError::ChallengeMismatch {
                     pairing_id: id.clone(),
@@ -280,9 +289,13 @@ impl PairingManager {
             {
                 return Err(PairingError::MissingSession { session_id: session_id.clone() });
             }
-            let next = current
-                .next(PairingState::ResponseReceived, command.received_at, None, Some(command.response.clone()), true)
-                .ok_or(PairingError::RevisionExhausted)?;
+            let next = current.next(
+                PairingState::ResponseReceived,
+                command.received_at,
+                None,
+                Some(command.response.clone()),
+                true,
+            ).ok_or(PairingError::RevisionExhausted)?;
             draft.pairing_sessions_mut().replace(next)?;
             Ok(())
         })?;
@@ -353,7 +366,8 @@ impl PairingManager {
                 trust_revision,
             );
             draft.trusted_peers_mut().upsert(peer)?;
-            let next = current.next(PairingState::TrustEstablished, command.trusted_at, None, None, false).ok_or(PairingError::RevisionExhausted)?;
+            let next = current.next(PairingState::TrustEstablished, command.trusted_at, None, None, false)
+                .ok_or(PairingError::RevisionExhausted)?;
             draft.pairing_sessions_mut().replace(next)?;
             Ok(())
         })?;
@@ -365,7 +379,7 @@ impl PairingManager {
         Ok(TrustMutation { session, peer, update })
     }
 
-    /// Revokes a trusted peer.
+    /// Revokes a trusted peer and any trust-established pairing aggregates atomically.
     pub fn revoke_trusted_peer(&self, command: RevokeTrustedPeer) -> PairingResult<StateUpdate> {
         self.state.update_with(|draft| {
             let current = draft.trusted_peers().get_shared(&command.device_id)
@@ -387,7 +401,23 @@ impl PairingManager {
                     requested: command.revoked_at,
                 });
             }
-            draft.trusted_peers_mut().replace(current.revoked(command.revoked_at).ok_or(PairingError::RevisionExhausted)?)?;
+            draft.trusted_peers_mut().replace(
+                current.revoked(command.revoked_at).ok_or(PairingError::RevisionExhausted)?,
+            )?;
+            let affected = draft.pairing_sessions().values()
+                .filter(|session| {
+                    session.state() == PairingState::TrustEstablished
+                        && session.request().is_some_and(|request| request.device_id() == &command.device_id)
+                })
+                .map(|session| session.id().clone())
+                .collect::<Vec<_>>();
+            for pairing_id in affected {
+                let session = draft.pairing_sessions().get_shared(&pairing_id)
+                    .ok_or_else(|| PairingError::state_invariant("revocation pairing disappeared"))?;
+                let next = session.next(PairingState::Revoked, command.revoked_at, None, None, false)
+                    .ok_or(PairingError::RevisionExhausted)?;
+                draft.pairing_sessions_mut().replace(next)?;
+            }
             Ok(())
         })
     }
@@ -399,12 +429,16 @@ impl PairingManager {
 
     /// Lists pairing sessions in deterministic order.
     pub fn list_sessions(&self) -> PairingResult<Vec<Arc<PairingSession>>> {
-        Ok(self.state.snapshot()?.pairing_sessions().values().cloned().map(Arc::new).collect())
+        let snapshot = self.state.snapshot()?;
+        Ok(snapshot.pairing_sessions().keys()
+            .filter_map(|key| snapshot.pairing_sessions().get_shared(key))
+            .collect())
     }
 }
 
 fn required(draft: &BridgeStateDraft, id: &PairingId) -> PairingResult<Arc<PairingSession>> {
-    draft.pairing_sessions().get_shared(id).ok_or_else(|| PairingError::PairingNotFound { pairing_id: id.clone() })
+    draft.pairing_sessions().get_shared(id)
+        .ok_or_else(|| PairingError::PairingNotFound { pairing_id: id.clone() })
 }
 
 fn validate_revision_time(session: &PairingSession, expected: PairingRevision, at: PairingTimestamp) -> PairingResult<()> {
@@ -430,15 +464,21 @@ fn validate_transition(session: &PairingSession, requested: PairingState) -> Pai
 fn validate_protocol(policy: &PairingPolicy, request: &PairingRequest) -> PairingResult<()> {
     let local = policy.protocol_version();
     let remote = request.protocol_version();
-    if remote.major != local.major { return Err(PairingError::UnsupportedProtocolVersion); }
-    if tuple(remote) < tuple(local) { return Err(PairingError::ProtocolDowngrade); }
+    if remote.major != local.major || tuple(remote) > tuple(local) {
+        return Err(PairingError::UnsupportedProtocolVersion);
+    }
+    if tuple(remote) < tuple(local) {
+        return Err(PairingError::ProtocolDowngrade);
+    }
     Ok(())
 }
 
 fn negotiate(policy: &PairingPolicy, request: &PairingRequest) -> PairingResult<PairingCapabilities> {
     let local = policy.capabilities().canonical();
     let remote = request.capabilities().canonical();
-    let supported = local.supported.iter().copied().filter(|value| remote.supported.binary_search(value).is_ok()).collect::<Vec<_>>();
+    let supported = local.supported.iter().copied()
+        .filter(|value| remote.supported.binary_search(value).is_ok())
+        .collect::<Vec<_>>();
     if local.required.iter().any(|value| supported.binary_search(value).is_err())
         || remote.required.iter().any(|value| supported.binary_search(value).is_err())
     {
@@ -447,21 +487,40 @@ fn negotiate(policy: &PairingPolicy, request: &PairingRequest) -> PairingResult<
     let mut required = local.required.iter().chain(remote.required.iter()).copied().collect::<Vec<_>>();
     required.sort_unstable();
     required.dedup();
-    PairingCapabilities::new(CapabilitySet { supported, required, parameters: local.parameters.clone() }).map_err(Into::into)
+    PairingCapabilities::new(CapabilitySet {
+        supported,
+        required,
+        parameters: local.parameters.clone(),
+    }).map_err(Into::into)
 }
 
-fn replacement_revision(policy: &PairingPolicy, decision: TrustDecision, request: &PairingRequest, existing: Option<&TrustedPeer>) -> PairingResult<PairingRevision> {
+fn replacement_revision(
+    policy: &PairingPolicy,
+    decision: TrustDecision,
+    request: &PairingRequest,
+    existing: Option<&TrustedPeer>,
+) -> PairingResult<PairingRevision> {
     match existing {
         None if decision == TrustDecision::Trust || decision == TrustDecision::Replace => Ok(PairingRevision::INITIAL),
         None => Err(PairingError::TrustRejected { device_id: request.device_id().clone() }),
-        Some(peer) if peer.is_revoked() && (!policy.allow_revoked_replacement() || decision != TrustDecision::Replace) => Err(PairingError::RevokedPeer { device_id: request.device_id().clone() }),
-        Some(peer) if peer.peer_identity_key() != request.identity_key() && (!policy.allow_trust_replacement() || decision != TrustDecision::Replace) => Err(PairingError::DuplicateDeviceIdentity { device_id: request.device_id().clone() }),
-        Some(_) if decision != TrustDecision::Replace => Err(PairingError::TrustReplacementForbidden { device_id: request.device_id().clone() }),
+        Some(peer) if peer.is_revoked()
+            && (!policy.allow_revoked_replacement() || decision != TrustDecision::Replace) => {
+                Err(PairingError::RevokedPeer { device_id: request.device_id().clone() })
+            }
+        Some(peer) if peer.peer_identity_key() != request.identity_key()
+            && (!policy.allow_trust_replacement() || decision != TrustDecision::Replace) => {
+                Err(PairingError::DuplicateDeviceIdentity { device_id: request.device_id().clone() })
+            }
+        Some(_) if decision != TrustDecision::Replace => {
+            Err(PairingError::TrustReplacementForbidden { device_id: request.device_id().clone() })
+        }
         Some(peer) => peer.revision().checked_next().ok_or(PairingError::RevisionExhausted),
     }
 }
 
-fn tuple(version: &ProtocolVersion) -> (u32, u32, u32) { (version.major, version.minor, version.patch) }
+fn tuple(version: &ProtocolVersion) -> (u32, u32, u32) {
+    (version.major, version.minor, version.patch)
+}
 
 fn pairing_mutation(id: &PairingId, update: StateUpdate) -> PairingResult<PairingMutation> {
     let session = update.snapshot().pairing_sessions().get_shared(id)
