@@ -1,12 +1,36 @@
 use std::{error::Error, fmt, sync::Arc};
 
 use crate::{
-    ConnectionId, SessionId, StateError, TransportModelError, TransportRevision, TransportState,
-    TransportTimestamp,
+    ConnectionId, SessionId, StateError, TransportId, TransportModelError, TransportRevision,
+    TransportState, TransportTimestamp,
 };
 
 /// Result type used by Transport Core interfaces and lifecycle operations.
 pub type TransportResult<T> = Result<T, TransportError>;
+
+/// Concrete transport operation associated with an implementation failure.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum TransportOperation {
+    /// Creating a concrete transport connection.
+    Create,
+    /// Sending an opaque envelope.
+    Send,
+    /// Receiving an opaque envelope.
+    Receive,
+    /// Closing a concrete transport connection.
+    Close,
+}
+
+impl fmt::Display for TransportOperation {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter.write_str(match self {
+            Self::Create => "create",
+            Self::Send => "send",
+            Self::Receive => "receive",
+            Self::Close => "close",
+        })
+    }
+}
 
 /// Structured Transport Core failure.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -15,6 +39,19 @@ pub enum TransportError {
     State(StateError),
     /// A transport model value failed validation.
     Model(TransportModelError),
+    /// A concrete transport implementation failed an I/O-facing operation.
+    OperationFailed {
+        /// Concrete transport implementation.
+        transport_id: TransportId,
+        /// Connection involved when one already exists.
+        connection_id: Option<ConnectionId>,
+        /// Failed operation.
+        operation: TransportOperation,
+        /// Stable implementation-defined error code.
+        code: Arc<str>,
+        /// Human-readable diagnostic detail.
+        message: Arc<str>,
+    },
     /// The requested connection does not exist.
     ConnectionNotFound {
         /// Missing connection identifier.
@@ -96,6 +133,24 @@ pub enum TransportError {
 }
 
 impl TransportError {
+    /// Creates a structured concrete-transport operation failure.
+    #[must_use]
+    pub fn operation_failed(
+        transport_id: TransportId,
+        connection_id: Option<ConnectionId>,
+        operation: TransportOperation,
+        code: impl Into<Arc<str>>,
+        message: impl Into<Arc<str>>,
+    ) -> Self {
+        Self::OperationFailed {
+            transport_id,
+            connection_id,
+            operation,
+            code: code.into(),
+            message: message.into(),
+        }
+    }
+
     pub(crate) fn state_invariant(message: impl Into<Arc<str>>) -> Self {
         Self::StateInvariant {
             message: message.into(),
@@ -148,6 +203,7 @@ impl TransportError {
             )),
             Self::State(_)
             | Self::Model(_)
+            | Self::OperationFailed { .. }
             | Self::BindingRequiresAuthenticated { .. }
             | Self::MissingSession { .. }
             | Self::SessionAlreadyBound { .. }
@@ -161,6 +217,22 @@ impl TransportError {
         match self {
             Self::State(source) => write!(formatter, "Bridge State operation failed: {source}"),
             Self::Model(source) => write!(formatter, "transport model is invalid: {source}"),
+            Self::OperationFailed {
+                transport_id,
+                connection_id,
+                operation,
+                code,
+                message,
+            } => match connection_id {
+                Some(connection_id) => write!(
+                    formatter,
+                    "transport {transport_id} failed to {operation} connection {connection_id} ({code}): {message}"
+                ),
+                None => write!(
+                    formatter,
+                    "transport {transport_id} failed to {operation} ({code}): {message}"
+                ),
+            },
             Self::BindingRequiresAuthenticated {
                 connection_id,
                 state,
@@ -211,7 +283,8 @@ impl Error for TransportError {
         match self {
             Self::State(source) => Some(source),
             Self::Model(source) => Some(source),
-            Self::ConnectionNotFound { .. }
+            Self::OperationFailed { .. }
+            | Self::ConnectionNotFound { .. }
             | Self::DuplicateConnection { .. }
             | Self::InvalidTransition { .. }
             | Self::TerminalConnection { .. }
