@@ -68,9 +68,10 @@ Session-local revisions and Bridge State revisions serve different purposes:
 - `SessionRevision` detects stale concurrent operations on one session;
 - `StateRevision` identifies the complete committed Bridge State snapshot.
 
-A successful session mutation increments both the session-local revision and the Bridge State
-revision. Creation starts at session revision zero. A semantically identical update commits
-nothing and increments neither revision.
+A successful update or lifecycle transition increments the session-local revision and the Bridge
+State revision. Creation starts at session revision zero, restoration preserves the supplied
+session revision, and expiration removal increments only the Bridge State revision. A semantically
+identical update commits nothing and increments neither revision.
 
 ## Commands
 
