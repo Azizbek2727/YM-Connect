@@ -24,6 +24,10 @@ pub enum RegistryKind {
     Connectors,
     /// Transport connection registry.
     Connections,
+    /// Pairing-session registry.
+    PairingSessions,
+    /// Trusted-peer registry.
+    TrustedPeers,
     /// Capability ownership registry.
     Capabilities,
 }
@@ -35,6 +39,8 @@ impl fmt::Display for RegistryKind {
             Self::Devices => "devices",
             Self::Connectors => "connectors",
             Self::Connections => "connections",
+            Self::PairingSessions => "pairing sessions",
+            Self::TrustedPeers => "trusted peers",
             Self::Capabilities => "capabilities",
         })
     }

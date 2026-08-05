@@ -78,6 +78,7 @@
     "buildfeatures",
     "codegen",
     "crates",
+    "dalek",
     "denylist",
     "dists",
     "endregion",
