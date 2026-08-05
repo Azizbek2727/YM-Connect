@@ -1,0 +1,24 @@
+name: Discovery Export Bootstrap
+
+on:
+  push:
+    branches:
+      - agent/discovery-export-bootstrap
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Archive source checkout
+        run: tar --exclude=.git -czf /tmp/ym-connect-source.tar.gz .
+      - name: Upload source checkout
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ym-connect-source
+          path: /tmp/ym-connect-source.tar.gz
+          retention-days: 1
