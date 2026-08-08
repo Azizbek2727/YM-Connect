@@ -1,8 +1,6 @@
 use std::fmt;
 
-use crate::{
-    PairingConfirmationTag, PairingPublicKey, PairingResult,
-};
+use crate::{PairingConfirmationTag, PairingPublicKey, PairingResult};
 
 /// Runtime-independent cryptographic orchestration contract for the fixed pairing algorithm suite.
 ///

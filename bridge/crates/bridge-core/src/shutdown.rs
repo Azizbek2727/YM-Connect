@@ -1,8 +1,7 @@
 use std::{error::Error, fmt, future::Future, pin::Pin};
 
 /// Boxed future returned by an injected shutdown source.
-pub type ShutdownFuture<'a> =
-    Pin<Box<dyn Future<Output = Result<(), ShutdownError>> + Send + 'a>>;
+pub type ShutdownFuture<'a> = Pin<Box<dyn Future<Output = Result<(), ShutdownError>> + Send + 'a>>;
 
 /// Runtime-independent source of a graceful shutdown request.
 pub trait ShutdownSignal: fmt::Debug + Send + Sync {

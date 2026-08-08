@@ -3,9 +3,9 @@ use std::{
     fmt,
     panic::{self, AssertUnwindSafe},
     sync::{
+        Arc, Mutex, RwLock, Weak,
         atomic::{AtomicBool, AtomicU64, Ordering},
         mpsc::{self, Receiver, RecvTimeoutError, Sender, TryRecvError},
-        Arc, Mutex, RwLock, Weak,
     },
     time::Duration,
 };
@@ -200,13 +200,11 @@ impl BridgeStateStore {
     where
         E: From<StateError>,
     {
-        let mut state = self
-            .inner
-            .state
-            .write()
-            .map_err(|_| E::from(StateError::LockPoisoned {
+        let mut state = self.inner.state.write().map_err(|_| {
+            E::from(StateError::LockPoisoned {
                 lock: StateLock::State,
-            }))?;
+            })
+        })?;
         let before = Arc::clone(&*state);
         let mut draft = BridgeStateDraft::from_data(before.as_ref());
 
@@ -215,7 +213,7 @@ impl BridgeStateStore {
             Err(_) => return Err(E::from(StateError::UpdatePanicked)),
         }
 
-        let (after_data, session_transitions) = draft.into_parts();
+        let (after_data, session_transitions, discovery_events) = draft.into_parts();
         let after = Arc::new(after_data);
         let previous_revision = StateRevision::new(self.inner.revision.load(Ordering::Relaxed));
 
@@ -231,13 +229,11 @@ impl BridgeStateStore {
             .checked_add(1)
             .map(StateRevision::new)
             .ok_or_else(|| E::from(StateError::RevisionExhausted))?;
-        let mut subscribers = self
-            .inner
-            .subscribers
-            .lock()
-            .map_err(|_| E::from(StateError::LockPoisoned {
+        let mut subscribers = self.inner.subscribers.lock().map_err(|_| {
+            E::from(StateError::LockPoisoned {
                 lock: StateLock::Subscribers,
-            }))?;
+            })
+        })?;
 
         *state = Arc::clone(&after);
         self.inner
@@ -251,6 +247,7 @@ impl BridgeStateStore {
             before.as_ref(),
             after.as_ref(),
             session_transitions,
+            discovery_events,
             snapshot.clone(),
         ));
         let notifications = notify_subscribers(&mut subscribers, &event);
@@ -272,13 +269,13 @@ impl BridgeStateStore {
             .map_err(|_| StateError::LockPoisoned {
                 lock: StateLock::State,
             })?;
-        let mut subscribers = self
-            .inner
-            .subscribers
-            .lock()
-            .map_err(|_| StateError::LockPoisoned {
-                lock: StateLock::Subscribers,
-            })?;
+        let mut subscribers =
+            self.inner
+                .subscribers
+                .lock()
+                .map_err(|_| StateError::LockPoisoned {
+                    lock: StateLock::Subscribers,
+                })?;
         let identifier = allocate_identifier(&self.inner.next_subscription_id)?;
         let revision = StateRevision::new(self.inner.revision.load(Ordering::Acquire));
         let initial_snapshot = BridgeStateSnapshot::new(revision, Arc::clone(&*state));
@@ -408,10 +405,12 @@ impl BridgeStateSubscription {
         &self,
         timeout: Duration,
     ) -> Result<Arc<BridgeStateEvent>, StateReceiveError> {
-        self.receiver.recv_timeout(timeout).map_err(|source| match source {
-            RecvTimeoutError::Timeout => StateReceiveError::Timeout,
-            RecvTimeoutError::Disconnected => StateReceiveError::Disconnected,
-        })
+        self.receiver
+            .recv_timeout(timeout)
+            .map_err(|source| match source {
+                RecvTimeoutError::Timeout => StateReceiveError::Timeout,
+                RecvTimeoutError::Disconnected => StateReceiveError::Disconnected,
+            })
     }
 
     /// Unregisters this subscription.

@@ -194,35 +194,31 @@ impl TransportManager {
         command: CreateTransportConnection,
     ) -> TransportResult<TransportMutation> {
         let result_id = command.connection_id.clone();
-        let update = self
-            .state
-            .update_with::<TransportError>(move |draft| {
-                if draft.connections().contains_key(&command.connection_id) {
-                    return Err(TransportError::DuplicateConnection {
-                        connection_id: command.connection_id,
-                    });
-                }
+        let update = self.state.update_with::<TransportError>(move |draft| {
+            if draft.connections().contains_key(&command.connection_id) {
+                return Err(TransportError::DuplicateConnection {
+                    connection_id: command.connection_id,
+                });
+            }
 
-                let transport_id = command.endpoint.transport_id().clone();
-                let connection = TransportConnectionSnapshot::from_parts(
-                    TransportConnectionParts {
-                        connection_id: command.connection_id.clone(),
-                        transport_id,
-                        endpoint: command.endpoint,
-                        capabilities: command.capabilities,
-                        state: TransportState::Created,
-                        session_id: None,
-                        revision: TransportRevision::INITIAL,
-                        created_at: command.created_at,
-                        updated_at: command.created_at,
-                    },
-                );
-                let _ = draft
-                    .connections_mut()
-                    .insert(connection)
-                    .map_err(StateError::from)?;
-                Ok(())
-            })?;
+            let transport_id = command.endpoint.transport_id().clone();
+            let connection = TransportConnectionSnapshot::from_parts(TransportConnectionParts {
+                connection_id: command.connection_id.clone(),
+                transport_id,
+                endpoint: command.endpoint,
+                capabilities: command.capabilities,
+                state: TransportState::Created,
+                session_id: None,
+                revision: TransportRevision::INITIAL,
+                created_at: command.created_at,
+                updated_at: command.created_at,
+            });
+            let _ = draft
+                .connections_mut()
+                .insert(connection)
+                .map_err(StateError::from)?;
+            Ok(())
+        })?;
 
         mutation_from_update(&result_id, update)
     }
@@ -255,44 +251,38 @@ impl TransportManager {
         command: BindTransportSession,
     ) -> TransportResult<TransportMutation> {
         let result_id = command.connection_id.clone();
-        let update = self
-            .state
-            .update_with::<TransportError>(move |draft| {
-                let current = current_connection(draft, &command.connection_id)?;
-                validate_current(
-                    &current,
-                    command.expected_revision,
-                    command.timestamp,
-                )?;
-                if current.state() != TransportState::Authenticated {
-                    return Err(TransportError::BindingRequiresAuthenticated {
-                        connection_id: command.connection_id,
-                        state: current.state(),
-                    });
-                }
-                if !draft.sessions().contains_key(&command.session_id) {
-                    return Err(TransportError::MissingSession {
-                        session_id: command.session_id,
-                    });
-                }
-                if let Some(session_id) = current.session_id() {
-                    return Err(TransportError::SessionAlreadyBound {
-                        connection_id: command.connection_id,
-                        session_id: session_id.clone(),
-                    });
-                }
+        let update = self.state.update_with::<TransportError>(move |draft| {
+            let current = current_connection(draft, &command.connection_id)?;
+            validate_current(&current, command.expected_revision, command.timestamp)?;
+            if current.state() != TransportState::Authenticated {
+                return Err(TransportError::BindingRequiresAuthenticated {
+                    connection_id: command.connection_id,
+                    state: current.state(),
+                });
+            }
+            if !draft.sessions().contains_key(&command.session_id) {
+                return Err(TransportError::MissingSession {
+                    session_id: command.session_id,
+                });
+            }
+            if let Some(session_id) = current.session_id() {
+                return Err(TransportError::SessionAlreadyBound {
+                    connection_id: command.connection_id,
+                    session_id: session_id.clone(),
+                });
+            }
 
-                let mut parts = current.to_parts();
-                parts.session_id = Some(command.session_id);
-                parts.updated_at = command.timestamp;
-                parts.revision = next_revision(&current)?;
-                let next = TransportConnectionSnapshot::from_parts(parts);
-                let _ = draft
-                    .connections_mut()
-                    .replace(next)
-                    .map_err(StateError::from)?;
-                Ok(())
-            })?;
+            let mut parts = current.to_parts();
+            parts.session_id = Some(command.session_id);
+            parts.updated_at = command.timestamp;
+            parts.revision = next_revision(&current)?;
+            let next = TransportConnectionSnapshot::from_parts(parts);
+            let _ = draft
+                .connections_mut()
+                .replace(next)
+                .map_err(StateError::from)?;
+            Ok(())
+        })?;
 
         mutation_from_update(&result_id, update)
     }
@@ -307,32 +297,26 @@ impl TransportManager {
         command: UnbindTransportSession,
     ) -> TransportResult<TransportMutation> {
         let result_id = command.connection_id.clone();
-        let update = self
-            .state
-            .update_with::<TransportError>(move |draft| {
-                let current = current_connection(draft, &command.connection_id)?;
-                validate_current(
-                    &current,
-                    command.expected_revision,
-                    command.timestamp,
-                )?;
-                if current.session_id().is_none() {
-                    return Err(TransportError::SessionNotBound {
-                        connection_id: command.connection_id,
-                    });
-                }
+        let update = self.state.update_with::<TransportError>(move |draft| {
+            let current = current_connection(draft, &command.connection_id)?;
+            validate_current(&current, command.expected_revision, command.timestamp)?;
+            if current.session_id().is_none() {
+                return Err(TransportError::SessionNotBound {
+                    connection_id: command.connection_id,
+                });
+            }
 
-                let mut parts = current.to_parts();
-                parts.session_id = None;
-                parts.updated_at = command.timestamp;
-                parts.revision = next_revision(&current)?;
-                let next = TransportConnectionSnapshot::from_parts(parts);
-                let _ = draft
-                    .connections_mut()
-                    .replace(next)
-                    .map_err(StateError::from)?;
-                Ok(())
-            })?;
+            let mut parts = current.to_parts();
+            parts.session_id = None;
+            parts.updated_at = command.timestamp;
+            parts.revision = next_revision(&current)?;
+            let next = TransportConnectionSnapshot::from_parts(parts);
+            let _ = draft
+                .connections_mut()
+                .replace(next)
+                .map_err(StateError::from)?;
+            Ok(())
+        })?;
 
         mutation_from_update(&result_id, update)
     }
@@ -415,24 +399,22 @@ impl TransportManager {
         timestamp: TransportTimestamp,
     ) -> TransportResult<TransportMutation> {
         let result_id = connection_id.clone();
-        let update = self
-            .state
-            .update_with::<TransportError>(move |draft| {
-                let current = current_connection(draft, &connection_id)?;
-                validate_current(&current, expected_revision, timestamp)?;
-                validate_transition(&current, requested_state)?;
+        let update = self.state.update_with::<TransportError>(move |draft| {
+            let current = current_connection(draft, &connection_id)?;
+            validate_current(&current, expected_revision, timestamp)?;
+            validate_transition(&current, requested_state)?;
 
-                let mut parts = current.to_parts();
-                parts.state = requested_state;
-                parts.updated_at = timestamp;
-                parts.revision = next_revision(&current)?;
-                let next = TransportConnectionSnapshot::from_parts(parts);
-                let _ = draft
-                    .connections_mut()
-                    .replace(next)
-                    .map_err(StateError::from)?;
-                Ok(())
-            })?;
+            let mut parts = current.to_parts();
+            parts.state = requested_state;
+            parts.updated_at = timestamp;
+            parts.revision = next_revision(&current)?;
+            let next = TransportConnectionSnapshot::from_parts(parts);
+            let _ = draft
+                .connections_mut()
+                .replace(next)
+                .map_err(StateError::from)?;
+            Ok(())
+        })?;
 
         mutation_from_update(&result_id, update)
     }

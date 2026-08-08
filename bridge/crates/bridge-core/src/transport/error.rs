@@ -159,9 +159,10 @@ impl TransportError {
 
     fn format_connection(&self, formatter: &mut fmt::Formatter<'_>) -> Option<fmt::Result> {
         match self {
-            Self::ConnectionNotFound { connection_id } => {
-                Some(write!(formatter, "transport connection {connection_id} does not exist"))
-            }
+            Self::ConnectionNotFound { connection_id } => Some(write!(
+                formatter,
+                "transport connection {connection_id} does not exist"
+            )),
             Self::DuplicateConnection { connection_id } => Some(write!(
                 formatter,
                 "transport connection {connection_id} already exists"
@@ -259,7 +260,10 @@ impl TransportError {
                 "transport connection {connection_id} revision is exhausted"
             ),
             Self::StateInvariant { message } => {
-                write!(formatter, "Transport Core state invariant failed: {message}")
+                write!(
+                    formatter,
+                    "Transport Core state invariant failed: {message}"
+                )
             }
             Self::ConnectionNotFound { .. }
             | Self::DuplicateConnection { .. }

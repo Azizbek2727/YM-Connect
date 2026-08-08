@@ -1,17 +1,10 @@
-use std::{
-    collections::BTreeMap,
-    error::Error,
-    fmt,
-    sync::Arc,
-};
+use std::{collections::BTreeMap, error::Error, fmt, sync::Arc};
 
 use ym_connect_protocol::v1::{
     BrowserDescriptor, CapabilitySet, DeviceDescriptor, SessionEstablished,
 };
 
-use super::{
-    CapabilityOwner, ConnectorId, DeviceId, SessionId, StateIdentifierError,
-};
+use super::{CapabilityOwner, ConnectorId, DeviceId, SessionId, StateIdentifierError};
 
 /// Registry contained by a Bridge state snapshot.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -24,6 +17,8 @@ pub enum RegistryKind {
     Connectors,
     /// Transport connection registry.
     Connections,
+    /// Discovered-peer registry.
+    Discoveries,
     /// Pairing-session registry.
     PairingSessions,
     /// Trusted-peer registry.
@@ -39,6 +34,7 @@ impl fmt::Display for RegistryKind {
             Self::Devices => "devices",
             Self::Connectors => "connectors",
             Self::Connections => "connections",
+            Self::Discoveries => "discoveries",
             Self::PairingSessions => "pairing sessions",
             Self::TrustedPeers => "trusted peers",
             Self::Capabilities => "capabilities",
@@ -376,11 +372,7 @@ where
     ) -> Result<RegistryMutation<V::Key>, RegistryStateError> {
         let public_operation = operation.public();
         let key = value.registry_key().map_err(|identifier| {
-            RegistryStateError::invalid_identifier(
-                V::REGISTRY_KIND,
-                public_operation,
-                identifier,
-            )
+            RegistryStateError::invalid_identifier(V::REGISTRY_KIND, public_operation, identifier)
         })?;
         let existing = self.entries.get(&key);
 

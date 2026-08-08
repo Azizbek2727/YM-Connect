@@ -225,10 +225,7 @@ impl SessionManagerError {
         }
     }
 
-    fn format_temporal_and_negotiation(
-        &self,
-        formatter: &mut fmt::Formatter<'_>,
-    ) -> fmt::Result {
+    fn format_temporal_and_negotiation(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             Self::ExpiredSession {
                 session_id,
@@ -286,7 +283,10 @@ impl SessionManagerError {
                 write!(formatter, "session {session_id} revision is exhausted")
             }
             Self::StateInvariant { message } => {
-                write!(formatter, "Session Manager state invariant failed: {message}")
+                write!(
+                    formatter,
+                    "Session Manager state invariant failed: {message}"
+                )
             }
             Self::State(_)
             | Self::SessionNotFound { .. }

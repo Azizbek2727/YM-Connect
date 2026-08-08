@@ -3,9 +3,10 @@ use std::sync::Arc;
 use ym_connect_protocol::v1::{Capability, CapabilitySet, ProtocolVersion};
 
 use crate::{
-    BridgeSession, BridgeStateDraft, BridgeStateStore, ConnectorId, DeviceId, SessionCapabilityList,
-    SessionDuration, SessionId, SessionLifecycleState, SessionManagerError, SessionMetadata,
-    SessionRevision, SessionStateTransition, SessionTimestamp, StateError, StateUpdate,
+    BridgeSession, BridgeStateDraft, BridgeStateStore, ConnectorId, DeviceId,
+    SessionCapabilityList, SessionDuration, SessionId, SessionLifecycleState, SessionManagerError,
+    SessionMetadata, SessionRevision, SessionStateTransition, SessionTimestamp, StateError,
+    StateUpdate,
 };
 
 use super::SessionRecordParts;
@@ -602,46 +603,40 @@ impl SessionManager {
         let timeout = self.policy.inactivity_timeout;
         let mut removed = Vec::new();
 
-        let update = self
-            .state
-            .update_with::<SessionManagerError>(|draft| {
-                let mut candidates = Vec::new();
-                for (session_id, session) in draft.sessions().iter() {
-                    let Some(elapsed) = command
-                        .observed_at
-                        .checked_duration_since(session.last_activity_at())
-                    else {
-                        return Err(SessionManagerError::TimestampRegression {
-                            session_id: session_id.clone(),
-                            previous: session.last_activity_at(),
-                            requested: command.observed_at,
-                        });
-                    };
-                    if elapsed >= timeout.as_millis() {
-                        candidates.push((
-                            session_id.clone(),
-                            session.lifecycle(),
-                            session.revision(),
-                        ));
-                    }
+        let update = self.state.update_with::<SessionManagerError>(|draft| {
+            let mut candidates = Vec::new();
+            for (session_id, session) in draft.sessions().iter() {
+                let Some(elapsed) = command
+                    .observed_at
+                    .checked_duration_since(session.last_activity_at())
+                else {
+                    return Err(SessionManagerError::TimestampRegression {
+                        session_id: session_id.clone(),
+                        previous: session.last_activity_at(),
+                        requested: command.observed_at,
+                    });
+                };
+                if elapsed >= timeout.as_millis() {
+                    candidates.push((session_id.clone(), session.lifecycle(), session.revision()));
                 }
+            }
 
-                for (session_id, lifecycle, revision) in candidates {
-                    let _ = draft
-                        .sessions_mut()
-                        .remove(&session_id)
-                        .map_err(StateError::from)?;
-                    draft.record_session_transition(SessionStateTransition::new(
-                        session_id.clone(),
-                        Some(lifecycle),
-                        None,
-                        revision,
-                        command.observed_at,
-                    ));
-                    removed.push(session_id);
-                }
-                Ok(())
-            })?;
+            for (session_id, lifecycle, revision) in candidates {
+                let _ = draft
+                    .sessions_mut()
+                    .remove(&session_id)
+                    .map_err(StateError::from)?;
+                draft.record_session_transition(SessionStateTransition::new(
+                    session_id.clone(),
+                    Some(lifecycle),
+                    None,
+                    revision,
+                    command.observed_at,
+                ));
+                removed.push(session_id);
+            }
+            Ok(())
+        })?;
 
         Ok(ExpiredSessions::new(removed, update))
     }

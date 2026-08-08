@@ -1,10 +1,4 @@
-use std::{
-    collections::BTreeMap,
-    error::Error,
-    io,
-    sync::Arc,
-    thread,
-};
+use std::{collections::BTreeMap, error::Error, io, sync::Arc, thread};
 
 use ym_connect_protocol::v1::{Capability, CapabilitySet, ProtocolVersion};
 
@@ -21,15 +15,19 @@ struct TestCrypto;
 
 impl PairingCryptoProvider for TestCrypto {
     fn validate_ed25519_public_key(&self, public_key: &PairingPublicKey) -> PairingResult<()> {
-        (public_key.as_bytes()[0] != 0).then_some(()).ok_or_else(|| {
-            PairingError::invalid_public_key("ed25519", "rejected deterministic test key")
-        })
+        (public_key.as_bytes()[0] != 0)
+            .then_some(())
+            .ok_or_else(|| {
+                PairingError::invalid_public_key("ed25519", "rejected deterministic test key")
+            })
     }
 
     fn validate_x25519_public_key(&self, public_key: &PairingPublicKey) -> PairingResult<()> {
-        (public_key.as_bytes()[0] != 0).then_some(()).ok_or_else(|| {
-            PairingError::invalid_public_key("x25519", "rejected deterministic test key")
-        })
+        (public_key.as_bytes()[0] != 0)
+            .then_some(())
+            .ok_or_else(|| {
+                PairingError::invalid_public_key("x25519", "rejected deterministic test key")
+            })
     }
 
     fn verify_ed25519(
@@ -144,11 +142,7 @@ fn request(
     ))
 }
 
-fn response(
-    challenge: &str,
-    device_id: &str,
-    identity_byte: u8,
-) -> TestResult<PairingResponse> {
+fn response(challenge: &str, device_id: &str, identity_byte: u8) -> TestResult<PairingResponse> {
     response_with(
         challenge,
         request(
@@ -179,11 +173,7 @@ fn response_with(
     ))
 }
 
-fn create_and_send(
-    manager: &PairingManager,
-    pairing: &PairingId,
-    challenge: &str,
-) -> TestResult {
+fn create_and_send(manager: &PairingManager, pairing: &PairingId, challenge: &str) -> TestResult {
     manager.create_session(CreatePairingSession {
         pairing_id: pairing.clone(),
         bridge_identity: bridge_identity()?,
@@ -252,13 +242,7 @@ fn seed_trust(
     timestamp: u64,
 ) -> TestResult<TrustMutation> {
     let pairing = pairing_id(pairing_name)?;
-    verify(
-        manager,
-        &pairing,
-        challenge_name,
-        device_id,
-        identity_byte,
-    )?;
+    verify(manager, &pairing, challenge_name, device_id, identity_byte)?;
     Ok(establish(
         manager,
         pairing,
@@ -268,10 +252,7 @@ fn seed_trust(
     )?)
 }
 
-fn required_peer(
-    store: &BridgeStateStore,
-    device_id: &DeviceId,
-) -> TestResult<Arc<TrustedPeer>> {
+fn required_peer(store: &BridgeStateStore, device_id: &DeviceId) -> TestResult<Arc<TrustedPeer>> {
     TrustStore::lookup_trusted_peer(store, device_id)?
         .ok_or_else(|| io::Error::other("trusted peer missing").into())
 }
@@ -286,10 +267,7 @@ fn approved_algorithms_and_model_validation_are_fixed() {
     assert_eq!(PairingAlgorithmSuite::KEY_AGREEMENT, "X25519");
     assert_eq!(PairingAlgorithmSuite::SIGNATURE, "Ed25519");
     assert_eq!(PairingAlgorithmSuite::KEY_DERIVATION, "HKDF-SHA-256");
-    assert_eq!(
-        PairingAlgorithmSuite::CONFIRMATION,
-        "ChaCha20-Poly1305"
-    );
+    assert_eq!(PairingAlgorithmSuite::CONFIRMATION, "ChaCha20-Poly1305");
 }
 
 #[test]
@@ -316,9 +294,7 @@ fn lifecycle_matrix_covers_every_legal_and_illegal_transition() {
                     PairingState::ChallengeCreated | PairingState::Cancelled
                 ) | (
                     PairingState::ChallengeCreated,
-                    PairingState::ChallengeSent
-                        | PairingState::Expired
-                        | PairingState::Cancelled
+                    PairingState::ChallengeSent | PairingState::Expired | PairingState::Cancelled
                 ) | (
                     PairingState::ChallengeSent,
                     PairingState::ResponseReceived
@@ -383,10 +359,7 @@ fn replay_stale_revision_and_duplicate_identifiers_roll_back() -> TestResult {
         response: first_response,
         received_at: PairingTimestamp::from_unix_millis(131),
     });
-    assert!(matches!(
-        replay,
-        Err(PairingError::ReplayDetected { .. })
-    ));
+    assert!(matches!(replay, Err(PairingError::ReplayDetected { .. })));
     assert_eq!(store.snapshot()?, before_replay);
 
     let stale = manager.transition(TransitionPairing {
@@ -474,10 +447,7 @@ fn invalid_versions_and_downgrades_are_rejected() -> TestResult {
         )?,
         received_at: PairingTimestamp::from_unix_millis(130),
     });
-    assert!(matches!(
-        downgrade,
-        Err(PairingError::ProtocolDowngrade)
-    ));
+    assert!(matches!(downgrade, Err(PairingError::ProtocolDowngrade)));
 
     let unsupported_pairing = pairing_id("pairing-unsupported")?;
     create_and_send(&manager, &unsupported_pairing, "challenge-unsupported")?;
@@ -636,13 +606,7 @@ fn duplicate_identity_and_active_replacement_policy_matrix_are_enforced() -> Tes
         "device-other",
         8,
     )?;
-    let duplicate = establish(
-        &manager,
-        duplicate_key,
-        None,
-        TrustDecision::Trust,
-        151,
-    );
+    let duplicate = establish(&manager, duplicate_key, None, TrustDecision::Trust, 151);
     assert!(matches!(
         duplicate,
         Err(PairingError::DuplicateIdentityKey { .. })
@@ -794,21 +758,13 @@ fn revoked_identity_cannot_rebind_to_another_device_id() -> TestResult {
         8,
     )?;
     let before = store.snapshot()?;
-    let result = establish(
-        &manager,
-        attempted_rebind,
-        None,
-        TrustDecision::Trust,
-        170,
-    );
+    let result = establish(&manager, attempted_rebind, None, TrustDecision::Trust, 170);
     assert!(matches!(result, Err(PairingError::RevokedPeer { .. })));
     assert_eq!(store.snapshot()?, before);
     assert!(required_peer(&store, &original_device)?.is_revoked());
-    assert!(TrustStore::lookup_trusted_peer(
-        &store,
-        &DeviceId::new("device-rebind-new")?
-    )?
-    .is_none());
+    assert!(
+        TrustStore::lookup_trusted_peer(&store, &DeviceId::new("device-rebind-new")?)?.is_none()
+    );
     Ok(())
 }
 
@@ -990,20 +946,8 @@ fn stale_trust_revision_and_timestamp_fail_atomically() -> TestResult {
 fn event_ordering_and_registry_deltas_are_deterministic() -> TestResult {
     let (_store, manager) = new_manager(false, false)?;
     let pairing = pairing_id("pairing-events")?;
-    verify(
-        &manager,
-        &pairing,
-        "challenge-events",
-        "device-events",
-        8,
-    )?;
-    let trust = establish(
-        &manager,
-        pairing.clone(),
-        None,
-        TrustDecision::Trust,
-        150,
-    )?;
+    verify(&manager, &pairing, "challenge-events", "device-events", 8)?;
+    let trust = establish(&manager, pairing.clone(), None, TrustDecision::Trust, 150)?;
     let trust_event = trust
         .state_update()
         .event()
