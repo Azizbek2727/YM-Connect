@@ -160,7 +160,9 @@ impl PairingError {
                 f,
                 "pairing challenge for {pairing_id} violates local lifetime policy"
             )),
-            Self::MissingSession { session_id } => Some(write!(f, "session {session_id} does not exist")),
+            Self::MissingSession { session_id } => {
+                Some(write!(f, "session {session_id} does not exist"))
+            }
             Self::InvalidTransition {
                 pairing_id,
                 previous,
@@ -236,7 +238,9 @@ impl PairingError {
                 f,
                 "identity key is already trusted for device {existing_device_id}"
             )),
-            Self::RevokedPeer { device_id } => Some(write!(f, "trusted peer {device_id} is revoked")),
+            Self::RevokedPeer { device_id } => {
+                Some(write!(f, "trusted peer {device_id} is revoked"))
+            }
             Self::TrustRejected { device_id } => {
                 Some(write!(f, "trust for device {device_id} was rejected"))
             }
@@ -322,7 +326,9 @@ impl fmt::Display for PairingError {
             | Self::TrustReplacementForbidden { .. }
             | Self::TrustNotFound { .. }
             | Self::StaleTrustRevision { .. }
-            | Self::TrustTimestampRegression { .. } => unreachable!("formatted by pairing error helper"),
+            | Self::TrustTimestampRegression { .. } => {
+                unreachable!("formatted by pairing error helper")
+            }
         }
     }
 }
