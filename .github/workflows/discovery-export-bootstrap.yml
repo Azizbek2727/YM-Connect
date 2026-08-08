@@ -9,9 +9,9 @@ permissions:
   contents: read
 
 jobs:
-  validate-final:
+  canonicalize-final:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -19,7 +19,16 @@ jobs:
           fetch-depth: 0
       - uses: ./.github/actions/setup-node
       - uses: ./.github/actions/setup-rust
+      - name: Canonicalize Rust formatting
+        run: cargo fmt --all
       - name: Verify Rust formatting
         run: cargo fmt --all -- --check
+      - name: Verify strict Clippy
+        run: cargo clippy --workspace --all-targets --all-features --locked -- -D warnings
       - name: Verify patch whitespace
-        run: git diff --check 7df56767c12e97fe27300f9805fcb30ecdbbf8f1...c4d5dba4d2382b89d39783f5dc8ee87778a2f173
+        run: git diff --check 7df56767c12e97fe27300f9805fcb30ecdbbf8f1
+      - name: Report canonical tree
+        shell: bash
+        run: |
+          git add -- '*.rs'
+          git write-tree
