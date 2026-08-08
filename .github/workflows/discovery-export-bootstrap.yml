@@ -1,6 +1,9 @@
 name: Discovery Export Bootstrap
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - agent/discovery-export-bootstrap
