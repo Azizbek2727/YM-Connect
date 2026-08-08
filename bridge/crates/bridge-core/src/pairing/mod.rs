@@ -12,11 +12,7 @@ mod error;
 mod event;
 #[allow(clippy::missing_errors_doc, clippy::needless_pass_by_value)]
 mod manager;
-#[allow(
-    missing_docs,
-    clippy::missing_errors_doc,
-    clippy::too_many_arguments
-)]
+#[allow(missing_docs, clippy::missing_errors_doc, clippy::too_many_arguments)]
 mod model;
 #[allow(clippy::missing_errors_doc)]
 mod rust_crypto;
@@ -33,8 +29,8 @@ pub use model::{
     BridgeId, BridgeIdentity, ChallengeId, PairingAlgorithmSuite, PairingCapabilities,
     PairingChallenge, PairingConfirmationTag, PairingId, PairingModelError, PairingNonce,
     PairingPolicy, PairingPublicKey, PairingRequest, PairingResponse, PairingRevision,
-    PairingSession, PairingState, PairingTimestamp, TrustDecision, TrustMetadata,
-    TrustMetadataKey, TrustMetadataValue, TrustedPeer,
+    PairingSession, PairingState, PairingTimestamp, TrustDecision, TrustMetadata, TrustMetadataKey,
+    TrustMetadataValue, TrustedPeer,
 };
 pub use rust_crypto::{
     PairingEphemeralSecret, PairingEphemeralSecretSource, RustCryptoPairingProvider,

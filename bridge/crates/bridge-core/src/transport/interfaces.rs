@@ -6,8 +6,7 @@ use crate::{
 };
 
 /// Runtime-independent boxed future returned by transport interfaces.
-pub type TransportFuture<'a, T> =
-    Pin<Box<dyn Future<Output = TransportResult<T>> + Send + 'a>>;
+pub type TransportFuture<'a, T> = Pin<Box<dyn Future<Output = TransportResult<T>> + Send + 'a>>;
 
 /// Runtime-independent connection contract implemented by concrete transports.
 ///

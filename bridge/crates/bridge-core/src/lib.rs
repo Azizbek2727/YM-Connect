@@ -8,6 +8,7 @@
 
 mod application;
 mod config;
+mod discovery;
 mod error;
 mod logging;
 mod pairing;
@@ -18,9 +19,20 @@ mod transport;
 
 pub use application::{BridgeApplication, BridgeDependencies};
 pub use config::{
-    BridgeConfig, BridgeConfigLayer, BridgeConfigLoader, ConfigError, ConfigErrorKind,
-    ConfigField, ConfigSource, DEFAULT_LOG_LEVEL, DEFAULT_RUNTIME_WORKER_THREADS, LOG_LEVEL_ENV,
-    LoggingConfig, RUNTIME_WORKER_THREADS_ENV, RuntimeConfig, RuntimeWorkerThreads,
+    BridgeConfig, BridgeConfigLayer, BridgeConfigLoader, ConfigError, ConfigErrorKind, ConfigField,
+    ConfigSource, DEFAULT_LOG_LEVEL, DEFAULT_RUNTIME_WORKER_THREADS, LOG_LEVEL_ENV, LoggingConfig,
+    RUNTIME_WORKER_THREADS_ENV, RuntimeConfig, RuntimeWorkerThreads,
+};
+pub use discovery::{
+    AdvertisementSignatureMetadata, DEFAULT_MAXIMUM_ADVERTISEMENT_LIFETIME_MS,
+    DEFAULT_MAXIMUM_FUTURE_CLOCK_SKEW_MS, DEFAULT_MAXIMUM_METADATA_BYTES,
+    DEFAULT_MAXIMUM_METADATA_ENTRIES, DiscoveredPeer, DiscoveryAdvertisement,
+    DiscoveryCapabilities, DiscoveryError, DiscoveryEvent, DiscoveryEventKind, DiscoveryFilter,
+    DiscoveryFuture, DiscoveryManager, DiscoveryModelError, DiscoveryMutation, DiscoveryOperation,
+    DiscoveryPeerKey, DiscoveryPolicy, DiscoveryProvider, DiscoveryResult, DiscoveryRevision,
+    DiscoverySnapshot, DiscoverySource, DiscoveryState, DiscoveryTimestamp, ExpireDiscoveredPeers,
+    ExpiredDiscoveries, ReceiveDiscoveryAdvertisement, RemoveDiscoveredPeer,
+    TransitionDiscoveredPeer, ValidateDiscoveredPeer,
 };
 pub use error::BridgeError;
 pub use logging::{LogLevel, LogRecord, Logger, StderrLogger};
@@ -47,11 +59,12 @@ pub use state::{
     BridgeLifecycleState, BridgeStateChange, BridgeStateDraft, BridgeStateEvent,
     BridgeStateSnapshot, BridgeStateStore, BridgeStateSubscription, CapabilityOwner,
     CapabilityRegistration, CapabilityRegistry, ConnectionId, ConnectionRegistry, ConnectorId,
-    ConnectorRegistry, DeviceId, DeviceRegistry, NotificationSummary, PairingSessionRegistry,
-    RegistryDelta, RegistryFailure, RegistryKind, RegistryMutation, RegistryOperation,
-    RegistryStateError, SessionId, SessionRegistry, StateError, StateIdentifierError,
-    StateIdentifierKind, StateLock, StateReceiveError, StateRegistry, StateRegistryValue,
-    StateRevision, StateUpdate, SubscriptionId, TransportId, TrustedPeerRegistry,
+    ConnectorRegistry, DeviceId, DeviceRegistry, DiscoveryRegistry, NotificationSummary,
+    PairingSessionRegistry, RegistryDelta, RegistryFailure, RegistryKind, RegistryMutation,
+    RegistryOperation, RegistryStateError, SessionId, SessionRegistry, StateError,
+    StateIdentifierError, StateIdentifierKind, StateLock, StateReceiveError, StateRegistry,
+    StateRegistryValue, StateRevision, StateUpdate, SubscriptionId, TransportId,
+    TrustedPeerRegistry,
 };
 pub use transport::{
     BindTransportSession, CloseTransportConnection, CreateTransportConnection,
@@ -59,7 +72,6 @@ pub use transport::{
     TransportConnectionSnapshot, TransportEndpoint, TransportEndpointAddress,
     TransportEndpointRole, TransportError, TransportEvent, TransportEventKind, TransportFactory,
     TransportFeature, TransportFuture, TransportManager, TransportMessageEnvelope,
-    TransportModelError, TransportMutation, TransportOperation, TransportResult,
-    TransportRevision, TransportState, TransportStatistics, TransportTimestamp,
-    UnbindTransportSession,
+    TransportModelError, TransportMutation, TransportOperation, TransportResult, TransportRevision,
+    TransportState, TransportStatistics, TransportTimestamp, UnbindTransportSession,
 };

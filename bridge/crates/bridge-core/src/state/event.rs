@@ -1,6 +1,9 @@
 use std::sync::Arc;
 
-use crate::{PairingEvent, PairingId, SessionStateTransition, TransportEvent};
+use crate::{
+    DiscoveryEvent, DiscoveryPeerKey, PairingEvent, PairingId, SessionStateTransition,
+    TransportEvent,
+};
 
 use super::{
     BridgeLifecycleState, BridgeStateData, BridgeStateSnapshot, CapabilityOwner, ConnectionId,
@@ -97,6 +100,8 @@ pub enum BridgeStateChange {
     SessionLifecycle(SessionStateTransition),
     /// Transport connection lifecycle or session binding changed.
     Transport(TransportEvent),
+    /// Discovery advertisement, lifecycle, or removal state changed.
+    Discovery(DiscoveryEvent),
     /// Pairing lifecycle or trust state changed.
     Pairing(PairingEvent),
     /// Session registry changed.
@@ -107,6 +112,8 @@ pub enum BridgeStateChange {
     Connectors(RegistryDelta<ConnectorId>),
     /// Transport connection registry changed.
     Connections(RegistryDelta<ConnectionId>),
+    /// Discovered-peer registry changed.
+    Discoveries(RegistryDelta<DiscoveryPeerKey>),
     /// Pairing-session registry changed.
     PairingSessions(RegistryDelta<PairingId>),
     /// Trusted-peer registry changed.
@@ -131,6 +138,7 @@ impl BridgeStateEvent {
         before: &BridgeStateData,
         after: &BridgeStateData,
         mut session_transitions: Vec<SessionStateTransition>,
+        mut discovery_events: Vec<DiscoveryEvent>,
         snapshot: BridgeStateSnapshot,
     ) -> Self {
         let mut changes = Vec::new();
@@ -165,6 +173,19 @@ impl BridgeStateEvent {
                 .map(BridgeStateChange::Transport),
         );
 
+        discovery_events.sort_by(|left, right| {
+            left.peer_key()
+                .cmp(right.peer_key())
+                .then_with(|| left.timestamp().cmp(&right.timestamp()))
+                .then_with(|| left.peer_revision().cmp(&right.peer_revision()))
+                .then_with(|| left.sort_rank().cmp(&right.sort_rank()))
+        });
+        changes.extend(
+            discovery_events
+                .into_iter()
+                .map(BridgeStateChange::Discovery),
+        );
+
         changes.extend(
             pairing_events_between(before, after)
                 .into_iter()
@@ -189,6 +210,11 @@ impl BridgeStateEvent {
         let connections = RegistryDelta::between(&before.connections, &after.connections);
         if !connections.is_empty() {
             changes.push(BridgeStateChange::Connections(connections));
+        }
+
+        let discoveries = RegistryDelta::between(&before.discoveries, &after.discoveries);
+        if !discoveries.is_empty() {
+            changes.push(BridgeStateChange::Discoveries(discoveries));
         }
 
         let pairing_sessions =
@@ -291,10 +317,7 @@ fn transport_events_between(
     events
 }
 
-fn pairing_events_between(
-    before: &BridgeStateData,
-    after: &BridgeStateData,
-) -> Vec<PairingEvent> {
+fn pairing_events_between(before: &BridgeStateData, after: &BridgeStateData) -> Vec<PairingEvent> {
     let mut events = Vec::new();
 
     for (pairing_id, session) in after.pairing_sessions.iter() {

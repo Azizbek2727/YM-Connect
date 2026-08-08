@@ -74,19 +74,21 @@ fn insert_connection(
     let transport_id = endpoint.transport_id().clone();
     let capabilities = capabilities()?;
     manager.state_store().update(|draft| {
-        let _ = draft.connections_mut().insert(
-            TransportConnectionSnapshot::from_parts(TransportConnectionParts {
-                connection_id,
-                transport_id,
-                endpoint,
-                capabilities,
-                state,
-                session_id: None,
-                revision: TransportRevision::new(revision),
-                created_at: timestamp(1),
-                updated_at: timestamp(updated_at),
-            }),
-        )?;
+        let _ = draft
+            .connections_mut()
+            .insert(TransportConnectionSnapshot::from_parts(
+                TransportConnectionParts {
+                    connection_id,
+                    transport_id,
+                    endpoint,
+                    capabilities,
+                    state,
+                    session_id: None,
+                    revision: TransportRevision::new(revision),
+                    created_at: timestamp(1),
+                    updated_at: timestamp(updated_at),
+                },
+            ))?;
         Ok(())
     })?;
     Ok(())
@@ -182,8 +184,7 @@ fn message_endpoint_capabilities_and_statistics_are_transport_independent() -> T
     let endpoint = endpoint("test://peer")?;
     let capabilities = capabilities()?;
     let session_id = SessionId::new("session-a")?;
-    let envelope = TransportMessageEnvelope::new(vec![1_u8, 2, 3])
-        .with_session(session_id.clone());
+    let envelope = TransportMessageEnvelope::new(vec![1_u8, 2, 3]).with_session(session_id.clone());
     let statistics = TransportStatistics::new(4, 5, 100, 200);
 
     assert_eq!(endpoint.transport_id(), &transport_id()?);
@@ -213,7 +214,11 @@ fn create_lookup_list_and_exists_are_consistent_and_deterministic() -> TestResul
     assert_eq!(created.connection().updated_at(), timestamp(10));
     assert!(manager.connection_exists(&connection_id("connection-a")?)?);
     assert!(!manager.connection_exists(&connection_id("missing")?)?);
-    assert!(manager.lookup_connection(&connection_id("missing")?)?.is_none());
+    assert!(
+        manager
+            .lookup_connection(&connection_id("missing")?)?
+            .is_none()
+    );
     assert_eq!(
         manager
             .list_connections()?
@@ -237,7 +242,10 @@ fn duplicate_connections_are_rejected_without_commit() -> TestResult {
         timestamp(2),
     ));
 
-    assert!(matches!(result, Err(TransportError::DuplicateConnection { .. })));
+    assert!(matches!(
+        result,
+        Err(TransportError::DuplicateConnection { .. })
+    ));
     assert_eq!(manager.state_store().snapshot()?, before);
     Ok(())
 }
@@ -307,9 +315,15 @@ fn every_invalid_lifecycle_transition_rolls_back() -> TestResult {
                 timestamp(11),
             ));
             if previous.is_terminal() {
-                assert!(matches!(result, Err(TransportError::TerminalConnection { .. })));
+                assert!(matches!(
+                    result,
+                    Err(TransportError::TerminalConnection { .. })
+                ));
             } else {
-                assert!(matches!(result, Err(TransportError::InvalidTransition { .. })));
+                assert!(matches!(
+                    result,
+                    Err(TransportError::InvalidTransition { .. })
+                ));
             }
             assert_eq!(manager.state_store().snapshot()?, before);
         }
@@ -400,7 +414,13 @@ fn binding_validation_is_structured_and_atomic() -> TestResult {
     ));
     assert_eq!(manager.state_store().snapshot()?, before);
 
-    insert_connection(&manager, "missing-session", TransportState::Authenticated, 1, 10)?;
+    insert_connection(
+        &manager,
+        "missing-session",
+        TransportState::Authenticated,
+        1,
+        10,
+    )?;
     assert!(matches!(
         manager.bind_session(BindTransportSession::new(
             connection_id("missing-session")?,
@@ -411,7 +431,13 @@ fn binding_validation_is_structured_and_atomic() -> TestResult {
         Err(TransportError::MissingSession { .. })
     ));
 
-    insert_connection(&manager, "already-bound", TransportState::Authenticated, 1, 10)?;
+    insert_connection(
+        &manager,
+        "already-bound",
+        TransportState::Authenticated,
+        1,
+        10,
+    )?;
     let bound = manager.bind_session(BindTransportSession::new(
         connection_id("already-bound")?,
         TransportRevision::new(1),
@@ -428,7 +454,13 @@ fn binding_validation_is_structured_and_atomic() -> TestResult {
         Err(TransportError::SessionAlreadyBound { .. })
     ));
 
-    insert_connection(&manager, "never-bound", TransportState::Authenticated, 1, 10)?;
+    insert_connection(
+        &manager,
+        "never-bound",
+        TransportState::Authenticated,
+        1,
+        10,
+    )?;
     assert!(matches!(
         manager.unbind_session(UnbindTransportSession::new(
             connection_id("never-bound")?,
@@ -490,7 +522,10 @@ fn state_revisions_snapshots_and_creation_events_are_consistent() -> TestResult 
         .next()
         .ok_or_else(|| io::Error::other("missing transport creation event"))?;
 
-    assert_eq!(created.state_update().snapshot().revision().get(), before.revision().get() + 1);
+    assert_eq!(
+        created.state_update().snapshot().revision().get(),
+        before.revision().get() + 1
+    );
     assert_eq!(event.connection_id(), &connection_id("events")?);
     assert_eq!(event.transport_id(), &transport_id()?);
     assert_eq!(event.connection_revision(), TransportRevision::INITIAL);
@@ -534,19 +569,21 @@ fn connection_and_event_order_are_deterministic() -> TestResult {
                     .map_err(|error| StateError::rejected("transport_test", error.to_string()))?,
                 TransportEndpointRole::Peer,
             );
-            let _ = draft.connections_mut().insert(
-                TransportConnectionSnapshot::from_parts(TransportConnectionParts {
-                    connection_id,
-                    transport_id,
-                    endpoint,
-                    capabilities: TransportCapabilities::new(),
-                    state: TransportState::Created,
-                    session_id: None,
-                    revision: TransportRevision::INITIAL,
-                    created_at: timestamp(1),
-                    updated_at: timestamp(1),
-                }),
-            )?;
+            let _ = draft
+                .connections_mut()
+                .insert(TransportConnectionSnapshot::from_parts(
+                    TransportConnectionParts {
+                        connection_id,
+                        transport_id,
+                        endpoint,
+                        capabilities: TransportCapabilities::new(),
+                        state: TransportState::Created,
+                        session_id: None,
+                        revision: TransportRevision::INITIAL,
+                        created_at: timestamp(1),
+                        updated_at: timestamp(1),
+                    },
+                ))?;
         }
         Ok(())
     })?;
@@ -589,8 +626,14 @@ fn identical_inputs_produce_identical_snapshots_and_events() -> TestResult {
         timestamp(11),
     ))?;
 
-    assert_eq!(first.state_store().snapshot()?, second.state_store().snapshot()?);
-    assert_eq!(first_updated.state_update().event(), second_updated.state_update().event());
+    assert_eq!(
+        first.state_store().snapshot()?,
+        second.state_store().snapshot()?
+    );
+    assert_eq!(
+        first_updated.state_update().event(),
+        second_updated.state_update().event()
+    );
     Ok(())
 }
 
@@ -787,10 +830,8 @@ fn transport_interfaces_are_object_safe_and_runtime_independent() -> TestResult 
         transport_id: transport_id()?,
         capabilities: capabilities()?,
     });
-    let connection = poll_ready(factory.create(
-        connection_id("interface")?,
-        endpoint("test://interface")?,
-    ))?;
+    let connection =
+        poll_ready(factory.create(connection_id("interface")?, endpoint("test://interface")?))?;
 
     assert_eq!(connection.connection_id(), &connection_id("interface")?);
     assert_eq!(connection.transport_id(), factory.transport_id());

@@ -1,8 +1,8 @@
 //! Runtime-independent, deterministic Bridge state management.
 //!
 //! The state store is the single source of truth for Bridge lifecycle, configuration, sessions,
-//! devices, browser connectors, transport connections, pairing sessions, trusted peers, and
-//! capability ownership. It uses only standard-library synchronization and message passing; no
+//! devices, browser connectors, transport connections, discovered peers, pairing sessions,
+//! trusted peers, and capability ownership. It uses only standard-library synchronization and message passing; no
 //! asynchronous runtime, platform, transport implementation, browser, or operating-system
 //! integration is required.
 
@@ -25,8 +25,8 @@ pub use registry::{
 };
 pub use snapshot::{
     BridgeLifecycleState, BridgeStateDraft, BridgeStateSnapshot, CapabilityRegistry,
-    ConnectionRegistry, ConnectorRegistry, DeviceRegistry, PairingSessionRegistry,
-    SessionRegistry, StateRevision, TrustedPeerRegistry,
+    ConnectionRegistry, ConnectorRegistry, DeviceRegistry, DiscoveryRegistry,
+    PairingSessionRegistry, SessionRegistry, StateRevision, TrustedPeerRegistry,
 };
 pub use store::{
     BridgeStateStore, BridgeStateSubscription, NotificationSummary, StateUpdate, SubscriptionId,

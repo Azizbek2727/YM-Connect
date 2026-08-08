@@ -26,8 +26,7 @@ pub const RUNTIME_WORKER_THREADS_ENV: &str = "YM_CONNECT_RUNTIME_WORKER_THREADS"
 pub const DEFAULT_LOG_LEVEL: LogLevel = LogLevel::Info;
 
 /// Default asynchronous-runtime worker-thread policy.
-pub const DEFAULT_RUNTIME_WORKER_THREADS: RuntimeWorkerThreads =
-    RuntimeWorkerThreads::Automatic;
+pub const DEFAULT_RUNTIME_WORKER_THREADS: RuntimeWorkerThreads = RuntimeWorkerThreads::Automatic;
 
 /// Fully resolved, validated, immutable Bridge configuration.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -361,7 +360,10 @@ impl fmt::Display for ConfigError {
         match &self.kind {
             ConfigErrorKind::NonUnicode => formatter.write_str("is not valid Unicode"),
             ConfigErrorKind::UnsupportedValue { value, expected } => {
-                write!(formatter, "has unsupported value {value:?}; expected {expected}")
+                write!(
+                    formatter,
+                    "has unsupported value {value:?}; expected {expected}"
+                )
             }
             ConfigErrorKind::InvalidInteger { value, .. } => write!(
                 formatter,
@@ -385,11 +387,9 @@ fn environment_layer(
 ) -> Result<BridgeConfigLayer, ConfigError> {
     let mut layer = BridgeConfigLayer::new();
 
-    if let Some(value) = read_unicode_environment_value(
-        lookup,
-        ConfigField::LoggingLevel,
-        LOG_LEVEL_ENV,
-    )? {
+    if let Some(value) =
+        read_unicode_environment_value(lookup, ConfigField::LoggingLevel, LOG_LEVEL_ENV)?
+    {
         let level = LogLevel::parse(&value).ok_or(ConfigError::new(
             ConfigField::LoggingLevel,
             ConfigSource::EnvironmentVariable {
@@ -534,10 +534,7 @@ mod tests {
                     .with_log_level(LogLevel::Trace)
                     .with_runtime_worker_threads(fixed_workers),
             ),
-            &[
-                (LOG_LEVEL_ENV, "warn"),
-                (RUNTIME_WORKER_THREADS_ENV, "2"),
-            ],
+            &[(LOG_LEVEL_ENV, "warn"), (RUNTIME_WORKER_THREADS_ENV, "2")],
         )?;
 
         assert_eq!(config.logging().level(), LogLevel::Warn);

@@ -1,10 +1,4 @@
-use std::{
-    collections::BTreeMap,
-    error::Error,
-    fmt,
-    num::NonZeroU64,
-    sync::Arc,
-};
+use std::{collections::BTreeMap, error::Error, fmt, num::NonZeroU64, sync::Arc};
 
 use ym_connect_protocol::v1::{CapabilitySet, ProtocolVersion};
 
@@ -144,7 +138,10 @@ impl SessionLifecycleState {
         matches!(
             (self, next),
             (Self::Created, Self::Negotiating | Self::Closing)
-                | (Self::Negotiating | Self::Suspended, Self::Active | Self::Closing)
+                | (
+                    Self::Negotiating | Self::Suspended,
+                    Self::Active | Self::Closing
+                )
                 | (Self::Active, Self::Suspended | Self::Closing)
                 | (Self::Closing, Self::Closed)
         )
@@ -259,8 +256,8 @@ impl SessionMetadata {
     #[must_use]
     pub fn iter(
         &self,
-    ) -> impl DoubleEndedIterator<Item = (&SessionMetadataKey, &SessionMetadataValue)>
-           + ExactSizeIterator {
+    ) -> impl DoubleEndedIterator<Item = (&SessionMetadataKey, &SessionMetadataValue)> + ExactSizeIterator
+    {
         self.entries.iter()
     }
 }
