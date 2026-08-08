@@ -1,9 +1,6 @@
 name: Discovery Export Bootstrap
 
 on:
-  pull_request:
-    branches:
-      - main
   push:
     branches:
       - agent/discovery-export-bootstrap
@@ -12,16 +9,17 @@ permissions:
   contents: read
 
 jobs:
-  export:
+  validate:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - name: Archive source checkout
-        run: tar --exclude=.git -czf /tmp/ym-connect-source.tar.gz .
-      - name: Upload source checkout
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: ym-connect-source
-          path: /tmp/ym-connect-source.tar.gz
-          retention-days: 1
+          ref: 785325a526b4841f5d9d5fbe60c36fb140442640
+          fetch-depth: 0
+      - uses: ./.github/actions/setup-node
+      - uses: ./.github/actions/setup-rust
+      - name: Validate Bridge Rust formatting
+        run: cargo fmt --all -- --check
+      - name: Validate patch whitespace
+        run: git diff --check 7df56767c12e97fe27300f9805fcb30ecdbbf8f1...785325a526b4841f5d9d5fbe60c36fb140442640
