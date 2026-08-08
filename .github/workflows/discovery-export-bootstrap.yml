@@ -6,31 +6,18 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  format-and-amend:
+  inspect-tree:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          ref: 785325a526b4841f5d9d5fbe60c36fb140442640
+          ref: 759d8148964cb119db684af002c28769ebfaf66e
           fetch-depth: 0
-      - uses: ./.github/actions/setup-node
-      - uses: ./.github/actions/setup-rust
-      - name: Format Rust workspace
-        run: cargo fmt --all
-      - name: Verify Rust formatting
-        run: cargo fmt --all -- --check
-      - name: Verify patch whitespace
-        run: git diff --check 7df56767c12e97fe27300f9805fcb30ecdbbf8f1
-      - name: Amend Discovery Core commit
-        shell: bash
+      - name: Report final tree
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- '*.rs'
-          git commit --amend --no-edit
-          git push --force origin HEAD:agent/phase-6-discovery-core
           git rev-parse HEAD
+          git rev-parse HEAD^{tree}
