@@ -2,8 +2,7 @@ use std::sync::Arc;
 
 use tokio::runtime::{Builder, Runtime};
 use ym_connect_bridge_core::{
-    BridgeApplication, BridgeConfig, BridgeDependencies, Logger, RuntimeWorkerThreads,
-    StderrLogger,
+    BridgeApplication, BridgeConfig, BridgeDependencies, Logger, RuntimeWorkerThreads, StderrLogger,
 };
 
 use crate::{error::DaemonError, shutdown::OperatingSystemShutdown};

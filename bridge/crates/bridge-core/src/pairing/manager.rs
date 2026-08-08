@@ -200,7 +200,11 @@ impl PairingManager {
         policy: PairingPolicy,
         crypto: Arc<dyn PairingCryptoProvider>,
     ) -> Self {
-        Self { state, policy, crypto }
+        Self {
+            state,
+            policy,
+            crypto,
+        }
     }
 
     /// Returns the active policy.
@@ -227,14 +231,12 @@ impl PairingManager {
                     session_id: session_id.clone(),
                 });
             }
-            draft
-                .pairing_sessions_mut()
-                .insert(PairingSession::new(
-                    command.pairing_id.clone(),
-                    command.bridge_identity.clone(),
-                    command.session_id.clone(),
-                    command.created_at,
-                ))?;
+            draft.pairing_sessions_mut().insert(PairingSession::new(
+                command.pairing_id.clone(),
+                command.bridge_identity.clone(),
+                command.session_id.clone(),
+                command.created_at,
+            ))?;
             Ok(())
         })?;
         pairing_mutation(&pairing_id, update)
@@ -338,9 +340,9 @@ impl PairingManager {
                 command.expected_revision,
                 command.received_at,
             )?;
-            let challenge = current.challenge().ok_or_else(|| {
-                PairingError::state_invariant("response requires a challenge")
-            })?;
+            let challenge = current
+                .challenge()
+                .ok_or_else(|| PairingError::state_invariant("response requires a challenge"))?;
             if current.challenge_consumed() {
                 return Err(PairingError::ReplayDetected {
                     pairing_id: pairing_id.clone(),
@@ -403,19 +405,15 @@ impl PairingManager {
             command.verified_at,
         )?;
         validate_transition(current.as_ref(), PairingState::IdentityVerified)?;
-        let challenge = current.challenge().ok_or_else(|| {
-            PairingError::state_invariant("verification requires a challenge")
-        })?;
-        let response = current.response().ok_or_else(|| {
-            PairingError::state_invariant("verification requires a response")
-        })?;
+        let challenge = current
+            .challenge()
+            .ok_or_else(|| PairingError::state_invariant("verification requires a challenge"))?;
+        let response = current
+            .response()
+            .ok_or_else(|| PairingError::state_invariant("verification requires a response"))?;
         let negotiated = negotiate(&self.policy, response.request())?;
-        let transcript = pairing_transcript(
-            current.as_ref(),
-            challenge,
-            response.request(),
-            &negotiated,
-        );
+        let transcript =
+            pairing_transcript(current.as_ref(), challenge, response.request(), &negotiated);
         self.crypto
             .validate_ed25519_public_key(response.request().identity_key())?;
         self.crypto
@@ -440,10 +438,7 @@ impl PairingManager {
     }
 
     /// Establishes or replaces trust atomically with the lifecycle transition.
-    pub fn establish_trust(
-        &self,
-        command: EstablishPairingTrust,
-    ) -> PairingResult<TrustMutation> {
+    pub fn establish_trust(&self, command: EstablishPairingTrust) -> PairingResult<TrustMutation> {
         let pairing_id = command.pairing_id.clone();
         let update = self.state.update_with(|draft| {
             let current = required_pairing(draft, &pairing_id)?;
@@ -453,9 +448,9 @@ impl PairingManager {
                 command.trusted_at,
             )?;
             validate_transition(current.as_ref(), PairingState::TrustEstablished)?;
-            let request = current.request().ok_or_else(|| {
-                PairingError::state_invariant("trust requires a response")
-            })?;
+            let request = current
+                .request()
+                .ok_or_else(|| PairingError::state_invariant("trust requires a response"))?;
             if command.decision == TrustDecision::Reject {
                 return Err(PairingError::TrustRejected {
                     device_id: request.device_id().clone(),
@@ -497,12 +492,8 @@ impl PairingManager {
                     requested: command.trusted_at,
                 });
             }
-            let trust_revision = replacement_revision(
-                &self.policy,
-                command.decision,
-                request,
-                existing.as_deref(),
-            )?;
+            let trust_revision =
+                replacement_revision(&self.policy, command.decision, request, existing.as_deref())?;
             let peer = TrustedPeer::new(
                 current.bridge_identity().clone(),
                 request.device_id().clone(),
@@ -540,7 +531,11 @@ impl PairingManager {
             .trusted_peers()
             .get_shared(device_id)
             .ok_or_else(|| PairingError::state_invariant("committed peer missing"))?;
-        Ok(TrustMutation { session, peer, update })
+        Ok(TrustMutation {
+            session,
+            peer,
+            update,
+        })
     }
 
     /// Revokes a trusted peer and related trust-established pairing sessions atomically.
@@ -581,9 +576,9 @@ impl PairingManager {
                 .values()
                 .filter(|session| {
                     session.state() == PairingState::TrustEstablished
-                        && session.request().is_some_and(|request| {
-                            request.device_id() == &command.device_id
-                        })
+                        && session
+                            .request()
+                            .is_some_and(|request| request.device_id() == &command.device_id)
                 })
                 .map(|session| session.id().clone())
                 .collect::<Vec<_>>();
@@ -595,13 +590,7 @@ impl PairingManager {
                         PairingError::state_invariant("revocation pairing disappeared")
                     })?;
                 let next = session
-                    .next(
-                        PairingState::Revoked,
-                        command.revoked_at,
-                        None,
-                        None,
-                        false,
-                    )
+                    .next(PairingState::Revoked, command.revoked_at, None, None, false)
                     .ok_or(PairingError::RevisionExhausted)?;
                 draft.pairing_sessions_mut().replace(next)?;
             }
@@ -695,7 +684,10 @@ fn validate_protocol(policy: &PairingPolicy, request: &PairingRequest) -> Pairin
     Ok(())
 }
 
-fn negotiate(policy: &PairingPolicy, request: &PairingRequest) -> PairingResult<PairingCapabilities> {
+fn negotiate(
+    policy: &PairingPolicy,
+    request: &PairingRequest,
+) -> PairingResult<PairingCapabilities> {
     let local = policy.capabilities().canonical();
     let remote = request.capabilities().canonical();
     let supported = local
@@ -829,18 +821,9 @@ fn pairing_transcript(
     transcript_field(&mut output, challenge.nonce().as_bytes());
     transcript_field(&mut output, challenge.bridge_ephemeral_key().as_bytes());
     transcript_field(&mut output, request.ephemeral_key().as_bytes());
-    transcript_field(
-        &mut output,
-        &request.protocol_version().major.to_be_bytes(),
-    );
-    transcript_field(
-        &mut output,
-        &request.protocol_version().minor.to_be_bytes(),
-    );
-    transcript_field(
-        &mut output,
-        &request.protocol_version().patch.to_be_bytes(),
-    );
+    transcript_field(&mut output, &request.protocol_version().major.to_be_bytes());
+    transcript_field(&mut output, &request.protocol_version().minor.to_be_bytes());
+    transcript_field(&mut output, &request.protocol_version().patch.to_be_bytes());
     capability_fields(&mut output, request.capabilities().canonical());
     capability_fields(&mut output, negotiated.canonical());
     transcript_field(

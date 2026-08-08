@@ -91,11 +91,7 @@ fn create(
     association_index: usize,
     at: u64,
 ) -> TestResult<SessionMutation> {
-    Ok(manager.create_session(create_command(
-        identifier,
-        association_index,
-        at,
-    )?)?)
+    Ok(manager.create_session(create_command(identifier, association_index, at)?)?)
 }
 
 fn restore_command(
@@ -237,7 +233,10 @@ fn closed_sessions_release_unique_associations() -> TestResult {
     )?)?;
     let created = create(&manager, "replacement-session", 0, 10)?;
 
-    assert_eq!(created.session().lifecycle(), SessionLifecycleState::Created);
+    assert_eq!(
+        created.session().lifecycle(),
+        SessionLifecycleState::Created
+    );
     Ok(())
 }
 
@@ -251,7 +250,10 @@ fn valid_session_restore_preserves_persisted_fields() -> TestResult {
         7,
     )?)?;
 
-    assert_eq!(result.session().lifecycle(), SessionLifecycleState::Suspended);
+    assert_eq!(
+        result.session().lifecycle(),
+        SessionLifecycleState::Suspended
+    );
     assert_eq!(result.session().revision(), SessionRevision::new(7));
     assert_eq!(result.session().created_at(), timestamp(1));
     assert_eq!(result.session().last_activity_at(), timestamp(2));
@@ -309,26 +311,49 @@ fn restore_rejects_invalid_timestamp_order_and_expiration() -> TestResult {
 #[test]
 fn every_allowed_lifecycle_transition_succeeds() -> TestResult {
     let allowed = [
-        (SessionLifecycleState::Created, SessionLifecycleState::Negotiating),
-        (SessionLifecycleState::Created, SessionLifecycleState::Closing),
-        (SessionLifecycleState::Negotiating, SessionLifecycleState::Active),
-        (SessionLifecycleState::Negotiating, SessionLifecycleState::Closing),
-        (SessionLifecycleState::Active, SessionLifecycleState::Suspended),
-        (SessionLifecycleState::Active, SessionLifecycleState::Closing),
-        (SessionLifecycleState::Suspended, SessionLifecycleState::Active),
-        (SessionLifecycleState::Suspended, SessionLifecycleState::Closing),
-        (SessionLifecycleState::Closing, SessionLifecycleState::Closed),
+        (
+            SessionLifecycleState::Created,
+            SessionLifecycleState::Negotiating,
+        ),
+        (
+            SessionLifecycleState::Created,
+            SessionLifecycleState::Closing,
+        ),
+        (
+            SessionLifecycleState::Negotiating,
+            SessionLifecycleState::Active,
+        ),
+        (
+            SessionLifecycleState::Negotiating,
+            SessionLifecycleState::Closing,
+        ),
+        (
+            SessionLifecycleState::Active,
+            SessionLifecycleState::Suspended,
+        ),
+        (
+            SessionLifecycleState::Active,
+            SessionLifecycleState::Closing,
+        ),
+        (
+            SessionLifecycleState::Suspended,
+            SessionLifecycleState::Active,
+        ),
+        (
+            SessionLifecycleState::Suspended,
+            SessionLifecycleState::Closing,
+        ),
+        (
+            SessionLifecycleState::Closing,
+            SessionLifecycleState::Closed,
+        ),
     ];
 
     for (index, (previous, current)) in allowed.into_iter().enumerate() {
         let (manager, _) = setup(1)?;
         let identifier = format!("allowed-{index}");
-        let restored = manager.restore_session(restore_command(
-            identifier.clone(),
-            0,
-            previous,
-            4,
-        )?)?;
+        let restored =
+            manager.restore_session(restore_command(identifier.clone(), 0, previous, 4)?)?;
         let updated = manager.update_session(
             UpdateSession::new(
                 session_id(identifier)?,
@@ -338,7 +363,10 @@ fn every_allowed_lifecycle_transition_succeeds() -> TestResult {
             .with_lifecycle(current),
         )?;
         assert_eq!(updated.session().lifecycle(), current);
-        assert_eq!(transition(updated.state_update())?.previous(), Some(previous));
+        assert_eq!(
+            transition(updated.state_update())?.previous(),
+            Some(previous)
+        );
         assert_eq!(transition(updated.state_update())?.current(), Some(current));
     }
     Ok(())
@@ -362,12 +390,8 @@ fn every_disallowed_lifecycle_transition_is_rejected() -> TestResult {
             }
             let (manager, store) = setup(1)?;
             let identifier = format!("invalid-{previous:?}-{requested:?}");
-            let restored = manager.restore_session(restore_command(
-                identifier.clone(),
-                0,
-                previous,
-                2,
-            )?)?;
+            let restored =
+                manager.restore_session(restore_command(identifier.clone(), 0, previous, 2)?)?;
             let before = store.snapshot()?;
             let result = manager.update_session(
                 UpdateSession::new(
@@ -408,7 +432,10 @@ fn suspend_resume_and_close_apis_follow_the_state_machine() -> TestResult {
         restored.session().revision(),
         timestamp(4),
     ))?;
-    assert_eq!(suspended.session().lifecycle(), SessionLifecycleState::Suspended);
+    assert_eq!(
+        suspended.session().lifecycle(),
+        SessionLifecycleState::Suspended
+    );
 
     let resumed = manager.resume_session(ResumeSession::new(
         session_id("lifecycle")?,
@@ -422,7 +449,10 @@ fn suspend_resume_and_close_apis_follow_the_state_machine() -> TestResult {
         resumed.session().revision(),
         timestamp(6),
     ))?;
-    assert_eq!(closing.session().lifecycle(), SessionLifecycleState::Closing);
+    assert_eq!(
+        closing.session().lifecycle(),
+        SessionLifecycleState::Closing
+    );
 
     let closed = manager.close_session(CloseSession::new(
         session_id("lifecycle")?,
@@ -806,10 +836,12 @@ fn rejected_transitions_emit_no_event_and_do_not_partially_update() -> TestResul
     ));
     assert_eq!(subscription.try_recv(), Err(StateReceiveError::Empty));
     assert_eq!(store.snapshot()?, before);
-    assert!(manager
-        .lookup_session(&session_id("rollback")?)?
-        .and_then(|session| session.metadata().get(&key).cloned())
-        .is_none());
+    assert!(
+        manager
+            .lookup_session(&session_id("rollback")?)?
+            .and_then(|session| session.metadata().get(&key).cloned())
+            .is_none()
+    );
     Ok(())
 }
 
@@ -934,11 +966,9 @@ fn concurrent_close_uses_optimistic_revision_consistency() -> TestResult {
             barrier.wait();
             let identifier = SessionId::new("concurrent-close");
             match identifier {
-                Ok(identifier) => manager.close_session(CloseSession::new(
-                    identifier,
-                    revision,
-                    timestamp(4),
-                )),
+                Ok(identifier) => {
+                    manager.close_session(CloseSession::new(identifier, revision, timestamp(4)))
+                }
                 Err(error) => Err(SessionManagerError::state_invariant(error.to_string())),
             }
         }));

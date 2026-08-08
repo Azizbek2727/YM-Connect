@@ -67,7 +67,10 @@ impl fmt::Display for StateError {
             Self::UpdatePanicked => formatter.write_str("Bridge state update panicked"),
             Self::Registry(source) => source.fmt(formatter),
             Self::Rejected { code, message } => {
-                write!(formatter, "Bridge state update rejected ({code}): {message}")
+                write!(
+                    formatter,
+                    "Bridge state update rejected ({code}): {message}"
+                )
             }
         }
     }

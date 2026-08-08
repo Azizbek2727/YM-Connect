@@ -3,8 +3,8 @@ use std::sync::Arc;
 use ym_connect_protocol::v1::{BrowserDescriptor, DeviceDescriptor};
 
 use crate::{
-    BridgeConfig, BridgeSession, PairingSession, SessionStateTransition,
-    TransportConnectionSnapshot, TrustedPeer,
+    BridgeConfig, BridgeSession, DiscoveredPeer, DiscoveryEvent, PairingSession,
+    SessionStateTransition, TransportConnectionSnapshot, TrustedPeer,
 };
 
 use super::{CapabilityRegistration, StateRegistry};
@@ -20,6 +20,9 @@ pub type ConnectorRegistry = StateRegistry<BrowserDescriptor>;
 
 /// Deterministic transport connection registry.
 pub type ConnectionRegistry = StateRegistry<TransportConnectionSnapshot>;
+
+/// Deterministic discovered-peer registry.
+pub type DiscoveryRegistry = StateRegistry<DiscoveredPeer>;
 
 /// Deterministic pairing-session registry.
 pub type PairingSessionRegistry = StateRegistry<PairingSession>;
@@ -73,6 +76,7 @@ pub(crate) struct BridgeStateData {
     pub(super) devices: DeviceRegistry,
     pub(super) connectors: ConnectorRegistry,
     pub(super) connections: ConnectionRegistry,
+    pub(super) discoveries: DiscoveryRegistry,
     pub(super) pairing_sessions: PairingSessionRegistry,
     pub(super) trusted_peers: TrustedPeerRegistry,
     pub(super) capabilities: CapabilityRegistry,
@@ -87,6 +91,7 @@ impl BridgeStateData {
             devices: DeviceRegistry::new(),
             connectors: ConnectorRegistry::new(),
             connections: ConnectionRegistry::new(),
+            discoveries: DiscoveryRegistry::new(),
             pairing_sessions: PairingSessionRegistry::new(),
             trusted_peers: TrustedPeerRegistry::new(),
             capabilities: CapabilityRegistry::new(),
@@ -148,6 +153,12 @@ impl BridgeStateSnapshot {
         &self.data.connections
     }
 
+    /// Returns the immutable discovered-peer registry.
+    #[must_use]
+    pub fn discoveries(&self) -> &DiscoveryRegistry {
+        &self.data.discoveries
+    }
+
     /// Returns the immutable pairing-session registry.
     #[must_use]
     pub fn pairing_sessions(&self) -> &PairingSessionRegistry {
@@ -181,6 +192,7 @@ impl BridgeStateSnapshot {
 pub struct BridgeStateDraft {
     data: BridgeStateData,
     session_transitions: Vec<SessionStateTransition>,
+    discovery_events: Vec<DiscoveryEvent>,
 }
 
 impl BridgeStateDraft {
@@ -188,11 +200,18 @@ impl BridgeStateDraft {
         Self {
             data: data.clone(),
             session_transitions: Vec::new(),
+            discovery_events: Vec::new(),
         }
     }
 
-    pub(super) fn into_parts(self) -> (BridgeStateData, Vec<SessionStateTransition>) {
-        (self.data, self.session_transitions)
+    pub(super) fn into_parts(
+        self,
+    ) -> (
+        BridgeStateData,
+        Vec<SessionStateTransition>,
+        Vec<DiscoveryEvent>,
+    ) {
+        (self.data, self.session_transitions, self.discovery_events)
     }
 
     /// Returns the draft lifecycle state.
@@ -271,6 +290,16 @@ impl BridgeStateDraft {
         &mut self.data.connections
     }
 
+    /// Returns the immutable draft discovered-peer registry.
+    #[must_use]
+    pub const fn discoveries(&self) -> &DiscoveryRegistry {
+        &self.data.discoveries
+    }
+
+    pub(crate) const fn discoveries_mut(&mut self) -> &mut DiscoveryRegistry {
+        &mut self.data.discoveries
+    }
+
     /// Returns the immutable draft pairing-session registry.
     #[must_use]
     pub const fn pairing_sessions(&self) -> &PairingSessionRegistry {
@@ -304,5 +333,9 @@ impl BridgeStateDraft {
 
     pub(crate) fn record_session_transition(&mut self, transition: SessionStateTransition) {
         self.session_transitions.push(transition);
+    }
+
+    pub(crate) fn record_discovery_event(&mut self, event: DiscoveryEvent) {
+        self.discovery_events.push(event);
     }
 }

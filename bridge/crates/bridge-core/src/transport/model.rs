@@ -1,10 +1,4 @@
-use std::{
-    collections::BTreeSet,
-    error::Error,
-    fmt,
-    num::NonZeroU64,
-    sync::Arc,
-};
+use std::{collections::BTreeSet, error::Error, fmt, num::NonZeroU64, sync::Arc};
 
 use crate::{
     ConnectionId, RegistryKind, SessionId, StateIdentifierError, StateRegistryValue, TransportId,
@@ -248,13 +242,9 @@ impl TransportCapabilities {
     /// # Errors
     ///
     /// Returns [`TransportModelError::ZeroMaximumEnvelopeSize`] when `bytes` is zero.
-    pub fn with_maximum_envelope_size(
-        mut self,
-        bytes: u64,
-    ) -> Result<Self, TransportModelError> {
-        self.maximum_envelope_size = Some(
-            NonZeroU64::new(bytes).ok_or(TransportModelError::ZeroMaximumEnvelopeSize)?,
-        );
+    pub fn with_maximum_envelope_size(mut self, bytes: u64) -> Result<Self, TransportModelError> {
+        self.maximum_envelope_size =
+            Some(NonZeroU64::new(bytes).ok_or(TransportModelError::ZeroMaximumEnvelopeSize)?);
         Ok(self)
     }
 
