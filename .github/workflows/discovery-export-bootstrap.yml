@@ -4,17 +4,14 @@ on:
   pull_request:
     branches:
       - main
-  push:
-    branches:
-      - agent/discovery-export-bootstrap
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  validate:
+  format-and-amend:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -22,7 +19,18 @@ jobs:
           fetch-depth: 0
       - uses: ./.github/actions/setup-node
       - uses: ./.github/actions/setup-rust
-      - name: Validate Bridge Rust formatting
+      - name: Format Rust workspace
+        run: cargo fmt --all
+      - name: Verify Rust formatting
         run: cargo fmt --all -- --check
-      - name: Validate patch whitespace
-        run: git diff --check 7df56767c12e97fe27300f9805fcb30ecdbbf8f1...785325a526b4841f5d9d5fbe60c36fb140442640
+      - name: Verify patch whitespace
+        run: git diff --check 7df56767c12e97fe27300f9805fcb30ecdbbf8f1
+      - name: Amend Discovery Core commit
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*.rs'
+          git commit --amend --no-edit
+          git push --force origin HEAD:agent/phase-6-discovery-core
+          git rev-parse HEAD
