@@ -32,7 +32,7 @@ jobs:
       - name: Verify frozen dependency resolution
         run: git diff --exit-code -- pnpm-lock.yaml Cargo.lock gradle/verification-metadata.xml
       - name: Generate source SBOM
-        uses: anchore/sbom-action@f8bdd1d8ac5e901a77a92f111440fdb1b593736b # v0.20.6
+        uses: anchore/sbom-action@66cbf4bc1f1c0d2edc94016e65bc221b6bb0ad6c # v0.24.3
         with:
           path: .
           format: spdx-json
@@ -42,7 +42,7 @@ jobs:
       - name: Validate SBOM JSON
         run: node -e "JSON.parse(require('node:fs').readFileSync('ym-connect-source.spdx.json','utf8'))"
       - name: Upload SBOM
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: source-sbom
           path: ym-connect-source.spdx.json
@@ -59,12 +59,12 @@ jobs:
         with:
           persist-credentials: false
       - name: Run OpenSSF Scorecard
-        uses: ossf/scorecard-action@4eaacf0543bb3f2c246792bd56e8cdeffafb205a # v2.4.3
+        uses: ossf/scorecard-action@2d1146689b8cda280b9bc96326124645441f03bc # v2.4.4
         with:
           results_file: scorecard-results.sarif
           results_format: sarif
           publish_results: true
       - name: Upload Scorecard results
-        uses: github/codeql-action/upload-sarif@7211b7c8077ea37d8641b6271f6a365a22a5fbfa # v4.36.0
+        uses: github/codeql-action/upload-sarif@24c54180a607b1449ed407dd24f251e4e9147c8d # v4.38.3
         with:
           sarif_file: scorecard-results.sarif
